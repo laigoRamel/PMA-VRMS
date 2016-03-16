@@ -40,8 +40,9 @@
 											<td style='display:none'>$log[tid]</td>
 											<td>$log[plateNum]</td>
 											<td>$log[owner]</td>
-											<td>$log[dte]</td>
+											<td>$log[dateIn]</td>
 											<td>$log[timein]</td>
+											<td>$log[dateOut]</td>
 											<td>$log[timeout]</td>
 										</tr>
 DATA;

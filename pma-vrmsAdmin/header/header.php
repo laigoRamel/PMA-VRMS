@@ -52,7 +52,7 @@
 				</ul>
 			</li>
 			<li><a href="vehicleLog.php">Vehicle Log</a></li>
-			<li><a href="">Reports</a></li>
+			<li><a href="reports.php">Reports</a></li>
 			<li><a href="login/logbook_page.php">Employee Log</a></li>
 			<li><a href="militaryPersonnelLog.php">Military Personnel Log</a></li>
 			<li><a href="login/pending_accounts_page.php">Pending Accounts</a></li>
@@ -64,7 +64,7 @@
 				<a class="drop-down toggle" data-toggle="dropdown" href=""><?php echo $login_session; ?><span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href='logout.php'>Log out</a>
+						<a href='login/logout.php'>Log out</a>
 					</li>
 				</ul>
 			</li>

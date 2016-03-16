@@ -88,11 +88,12 @@
 		$id 		= $log['tid'];
 		$plateNum 	= $log['plateNum'];
 		$owner 	= $log['owner'];
-		$dte 	= $log['dte'];
+		$datein 	= $log['dateIn'];
 		$timein 	= $log['timein'];
+		$dateout 	= $log['dateOut'];
 		$timeout 	= $log['timeout'];
 		
-		array_push($logs, array('tid' => $id, 'plateNum' => $plateNum, 'owner' => $owner, 'dte' => $dte, 'timein' => $timein, 'timeout' => $timeout));
+		array_push($logs, array('tid' => $id, 'plateNum' => $plateNum, 'owner' => $owner, 'dateIn' => $datein, 'timein' => $timein, 'dateOut' => $dateout, 'timeout' => $timeout));
 	}
 
 	$query = 'SELECT * FROM userlog';
@@ -105,12 +106,12 @@
 	while($mplog = mysqli_fetch_array($rows)){
 		$id 		= $mplog['logid'];
 		$username1 	= $mplog['username'];
-		$datein 	= $mplog['datein'];
+		$datein1 	= $mplog['datein'];
 		$timein1 	= $mplog['timein'];
-		$dateout 	= $mplog['dateout'];
+		$dateout1 	= $mplog['dateout'];
 		$timeout1 	= $mplog['timeout'];
 		
-		array_push($mplogs, array('logid' => $id, 'username' => $username1, 'datein' => $datein, 'timein' => $timein1, 'dateout' => $dateout, 'timeout' => $timeout1));
+		array_push($mplogs, array('logid' => $id, 'username' => $username1, 'datein' => $datein1, 'timein' => $timein1, 'dateout' => $dateout1, 'timeout' => $timeout1));
 	}
 
 	$query = 'SELECT * FROM report';
