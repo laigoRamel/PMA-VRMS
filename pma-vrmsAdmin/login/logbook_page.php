@@ -25,14 +25,14 @@ include('session.php');
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">PMA-VRMS</a>
+				<a class="navbar-brand" href="index.php">PMA-VRMS</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="drop-down">
 					<a class="drop-down toggle" data-toggle="dropdown" href="#">Forms<span class="caret"></span></a>
 					<ul class="dropdown-menu active">
 						<li>
-							<a href="../index.php">Form1 (Camp Allen / Navy Base)</a>
+							<a href="../form1.php">Form1 (Camp Allen / Navy Base)</a>
 						</li>
 						<li>
 							<a href="../form2.php">Form2 (AFP Form)</a>
