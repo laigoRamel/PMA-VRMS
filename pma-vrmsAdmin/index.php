@@ -1,97 +1,130 @@
-<?php
-	include('login/session.php');
-?>
-
 <!DOCTYPE html>
+
 <html>
-<head>
-	<title>Forms</title>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>PMA-VRMS</title>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/fieldset.css">
-	<script src="bootstrap/jquery.min.js"></script>
+      <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style-main.min.css">
+      <link rel="stylesheet" href="css/skin.min.css">
+      <link rel="stylesheet" href="fonts/font-awesome.min.css">
+
 	<script src="bootstrap/js/bootstrap.min.js"></script>
+  </head>
+ 
+  <body class="hold-transition skin-black sidebar-mini">
+    <div class="wrapper">
 
-</head>
-	<body>
-		<?php include('header/header.php'); ?>
+      <!-- Main Header -->
+      <header class="main-header">
 
-		<form action="logic/add_form1Logic.php" method="POST">
-			<fieldset class="scheduler-border">
-				<legend class="scheduler-border">Camp Allen / Navy Base</legend>
-				<fieldset class="scheduler-border">
-					<legend class="scheduler-border">Personal Information</legend>
-					<input style="display:none;" type="text" name="a_applicantId" readonly>
-					<input type="file" name="fileToUpload" id="fileToUpload">
-	    			<br>
-					<label>Last Name: </label>
-					<input type="text" name='a_lastname'>
-					<label>First Name: </label>
-					<input type="text" name='a_firstname'>
-					<label>Middle Name: </label>
-					<input type="text" name='a_middlename'>
-					<br>
-					<label>Address: </label>
-					<input type="text" name='a_address'>
-					<br>
-					<label>Occupation: </label>
-					<input type="text" name='a_occupation'>
-					<br>
-					<label>Office Address: </label>
-					<input type="text" name='a_officeAddress'>
-					<br>
-					<label>Driver's License: </label>
-					<input type="text" name='a_driversLicense'>
-					<label>Expiration Date: </label>
-					<input type="text" name='a_expirationDate'>
-				</fieldset>
-				<br/>
-				<fieldset class="scheduler-border">
-					<legend class="scheduler-border">Requirements</legend>
-					<input name='requirements[]' value='1' type="checkbox">Photocopy of current military ID, Office ID, or driver's license</input><br>
-	                <input name='requirements[]' value='2' type="checkbox">Photocopy of retirement/separation/discharged order for former military personnel</input><br>
-	                <input name='requirements[]' value='3' type="checkbox">Photocopy of order for Commissionship/Enlistment for AFP Reservists</input><br>
-	                <input name='requirements[]' value='4' type="checkbox">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</input><br>
-	                <input name='requirements[]' value='5' type="checkbox">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</input><br>
-				</fieldset>
-				<br>
-				<fieldset class="scheduler-border">
-					<legend class="scheduler-border">Type/Class</legend>
-					<input type="radio" name="a_class" value="Class A">Class A</input>
-	                <input type="radio" name="a_class" value="Class B">Class B</input>
-	                <input type="radio" name="a_class" value="Class C">Class C</input>
-				</fieldset>
-				<br>
-				<fieldset class="scheduler-border">
-					<legend class="scheduler-border">Vehicle Information</legend>
-					<input style="display:none;" type="text" name="vehicleId" readonly>
-					<label>Vehicle Make/s: </label>
-					<input type="text" name='vehicleMake'>
-					<br>
-					<label>Plate No.: </label>
-					<input type="text" name='plateNo'>
-					<br>
-					<label>Year Model: </label>
-					<input type="text" name='yearModel'>
-					<br>
-					<label>Color: </label>
-					<input type="text" name='color'>
-					<br>
-					<label>Motor No.: </label>
-					<input type="text" name='motorNo'>
-					<br>
-					<label>Chassis No.: </label>
-					<input type="text" name='chassisNo'>
-					<br>
-					<label>Sticker No.: </label>
-					<input type="text" name='stickerNo'>
-				</fieldset>
-				<button type="submit" value="Ok">OKAY</button>
-			</fieldset>
-		</form>
+        <!-- Logo -->
+        <div class="logo">
+          <span class="logo-mini">
+              <img src="img/seal.png" style="width:30px;height:30px;">
+          </span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>PMA</b>VRMS</span>
+        </div>
 
-		<script type="text/javascript"></script>
-	</body>
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+        </nav>
+          
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+
+        <!-- sidebar -->
+        <section class="sidebar">
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="header"></li>
+            <!-- Optionally, you can add icons to the links -->
+              
+            <!-- Dashboard -->
+            <li class="active"><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
+              
+            <!-- Forms -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Forms</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="form1.php">Camp Allen/Navybase</a></li>
+                <li><a href="form2.php">AFP</a></li>
+              </ul>
+            </li>
+              
+            <!-- Pending -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-option-horizontal"></i> <span>Pending</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#">Civilian</a></li>
+                <li><a href="#">Military</a></li>
+              </ul>
+            </li>
+              
+            <!-- Registered -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="registeredPerson.php">Applicants</a></li>
+                <li><a href="registeredAFP.php">Military</a></li>
+                <li><a href="registeredVehicle.php">Vehicles</a></li>
+              </ul>
+            </li>
+            
+            <!-- Vehicle Log -->
+            <li><a href="#"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
+              
+            <!-- Reports -->
+            <li><a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
+              
+            <!-- Employee Log -->
+            <li><a href="#"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+
+              
+            
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Dashboard
+          </h1>
+          
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+
+        </section><!-- Main content -->
+      
+        </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        TISIS
+      </footer>
+
+    </div><!-- ./wrapper -->
+
+
+    <script src="bootstrap/js/jQuery-2.1.4.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/app.min.js"></script>
+
+  </body>
 </html>
