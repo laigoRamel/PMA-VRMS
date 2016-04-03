@@ -9,8 +9,12 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
+	<link rel="stylesheet" href="bootstrap/css/jquery.bdt.css">
 	<link rel="stylesheet" type="text/css" href="css/fieldset.css">
+
 	<script src="bootstrap/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 
@@ -24,7 +28,7 @@
 			<div class="row">
 				<div class="col-md-12">
 
-					<table class="table table-bordered">
+					<table class="table table-bordered table-hover" id="bootstrap-table">
 						<thead>
 							<th>Username</th>
 							<th>DateIn</th>
@@ -53,9 +57,15 @@ DATA;
 				</div>
 			</div>
 		</div>
-		
 
-		
+	<script src="bootstrap/js/jquery-2.1.1.min.js" type="text/javascript"></script>
+	<script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
+	<script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
+	<script>
+		$(document).ready( function () {
+			$('#bootstrap-table').bdt();
+		});
+	</script>				
 
 	</body>
 </html>
