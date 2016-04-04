@@ -72,13 +72,13 @@ include('login/session.php');
 				<table class="table table-bordered" id="dynamic_field">
 					<input style="display:none;" type="text" name="vehicleId" readonly>  
 					<tr>  
-						<td><input type="text" name="vehiclemake[]" placeholder="Vehicle Make" class="form-control name_list" /></td>  
+						<td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td>  
 						<td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td>  
 						<td><input type="text" name="yearModel[]" placeholder="Year Model" class="form-control name_list" /></td>  
 						<td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td>  
 						<td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td>  
 						<td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td>  
-						<td><input type="text" name="StickerNo[]" placeholder="Sticker No" class="form-control name_list" /></td>  
+						<td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" /></td>  
 						<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
 					</tr>  
 				</table>
