@@ -17,9 +17,11 @@
 		global $database;
 		
 //Add vehicle		
-		$query1 = "INSERT INTO vehicle_information (vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, stickerNo) 
-				VALUES ('$vehicleMake', '$plateNo', '$yearModel', '$color', '$motorNo', '$chassisNo', '$stickerNo')";
-		$database->execute($query1);
+		for($i=0; $i<count($vehicleMake); $i++){		
+			$query1 = "INSERT INTO vehicle_information (vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, stickerNo) 
+					VALUES ('$vehicleMake[$i]', '$plateNo[$i]', '$yearModel[$i]', '$color[$i]', '$motorNo[$i]', '$chassisNo[$i]', '$stickerNo[$i]')";
+			$database->execute($query1);
+		}
 		
 //Add militar
 		$query_vehicle = "SELECT vehicleId FROM vehicle_information ORDER BY vehicleId DESC LIMIT 1"; 

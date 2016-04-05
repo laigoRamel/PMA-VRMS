@@ -6,16 +6,18 @@
 	if(isset($_POST)){
 		AddForm1Data($_POST['a_lastname'], $_POST['a_firstname'], $_POST['a_middlename'], $_POST['a_address'], $_POST['a_occupation'], 
 			$_POST['a_officeAddress'], $_POST['a_driversLicense'], $_POST['a_expirationDate'], $_POST['a_class'], $_POST['vehicleMake'], $_POST['plateNo'], $_POST['yearModel'], $_POST['color'], $_POST['motorNo'], $_POST['chassisNo'], $_POST['stickerNo']);
-		header('Location: ../');
+		header('Location: ../form1.php');
 	}
 	
 	function AddForm1Data($a_lastname, $a_firstname, $a_middlename, $a_address, $a_occupation, $a_officeAddress, $a_driversLicense, $a_expirationDate, $a_class, $vehicleMake, $plateNo, $yearModel, $color, $motorNo, $chassisNo, $stickerNo){
 		global $database;
 
 //Add vehicle		
-		$query1 = "INSERT INTO vehicle_information (vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, stickerNo) 
-				VALUES ('$vehicleMake', '$plateNo', '$yearModel', '$color', '$motorNo', '$chassisNo', '$stickerNo')";
-		$database->execute($query1);
+		for($i=0; $i<count($vehicleMake); $i++){
+			$query1 = "INSERT INTO vehicle_information (vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, stickerNo) 
+				VALUES ('$vehicleMake[$i]', '$plateNo[$i]', '$yearModel[$i]', '$color[$i]', '$motorNo[$i]', '$chassisNo[$i]', '$stickerNo[$i]')";
+			$database->execute($query1);
+		}
 		
 //Add applicant	
 		$query_vehicle = "SELECT vehicleId FROM vehicle_information ORDER BY vehicleId DESC LIMIT 1"; 
