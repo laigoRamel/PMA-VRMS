@@ -30,6 +30,7 @@
 
 					<table class="table table-bordered table-hover" id="bootstrap-table">
 						<thead>
+							<th>Profile</th>
 							<th>Last Name</th>
 							<th>First Name</th>
 							<th>Middle Name</th>
@@ -53,6 +54,7 @@
 									echo <<<DATA
 										<tr id='military_$key'>
 											<td style='display:none'>$military[m_militaryId]</td>
+											<td>$military[m_profile]</td>
 											<td>$military[m_lastname]</td>
 											<td>$military[m_firstname]</td>
 											<td>$military[m_middlename]</td>

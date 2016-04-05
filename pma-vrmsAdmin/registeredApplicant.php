@@ -31,6 +31,7 @@ include('login/session.php');
 
 				<table class="table table-bordered table-hover" id="bootstrap-table">
 					<thead>
+						<th>Profile</th>
 						<th>Last Name</th>
 						<th>First Name</th>
 						<th>Middle Name</th>
@@ -48,6 +49,7 @@ include('login/session.php');
 							echo <<<DATA
 							<tr id='applicant_$key'>
 								<td style='display:none'>$applicant[a_applicantId]</td>
+								<td>$applicant[a_profile]</td>
 								<td>$applicant[a_lastname]</td>
 								<td>$applicant[a_firstname]</td>
 								<td>$applicant[a_middlename]</td>

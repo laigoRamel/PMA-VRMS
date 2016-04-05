@@ -60,6 +60,7 @@
 			'm_rank' => $m_rank, 'm_brSvc' => $m_brSvc, 'm_afpsn' => $m_afpsn, 'm_residenceAddress' => $m_residenceAddress,
 			'm_residenceTelNo' => $m_residenceTelNo, 'm_emailAddress' => $m_emailAddress, 'm_mobileNo' => $m_mobileNo, 'm_designatedOffice' => $m_designatedOffice, 'm_officeTelNo' => $m_officeTelNo, 'm_officeAddress' => $m_officeAddress, 'm_retirementDate' => $m_retirementDate, 'm_class' => $m_class));
 	}
+
 //vehicle
 	$query = 'SELECT * FROM vehicle_information';
 	$database->execute($query);
@@ -70,6 +71,7 @@
 	
 	while($vehicle = mysqli_fetch_array($rows)){
 		$id 		= $vehicle['vehicleId'];
+		$wheels 	= $vehicle['wheels'];
 		$vehicleMake 	= $vehicle['vehicleMake'];
 		$plateNo 	= $vehicle['plateNo'];
 		$yearModel 	= $vehicle['yearModel'];
@@ -78,7 +80,7 @@
 		$chassisNo 	= $vehicle['chassisNo'];
 		$stickerNo 	= $vehicle['stickerNo'];
 		
-		array_push($vehicles, array('vehicleId' => $id, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
+		array_push($vehicles, array('vehicleId' => $id, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
 	}
 
 

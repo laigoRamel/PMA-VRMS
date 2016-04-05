@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2016 at 05:31 PM
--- Server version: 5.7.9
--- PHP Version: 5.6.16
+-- Generation Time: Apr 05, 2016 at 07:21 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `pma-vrms`
@@ -26,14 +26,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin_logs`
 --
 
-DROP TABLE IF EXISTS `admin_logs`;
 CREATE TABLE IF NOT EXISTS `admin_logs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `time_in` datetime NOT NULL,
   `time_out` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `admin_logs`
@@ -47,7 +46,8 @@ INSERT INTO `admin_logs` (`id`, `time_in`, `time_out`, `user_id`) VALUES
 (10, '2016-03-13 20:52:53', '2016-03-13 20:52:57', 2),
 (11, '2016-03-13 20:53:03', '2016-03-13 20:55:02', 2),
 (14, '2016-03-13 20:59:36', '2016-03-13 21:00:20', 1),
-(16, '2016-03-13 21:13:04', '2016-03-13 21:13:12', 1);
+(16, '2016-03-13 21:13:04', '2016-03-13 21:13:12', 1),
+(17, '2016-04-05 09:43:24', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -55,7 +55,6 @@ INSERT INTO `admin_logs` (`id`, `time_in`, `time_out`, `user_id`) VALUES
 -- Table structure for table `admin_pending_accounts`
 --
 
-DROP TABLE IF EXISTS `admin_pending_accounts`;
 CREATE TABLE IF NOT EXISTS `admin_pending_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `last_name` varchar(50) NOT NULL,
@@ -64,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `admin_pending_accounts` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -72,13 +71,12 @@ CREATE TABLE IF NOT EXISTS `admin_pending_accounts` (
 -- Table structure for table `admin_users`
 --
 
-DROP TABLE IF EXISTS `admin_users`;
 CREATE TABLE IF NOT EXISTS `admin_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `admin_users`
@@ -94,9 +92,9 @@ INSERT INTO `admin_users` (`id`, `username`, `password`) VALUES
 -- Table structure for table `form1_applicantpd`
 --
 
-DROP TABLE IF EXISTS `form1_applicantpd`;
 CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_applicantId` int(11) NOT NULL AUTO_INCREMENT,
+  `a_profile` mediumblob NOT NULL,
   `a_lastname` varchar(60) NOT NULL,
   `a_firstname` varchar(60) NOT NULL,
   `a_middlename` varchar(60) NOT NULL,
@@ -110,17 +108,15 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_status` varchar(255) NOT NULL,
   `a_vehicle_id` int(11) NOT NULL,
   PRIMARY KEY (`a_applicantId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `form1_applicantpd`
 --
 
-INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_lastname`, `a_firstname`, `a_middlename`, `a_address`, `a_occupation`, `a_officeAddress`, `a_driversLicense`, `a_expirationDate`, `a_class`, `a_submitted_requirements`, `a_status`, `a_vehicle_id`) VALUES
-(1, 'Laigo', 'Ramel', 'L', 'Baguio City', 'Student', 'Baguio City', '234234', 'today', 'Class A', '5,3,1,', 'pending', 1),
-(2, 'Mang-osan', 'Alvy', 'B', 'Baguio City', 'Student', 'Baguio City', '43534', 'Today', 'Class B', '5,4,3,2,1,', 'registered', 2),
-(3, 'zafra', 'gene', '', '', '', '', '', '', 'Class C', '2,1,', 'pending', 5),
-(4, 'catalan', 'marko', '', '', '', '', '', '', 'Class A', '5,4,3,2,1,', 'registered', 6);
+INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_firstname`, `a_middlename`, `a_address`, `a_occupation`, `a_officeAddress`, `a_driversLicense`, `a_expirationDate`, `a_class`, `a_submitted_requirements`, `a_status`, `a_vehicle_id`) VALUES
+(1, '', 'Laigo', 'Ramel', 'L', 'Baguio City', 'Student', 'Baguio City', '234234', 'today', 'Class A', '5,3,1,', 'pending', 1),
+(2, '', 'Mang-osan', 'Alvy', 'B', 'Baguio City', 'Student', 'Baguio City', '43534', 'Today', 'Class B', '5,4,3,2,1,', 'registered', 2);
 
 -- --------------------------------------------------------
 
@@ -128,9 +124,9 @@ INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_lastname`, `a_firstname`, `
 -- Table structure for table `form2_militarypd`
 --
 
-DROP TABLE IF EXISTS `form2_militarypd`;
 CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_militaryId` int(11) NOT NULL AUTO_INCREMENT,
+  `m_profile` mediumblob NOT NULL,
   `m_lastname` varchar(60) NOT NULL,
   `m_firstname` varchar(60) NOT NULL,
   `m_middlename` varchar(60) NOT NULL,
@@ -150,15 +146,15 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_status` varchar(255) NOT NULL,
   `m_vehicle_id` int(11) NOT NULL,
   PRIMARY KEY (`m_militaryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `form2_militarypd`
 --
 
-INSERT INTO `form2_militarypd` (`m_militaryId`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_vehicle_id`) VALUES
-(1, 'Ulat', 'Kris', 'U', 'General', 'asdsad', '3423', 'Baguio City', '32423', 'Ulat@email.com', '433', 'Ofice 1', '223432', 'Baguio City', 'Today', 'Class C', '4,3,1,', 'pending', 3),
-(2, 'Odcheo', 'Joris', 'O', 'General', '342', '23423', 'Cebu', '342', 'Joris@email.com', '32423', 'Ofice2', '23423', 'Cebu', 'Tomorrow', 'Class A', '5,4,3,2,1,', 'registered', 4);
+INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_vehicle_id`) VALUES
+(1, '', 'Ulat', 'Kris', 'U', 'General', 'asdsad', '3423', 'Baguio City', '32423', 'Ulat@email.com', '433', 'Ofice 1', '223432', 'Baguio City', 'Today', 'Class C', '4,3,1,', 'pending', 3),
+(2, '', 'Odcheo', 'Joris', 'O', 'General', '342', '23423', 'Cebu', '342', 'Joris@email.com', '32423', 'Ofice2', '23423', 'Cebu', 'Tomorrow', 'Class A', '5,4,3,2,1,', 'registered', 4);
 
 -- --------------------------------------------------------
 
@@ -166,7 +162,6 @@ INSERT INTO `form2_militarypd` (`m_militaryId`, `m_lastname`, `m_firstname`, `m_
 -- Table structure for table `log`
 --
 
-DROP TABLE IF EXISTS `log`;
 CREATE TABLE IF NOT EXISTS `log` (
   `tid` int(11) NOT NULL AUTO_INCREMENT,
   `plateNum` varchar(7) NOT NULL,
@@ -178,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `type` varchar(15) NOT NULL,
   `flag` int(11) NOT NULL,
   PRIMARY KEY (`tid`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `log`
@@ -204,7 +199,6 @@ INSERT INTO `log` (`tid`, `plateNum`, `owner`, `dateIn`, `timein`, `dateOut`, `t
 -- Table structure for table `records`
 --
 
-DROP TABLE IF EXISTS `records`;
 CREATE TABLE IF NOT EXISTS `records` (
   `plateNo` varchar(7) NOT NULL,
   `owner` varchar(100) NOT NULL,
@@ -225,13 +219,12 @@ INSERT INTO `records` (`plateNo`, `owner`, `remarks`) VALUES
 -- Table structure for table `registration_type`
 --
 
-DROP TABLE IF EXISTS `registration_type`;
 CREATE TABLE IF NOT EXISTS `registration_type` (
   `registration_typeId` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(10) NOT NULL,
   `amount` int(11) NOT NULL,
   PRIMARY KEY (`registration_typeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `registration_type`
@@ -248,7 +241,6 @@ INSERT INTO `registration_type` (`registration_typeId`, `type`, `amount`) VALUES
 -- Table structure for table `report`
 --
 
-DROP TABLE IF EXISTS `report`;
 CREATE TABLE IF NOT EXISTS `report` (
   `rid` int(11) NOT NULL AUTO_INCREMENT,
   `plateNum` varchar(7) NOT NULL,
@@ -259,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `report` (
   `type` varchar(15) NOT NULL,
   `flag` int(11) NOT NULL,
   PRIMARY KEY (`rid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `report`
@@ -277,12 +269,11 @@ INSERT INTO `report` (`rid`, `plateNum`, `owner`, `datein`, `timein`, `violation
 -- Table structure for table `requirements`
 --
 
-DROP TABLE IF EXISTS `requirements`;
 CREATE TABLE IF NOT EXISTS `requirements` (
   `requirements_Id` int(11) NOT NULL AUTO_INCREMENT,
   `requirements_list` varchar(130) NOT NULL,
   PRIMARY KEY (`requirements_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `requirements`
@@ -301,7 +292,6 @@ INSERT INTO `requirements` (`requirements_Id`, `requirements_list`) VALUES
 -- Table structure for table `userlog`
 --
 
-DROP TABLE IF EXISTS `userlog`;
 CREATE TABLE IF NOT EXISTS `userlog` (
   `logid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
@@ -311,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `userlog` (
   `timeout` time NOT NULL,
   `flag` int(1) NOT NULL,
   PRIMARY KEY (`logid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `userlog`
@@ -330,14 +320,13 @@ INSERT INTO `userlog` (`logid`, `username`, `datein`, `timein`, `dateout`, `time
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `userNo` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
   `password` varchar(100) NOT NULL,
   `flag` int(11) NOT NULL,
   PRIMARY KEY (`userNo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `users`
@@ -352,9 +341,9 @@ INSERT INTO `users` (`userNo`, `username`, `password`, `flag`) VALUES
 -- Table structure for table `vehicle_information`
 --
 
-DROP TABLE IF EXISTS `vehicle_information`;
 CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `vehicleId` int(11) NOT NULL AUTO_INCREMENT,
+  `wheels` varchar(15) NOT NULL,
   `vehicleMake` varchar(60) NOT NULL,
   `plateNo` varchar(60) NOT NULL,
   `yearModel` varchar(60) NOT NULL,
@@ -363,19 +352,17 @@ CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `chassisNo` varchar(60) NOT NULL,
   `stickerNo` varchar(60) NOT NULL,
   PRIMARY KEY (`vehicleId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `vehicle_information`
 --
 
-INSERT INTO `vehicle_information` (`vehicleId`, `vehicleMake`, `plateNo`, `yearModel`, `color`, `motorNo`, `chassisNo`, `stickerNo`) VALUES
-(1, 'Honda', '3434543', '2016', 'red', 'Honda', '3423', '23432'),
-(2, 'Toyota', '234234', '2015', 'Blue', '3423', '23432', '23432'),
-(3, 'Honda', '43534', '2013', 'Black', '23432', '342342', '234324'),
-(4, 'Mitsu', '32423', '2010', 'red', 'Mitsu', '23432', '3434'),
-(5, '000000000000', '', '', '', '', '', ''),
-(6, 'qwerty', '', '', '', '', '', '');
+INSERT INTO `vehicle_information` (`vehicleId`, `wheels`, `vehicleMake`, `plateNo`, `yearModel`, `color`, `motorNo`, `chassisNo`, `stickerNo`) VALUES
+(1, '', 'Honda', '3434543', '2016', 'red', 'Honda', '3423', '23432'),
+(2, '', 'Toyota', '234234', '2015', 'Blue', '3423', '23432', '23432'),
+(3, '', 'Honda', '43534', '2013', 'Black', '23432', '342342', '234324'),
+(4, '', 'Mitsu', '32423', '2010', 'red', 'Mitsu', '23432', '3434');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
