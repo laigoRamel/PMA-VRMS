@@ -3,6 +3,8 @@
 
 	$database = new Database();
 	
+
+//form1
 	$query = 'SELECT * FROM form1_applicantpd';
 	$database->execute($query);
 	
@@ -27,6 +29,8 @@
 			'a_expirationDate' => $a_expirationDate, 'a_class' => $a_class));
 	}
 
+
+//form2
 	$query = 'SELECT * FROM form2_militarypd';
 	$database->execute($query);
 	
@@ -56,7 +60,7 @@
 			'm_rank' => $m_rank, 'm_brSvc' => $m_brSvc, 'm_afpsn' => $m_afpsn, 'm_residenceAddress' => $m_residenceAddress,
 			'm_residenceTelNo' => $m_residenceTelNo, 'm_emailAddress' => $m_emailAddress, 'm_mobileNo' => $m_mobileNo, 'm_designatedOffice' => $m_designatedOffice, 'm_officeTelNo' => $m_officeTelNo, 'm_officeAddress' => $m_officeAddress, 'm_retirementDate' => $m_retirementDate, 'm_class' => $m_class));
 	}
-
+//vehicle
 	$query = 'SELECT * FROM vehicle_information';
 	$database->execute($query);
 	
@@ -77,6 +81,8 @@
 		array_push($vehicles, array('vehicleId' => $id, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
 	}
 
+
+//vehicle log
 	$query = 'SELECT * FROM log';
 	$database->execute($query);
 	
@@ -96,6 +102,8 @@
 		array_push($logs, array('tid' => $id, 'plateNum' => $plateNum, 'owner' => $owner, 'dateIn' => $datein, 'timein' => $timein, 'dateOut' => $dateout, 'timeout' => $timeout));
 	}
 
+
+//userlog
 	$query = 'SELECT * FROM userlog';
 	$database->execute($query);
 	
@@ -114,6 +122,8 @@
 		array_push($mplogs, array('logid' => $id, 'username' => $username1, 'datein' => $datein1, 'timein' => $timein1, 'dateout' => $dateout1, 'timeout' => $timeout1));
 	}
 
+
+//report
 	$query = 'SELECT * FROM report';
 	$database->execute($query);
 	
