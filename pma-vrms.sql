@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2016 at 07:21 AM
+-- Generation Time: Apr 05, 2016 at 09:39 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -106,17 +106,19 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_class` varchar(60) NOT NULL,
   `a_submitted_requirements` varchar(255) NOT NULL,
   `a_status` varchar(255) NOT NULL,
+  `a_dateRegistered` datetime NOT NULL,
   `a_vehicle_id` int(11) NOT NULL,
   PRIMARY KEY (`a_applicantId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `form1_applicantpd`
 --
 
-INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_firstname`, `a_middlename`, `a_address`, `a_occupation`, `a_officeAddress`, `a_driversLicense`, `a_expirationDate`, `a_class`, `a_submitted_requirements`, `a_status`, `a_vehicle_id`) VALUES
-(1, '', 'Laigo', 'Ramel', 'L', 'Baguio City', 'Student', 'Baguio City', '234234', 'today', 'Class A', '5,3,1,', 'pending', 1),
-(2, '', 'Mang-osan', 'Alvy', 'B', 'Baguio City', 'Student', 'Baguio City', '43534', 'Today', 'Class B', '5,4,3,2,1,', 'registered', 2);
+INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_firstname`, `a_middlename`, `a_address`, `a_occupation`, `a_officeAddress`, `a_driversLicense`, `a_expirationDate`, `a_class`, `a_submitted_requirements`, `a_status`, `a_dateRegistered`, `a_vehicle_id`) VALUES
+(1, '', 'Laigo', 'Ramel', 'L', 'Baguio City', 'Student', 'Baguio City', '234234', 'today', 'Class A', '5,3,1,', 'pending', '0000-00-00 00:00:00', 1),
+(2, '', 'Mang-osan', 'Alvy', 'B', 'Baguio City', 'Student', 'Baguio City', '43534', 'Today', 'Class B', '5,4,3,2,1,', 'registered', '0000-00-00 00:00:00', 2),
+(3, '', '', '', '', '', '', '', '', '', '', '', 'pending', '2016-04-05 09:32:55', 5);
 
 -- --------------------------------------------------------
 
@@ -352,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `chassisNo` varchar(60) NOT NULL,
   `stickerNo` varchar(60) NOT NULL,
   PRIMARY KEY (`vehicleId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `vehicle_information`
@@ -362,7 +364,8 @@ INSERT INTO `vehicle_information` (`vehicleId`, `wheels`, `vehicleMake`, `plateN
 (1, '', 'Honda', '3434543', '2016', 'red', 'Honda', '3423', '23432'),
 (2, '', 'Toyota', '234234', '2015', 'Blue', '3423', '23432', '23432'),
 (3, '', 'Honda', '43534', '2013', 'Black', '23432', '342342', '234324'),
-(4, '', 'Mitsu', '32423', '2010', 'red', 'Mitsu', '23432', '3434');
+(4, '', 'Mitsu', '32423', '2010', 'red', 'Mitsu', '23432', '3434'),
+(5, '', '', '', '', '', '', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

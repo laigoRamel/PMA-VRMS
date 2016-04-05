@@ -34,10 +34,12 @@
 		foreach($requirements as $requirement){
 			$all_requirements = $requirement.','.$all_requirements;
 		}
+
+		$a_dateRegistered = date('Y-m-d H:i:s');
 		
 	
-		$query = "INSERT INTO form1_applicantpd (a_profile, a_lastname, a_firstname, a_middlename, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_submitted_requirements, a_status, a_vehicle_id) 
-				VALUES ('$a_profile', '$a_lastname', '$a_firstname', '$a_middlename', '$a_address', '$a_occupation', '$a_officeAddress', '$a_driversLicense', '$a_expirationDate', '$a_class', '$all_requirements', '$status', '$vehicle_id')";
+		$query = "INSERT INTO form1_applicantpd (a_profile, a_lastname, a_firstname, a_middlename, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_submitted_requirements, a_status, a_dateRegistered, a_vehicle_id) 
+				VALUES ('$a_profile', '$a_lastname', '$a_firstname', '$a_middlename', '$a_address', '$a_occupation', '$a_officeAddress', '$a_driversLicense', '$a_expirationDate', '$a_class', '$all_requirements', '$status', '$a_dateRegistered', '$vehicle_id')";
 
 		$database->execute($query);
 		$database->disconnect();
