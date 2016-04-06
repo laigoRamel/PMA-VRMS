@@ -13,6 +13,7 @@ include('login/session.php');
     <link rel="stylesheet" href="fonts/font-awesome.min.css">
     <link rel="stylesheet" href="css/style-main.min.css">
     <link rel="stylesheet" href="css/skin.min.css">
+    <link rel="icon" href="img/seal.png">
     
 	<script src="bootstrap/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
@@ -79,6 +80,15 @@ include('login/session.php');
               
             <!-- Employee Log -->
             <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+            
+            <!-- Accounting --> 
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="accountingApplicant.php">Civilians</a></li>
+                <li><a href="AccountingMilitary.php">Military</a></li>
+              </ul>
+            </li>
 
             <li class="header">FORMS</li>
             <!-- Forms -->
@@ -94,7 +104,7 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="registeredPerson.php">Applicants</a></li>
+                <li><a href="registeredApplicant.php">Applicants</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
                 <li><a href="registeredVehicle.php">Vehicles</a></li>
               </ul>

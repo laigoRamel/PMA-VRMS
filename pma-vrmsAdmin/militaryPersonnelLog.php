@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
 	<link rel="stylesheet" href="bootstrap/css/jquery.bdt.css">
 	<link rel="stylesheet" type="text/css" href="css/fieldset.css">
+    <link rel="icon" href="img/seal.png">
 
 	<script src="bootstrap/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
