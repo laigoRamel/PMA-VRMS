@@ -100,8 +100,9 @@
 		$timein 	= $log['timein'];
 		$dateout 	= $log['dateOut'];
 		$timeout 	= $log['timeout'];
+		$type 	= $log['type'];
 		
-		array_push($logs, array('tid' => $id, 'plateNum' => $plateNum, 'owner' => $owner, 'dateIn' => $datein, 'timein' => $timein, 'dateOut' => $dateout, 'timeout' => $timeout));
+		array_push($logs, array('tid' => $id, 'plateNum' => $plateNum, 'owner' => $owner, 'dateIn' => $datein, 'timein' => $timein, 'dateOut' => $dateout, 'timeout' => $timeout, 'type' => $type));
 	}
 
 
