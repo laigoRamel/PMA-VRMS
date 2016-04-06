@@ -5,7 +5,7 @@ include('session.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Vehicle log</title>
+	<title>Employee log</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,13 +74,13 @@ include('session.php');
             
             
             <!-- Vehicle Log -->
-            <li class="active"><a href="../vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
+            <li class=""><a href="../vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
               
             <!-- Reports -->
             <li><a href="../reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
               
             <!-- Employee Log -->
-            <li><a href="../login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+            <li class="active"><a href="../login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
             
             <!-- Accounting --> 
             <li class="treeview">
@@ -130,7 +130,7 @@ include('session.php');
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Vehicle Log
+            Employee Log
           </h1>
           
         </section>
