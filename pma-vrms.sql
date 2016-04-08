@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2016 at 09:39 AM
+-- Generation Time: Apr 08, 2016 at 12:31 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `admin_logs` (
   `time_out` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `admin_logs`
@@ -47,7 +47,8 @@ INSERT INTO `admin_logs` (`id`, `time_in`, `time_out`, `user_id`) VALUES
 (11, '2016-03-13 20:53:03', '2016-03-13 20:55:02', 2),
 (14, '2016-03-13 20:59:36', '2016-03-13 21:00:20', 1),
 (16, '2016-03-13 21:13:04', '2016-03-13 21:13:12', 1),
-(17, '2016-04-05 09:43:24', '0000-00-00 00:00:00', 1);
+(17, '2016-04-05 09:43:24', '0000-00-00 00:00:00', 1),
+(18, '2016-04-08 18:20:27', '2016-04-08 18:30:10', 1);
 
 -- --------------------------------------------------------
 
@@ -146,17 +147,19 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_class` varchar(10) NOT NULL,
   `m_submitted_requirements` varchar(255) NOT NULL,
   `m_status` varchar(255) NOT NULL,
+  `m_dateRegistered` datetime NOT NULL,
   `m_vehicle_id` int(11) NOT NULL,
   PRIMARY KEY (`m_militaryId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `form2_militarypd`
 --
 
-INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_vehicle_id`) VALUES
-(1, '', 'Ulat', 'Kris', 'U', 'General', 'asdsad', '3423', 'Baguio City', '32423', 'Ulat@email.com', '433', 'Ofice 1', '223432', 'Baguio City', 'Today', 'Class C', '4,3,1,', 'pending', 3),
-(2, '', 'Odcheo', 'Joris', 'O', 'General', '342', '23423', 'Cebu', '342', 'Joris@email.com', '32423', 'Ofice2', '23423', 'Cebu', 'Tomorrow', 'Class A', '5,4,3,2,1,', 'registered', 4);
+INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_dateRegistered`, `m_vehicle_id`) VALUES
+(1, '', 'Ulat', 'Kris', 'U', 'General', 'asdsad', '3423', 'Baguio City', '32423', 'Ulat@email.com', '433', 'Ofice 1', '223432', 'Baguio City', 'Today', 'Class C', '4,3,1,', 'pending', '0000-00-00 00:00:00', 3),
+(2, '', 'Odcheo', 'Joris', 'O', 'General', '342', '23423', 'Cebu', '342', 'Joris@email.com', '32423', 'Ofice2', '23423', 'Cebu', 'Tomorrow', 'Class A', '5,4,3,2,1,', 'registered', '0000-00-00 00:00:00', 4),
+(3, '', 'marc', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'pending', '2016-04-08 12:24:10', 6);
 
 -- --------------------------------------------------------
 
@@ -354,7 +357,7 @@ CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `chassisNo` varchar(60) NOT NULL,
   `stickerNo` varchar(60) NOT NULL,
   PRIMARY KEY (`vehicleId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `vehicle_information`
@@ -365,7 +368,8 @@ INSERT INTO `vehicle_information` (`vehicleId`, `wheels`, `vehicleMake`, `plateN
 (2, '', 'Toyota', '234234', '2015', 'Blue', '3423', '23432', '23432'),
 (3, '', 'Honda', '43534', '2013', 'Black', '23432', '342342', '234324'),
 (4, '', 'Mitsu', '32423', '2010', 'red', 'Mitsu', '23432', '3434'),
-(5, '', '', '', '', '', '', '', '');
+(5, '', '', '', '', '', '', '', ''),
+(6, '', '', '', '', '', '', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
