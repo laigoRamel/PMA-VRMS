@@ -105,7 +105,7 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="registeredPerson.php">Applicants</a></li>
+                <li><a href="registeredApplicant.php">Applicants</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
                 <li><a href="registeredVehicle.php">Vehicles</a></li>
               </ul>
@@ -137,7 +137,7 @@ include('login/session.php');
 
         <!-- Main content -->
         <section class="content">
-	       <?php include('logic/registered_logic.php'); ?>
+	       <?php include('logic/accounting_logic.php'); ?>
 
 		<div class="'container">
 			<div class="row">
@@ -146,21 +146,9 @@ include('login/session.php');
                         <div class="box-body">
                             <table class="table table-bordered table-hover" id="bootstrap-table">
                                 <thead>
-                                    <th>Last Name</th>
-                                    <th>First Name</th>
-                                    <th>Middle Name</th>
-                                    <th>Rank</th>
-                                    <th>BR / SVC</th>
-                                    <th>AFPSN</th>
-                                    <th>Residence Address</th>
-                                    <th>Residence Tel. No.</th>
-                                    <th>Email Address</th>
-                                    <th>Mobile No.</th>
-                                    <th>Designated Office</th>
-                                    <th>Office Tel. No.</th>
-                                    <th>Office Address</th>
-                                    <th>Date of Retirement</th>
-                                    <th>Class</th>
+                                    <th>Name</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
                                 </thead>
                                 <tbody>
                                     <?php 
@@ -168,21 +156,9 @@ include('login/session.php');
                                             echo <<<DATA
                                                 <tr id='military_$key'>
                                                     <td style='display:none'>$military[m_militaryId]</td>
-                                                    <td>$military[m_lastname]</td>
-                                                    <td>$military[m_firstname]</td>
-                                                    <td>$military[m_middlename]</td>
-                                                    <td>$military[m_rank]</td>
-                                                    <td>$military[m_brSvc]</td>
-                                                    <td>$military[m_afpsn]</td>
-                                                    <td>$military[m_residenceAddress]</td>
-                                                    <td>$military[m_residenceTelNo]</td>
-                                                    <td>$military[m_emailAddress]</td>
-                                                    <td>$military[m_mobileNo]</td>
-                                                    <td>$military[m_designatedOffice]</td>
-                                                    <td>$military[m_officeTelNo]</td>
-                                                    <td>$military[m_officeAddress]</td>
-                                                    <td>$military[m_retirementDate]</td>
-                                                    <td>$military[m_class]</td>
+                                                    <td>$military[m_lastname], $military[m_firstname] $military[m_middlename]</td>
+                                                    <td>$military[amount]</td>
+                                                    <td>$military[m_dateRegistered]</td>
                                                 </tr>
 DATA;
                                         }

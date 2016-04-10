@@ -13,11 +13,13 @@ include('login/session.php');
     <link rel="stylesheet" href="fonts/font-awesome.min.css">
     <link rel="stylesheet" href="css/style-main.min.css">
     <link rel="stylesheet" href="css/skin.min.css">
+    <link rel="stylesheet" href="jasny-bootstrap/css/jasny-bootstrap.min.css">
     <link rel="icon" href="img/seal.png">
     
 	<script src="bootstrap/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/app.min.js"></script>
+    <script src="jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
 </head>
     
 <body class="hold-transition skin-black sidebar-mini">
@@ -148,10 +150,13 @@ include('login/session.php');
                         
                         <!-- image upload -->
                         <div class="fileinput fileinput-new" data-provides="fileinput">
+                          <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                          </div>
                           <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                           <div>
-                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span>
-                            <input type="file" name="a_profile"></span>
+                               <span class="fileinput-filename"></span>
+                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                              
                             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                           </div>
                         </div>
@@ -210,7 +215,7 @@ include('login/session.php');
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Expiration Date</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Expiration Date" name='a_expirationDate'>
+                                <input type="text" class="form-control" placeholder="YYYY-MM-DD" name='a_expirationDate' data-mask="9999-99-99">
                               </div>
                             </div>
                             

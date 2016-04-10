@@ -136,7 +136,54 @@ include('login/session.php');
 
         <!-- Main content -->
         <section class="content">
-
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="info-box">
+                    <a href ="#">
+                        <span class="info-box-icon bg-aqua"><i class="fa fa-car"></i></span>
+                    </a>
+                    <div class="info-box-content">
+                      <span class="info-box-text">Current Visitors</span>
+                      <span class="info-box-number">50</span>
+                    </div><!-- /.info-box-content -->
+                  </div><!-- /.info-box -->
+                </div><!-- /.col -->
+                
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="info-box">
+                    <a href ="pending.php">
+                        <span class="info-box-icon bg-red"><i class="fa fa-exclamation"></i></span>
+                    </a>
+                    <div class="info-box-content">
+                      <span class="info-box-text">Pending Forms</span>
+                      <span class="info-box-number">15</span>
+                    </div><!-- /.info-box-content -->
+                  </div><!-- /.info-box -->
+                </div><!-- /.col -->
+                
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-user-plus"></i></span>
+                    <div class="info-box-content">
+                      <span class="info-box-text">Today's visitors</span>
+                      <span class="info-box-number">55</span>
+                    </div><!-- /.info-box-content -->
+                  </div><!-- /.info-box -->
+                </div><!-- /.col -->
+                
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="info-box">
+                    <a href ="reports.php">
+                        <span class="info-box-icon bg-purple"><i class="fa fa-ban"></i></span>
+                    </a>
+                    <div class="info-box-content">
+                      <span class="info-box-text">Today's Violations</span>
+                      <span class="info-box-number">5</span>
+                    </div><!-- /.info-box-content -->
+                  </div><!-- /.info-box -->
+                </div><!-- /.col -->
+                
+            </div>
         </section>
 <!-- Main content -->
 

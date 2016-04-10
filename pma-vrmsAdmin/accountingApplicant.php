@@ -105,7 +105,7 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="registeredPerson.php">Applicants</a></li>
+                <li><a href="registeredApplicant.php">Applicants</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
                 <li><a href="registeredVehicle.php">Vehicles</a></li>
               </ul>
@@ -137,7 +137,7 @@ include('login/session.php');
 
         <!-- Main content -->
         <section class="content">
-	       <?php include('logic/registered_logic.php'); ?>
+	       <?php include('logic/accounting_logic.php'); ?>
 
 		<div class="'container">
 			<div class="row">
@@ -146,35 +146,23 @@ include('login/session.php');
                         <div class="box-body">
                             <table class="table table-bordered table-hover" id="bootstrap-table">
 						<thead>
-							<th>Last Name</th>
-							<th>First Name</th>
-							<th>Middle Name</th>
-							<th>Address</th>
-							<th>Occupation</th>
-							<th>Office Address</th>
-							<th>Driver License</th>
-							<th>Expiration Date</th>
-							<th>Class</th>
+							<th>Name</th>
+                            <th>Amount</th>
+                            <th>Date</th>
 						</thead>
 						<tbody>
 							<?php 
-								foreach ($applicants as $key => $applicant) {
-									echo <<<DATA
-										<tr id='applicant_$key'>
-											<td style='display:none'>$applicant[a_applicantId]</td>
-											<td>$applicant[a_lastname]</td>
-											<td>$applicant[a_firstname]</td>
-											<td>$applicant[a_middlename]</td>
-											<td>$applicant[a_address]</td>
-											<td>$applicant[a_occupation]</td>
-											<td>$applicant[a_officeAddress]</td>
-											<td>$applicant[a_driversLicense]</td>
-											<td>$applicant[a_expirationDate]</td>
-											<td>$applicant[a_class]</td>
-										</tr>
+                                        foreach ($applicant as $key => $applicant) {
+                                            echo <<<DATA
+                                                <tr id='applicant_$key'>
+                                                    <td style='display:none'>$applicant[a_militaryId]</td>
+                                                    <td>$applicant[a_lastname], $applicant[a_firstname] $applicant[a_middlename]</td>
+                                                    <td>$applicant[amount]</td>
+                                                    <td>$applicant[a_dateRegistered]</td>
+                                                </tr>
 DATA;
-								}
-							?>
+                                        }
+                                    ?>
 						</tbody>
 					</table>
 
