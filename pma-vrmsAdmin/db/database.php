@@ -18,7 +18,7 @@
 		}
 		
 		public function execute($query){
-			$this->result = mysqli_query($this->database, $query) OR die('Error database');
+			$this->result = mysqli_query($this->database, $query) OR die(mysqli_error($this->database));
 		}
 		
 		public function getResult(){

@@ -145,6 +145,7 @@ include('login/session.php');
                         <div class="box-body">
                             <table class="table table-bordered table-hover" id="bootstrap-table">
 						<thead>
+              <th>Profile</th>
 							<th>Last Name</th>
 							<th>First Name</th>
 							<th>Middle Name</th>
@@ -168,6 +169,7 @@ include('login/session.php');
 									echo <<<DATA
 										<tr id='military_$key'>
 											<td style='display:none'>$military[m_militaryId]</td>
+                      <td><img src='img/profile/military/$military[m_profile]' height='100px;'></td>
 											<td>$military[m_lastname]</td>
 											<td>$military[m_firstname]</td>
 											<td>$military[m_middlename]</td>

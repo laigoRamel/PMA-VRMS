@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2016 at 12:31 PM
+-- Generation Time: Apr 10, 2016 at 09:17 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `admin_logs` (
   `time_out` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `admin_logs`
@@ -48,7 +48,8 @@ INSERT INTO `admin_logs` (`id`, `time_in`, `time_out`, `user_id`) VALUES
 (14, '2016-03-13 20:59:36', '2016-03-13 21:00:20', 1),
 (16, '2016-03-13 21:13:04', '2016-03-13 21:13:12', 1),
 (17, '2016-04-05 09:43:24', '0000-00-00 00:00:00', 1),
-(18, '2016-04-08 18:20:27', '2016-04-08 18:30:10', 1);
+(18, '2016-04-08 18:20:27', '2016-04-08 18:30:10', 1),
+(19, '2016-04-09 21:01:00', '2016-04-10 04:54:00', 1);
 
 -- --------------------------------------------------------
 
@@ -95,7 +96,7 @@ INSERT INTO `admin_users` (`id`, `username`, `password`) VALUES
 
 CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_applicantId` int(11) NOT NULL AUTO_INCREMENT,
-  `a_profile` mediumblob NOT NULL,
+  `a_profile` varchar(255) NOT NULL,
   `a_lastname` varchar(60) NOT NULL,
   `a_firstname` varchar(60) NOT NULL,
   `a_middlename` varchar(60) NOT NULL,
@@ -109,17 +110,25 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_status` varchar(255) NOT NULL,
   `a_dateRegistered` datetime NOT NULL,
   `a_vehicle_id` int(11) NOT NULL,
+  `a_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`a_applicantId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `form1_applicantpd`
 --
 
-INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_firstname`, `a_middlename`, `a_address`, `a_occupation`, `a_officeAddress`, `a_driversLicense`, `a_expirationDate`, `a_class`, `a_submitted_requirements`, `a_status`, `a_dateRegistered`, `a_vehicle_id`) VALUES
-(1, '', 'Laigo', 'Ramel', 'L', 'Baguio City', 'Student', 'Baguio City', '234234', 'today', 'Class A', '5,3,1,', 'pending', '0000-00-00 00:00:00', 1),
-(2, '', 'Mang-osan', 'Alvy', 'B', 'Baguio City', 'Student', 'Baguio City', '43534', 'Today', 'Class B', '5,4,3,2,1,', 'registered', '0000-00-00 00:00:00', 2),
-(3, '', '', '', '', '', '', '', '', '', '', '', 'pending', '2016-04-05 09:32:55', 5);
+INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_firstname`, `a_middlename`, `a_address`, `a_occupation`, `a_officeAddress`, `a_driversLicense`, `a_expirationDate`, `a_class`, `a_submitted_requirements`, `a_status`, `a_dateRegistered`, `a_vehicle_id`, `a_renew_status`) VALUES
+(5, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '', 'registered', '2016-04-09 15:10:58', 8, 0),
+(7, 'darry;-go.png', 'go', 'darry;', '', '', '', '', '', '', '', '', 'pending', '2016-04-09 16:01:42', 17, 0),
+(8, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '3,2,1,', 'pending', '2016-04-09 15:10:58', 8, 0),
+(9, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
+(10, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
+(11, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
+(12, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
+(13, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '1,', 'pending', '2016-04-09 15:10:58', 8, 1),
+(14, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
+(15, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,', 'pending', '2016-04-09 15:10:58', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -129,7 +138,7 @@ INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_
 
 CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_militaryId` int(11) NOT NULL AUTO_INCREMENT,
-  `m_profile` mediumblob NOT NULL,
+  `m_profile` varchar(255) NOT NULL,
   `m_lastname` varchar(60) NOT NULL,
   `m_firstname` varchar(60) NOT NULL,
   `m_middlename` varchar(60) NOT NULL,
@@ -149,17 +158,20 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_status` varchar(255) NOT NULL,
   `m_dateRegistered` datetime NOT NULL,
   `m_vehicle_id` int(11) NOT NULL,
+  `m_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`m_militaryId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `form2_militarypd`
 --
 
-INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_dateRegistered`, `m_vehicle_id`) VALUES
-(1, '', 'Ulat', 'Kris', 'U', 'General', 'asdsad', '3423', 'Baguio City', '32423', 'Ulat@email.com', '433', 'Ofice 1', '223432', 'Baguio City', 'Today', 'Class C', '4,3,1,', 'pending', '0000-00-00 00:00:00', 3),
-(2, '', 'Odcheo', 'Joris', 'O', 'General', '342', '23423', 'Cebu', '342', 'Joris@email.com', '32423', 'Ofice2', '23423', 'Cebu', 'Tomorrow', 'Class A', '5,4,3,2,1,', 'registered', '0000-00-00 00:00:00', 4),
-(3, '', 'marc', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'pending', '2016-04-08 12:24:10', 6);
+INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_dateRegistered`, `m_vehicle_id`, `m_renew_status`) VALUES
+(10, 'KRISS-ULAT.png', 'ULAT', 'KRISS', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'registered', '2016-04-09 15:46:52', 16, 0),
+(11, 'test-test.png', 'test', 'test', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'registered', '2016-04-09 16:04:23', 18, 1),
+(12, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '2,1,', 'pending', '0000-00-00 00:00:00', 0, 1),
+(13, 'test-test.png', 'test', 'test', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-09 16:04:23', 0, 1),
+(14, 'KRISS-ULAT.png', 'ULAT', 'KRISS', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '2,1,', 'pending', '2016-04-09 15:46:52', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -357,7 +369,7 @@ CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `chassisNo` varchar(60) NOT NULL,
   `stickerNo` varchar(60) NOT NULL,
   PRIMARY KEY (`vehicleId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `vehicle_information`
@@ -369,7 +381,19 @@ INSERT INTO `vehicle_information` (`vehicleId`, `wheels`, `vehicleMake`, `plateN
 (3, '', 'Honda', '43534', '2013', 'Black', '23432', '342342', '234324'),
 (4, '', 'Mitsu', '32423', '2010', 'red', 'Mitsu', '23432', '3434'),
 (5, '', '', '', '', '', '', '', ''),
-(6, '', '', '', '', '', '', '', '');
+(6, '', '', '', '', '', '', '', ''),
+(7, '', '', '', '', '', '', '', ''),
+(8, '', '', '', '', '', '', '', ''),
+(9, '', '', '', '', '', '', '', ''),
+(10, '', '', '', '', '', '', '', ''),
+(11, '', '', '', '', '', '', '', ''),
+(12, '', '', '', '', '', '', '', ''),
+(13, '', '', '', '', '', '', '', ''),
+(14, '', '', '', '', '', '', '', ''),
+(15, '', '', '', '', '', '', '', ''),
+(16, '', '', '', '', '', '', '', ''),
+(17, '', '', '', '', '', '', '', ''),
+(18, '', '', '', '', '', '', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

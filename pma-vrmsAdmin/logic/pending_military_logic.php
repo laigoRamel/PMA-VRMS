@@ -12,6 +12,7 @@
 	
 	while($military = mysqli_fetch_array($rows)){
 		$m_id 					= $military['m_militaryId'];
+		$m_profile	 			= $military['m_profile'];
 		$m_lastname 			= $military['m_lastname'];
 		$m_firstname 			= $military['m_firstname'];
 		$m_middlename 			= $military['m_middlename'];
@@ -37,7 +38,7 @@
 		$chassisNo 				= $military['chassisNo'];
 		$stickerNo 				= $military['stickerNo'];
 		
-		array_push($militarys, array('m_militaryId' => $m_id, 'm_lastname' => $m_lastname, 'm_firstname' => $m_firstname, 'm_middlename' => $m_middlename,
+		array_push($militarys, array('m_militaryId' => $m_id, 'm_profile' => $m_profile, 'm_lastname' => $m_lastname, 'm_firstname' => $m_firstname, 'm_middlename' => $m_middlename,
 			'm_rank' => $m_rank, 'm_brSvc' => $m_brSvc, 'm_afpsn' => $m_afpsn, 'm_residenceAddress' => $m_residenceAddress,
 			'm_residenceTelNo' => $m_residenceTelNo, 'm_emailAddress' => $m_emailAddress, 'm_mobileNo' => $m_mobileNo, 'm_designatedOffice' => $m_designatedOffice, 'm_officeTelNo' => $m_officeTelNo, 'm_officeAddress' => $m_officeAddress, 'm_retirementDate' => $m_retirementDate, 'm_class' => $m_class,
 			'vehicleId' => $id, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 

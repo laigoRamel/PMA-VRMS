@@ -171,7 +171,7 @@
                                             echo <<<DATA
                                                 <tr id='military_$key'>
                                                     <td style='display:none'>$military[m_militaryId]</td>
-                                                    <td>$military[m_profile]</td>
+                                                    <td><img src='img/profile/military/$military[m_profile]' height='100px;'></td>
                                                     <td>$military[m_lastname]</td>
                                                     <td>$military[m_firstname]</td>
                                                     <td>$military[m_middlename]</td>
@@ -188,7 +188,7 @@
                                                     <td>$military[m_retirementDate]</td>
                                                     <td>$military[m_class]</td>
                                                     <td><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick='view_form2($key)'>View</button></td>
-                                                    <td><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick='renew_military($key)'>Renew</button></td>
+                                                    <td><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick='renew_military($military[m_militaryId])'>Renew</button></td>
                                                     <td><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick='edit_form2($key)'>Edit</button></td>
                                                     <td><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form2' onclick='delete_form2($key)'>Delete</button></td>
                                                 </tr>
@@ -328,8 +328,15 @@ DATA;
 				modal.find('input[name=m_officeAddress]').val(m_officeAddress);
 				modal.find('input[name=m_retirementDate]').val(m_retirementDate);
 
+
+
 			}
 			
+       var renew_military = function(key){
+      
+      $('#renew_military_id').val(key);
+
+    }
 		</script>
       
         </section>  <!-- /Main content -->

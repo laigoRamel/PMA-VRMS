@@ -164,8 +164,8 @@
                                     foreach ($applicants as $key => $applicant) {
                                         echo <<<DATA
                                         <tr id='applicant_$key'>
-                                            <td style='display:none'>$applicant[a_applicantId]</td>
-                                            <td>$applicant[a_profile]</td>
+                                            <td id="current_id" style='display:none'>$applicant[a_applicantId]</td>
+                                            <td><img src='img/profile/applicant/$applicant[a_profile]' height='100px;'></td>
                                             <td>$applicant[a_lastname]</td>
                                             <td>$applicant[a_firstname]</td>
                                             <td>$applicant[a_middlename]</td>
@@ -176,7 +176,7 @@
                                             <td>$applicant[a_expirationDate]</td>
                                             <td>$applicant[a_class]</td>
                                             <td><button class="btn btn-info" data-toggle='modal' data-target='#view_form1' onclick='view_form1($key)'>View</button></td>
-                                            <td><button class="btn btn-success" data-toggle='modal' data-target='#renew_applicant' onclick='renew_applicant($key)'>Renew</button></td>
+                                            <td><button class="btn btn-success" data-toggle='modal' data-target='#renew_applicant' onclick='renew_applicant($applicant[a_applicantId])'>Renew</button></td>
                                             <td><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form1' onclick='edit_form1($key)'>Edit</button></td>
                                             <td><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form1' onclick='delete_form1($key)'>Delete</button></td>
                                         </tr>
@@ -279,6 +279,12 @@ DATA;
 			modal.find('input[name=a_driversLicense]').val(a_driversLicense);
 			modal.find('input[name=a_expirationDate]').val(a_expirationDate);
 		}
+
+    var renew_applicant = function(key){
+      
+      $('#renew_applicant_id').val(key);
+
+    }
 
 	</script>
       

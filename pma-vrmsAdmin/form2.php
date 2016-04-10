@@ -136,7 +136,7 @@ include('login/session.php');
 
         <!-- Main content -->
         <section class="content">
-	<form action="logic/add_form2Logic.php" method="POST">
+	<form action="logic/add_form2Logic.php" enctype='multipart/form-data' method="POST">
 		<!-- personal information -->
 		<div class="row">
             <div class="col-md-7">

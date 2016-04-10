@@ -12,6 +12,7 @@
 	
 	while($applicant = mysqli_fetch_array($rows)){
 		$a_id 				= $applicant['a_applicantId'];
+		$a_profile	 		= $applicant['a_profile'];
 		$a_lastname 		= $applicant['a_lastname'];
 		$a_firstname 		= $applicant['a_firstname'];
 		$a_middlename 		= $applicant['a_middlename'];
@@ -31,7 +32,7 @@
 		$chassisNo 			= $applicant['chassisNo'];
 		$stickerNo 			= $applicant['stickerNo'];
 		
-		array_push($applicants, array('a_applicantId' => $a_id, 'a_lastname' => $a_lastname, 'a_firstname' => $a_firstname, 'a_middlename' => $a_middlename,
+		array_push($applicants, array('a_applicantId' => $a_id, 'a_profile' => $a_profile, 'a_lastname' => $a_lastname, 'a_firstname' => $a_firstname, 'a_middlename' => $a_middlename,
 			'a_address' => $a_address, 'a_occupation' => $a_occupation, 'a_officeAddress' => $a_officeAddress, 'a_driversLicense' => $a_driversLicense,
 			'a_expirationDate' => $a_expirationDate, 'a_class' => $a_class,
 			'vehicleId' => $id, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 

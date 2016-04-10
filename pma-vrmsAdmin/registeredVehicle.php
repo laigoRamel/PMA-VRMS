@@ -164,7 +164,7 @@
                                             echo <<<DATA
                                                 <tr id='vehicle_$key'>
                                                     <td style='display:none'>$vehicle[vehicleId]</td>
-                                                    <td>marc lim</td>
+                                                    <td>$vehicle[owner]</td>
                                                     <td>$vehicle[wheels]</td>
                                                     <td>$vehicle[vehicleMake]</td>
                                                     <td>$vehicle[plateNo]</td>
