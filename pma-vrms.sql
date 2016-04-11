@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2016 at 09:17 AM
+-- Generation Time: Apr 11, 2016 at 08:53 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `admin_logs` (
   `time_out` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `admin_logs`
@@ -49,7 +49,8 @@ INSERT INTO `admin_logs` (`id`, `time_in`, `time_out`, `user_id`) VALUES
 (16, '2016-03-13 21:13:04', '2016-03-13 21:13:12', 1),
 (17, '2016-04-05 09:43:24', '0000-00-00 00:00:00', 1),
 (18, '2016-04-08 18:20:27', '2016-04-08 18:30:10', 1),
-(19, '2016-04-09 21:01:00', '2016-04-10 04:54:00', 1);
+(19, '2016-04-09 21:01:00', '2016-04-10 04:54:00', 1),
+(20, '2016-04-11 12:47:07', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_vehicle_id` int(11) NOT NULL,
   `a_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`a_applicantId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `form1_applicantpd`
@@ -128,7 +129,13 @@ INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_
 (12, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
 (13, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '1,', 'pending', '2016-04-09 15:10:58', 8, 1),
 (14, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
-(15, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,', 'pending', '2016-04-09 15:10:58', 8, 1);
+(15, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,', 'pending', '2016-04-09 15:10:58', 8, 1),
+(16, 'ramel-laigo.png', 'laigo', 'ramel', '', '', '', '', '', '', '', '', 'pending', '2016-04-11 06:50:36', 19, 1),
+(17, 'ramel-laigo.png', 'laigo', 'ramel', 'labinio', '', '', '', '', '', '', '', 'registered', '2016-04-11 07:01:24', 20, 1),
+(18, 'hello-hello.png', 'hello', 'hello', '', '', '', '', '', '', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-11 07:07:07', 22, 0),
+(19, 'hello-hello.png', 'hello', 'hello', '', '', '', '', '', '', 'Class C', '2,1,', 'pending', '2016-04-11 07:07:07', 22, 1),
+(20, 'test-test.png', 'test', 'test', 'test', '', '', '', '', '', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-11 07:49:15', 28, 0),
+(21, 'test-test.png', 'test', 'test', 'test', '', '', '', '', '', 'Class C', '5,4,3,', 'pending', '2016-04-11 07:49:15', 28, 1);
 
 -- --------------------------------------------------------
 
@@ -160,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_vehicle_id` int(11) NOT NULL,
   `m_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`m_militaryId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `form2_militarypd`
@@ -168,10 +175,17 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
 
 INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_dateRegistered`, `m_vehicle_id`, `m_renew_status`) VALUES
 (10, 'KRISS-ULAT.png', 'ULAT', 'KRISS', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'registered', '2016-04-09 15:46:52', 16, 0),
-(11, 'test-test.png', 'test', 'test', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'registered', '2016-04-09 16:04:23', 18, 1),
+(11, 'test-test.png', 'test', 'test', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'registered', '2016-04-09 16:04:23', 18, 0),
 (12, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '2,1,', 'pending', '0000-00-00 00:00:00', 0, 1),
 (13, 'test-test.png', 'test', 'test', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-09 16:04:23', 0, 1),
-(14, 'KRISS-ULAT.png', 'ULAT', 'KRISS', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '2,1,', 'pending', '2016-04-09 15:46:52', 0, 1);
+(14, 'KRISS-ULAT.png', 'ULAT', 'KRISS', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '2,1,', 'pending', '2016-04-09 15:46:52', 0, 1),
+(15, 'marc-lim.png', 'lim', 'marc', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'registered', '2016-04-11 07:03:30', 21, 1),
+(16, 'hai-hai.png', 'hai', 'hai', '', '', '', '', '', '', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-11 07:07:45', 23, 0),
+(17, 'qwerty-qwerty.png', 'qwerty', 'qwerty', '', '', '', '', '', '', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-11 07:11:13', 25, 1),
+(18, 'pop-pop.png', 'pop', 'pop', '', '', '', '', '', '', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-11 07:12:03', 26, 0),
+(19, 'pop-pop.png', 'pop', 'pop', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '2,1,', 'pending', '2016-04-11 07:12:03', 0, 1),
+(20, 'jkl-jkl.png', 'jkl', 'jkl', '', '', '', '', '', '', '', '', '', '', '', '', '', '4,3,', 'pending', '2016-04-11 07:41:58', 27, 1),
+(21, 'test-test.png', 'test', 'test', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '5,4,', 'pending', '2016-04-09 16:04:23', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -369,7 +383,7 @@ CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `chassisNo` varchar(60) NOT NULL,
   `stickerNo` varchar(60) NOT NULL,
   PRIMARY KEY (`vehicleId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `vehicle_information`
@@ -393,7 +407,17 @@ INSERT INTO `vehicle_information` (`vehicleId`, `wheels`, `vehicleMake`, `plateN
 (15, '', '', '', '', '', '', '', ''),
 (16, '', '', '', '', '', '', '', ''),
 (17, '', '', '', '', '', '', '', ''),
-(18, '', '', '', '', '', '', '', '');
+(18, '', '', '', '', '', '', '', ''),
+(19, '', '', '', '', '', '', '', ''),
+(20, '', '', '', '', '', '', '', ''),
+(21, '', '', '', '', '', '', '', ''),
+(22, '', '', '', '', '', '', '', ''),
+(23, '', '', '', '', '', '', '', ''),
+(24, '', '', '', '', '', '', '', ''),
+(25, '', '', '', '', '', '', '', ''),
+(26, '', '', '', '', '', '', '', ''),
+(27, '', '', '', '', '', '', '', ''),
+(28, '', '', '', '', '', '', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
