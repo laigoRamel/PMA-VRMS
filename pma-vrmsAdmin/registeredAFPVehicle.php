@@ -1,27 +1,29 @@
 <?php
-include('login/session.php');
+	include('login/session.php');
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Accounting: Civilian</title>
+	<title>Registered Military Vehicles</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="fonts/font-awesome.min.css">
     <link rel="stylesheet" href="css/style-main.min.css">
-    <link rel="stylesheet" href="bootstrap/css/jquery.bdt.css">
     <link rel="stylesheet" href="css/skin.min.css">
     <link rel="icon" href="img/seal.png">
-    
+
 	<script src="bootstrap/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/app.min.js"></script>
+
 </head>
-    
-<body class="hold-transition skin-black sidebar-mini">
+	
+    <?php include('logic/registered_militaryVehicle_logic.php'); ?>
+    <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
         
         
@@ -51,7 +53,7 @@ include('login/session.php');
 				<ul class="dropdown-menu">
 					<li>
 						<a href='login/logout.php'>Log out</a>
-					</li>
+                    </li>
 				</ul>
 			</li>
 		</ul>
@@ -83,10 +85,10 @@ include('login/session.php');
             <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
             
             <!-- Accounting --> 
-            <li class="treeview active">
+            <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="active"><a href="accountingApplicant.php">Civilians</a></li>
+                <li><a href="accountingApplicant.php">Civilians</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
@@ -102,13 +104,13 @@ include('login/session.php');
             </li>
               
             <!-- Registered -->
-            <li class="treeview">
+            <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="registeredApplicant.php">Applicants</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
                 <li><a href="registeredApplicantVehicle.php">Applicant Vehicles</a></li>
-                <li><a href="registeredAFPVehicle.php">Military Vehicles</a></li>
+                <li class="active"><a href="registeredAFPVehicle.php">Military Vehicles</a></li>
               </ul>
             </li>
               
@@ -131,43 +133,57 @@ include('login/session.php');
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Accounting: Civilian
+            Registered Military Vehicles
           </h1>
           
         </section>
 
         <!-- Main content -->
         <section class="content">
-	       <?php include('logic/accounting_logic.php'); ?>
-
-		<div class="'container">
+	
+        <div class="'container">
 			<div class="row">
 				<div class="col-md-12">
                     <div class="box">
                         <div class="box-body">
                             <table class="table table-bordered table-hover" id="bootstrap-table">
-						<thead>
-							<th>Name</th>
-                            <th>Amount</th>
-                            <th>Date</th>
-						</thead>
-						<tbody>
-							<?php 
-                                        foreach ($applicant as $key => $applicant) {
+                                <thead>
+                                    <th>Owner</th>
+                                    <th>Wheels</th>
+                                    <th>Vehicle Make</th>
+                                    <th>Plate No.</th>
+                                    <th>Year Model</th>
+                                    <th>Color</th>
+                                    <th>Motor No.</th>
+                                    <th>Chassis No.</th>
+                                    <th>Sticker No.</th>
+                                    <th style="text-align:center">Options</th>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                        foreach ($vehicles as $key => $vehicle) {
                                             echo <<<DATA
-                                                <tr id='applicant_$key'>
-                                                    <td style='display:none'>$applicant[a_militaryId]</td>
-                                                    <td>$applicant[a_lastname], $applicant[a_firstname] $applicant[a_middlename]</td>
-                                                    <td>$applicant[amount]</td>
-                                                    <td>$applicant[a_dateRegistered]</td>
+                                                <tr id='vehicle_$key'>
+                                                    <td style='display:none'>$vehicle[vehicleId]</td>
+                                                    <td>$vehicle[owner]</td>
+                                                    <td>$vehicle[wheels]</td>
+                                                    <td>$vehicle[vehicleMake]</td>
+                                                    <td>$vehicle[plateNo]</td>
+                                                    <td>$vehicle[yearModel]</td>
+                                                    <td>$vehicle[color]</td>
+                                                    <td>$vehicle[motorNo]</td>
+                                                    <td>$vehicle[chassisNo]</td>
+                                                    <td>$vehicle[stickerNo]</td>
+                                                    <td><button class="btn btn-info" data-toggle='modal' data-target='#view_vehicle' onclick='view_vehicle($key)'>View</button></td>
                                                 </tr>
 DATA;
                                         }
                                     ?>
-						</tbody>
-					</table>
-
-				</div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</div>
 
@@ -179,7 +195,12 @@ DATA;
 		});
 	</script>
 
-</section>  <!-- /Main content -->
+		<?php  
+			require_once('modals/view_vehicle.php');
+
+		?>
+      
+        </section>  <!-- /Main content -->
 
         <br/><br/>
       
@@ -195,5 +216,8 @@ DATA;
 
 
 </body>
-                
+    
+    
+    
+ 
 </html>

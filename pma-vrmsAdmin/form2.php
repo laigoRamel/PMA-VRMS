@@ -108,7 +108,8 @@ include('login/session.php');
               <ul class="treeview-menu">
                 <li><a href="registeredApplicant.php">Applicants</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
-                <li><a href="registeredVehicle.php">Vehicles</a></li>
+                <li><a href="registeredApplicantVehicle.php">Applicant Vehicles</a></li>
+                <li><a href="registeredAFPVehicle.php">Military Vehicles</a></li>
               </ul>
             </li>
               
@@ -155,7 +156,7 @@ include('login/session.php');
                           <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                           <div>
                                <span class="fileinput-filename"></span>
-                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="m_profile"></span>
                               
                             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                           </div>

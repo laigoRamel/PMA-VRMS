@@ -111,7 +111,8 @@
               <ul class="treeview-menu">
                 <li><a href="registeredApplicant.php">Applicants</a></li>
                 <li class="active"><a href="registeredAFP.php">Military</a></li>
-                <li><a href="registeredVehicle.php">Vehicles</a></li>
+                <li><a href="registeredApplicantVehicle.php">Applicant Vehicles</a></li>
+                <li><a href="registeredAFPVehicle.php">Military Vehicles</a></li>
               </ul>
             </li>
               

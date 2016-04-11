@@ -41,9 +41,9 @@
 		$m_dateRegistered = date('Y-m-d H:i:s');
 
 		$query = "INSERT INTO form2_militarypd (m_profile, m_lastname, m_firstname, m_middlename, m_rank, m_brSvc, m_afpsn, m_residenceAddress, m_residenceTelNo, 
-					m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_submitted_requirements, m_status, m_dateRegistered, m_vehicle_id) 
+					m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_submitted_requirements, m_status, m_dateRegistered, m_vehicle_id, m_renew_status) 
 				VALUES ('$img_name', '$m_lastname', '$m_firstname', '$m_middlename', '$m_rank', '$m_brSvc', '$m_afpsn', '$m_residenceAddress', '$m_residenceTelNo', 
-					'$m_emailAddress', '$m_mobileNo', '$m_designatedOffice', '$m_officeTelNo', '$m_officeAddress', '$m_retirementDate', '$m_class', '$all_requirements', '$status', '$m_dateRegistered', '$vehicle_id')";
+					'$m_emailAddress', '$m_mobileNo', '$m_designatedOffice', '$m_officeTelNo', '$m_officeAddress', '$m_retirementDate', '$m_class', '$all_requirements', '$status', '$m_dateRegistered', '$vehicle_id', '1')";
 		
 		$database->execute($query);
 		$database->disconnect();

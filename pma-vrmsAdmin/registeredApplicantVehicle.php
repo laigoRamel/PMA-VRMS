@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registered Vehicles</title>
+	<title>Registered Applicant Vehicles</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +22,7 @@
 
 </head>
 	
-    <?php include('logic/registered_logic.php'); ?>
+    <?php include('logic/registered_applicantVehicle_logic.php'); ?>
     <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
         
@@ -109,7 +109,8 @@
               <ul class="treeview-menu">
                 <li><a href="registeredApplicant.php">Applicants</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
-                <li class="active"><a href="registeredVehicle.php">Vehicles</a></li>
+                <li class="active"><a href="registeredApplicantVehicle.php">Applicant Vehicles</a></li>
+                <li><a href="registeredAFPVehicle.php">Military Vehicles</a></li>
               </ul>
             </li>
               
@@ -132,7 +133,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Registered Vehicles
+            Registered Applicant Vehicles
           </h1>
           
         </section>
