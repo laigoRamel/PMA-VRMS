@@ -8,95 +8,180 @@
 			<div class='modal-body'>
 				<div class='row'>
 					<div class='col-lg-12'>
-						<form action="logic/view_form2Logic.php" method="POST">
-							<div id="view_modal_form2">
-								<fieldset class="scheduler-border">
-									<legend class="scheduler-border">AFP / Military</legend>
-									<fieldset class="scheduler-border">
-										<legend class="scheduler-border">Personal Information</legend>
-										<input style="display:none;" type="text" name="m_militaryId" readonly>
-										<input type="file" name="fileToUpload" id="fileToUpload">
-						    			<br>
-										<label>Last Name: </label>
-										<input type="text" name='m_lastname' readonly>
-										<label>First Name: </label>
-										<input type="text" name='m_firstname' readonly>
-										<label>Middle Name: </label>
-										<input type="text" name='m_middlename' readonly>
-										<br>
-										<label>Rank: </label>
-										<input type="text" name='m_rank' readonly>
-										<label>BR / SVC: </label>
-										<input type="text" name='m_brSvc' readonly>
-										<label>AFPSN: </label>
-										<input type="text" name='m_afpsn' readonly>
-										<br>
-										<label>Residence Address: </label>
-										<input type="text" name='m_residenceAddress' readonly>
-										<br>
-										<label>Residence Tel. No.: </label>
-										<input type="text" name='m_residenceTelNo' readonly>
-										<br>
-										<label>Email Address: </label>
-										<input type="text" name='m_emailAddress' readonly>
-										<label>Mobile No.: </label>
-										<input type="text" name='m_mobileNo' readonly>
-										<br>
-										<label>Designated Office: </label>
-										<input type="text" name='m_designatedOffice' readonly>
-										<label>Office Tel. No.: </label>
-										<input type="text" name='m_officeTelNo' readonly>
-										<br>
-										<label>Office Address: </label>
-										<input type="text" name='m_officeAddress' readonly>
-										<br>
-										<label>Date of Retirement: </label>
-										<input type="text" name='m_retirementDate' readonly>
-									</fieldset>
-									<br/>
-									<fieldset class="scheduler-border">
-										<legend class="scheduler-border">Requirements</legend>
-										<input type="checkbox">Photocopy of current military ID, Office ID, or driver's license</input><br>
-						                <input type="checkbox">Photocopy of retirement/separation/discharged order for former military personnel</input><br>
-						                <input type="checkbox">Photocopy of order for Commissionship/Enlistment for AFP Reservists</input><br>
-						                <input type="checkbox">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</input><br>
-						                <input type="checkbox">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</input><br>
-									</fieldset>
-									<br>
-									<fieldset class="scheduler-border">
-										<legend class="scheduler-border">Type/Class</legend>
-										<input type="radio">Class A</input>
-						                <input type="radio">Class B</input>
-						                <input type="radio">Class C</input>
-									</fieldset>
-									<br>
-									<fieldset class="scheduler-border">
-										<legend class="scheduler-border">Vehicle Information</legend>
-										<input style="display:none;" type="text" name="vehicleId" readonly>
-										<label>Vehicle Make/s: </label>
-										<input type="text" name='vehicleMake' readonly>
-										<br>
-										<label>Plate No.: </label>
-										<input type="text" name='plateNo' readonly>
-										<br>
-										<label>Year Model: </label>
-										<input type="text" name='yearModel' readonly>
-										<br>
-										<label>Color: </label>
-										<input type="text" name='color' readonly>
-										<br>
-										<label>Motor No.: </label>
-										<input type="text" name='motorNo' readonly>
-										<br>
-										<label>Chassis No.: </label>
-										<input type="text" name='chassisNo' readonly>
-										<br>
-										<label>Sticker No.: </label>
-										<input type="text" name='stickerNo' readonly>
-									</fieldset>
-									<button class="btn btn-default pull-right">Print</button>
-								</fieldset>
-							</form>
+						<form action="logic/add_form2Logic.php" enctype='multipart/form-data' method="POST">
+		<!-- personal information -->
+		<div class="row" id="view_modal_form2">
+            <div class="col-md-7">
+                <div class="panel panel-default ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Personal Information</h3> </div>
+                    <div class="panel-body">
+                        <input style="display:none;" type="text" name="m_militaryId" readonly>
+                        
+                        <!-- image display -->
+                        <img src="<?php echo "img/profile/military/$military[m_profile]"; ?>" height="100px">
+
+                        <br>
+                        <br>
+                        <div class="form-horizontal">                  
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Last Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Last Name" name='m_lastname' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">First Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="First Name" name='m_firstname' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Middle Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Middle Name" name='m_middlename' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Rank</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Rank" name='m_rank' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">BR / SVC</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="BR / SVC" name='m_brSvc' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">AFPSN</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="AFPSN" name='m_afpsn' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Residence Address</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Residence Address" name='m_residenceAddress' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Residence Tel. No.</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Residence Tel. No." name='m_residenceTelNo' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Email Address</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Email Address" name='m_emailAddress' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Mobile No.</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Mobile No." name='m_mobileNo' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Designated Office</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Designated Office" name='m_designatedOffice' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Office Tel. No.</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Office Tel. No." name='m_officeTelNo' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Office Address</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Office Address" name='m_officeAddress' required>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Date of Retirement</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="YYYY-MM-DD" name='m_retirementDate' data-mask="9999-99-99" required>
+                              </div>
+                            </div>
+                            
+                        
+                            
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+
+                    
+                </div>
+        
+        <div class="col-md-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Vehicle Type/Class</h3> </div>
+                        <div class="panel-body">
+                        <div class="radio">
+                            <label><input type="text" name="m_class" readonly>
+                        </div>
+        
+                        </div>
+                    </div>
+                
+            
+                
+            </div>
+            
+                <div class="col-md-12">
+                <!-- Vehicle Information -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Vehicle Information</h3> </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal dynamic_field">
+                            <input style="display:none;" type="text" name="vehicleId" readonly>
+                            <table class="table table-bordered" id="dynamic_field">
+                                
+					<tr>  
+						<td><input type="text" name="wheels" class="form-control name_list" readonly></input></td>  
+						<td><input type="text" name="vehicleMake" class="form-control name_list" readonly/></td>  
+						<td><input type="text" name="plateNo" class="form-control name_list" readonly/></td>  
+						<td><input type="text" name="yearModel" class="form-control name_list" readonly></input></td>  
+						<td><input type="text" name="color" class="form-control name_list" readonly/></td>  
+						<td><input type="text" name="motorNo" class="form-control name_list" readonly/></td>  
+						<td><input type="text" name="chassisNo" class="form-control name_list" readonly/></td>  
+						<td><input type="text" name="stickerNo" class="form-control name_list" readonly/></td>
+					</tr>  
+                            
+                            </table>
+                                
+                            
+                        </div>
+                        </div>
+                    </div>
+                    
+                </div>
+        
+		</div>
+		<!--end of div class row-->
+	</form>
 						</div>
 					</div>
 				</div>

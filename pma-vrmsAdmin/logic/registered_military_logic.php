@@ -30,6 +30,7 @@
 		$m_class 				= $military['m_class'];
 		
 		$id 					= $military['vehicleId'];
+		$wheels 				= $military['wheels'];
 		$vehicleMake 			= $military['vehicleMake'];
 		$plateNo 				= $military['plateNo'];
 		$yearModel 				= $military['yearModel'];
@@ -41,7 +42,7 @@
 		array_push($militarys, array('m_militaryId' => $m_id, 'm_profile' => $m_profile,  'm_lastname' => $m_lastname, 'm_firstname' => $m_firstname, 'm_middlename' => $m_middlename,
 			'm_rank' => $m_rank, 'm_brSvc' => $m_brSvc, 'm_afpsn' => $m_afpsn, 'm_residenceAddress' => $m_residenceAddress,
 			'm_residenceTelNo' => $m_residenceTelNo, 'm_emailAddress' => $m_emailAddress, 'm_mobileNo' => $m_mobileNo, 'm_designatedOffice' => $m_designatedOffice, 'm_officeTelNo' => $m_officeTelNo, 'm_officeAddress' => $m_officeAddress, 'm_retirementDate' => $m_retirementDate, 'm_class' => $m_class,
-			'vehicleId' => $id, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 
+			'vehicleId' => $id, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 
 			'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 
 			'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
 	}

@@ -155,16 +155,8 @@
                                     <th>First Name</th>
                                     <th>Middle Name</th>
                                     <th>Rank</th>
-                                    <th>BR / SVC</th>
-                                    <th>AFPSN</th>
-                                    <th>Residence Address</th>
-                                    <th>Residence Tel. No.</th>
                                     <th>Email Address</th>
-                                    <th>Mobile No.</th>
                                     <th>Designated Office</th>
-                                    <th>Office Tel. No.</th>
-                                    <th>Office Address</th>
-                                    <th>Date of Retirement</th>
                                     <th>Class</th>
                                     <th colspan=4 style="text-align:center">Options</th>
                                 </thead>
@@ -173,23 +165,30 @@
                                         foreach ($militarys as $key => $military) {
                                             echo <<<DATA
                                                 <tr id='military_$key'>
-                                                    <td style='display:none'>$military[m_militaryId]</td>
                                                     <td><img src='img/profile/military/$military[m_profile]' height='100px;'></td>
                                                     <td>$military[m_lastname]</td>
                                                     <td>$military[m_firstname]</td>
                                                     <td>$military[m_middlename]</td>
                                                     <td>$military[m_rank]</td>
-                                                    <td>$military[m_brSvc]</td>
-                                                    <td>$military[m_afpsn]</td>
-                                                    <td>$military[m_residenceAddress]</td>
-                                                    <td>$military[m_residenceTelNo]</td>
+                                                    <td style='display:none'>$military[m_brSvc]</td>
+                                                    <td style='display:none'>$military[m_afpsn]</td>
+                                                    <td style='display:none'>$military[m_residenceAddress]</td>
+                                                    <td style='display:none'>$military[m_residenceTelNo]</td>
                                                     <td>$military[m_emailAddress]</td>
-                                                    <td>$military[m_mobileNo]</td>
+                                                    <td style='display:none'>$military[m_mobileNo]</td>
                                                     <td>$military[m_designatedOffice]</td>
-                                                    <td>$military[m_officeTelNo]</td>
-                                                    <td>$military[m_officeAddress]</td>
-                                                    <td>$military[m_retirementDate]</td>
+                                                    <td style='display:none'>$military[m_officeTelNo]</td>
+                                                    <td style='display:none'>$military[m_officeAddress]</td>
+                                                    <td style='display:none'>$military[m_retirementDate]</td>
                                                     <td>$military[m_class]</td>
+                                                    <td style='display:none'>$military[wheels]</td>
+                                                    <td style='display:none'>$military[vehicleMake]</td>
+                                                    <td style='display:none'>$military[plateNo]</td>
+                                                    <td style='display:none'>$military[yearModel]</td>
+                                                    <td style='display:none'>$military[color]</td>
+                                                    <td style='display:none'>$military[motorNo]</td>
+                                                    <td style='display:none'>$military[chassisNo]</td>
+                                                    <td style='display:none'>$military[stickerNo]</td>
                                                     <td><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick='view_form2($key)'>View</button></td>
                                                     <td><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick='renew_military($military[m_militaryId])'>Renew</button></td>
                                                     <td><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick='edit_form2($key)'>Edit</button></td>
@@ -312,7 +311,16 @@ DATA;
 				var m_designatedOffice = row.find('td:nth-child(12)').text();
 				var m_officeTelNo = row.find('td:nth-child(13)').text();
 				var m_officeAddress = row.find('td:nth-child(14)').text();
-				var m_retirementDate = row.find('td:nth-child(15)').text();
+        var m_retirementDate = row.find('td:nth-child(15)').text();
+				var m_class = row.find('td:nth-child(16)').text();
+        var wheels = row.find('td:nth-child(17)').text();
+        var vehicleMake = row.find('td:nth-child(18)').text();
+        var plateNo = row.find('td:nth-child(19)').text();
+        var yearModel = row.find('td:nth-child(20)').text();
+        var color = row.find('td:nth-child(21)').text();
+        var motorNo = row.find('td:nth-child(22)').text();
+        var chassisNo = row.find('td:nth-child(23)').text();
+        var stickerNo = row.find('td:nth-child(24)').text();
 				
 				var modal = $('#view_modal_form2');
 				modal.find('input[name=m_militaryId]').val(m_id);
@@ -329,7 +337,16 @@ DATA;
 				modal.find('input[name=m_designatedOffice]').val(m_designatedOffice);
 				modal.find('input[name=m_officeTelNo]').val(m_officeTelNo);
 				modal.find('input[name=m_officeAddress]').val(m_officeAddress);
-				modal.find('input[name=m_retirementDate]').val(m_retirementDate);
+        modal.find('input[name=m_retirementDate]').val(m_retirementDate);
+				modal.find('input[name=m_class]').val(m_class);
+        modal.find('input[name=wheels]').val(wheels);
+        modal.find('input[name=vehicleMake]').val(vehicleMake);
+        modal.find('input[name=plateNo]').val(plateNo);
+        modal.find('input[name=yearModel]').val(yearModel);
+        modal.find('input[name=color]').val(color);
+        modal.find('input[name=motorNo]').val(motorNo);
+        modal.find('input[name=chassisNo]').val(chassisNo);
+        modal.find('input[name=stickerNo]').val(stickerNo);
 
 
 

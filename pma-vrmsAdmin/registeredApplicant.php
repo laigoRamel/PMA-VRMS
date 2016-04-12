@@ -155,8 +155,6 @@
                                     <th>Address</th>
                                     <th>Occupation</th>
                                     <th>Office Address</th>
-                                    <th>Driver License</th>
-                                    <th>Expiration Date</th>
                                     <th>Class</th>
                                     <th colspan=4 style="text-align:center">Options</th>
                                 </thead>
@@ -172,9 +170,17 @@
                                             <td>$applicant[a_address]</td>
                                             <td>$applicant[a_occupation]</td>
                                             <td>$applicant[a_officeAddress]</td>
-                                            <td>$applicant[a_driversLicense]</td>
-                                            <td>$applicant[a_expirationDate]</td>
+                                            <td style='display:none'>$applicant[a_driversLicense]</td>
+                                            <td style='display:none'>$applicant[a_expirationDate]</td>
                                             <td>$applicant[a_class]</td>
+                                            <td style='display:none'>$applicant[wheels]</td>
+                                            <td style='display:none'>$applicant[vehicleMake]</td>
+                                            <td style='display:none'>$applicant[plateNo]</td>
+                                            <td style='display:none'>$applicant[yearModel]</td>
+                                            <td style='display:none'>$applicant[color]</td>
+                                            <td style='display:none'>$applicant[motorNo]</td>
+                                            <td style='display:none'>$applicant[chassisNo]</td>
+                                            <td style='display:none'>$applicant[stickerNo]</td>
                                             <td><button class="btn btn-info" data-toggle='modal' data-target='#view_form1' onclick='view_form1($key)'>View</button></td>
                                             <td><button class="btn btn-success" data-toggle='modal' data-target='#renew_applicant' onclick='renew_applicant($applicant[a_applicantId])'>Renew</button></td>
                                             <td><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form1' onclick='edit_form1($key)'>Edit</button></td>
@@ -268,6 +274,14 @@ DATA;
 			var a_driversLicense = row.find('td:nth-child(8)').text();
       var a_expirationDate = row.find('td:nth-child(9)').text();
       var a_class = row.find('td:nth-child(10)').text();
+      var wheels = row.find('td:nth-child(11)').text();
+      var vehicleMake = row.find('td:nth-child(12)').text();
+      var plateNo = row.find('td:nth-child(13)').text();
+      var yearModel = row.find('td:nth-child(14)').text();
+      var color = row.find('td:nth-child(15)').text();
+      var motorNo = row.find('td:nth-child(16)').text();
+      var chassisNo = row.find('td:nth-child(17)').text();
+      var stickerNo = row.find('td:nth-child(18)').text();
       
 			var modal = $('#view_modal_form1');
 			modal.find('input[name=a_applicantId]').val(a_id);
@@ -280,19 +294,6 @@ DATA;
 			modal.find('input[name=a_driversLicense]').val(a_driversLicense);
       modal.find('input[name=a_expirationDate]').val(a_expirationDate);
       modal.find('input[name=a_class]').val(a_class);
-      
-
-      var row = $('#applicant_'+key);
-      var wheels = row.find('td:nth-child(11)').text();
-      var vehicleMake = row.find('td:nth-child(12)').text();
-      var plateNo = row.find('td:nth-child(13)').text();
-      var yearModel = row.find('td:nth-child(14)').text();
-      var color = row.find('td:nth-child(15)').text();
-      var motorNo = row.find('td:nth-child(16)').text();
-      var chassisNo = row.find('td:nth-child(17)').text();
-      var stickerNo = row.find('td:nth-child(18)').text();
-
-      var modal = $('#view_modal_form1');
       modal.find('input[name=wheels]').val(wheels);
       modal.find('input[name=vehicleMake]').val(vehicleMake);
       modal.find('input[name=plateNo]').val(plateNo);
@@ -301,6 +302,7 @@ DATA;
       modal.find('input[name=motorNo]').val(motorNo);
       modal.find('input[name=chassisNo]').val(chassisNo);
       modal.find('input[name=stickerNo]').val(stickerNo);
+
 		}
 
     var renew_applicant = function(key){
