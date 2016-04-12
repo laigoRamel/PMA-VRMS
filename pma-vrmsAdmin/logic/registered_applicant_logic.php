@@ -3,7 +3,7 @@
 
 	$database = new Database();
 
-	$query = "SELECT form1_applicantpd.*, vehicle_information.* FROM form1_applicantpd JOIN vehicle_information ON form1_applicantpd.a_vehicle_id=vehicle_information.vehicleId WHERE form1_applicantpd.a_status='registered' AND form1_applicantpd.a_renew_status = '1'";
+	$query = "SELECT form1_applicantpd.*, vehicle_information.* FROM form1_applicantpd JOIN vehicle_information ON form1_applicantpd.a_vehicle_id=vehicle_information.vehicleId WHERE form1_applicantpd.a_status='registered' AND form1_applicantpd.a_renew_status = '1' ORDER BY a_dateRegistered DESC";
 	$database->execute($query);
 	
 	$rows = $database->getResult();

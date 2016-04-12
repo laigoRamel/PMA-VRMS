@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2016 at 08:53 AM
+-- Generation Time: Apr 12, 2016 at 10:23 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -32,25 +32,14 @@ CREATE TABLE IF NOT EXISTS `admin_logs` (
   `time_out` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `admin_logs`
 --
 
 INSERT INTO `admin_logs` (`id`, `time_in`, `time_out`, `user_id`) VALUES
-(2, '2016-03-13 20:10:45', '0000-00-00 00:00:00', 2),
-(4, '2016-03-13 20:11:33', '2016-03-13 20:11:40', 2),
-(5, '2016-03-13 20:12:05', '2016-03-13 20:12:12', 2),
-(8, '2016-03-13 20:14:01', '2016-03-13 20:14:20', 2),
-(10, '2016-03-13 20:52:53', '2016-03-13 20:52:57', 2),
-(11, '2016-03-13 20:53:03', '2016-03-13 20:55:02', 2),
-(14, '2016-03-13 20:59:36', '2016-03-13 21:00:20', 1),
-(16, '2016-03-13 21:13:04', '2016-03-13 21:13:12', 1),
-(17, '2016-04-05 09:43:24', '0000-00-00 00:00:00', 1),
-(18, '2016-04-08 18:20:27', '2016-04-08 18:30:10', 1),
-(19, '2016-04-09 21:01:00', '2016-04-10 04:54:00', 1),
-(20, '2016-04-11 12:47:07', '0000-00-00 00:00:00', 1);
+(1, '2016-04-12 14:59:23', '2016-04-12 16:23:35', 1);
 
 -- --------------------------------------------------------
 
@@ -113,29 +102,20 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_vehicle_id` int(11) NOT NULL,
   `a_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`a_applicantId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `form1_applicantpd`
 --
 
 INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_firstname`, `a_middlename`, `a_address`, `a_occupation`, `a_officeAddress`, `a_driversLicense`, `a_expirationDate`, `a_class`, `a_submitted_requirements`, `a_status`, `a_dateRegistered`, `a_vehicle_id`, `a_renew_status`) VALUES
-(5, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '', 'registered', '2016-04-09 15:10:58', 8, 0),
-(7, 'darry;-go.png', 'go', 'darry;', '', '', '', '', '', '', '', '', 'pending', '2016-04-09 16:01:42', 17, 0),
-(8, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '3,2,1,', 'pending', '2016-04-09 15:10:58', 8, 0),
-(9, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
-(10, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
-(11, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
-(12, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
-(13, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '1,', 'pending', '2016-04-09 15:10:58', 8, 1),
-(14, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-09 15:10:58', 8, 0),
-(15, 'alvy-mangosan.png', 'mangosan', 'alvy', '', '', '', '', '', '', '', '5,4,3,', 'pending', '2016-04-09 15:10:58', 8, 1),
-(16, 'ramel-laigo.png', 'laigo', 'ramel', '', '', '', '', '', '', '', '', 'pending', '2016-04-11 06:50:36', 19, 1),
-(17, 'ramel-laigo.png', 'laigo', 'ramel', 'labinio', '', '', '', '', '', '', '', 'registered', '2016-04-11 07:01:24', 20, 1),
-(18, 'hello-hello.png', 'hello', 'hello', '', '', '', '', '', '', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-11 07:07:07', 22, 0),
-(19, 'hello-hello.png', 'hello', 'hello', '', '', '', '', '', '', 'Class C', '2,1,', 'pending', '2016-04-11 07:07:07', 22, 1),
-(20, 'test-test.png', 'test', 'test', 'test', '', '', '', '', '', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-11 07:49:15', 28, 0),
-(21, 'test-test.png', 'test', 'test', 'test', '', '', '', '', '', 'Class C', '5,4,3,', 'pending', '2016-04-11 07:49:15', 28, 1);
+(1, 'Galen-Dudas.png', 'Dudas', 'Galen', 'Nelag', 'Baguio City', 'Driver', 'Fort del Pillar', '1111111111', '2017-01-16', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-12 09:10:11', 1, 1),
+(2, 'Marcelino-Dubuque.png', 'Dubuque', 'Marcelino', 'Stansbury', 'Baguio City', 'Driver', 'Fort del Pillar', '2222222222', '2018-01-01', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-12 09:12:40', 2, 1),
+(3, 'Bradley-Whisler.png', 'Whisler', 'Bradley', 'Dudas', 'Baguio City', 'Employee', 'Fort del Pillar', '3333333333', '2019-12-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:17:04', 3, 1),
+(4, 'Saran-Madere.png', 'Madere', 'Saran', 'Heist', 'La Trinidad', 'Secretary', 'Fort del Pillar', '4444444444', '2016-12-3', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:22:45', 4, 1),
+(5, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', 5, 1),
+(6, 'Jonas-Starkweather.png', 'Starkweather', 'Jonas', 'Cole', 'Baguio City', 'Database Administrator', 'Fort del Pillar', '6666666666', '2016-12-25', 'Class B', '3,2,1,', 'pending', '2016-04-12 09:31:51', 6, 1),
+(7, 'Eugenia-Alamo.png', 'Alamo', 'Eugenia', 'Dowdle', 'La Trinidad', 'Janitor', 'Fort del Pillar', '7777777777', '2017-04-06', 'Class B', '5,4,1,', 'pending', '2016-04-12 09:34:32', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -167,25 +147,20 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_vehicle_id` int(11) NOT NULL,
   `m_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`m_militaryId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `form2_militarypd`
 --
 
 INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_dateRegistered`, `m_vehicle_id`, `m_renew_status`) VALUES
-(10, 'KRISS-ULAT.png', 'ULAT', 'KRISS', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'registered', '2016-04-09 15:46:52', 16, 0),
-(11, 'test-test.png', 'test', 'test', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'registered', '2016-04-09 16:04:23', 18, 0),
-(12, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '2,1,', 'pending', '0000-00-00 00:00:00', 0, 1),
-(13, 'test-test.png', 'test', 'test', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-09 16:04:23', 0, 1),
-(14, 'KRISS-ULAT.png', 'ULAT', 'KRISS', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '2,1,', 'pending', '2016-04-09 15:46:52', 0, 1),
-(15, 'marc-lim.png', 'lim', 'marc', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'registered', '2016-04-11 07:03:30', 21, 1),
-(16, 'hai-hai.png', 'hai', 'hai', '', '', '', '', '', '', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-11 07:07:45', 23, 0),
-(17, 'qwerty-qwerty.png', 'qwerty', 'qwerty', '', '', '', '', '', '', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-11 07:11:13', 25, 1),
-(18, 'pop-pop.png', 'pop', 'pop', '', '', '', '', '', '', '', '', '', '', '', '', '', '5,4,3,2,1,', 'registered', '2016-04-11 07:12:03', 26, 0),
-(19, 'pop-pop.png', 'pop', 'pop', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '2,1,', 'pending', '2016-04-11 07:12:03', 0, 1),
-(20, 'jkl-jkl.png', 'jkl', 'jkl', '', '', '', '', '', '', '', '', '', '', '', '', '', '4,3,', 'pending', '2016-04-11 07:41:58', 27, 1),
-(21, 'test-test.png', 'test', 'test', '', '', '', '', '', '', '', '', '', '', '', '$[m_retirementDate]', '$[m_class]', '5,4,', 'pending', '2016-04-09 16:04:23', 0, 1);
+(1, 'Bernardo-Stansberry.png', 'Stansberry', 'Bernardo', 'Tomson', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson@gmail.com', '09305285214', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2030-12-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 09:48:21', 8, 1),
+(2, 'Davis-Olmo.png', 'Olmo', 'Davis', 'Labar', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'labar@gmail.com', '09125485241', 'ACAD1', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-30', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 09:54:13', 9, 1),
+(3, 'Rico-Ogle.png', 'Ogle', 'Rico', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'ogle@gmail.com', '09126548654', 'ACAD2', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-04-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 10:02:48', 10, 1),
+(4, 'Berry-Sanabria.png', 'Sanabria', 'Berry', 'Tomson', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson1@gmail.com', '09124565784', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2025-08-9-09', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:08:09', 11, 1),
+(5, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2019-04-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', 12, 1),
+(6, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-01', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', 13, 1),
+(7, 'Horacio-Desousa.png', 'Desousa', 'Horacio', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'horacio@gmail.com', '09304565871', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2015-06-09', 'Class B', '2,1,', 'pending', '2016-04-12 10:16:59', 14, 1);
 
 -- --------------------------------------------------------
 
@@ -383,41 +358,27 @@ CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `chassisNo` varchar(60) NOT NULL,
   `stickerNo` varchar(60) NOT NULL,
   PRIMARY KEY (`vehicleId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `vehicle_information`
 --
 
 INSERT INTO `vehicle_information` (`vehicleId`, `wheels`, `vehicleMake`, `plateNo`, `yearModel`, `color`, `motorNo`, `chassisNo`, `stickerNo`) VALUES
-(1, '', 'Honda', '3434543', '2016', 'red', 'Honda', '3423', '23432'),
-(2, '', 'Toyota', '234234', '2015', 'Blue', '3423', '23432', '23432'),
-(3, '', 'Honda', '43534', '2013', 'Black', '23432', '342342', '234324'),
-(4, '', 'Mitsu', '32423', '2010', 'red', 'Mitsu', '23432', '3434'),
-(5, '', '', '', '', '', '', '', ''),
-(6, '', '', '', '', '', '', '', ''),
-(7, '', '', '', '', '', '', '', ''),
-(8, '', '', '', '', '', '', '', ''),
-(9, '', '', '', '', '', '', '', ''),
-(10, '', '', '', '', '', '', '', ''),
-(11, '', '', '', '', '', '', '', ''),
-(12, '', '', '', '', '', '', '', ''),
-(13, '', '', '', '', '', '', '', ''),
-(14, '', '', '', '', '', '', '', ''),
-(15, '', '', '', '', '', '', '', ''),
-(16, '', '', '', '', '', '', '', ''),
-(17, '', '', '', '', '', '', '', ''),
-(18, '', '', '', '', '', '', '', ''),
-(19, '', '', '', '', '', '', '', ''),
-(20, '', '', '', '', '', '', '', ''),
-(21, '', '', '', '', '', '', '', ''),
-(22, '', '', '', '', '', '', '', ''),
-(23, '', '', '', '', '', '', '', ''),
-(24, '', '', '', '', '', '', '', ''),
-(25, '', '', '', '', '', '', '', ''),
-(26, '', '', '', '', '', '', '', ''),
-(27, '', '', '', '', '', '', '', ''),
-(28, '', '', '', '', '', '', '', '');
+(1, '4-wheeled', 'Jeep', 'abc123', '2007', 'red', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(2, '4-wheeled', 'Jeep', 'def456', '2007', 'blue', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(3, '2-wheeled', 'scooter', 'ghi789', '2006', 'green', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(4, '4-wheeled', 'Ford', 'klm123', '2008', 'pink', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(5, '4-wheeled', 'Ferrari', 'nop456', '2007', 'red', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(6, '4-wheeled', 'Ford', 'qrs789', '2015', 'red', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(7, '2-wheeled', 'scooter', 'tuv123', '2007', 'blue', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(8, '4-wheeled', 'Ford', 'qwe123', '2008', 'brown', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(9, '4-wheeled', 'Honda', 'asd321', '2007', 'navyblue', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(10, '4-wheeled', 'Honda', 'zxc456', '2014', 'blue', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(11, '4-wheeled', 'Ford', 'poi567', '2017', 'yellow', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(12, '4-wheeled', 'Honda', 'fgh523', '2005', 'red', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(13, '4-wheeled', 'Ferrari', 'dfg123', '2016', 'red', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(14, '4-wheeled', 'Honda', 'ghr234', '2007', 'blue', 'xxxxxx', 'xxxxxx', 'xxxxxx');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

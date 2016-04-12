@@ -156,7 +156,7 @@ include('login/session.php');
                           <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                           <div>
                                <span class="fileinput-filename"></span>
-                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="m_profile"></span>
+                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="m_profile" required></span>
                               
                             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                           </div>
@@ -167,105 +167,98 @@ include('login/session.php');
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Last Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Last Name" name='m_lastname'>
+                                <input type="text" class="form-control" placeholder="Last Name" name='m_lastname' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">First Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="First Name" name='m_firstname'>
+                                <input type="text" class="form-control" placeholder="First Name" name='m_firstname' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Middle Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Middle Name" name='m_middlename'>
+                                <input type="text" class="form-control" placeholder="Middle Name" name='m_middlename' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Rank</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Rank" name='m_rank'>
+                                <input type="text" class="form-control" placeholder="Rank" name='m_rank' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">BR / SVC</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="BR / SVC" name='m_brSvc'>
+                                <input type="text" class="form-control" placeholder="BR / SVC" name='m_brSvc' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">AFPSN</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="AFPSN" name='m_afpsn'>
+                                <input type="text" class="form-control" placeholder="AFPSN" name='m_afpsn' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Residence Address</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Residence Address" name='m_residenceAddress'>
+                                <input type="text" class="form-control" placeholder="Residence Address" name='m_residenceAddress' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Residence Tel. No.</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Residence Tel. No." name='m_residenceTelNo'>
+                                <input type="text" class="form-control" placeholder="Residence Tel. No." name='m_residenceTelNo' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Email Address</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Email Address" name='m_emailAddress'>
+                                <input type="text" class="form-control" placeholder="Email Address" name='m_emailAddress' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Mobile No.</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Mobile No." name='m_mobileNo'>
+                                <input type="text" class="form-control" placeholder="Mobile No." name='m_mobileNo' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Designated Office</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Designated Office" name='m_designatedOffice'>
+                                <input type="text" class="form-control" placeholder="Designated Office" name='m_designatedOffice' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Office Tel. No.</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Office Tel. No." name='m_officeTelNo'>
+                                <input type="text" class="form-control" placeholder="Office Tel. No." name='m_officeTelNo' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Office Address</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Office Address" name='m_officeAddress'>
+                                <input type="text" class="form-control" placeholder="Office Address" name='m_officeAddress' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Date of Retirement</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="YYYY-MM-DD" name='m_retirementDate' data-mask="9999-99-99">
-                              </div>
-                            </div>
-                            
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label">Class</label>
-                              <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Class" name='m_class'>
+                                <input type="text" class="form-control" placeholder="YYYY-MM-DD" name='m_retirementDate' data-mask="9999-99-99" required>
                               </div>
                             </div>
                             
@@ -286,20 +279,20 @@ include('login/session.php');
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
                         <div class="panel-body">
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class A">Class A (PASSCARD)</label>
+                            <label><input type="radio" name="m_class" value="Class A" required>Class A (PASSCARD)</label>
                             <p>&emsp; a. Registered to active Military Personnel</p>
                             <p>&emsp; b. Staff vehicles registered to the AFP</p>
                         </div>
         
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class B">Class B (RED Sticker)</label>
+                            <label><input type="radio" name="m_class" value="Class B" required>Class B (RED Sticker)</label>
                             <p>&emsp; a. Former military personnel or AFP Reservists</p>
                             <p>&emsp; b. Unremarried widow/widower of Military Personnel</p>
                             <p>&emsp; c. AFP & DND Civillian employees</p>
                         </div>
         
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class C">Class C (YELLOW Sticker)</label>
+                            <label><input type="radio" name="m_class" value="Class C" required>Class C (YELLOW Sticker)</label>
                             <p>&emsp; a. Concessionaires/Traders with AFP Contract</p>
                             <p>&emsp; b. Official/Employee/Member of tenant entity/club facility on post</p>
                             <p>&emsp; c. Diplomats and expatriates</p>
@@ -349,16 +342,16 @@ include('login/session.php');
                                 
 					<tr>
             <td>
-              <select name="wheels[]" class="form-control name_list" >
+              <select name="wheels[]" class="form-control name_list" required>
                 <option value="">No. of Wheels...</option>
                 <option value="2-wheeled">2-wheeled</option>
                 <option value="4-wheeled">4-wheeled</option>
               </select>
             </td>  
-						<td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td>  
-						<td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td>  
+						<td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" required/></td>  
+						<td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" required/></td>  
 						<td>
-              <select name="yearModel[]" class="form-control name_list">
+              <select name="yearModel[]" class="form-control name_list" required>
                 <option value="">Year Model...</option>
                 <option value="1990">1990</option>
                 <option value="1991">1991</option>
@@ -393,10 +386,10 @@ include('login/session.php');
                 <option value="2020">2020</option>
               </select>
             </td>  
-						<td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td>  
-						<td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td>  
-						<td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td>  
-						<td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" /></td>  
+						<td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" required/></td>  
+						<td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" required/></td>  
+						<td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" required/></td>  
+						<td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" required/></td>  
 						<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
 					</tr>  
                             

@@ -61,8 +61,8 @@
 			'm_residenceTelNo' => $m_residenceTelNo, 'm_emailAddress' => $m_emailAddress, 'm_mobileNo' => $m_mobileNo, 'm_designatedOffice' => $m_designatedOffice, 'm_officeTelNo' => $m_officeTelNo, 'm_officeAddress' => $m_officeAddress, 'm_retirementDate' => $m_retirementDate, 'm_class' => $m_class));
 	}
 
-//vehicle
-	$query = 'SELECT * FROM vehicle_information JOIN form1_applicantpd ON form1_applicantpd.a_vehicle_id = vehicle_information.vehicleId';
+//applicant vehicle
+	$query = "SELECT * FROM vehicle_information JOIN form1_applicantpd ON form1_applicantpd.a_vehicle_id = vehicle_information.vehicleId  WHERE form1_applicantpd.a_status='registered'  AND form1_applicantpd.a_renew_status = '1'";
 	$database->execute($query);
 	
 	$rows = $database->getResult();
@@ -71,7 +71,6 @@
 	
 	while($vehicle = mysqli_fetch_array($rows)){
 		$id 		= $vehicle['vehicleId'];
-		$owner 	= $vehicle['a_firstname'].', '.$vehicle['a_lastname'];
 		$wheels 	= $vehicle['wheels'];
 		$vehicleMake 	= $vehicle['vehicleMake'];
 		$plateNo 	= $vehicle['plateNo'];
@@ -81,7 +80,29 @@
 		$chassisNo 	= $vehicle['chassisNo'];
 		$stickerNo 	= $vehicle['stickerNo'];
 		
-		array_push($vehicles, array('vehicleId' => $id, 'owner' => $owner, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
+		array_push($vehicles, array('vehicleId' => $id, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
+	}
+
+//military vehicle
+	$query1 = "SELECT form2_militarypd.*, vehicle_information.* FROM form2_militarypd JOIN vehicle_information ON form2_militarypd.m_vehicle_id=vehicle_information.vehicleId WHERE form2_militarypd.m_status='registered' AND form2_militarypd.m_renew_status = '1'";
+	$database->execute($query1);
+
+	$rows = $database->getResult();
+	
+	$vehicles = array();
+
+	while($vehicle = mysqli_fetch_array($rows)){
+		$id 		= $vehicle['vehicleId'];
+		$wheels 	= $vehicle['wheels'];
+		$vehicleMake 	= $vehicle['vehicleMake'];
+		$plateNo 	= $vehicle['plateNo'];
+		$yearModel 	= $vehicle['yearModel'];
+		$color 	= $vehicle['color'];
+		$motorNo 	= $vehicle['motorNo'];
+		$chassisNo 	= $vehicle['chassisNo'];
+		$stickerNo 	= $vehicle['stickerNo'];
+		
+		array_push($vehicles, array('vehicleId' => $id, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
 	}
 
 

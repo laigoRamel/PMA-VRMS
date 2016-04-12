@@ -156,7 +156,7 @@ include('login/session.php');
                           <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                           <div>
                                <span class="fileinput-filename"></span>
-                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="a_profile"></span>
+                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="a_profile" required></span>
                               
                             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                           </div>
@@ -167,56 +167,56 @@ include('login/session.php');
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Last Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Last Name" name='a_lastname'>
+                                <input type="text" class="form-control" placeholder="Last Name" name='a_lastname' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">First Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="First Name" name='a_firstname'>
+                                <input type="text" class="form-control" placeholder="First Name" name='a_firstname' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Middle Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Middle Name" name='a_middlename'>
+                                <input type="text" class="form-control" placeholder="Middle Name" name='a_middlename' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Address</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Address" name='a_address'>
+                                <input type="text" class="form-control" placeholder="Address" name='a_address' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Occupation</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Occupation" name='a_occupation'>
+                                <input type="text" class="form-control" placeholder="Occupation" name='a_occupation' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Office Address</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Address" name='a_officeAddress'>
+                                <input type="text" class="form-control" placeholder="Address" name='a_officeAddress' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Driver's License</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Driver's License" name='a_driversLicense'>
+                                <input type="text" class="form-control" placeholder="Driver's License" name='a_driversLicense' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Expiration Date</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="YYYY-MM-DD" name='a_expirationDate' data-mask="9999-99-99">
+                                <input type="text" class="form-control" placeholder="YYYY-MM-DD" name='a_expirationDate' data-mask="9999-99-99" required>
                               </div>
                             </div>
                             
@@ -235,14 +235,14 @@ include('login/session.php');
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
                         <div class="panel-body">
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class A">Class A (PASSCARD)</label>
+                            <label><input type="radio" name="a_class" value="Class A" required>Class A (PASSCARD)</label>
                             <p>&emsp; a. Registered to active Military Personnel</p>
                             <p>&emsp; b. Staff vehicles registered to the AFP</p>
                         </div>
         				<br>
 
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class B">Class B (RED Sticker)</label>
+                            <label><input type="radio" name="a_class" value="Class B" required>Class B (RED Sticker)</label>
                             <p>&emsp; a. Former military personnel or AFP Reservists</p>
                             <p>&emsp; b. Unremarried widow/widower of Military Personnel</p>
                             <p>&emsp; c. AFP & DND Civillian employees</p>
@@ -250,7 +250,7 @@ include('login/session.php');
         				<br>
 
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class C">Class C (YELLOW Sticker)</label>
+                            <label><input type="radio" name="a_class" value="Class C" required>Class C (YELLOW Sticker)</label>
                             <p>&emsp; a. Concessionaires/Traders with AFP Contract</p>
                             <p>&emsp; b. Official/Employee/Member of tenant entity/club facility on post</p>
                             <p>&emsp; c. Diplomats and expatriates</p>
@@ -300,16 +300,16 @@ include('login/session.php');
                                 
 					<tr>  
 						<td>
-							<select name="wheels[]" class="form-control name_list" >
+							<select name="wheels[]" class="form-control name_list" required>
 								<option value="">No. of Wheels...</option>
 								<option value="2-wheeled">2-wheeled</option>
 								<option value="4-wheeled">4-wheeled</option>
 							</select>
 						</td>  
-						<td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td>  
-						<td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td>  
+						<td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" required/></td>  
+						<td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" required/></td>  
 						<td>
-							<select name="yearModel[]" class="form-control name_list">
+							<select name="yearModel[]" class="form-control name_list" required>
 								<option value="">Year Model...</option>
 								<option value="1990">1990</option>
 								<option value="1991">1991</option>
@@ -344,10 +344,10 @@ include('login/session.php');
 								<option value="2020">2020</option>
 							</select>
 						</td>  
-						<td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td>  
-						<td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td>  
-						<td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td>  
-						<td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" /></td>  
+						<td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" required/></td>  
+						<td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" required/></td>  
+						<td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" required/></td>  
+						<td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" required/></td>  
 						<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
 					</tr>  
                             
