@@ -20,11 +20,8 @@
                     <div class="panel-body">
                         <input style="display:none;" type="text" name="a_applicantId" readonly>
                         
-                        <!-- image display -->
-                        <img src="<?php echo "img/profile/applicant/$applicant[a_profile]"; ?>" height="100px">
+                        
 
-                        <br>
-                        <br>
                         <div class="form-horizontal">                  
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Last Name</label>
@@ -90,6 +87,18 @@
                 </div>
         
         <div class="col-md-5">
+            
+            <!-- image display -->
+            <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Vehicle Type/Class</h3> </div>
+                        <div class="panel-body">
+                        <div>
+                            <img src="<?php echo "img/profile/applicant/$applicant[a_profile]"; ?>" height="100px">
+                        </div>
+                        </div>
+                    </div>
+            
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
@@ -99,9 +108,6 @@
                         </div>
                         </div>
                     </div>
-                
-                
-            
                 
             </div>
             

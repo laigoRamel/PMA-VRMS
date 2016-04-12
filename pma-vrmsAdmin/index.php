@@ -144,7 +144,7 @@ include('login/session.php');
                         <span class="info-box-icon bg-aqua"><i class="fa fa-car"></i></span>
                     </a>
                     <div class="info-box-content">
-                      <span class="info-box-text">Current Visitors</span>
+                      <span class="info-box-text">Current Vehicles</span>
                       <span class="info-box-number">50</span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
@@ -167,7 +167,7 @@ include('login/session.php');
                     <span class="info-box-icon bg-green"><i class="fa fa-user-plus"></i></span>
                     <div class="info-box-content">
                       <span class="info-box-text">Today's visitors</span>
-                      <span class="info-box-number">55</span>
+                      <span class="info-box-number">132</span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
