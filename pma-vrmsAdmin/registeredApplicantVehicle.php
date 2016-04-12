@@ -161,23 +161,31 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        foreach ($vehicles as $key => $vehicle) {
-                                            echo <<<DATA
-                                                <tr id='vehicle_$key'>
-                                                    <td style='display:none'>$vehicle[vehicleId]</td>
-                                                    <td>$vehicle[owner]</td>
-                                                    <td>$vehicle[wheels]</td>
-                                                    <td>$vehicle[vehicleMake]</td>
-                                                    <td>$vehicle[plateNo]</td>
-                                                    <td>$vehicle[yearModel]</td>
-                                                    <td>$vehicle[color]</td>
-                                                    <td>$vehicle[motorNo]</td>
-                                                    <td>$vehicle[chassisNo]</td>
-                                                    <td>$vehicle[stickerNo]</td>
-                                                    <td><button class="btn btn-info" data-toggle='modal' data-target='#view_vehicle' onclick='view_vehicle($key)'>View</button></td>
-                                                </tr>
+                                    foreach ($applicants as $key => $applicant) {
+                                        echo <<<DATA
+                                        <tr id='applicant_$key'>
+                                            <td><img src='img/profile/applicant/$applicant[a_profile]' height='100px;'></td>
+                                            <td style='display:none'>$applicant[a_lastname]</td>
+                                            <td style='display:none'>$applicant[a_firstname]</td>
+                                            <td style='display:none'>$applicant[a_middlename]</td>
+                                            <td style='display:none'>$applicant[a_address]</td>
+                                            <td style='display:none'>$applicant[a_occupation]</td>
+                                            <td style='display:none'>$applicant[a_officeAddress]</td>
+                                            <td style='display:none'>$applicant[a_driversLicense]</td>
+                                            <td style='display:none'>$applicant[a_expirationDate]</td>
+                                            <td style='display:none'>$applicant[a_class]</td>
+                                            <td>$applicant[wheels]</td>
+                                            <td>$applicant[vehicleMake]</td>
+                                            <td>$applicant[plateNo]</td>
+                                            <td>$applicant[yearModel]</td>
+                                            <td>$applicant[color]</td>
+                                            <td>$applicant[motorNo]</td>
+                                            <td>$applicant[chassisNo]</td>
+                                            <td>$applicant[stickerNo]</td>
+                                            <td><button class="btn btn-info" data-toggle='modal' data-target='#view_form1' onclick='view_form1($key)'>View</button></td>
+                                        </tr>
 DATA;
-                                        }
+                                    }
                                     ?>
                                 </tbody>
                             </table>
@@ -196,10 +204,57 @@ DATA;
 	</script>
 
 		<?php  
-			require_once('modals/view_vehicle.php');
+			require_once('modals/view_form1.php');
 
 		?>
+  
+  <script type="text/javascript">
+
+    var view_form1 = function(key){
+      var row = $('#applicant_'+key);
+      var a_id = row.find('td:first-child').text();
+      var a_lastname = row.find('td:nth-child(2)').text();
+      var a_firstname = row.find('td:nth-child(3)').text();
+      var a_middlename = row.find('td:nth-child(4)').text();
+      var a_address = row.find('td:nth-child(5)').text();
+      var a_occupation = row.find('td:nth-child(6)').text();
+      var a_officeAddress = row.find('td:nth-child(7)').text();
+      var a_driversLicense = row.find('td:nth-child(8)').text();
+      var a_expirationDate = row.find('td:nth-child(9)').text();
+      var a_class = row.find('td:nth-child(10)').text();
+      var wheels = row.find('td:nth-child(11)').text();
+      var vehicleMake = row.find('td:nth-child(12)').text();
+      var plateNo = row.find('td:nth-child(13)').text();
+      var yearModel = row.find('td:nth-child(14)').text();
+      var color = row.find('td:nth-child(15)').text();
+      var motorNo = row.find('td:nth-child(16)').text();
+      var chassisNo = row.find('td:nth-child(17)').text();
+      var stickerNo = row.find('td:nth-child(18)').text();
       
+      var modal = $('#view_modal_form1');
+      modal.find('input[name=a_applicantId]').val(a_id);
+      modal.find('input[name=a_lastname]').val(a_lastname);
+      modal.find('input[name=a_firstname]').val(a_firstname);
+      modal.find('input[name=a_middlename]').val(a_middlename);
+      modal.find('input[name=a_address]').val(a_address);
+      modal.find('input[name=a_occupation]').val(a_occupation);
+      modal.find('input[name=a_officeAddress]').val(a_officeAddress);
+      modal.find('input[name=a_driversLicense]').val(a_driversLicense);
+      modal.find('input[name=a_expirationDate]').val(a_expirationDate);
+      modal.find('input[name=a_class]').val(a_class);
+      modal.find('input[name=wheels]').val(wheels);
+      modal.find('input[name=vehicleMake]').val(vehicleMake);
+      modal.find('input[name=plateNo]').val(plateNo);
+      modal.find('input[name=yearModel]').val(yearModel);
+      modal.find('input[name=color]').val(color);
+      modal.find('input[name=motorNo]').val(motorNo);
+      modal.find('input[name=chassisNo]').val(chassisNo);
+      modal.find('input[name=stickerNo]').val(stickerNo);
+
+    }
+
+  </script>
+
         </section>  <!-- /Main content -->
 
         <br/><br/>

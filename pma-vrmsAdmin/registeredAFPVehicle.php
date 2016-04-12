@@ -161,20 +161,34 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        foreach ($vehicles as $key => $vehicle) {
+                                        foreach ($militarys as $key => $military) {
                                             echo <<<DATA
-                                                <tr id='vehicle_$key'>
-                                                    <td style='display:none'>$vehicle[vehicleId]</td>
-                                                    <td>$vehicle[owner]</td>
-                                                    <td>$vehicle[wheels]</td>
-                                                    <td>$vehicle[vehicleMake]</td>
-                                                    <td>$vehicle[plateNo]</td>
-                                                    <td>$vehicle[yearModel]</td>
-                                                    <td>$vehicle[color]</td>
-                                                    <td>$vehicle[motorNo]</td>
-                                                    <td>$vehicle[chassisNo]</td>
-                                                    <td>$vehicle[stickerNo]</td>
-                                                    <td><button class="btn btn-info" data-toggle='modal' data-target='#view_vehicle' onclick='view_vehicle($key)'>View</button></td>
+                                                <tr id='military_$key'>
+                                                    <td><img src='img/profile/military/$military[m_profile]' height='100px;'></td>
+                                                    <td style='display:none'>$military[m_lastname]</td>
+                                                    <td style='display:none'>$military[m_firstname]</td>
+                                                    <td style='display:none'>$military[m_middlename]</td>
+                                                    <td style='display:none'>$military[m_rank]</td>
+                                                    <td style='display:none'>$military[m_brSvc]</td>
+                                                    <td style='display:none'>$military[m_afpsn]</td>
+                                                    <td style='display:none'>$military[m_residenceAddress]</td>
+                                                    <td style='display:none'>$military[m_residenceTelNo]</td>
+                                                    <td style='display:none'>$military[m_emailAddress]</td>
+                                                    <td style='display:none'>$military[m_mobileNo]</td>
+                                                    <td style='display:none'>$military[m_designatedOffice]</td>
+                                                    <td style='display:none'>$military[m_officeTelNo]</td>
+                                                    <td style='display:none'>$military[m_officeAddress]</td>
+                                                    <td style='display:none'>$military[m_retirementDate]</td>
+                                                    <td style='display:none'>$military[m_class]</td>
+                                                    <td>$military[wheels]</td>
+                                                    <td>$military[vehicleMake]</td>
+                                                    <td>$military[plateNo]</td>
+                                                    <td>$military[yearModel]</td>
+                                                    <td>$military[color]</td>
+                                                    <td>$military[motorNo]</td>
+                                                    <td>$military[chassisNo]</td>
+                                                    <td>$military[stickerNo]</td>
+                                                    <td><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick='view_form2($key)'>View</button></td>
                                                 </tr>
 DATA;
                                         }
@@ -196,10 +210,65 @@ DATA;
 	</script>
 
 		<?php  
-			require_once('modals/view_vehicle.php');
-
+			require_once('modals/view_form2.php');
 		?>
       
+    <script type="text/javascript">
+      var view_form2 = function(key){
+        var row = $('#military_'+key);
+        var m_id = row.find('td:first-child').text();
+        var m_lastname = row.find('td:nth-child(2)').text();
+        var m_firstname = row.find('td:nth-child(3)').text();
+        var m_middlename = row.find('td:nth-child(4)').text();
+        var m_rank = row.find('td:nth-child(5)').text();
+        var m_brSvc = row.find('td:nth-child(6)').text();
+        var m_afpsn = row.find('td:nth-child(7)').text();
+        var m_residenceAddress = row.find('td:nth-child(8)').text();
+        var m_residenceTelNo = row.find('td:nth-child(9)').text();
+        var m_emailAddress = row.find('td:nth-child(10)').text();
+        var m_mobileNo = row.find('td:nth-child(11)').text();
+        var m_designatedOffice = row.find('td:nth-child(12)').text();
+        var m_officeTelNo = row.find('td:nth-child(13)').text();
+        var m_officeAddress = row.find('td:nth-child(14)').text();
+        var m_retirementDate = row.find('td:nth-child(15)').text();
+        var m_class = row.find('td:nth-child(16)').text();
+        var wheels = row.find('td:nth-child(17)').text();
+        var vehicleMake = row.find('td:nth-child(18)').text();
+        var plateNo = row.find('td:nth-child(19)').text();
+        var yearModel = row.find('td:nth-child(20)').text();
+        var color = row.find('td:nth-child(21)').text();
+        var motorNo = row.find('td:nth-child(22)').text();
+        var chassisNo = row.find('td:nth-child(23)').text();
+        var stickerNo = row.find('td:nth-child(24)').text();
+        
+        var modal = $('#view_modal_form2');
+        modal.find('input[name=m_militaryId]').val(m_id);
+        modal.find('input[name=m_lastname]').val(m_lastname);
+        modal.find('input[name=m_firstname]').val(m_firstname);
+        modal.find('input[name=m_middlename]').val(m_middlename);
+        modal.find('input[name=m_rank]').val(m_rank);
+        modal.find('input[name=m_brSvc]').val(m_brSvc);
+        modal.find('input[name=m_afpsn]').val(m_afpsn);
+        modal.find('input[name=m_residenceAddress]').val(m_residenceAddress);
+        modal.find('input[name=m_residenceTelNo]').val(m_residenceTelNo);
+        modal.find('input[name=m_emailAddress]').val(m_emailAddress);
+        modal.find('input[name=m_mobileNo]').val(m_mobileNo);
+        modal.find('input[name=m_designatedOffice]').val(m_designatedOffice);
+        modal.find('input[name=m_officeTelNo]').val(m_officeTelNo);
+        modal.find('input[name=m_officeAddress]').val(m_officeAddress);
+        modal.find('input[name=m_retirementDate]').val(m_retirementDate);
+        modal.find('input[name=m_class]').val(m_class);
+        modal.find('input[name=wheels]').val(wheels);
+        modal.find('input[name=vehicleMake]').val(vehicleMake);
+        modal.find('input[name=plateNo]').val(plateNo);
+        modal.find('input[name=yearModel]').val(yearModel);
+        modal.find('input[name=color]').val(color);
+        modal.find('input[name=motorNo]').val(motorNo);
+        modal.find('input[name=chassisNo]').val(chassisNo);
+        modal.find('input[name=stickerNo]').val(stickerNo);
+      }
+    </script>
+
         </section>  <!-- /Main content -->
 
         <br/><br/>
