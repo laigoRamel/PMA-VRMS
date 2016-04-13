@@ -111,8 +111,6 @@
               <ul class="treeview-menu">
                 <li><a href="registeredApplicant.php">Applicants</a></li>
                 <li class="active"><a href="registeredAFP.php">Military</a></li>
-                <li><a href="registeredApplicantVehicle.php">Applicant Vehicles</a></li>
-                <li><a href="registeredAFPVehicle.php">Military Vehicles</a></li>
               </ul>
             </li>
               
@@ -189,7 +187,7 @@
                                                     <td style='display:none'>$military[motorNo]</td>
                                                     <td style='display:none'>$military[chassisNo]</td>
                                                     <td style='display:none'>$military[stickerNo]</td>
-                                                    <td><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick='view_form2($key)'>View</button></td>
+                                                    <td><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick="view_form2($key, 'img/profile/military/$military[m_profile]')">View</button></td>
                                                     <td><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick='renew_military($military[m_militaryId])'>Renew</button></td>
                                                     <td><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick='edit_form2($key)'>Edit</button></td>
                                                     <td><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form2' onclick='delete_form2($key)'>Delete</button></td>
@@ -295,7 +293,8 @@ DATA;
 				modal.find('input[name=m_retirementDate]').val(m_retirementDate);
 			}
 
-			var view_form2 = function(key){
+			var view_form2 = function(key, img){
+        $('#img_view').attr('src', img);
 				var row = $('#military_'+key);
 				var m_id = row.find('td:first-child').text();
 				var m_lastname = row.find('td:nth-child(2)').text();

@@ -106,8 +106,6 @@ include('login/session.php');
               <ul class="treeview-menu">
                 <li><a href="registeredApplicant.php">Applicants</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
-                <li><a href="registeredApplicantVehicle.php">Applicant Vehicles</a></li>
-                <li><a href="registeredAFPVehicle.php">Military Vehicles</a></li>
               </ul>
             </li>
               
@@ -144,7 +142,7 @@ include('login/session.php');
                         <span class="info-box-icon bg-aqua"><i class="fa fa-car"></i></span>
                     </a>
                     <div class="info-box-content">
-                      <span class="info-box-text">Current Vehicles</span>
+                      <span class="info-box-text">Current Visitors</span>
                       <span class="info-box-number">50</span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
@@ -167,7 +165,7 @@ include('login/session.php');
                     <span class="info-box-icon bg-green"><i class="fa fa-user-plus"></i></span>
                     <div class="info-box-content">
                       <span class="info-box-text">Today's visitors</span>
-                      <span class="info-box-number">132</span>
+                      <span class="info-box-number">55</span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
