@@ -214,7 +214,7 @@ include('login/session.php');
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Expiration Date</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="YYYY-MM-DD @MarcLim gawin mong datepicker" name='a_expirationDate' data-mask="9999-99-99" required>
+                                <input type="date" class="form-control" placeholder="YYYY-MM-DD @MarcLim gawin mong datepicker" name='a_expirationDate' data-mask="9999-99-99" required>
                               </div>
                             </div>
                             

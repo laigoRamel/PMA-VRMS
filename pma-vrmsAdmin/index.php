@@ -185,8 +185,10 @@ include('login/session.php');
             </div>
         </section>
 <!-- Main content -->
+<body>
 
-        <br/><br/>
+
+        
       
         </div><!-- /.content-wrapper -->
 

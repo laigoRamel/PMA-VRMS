@@ -214,7 +214,7 @@ include('login/session.php');
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Residence Tel. No.</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Residence Tel. No." name='m_residenceTelNo' required>
+                                <input type="number" class="form-control" placeholder="Residence Tel. No." name='m_residenceTelNo' required>
                               </div>
                             </div>
                             
@@ -228,7 +228,7 @@ include('login/session.php');
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Mobile No.</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Mobile No." name='m_mobileNo' required>
+                                <input type="number" class="form-control" placeholder="Mobile No." name='m_mobileNo' required>
                               </div>
                             </div>
                             
@@ -242,7 +242,7 @@ include('login/session.php');
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Office Tel. No.</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Office Tel. No." name='m_officeTelNo' required>
+                                <input type="number" class="form-control" placeholder="Office Tel. No." name='m_officeTelNo' required>
                               </div>
                             </div>
                             
@@ -256,7 +256,7 @@ include('login/session.php');
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Date of Retirement</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="YYYY-MM-DD @MarcLim gawin mong datepicker" name='m_retirementDate' data-mask="9999-99-99" required>
+                                <input type="date" class="form-control" placeholder="YYYY-MM-DD @MarcLim gawin mong datepicker" name='m_retirementDate' data-mask="9999-99-99" required>
                               </div>
                             </div>
                             
