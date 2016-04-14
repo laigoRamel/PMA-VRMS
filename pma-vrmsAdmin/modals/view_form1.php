@@ -99,6 +99,16 @@
                         </div>
                         </div>
                     </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Place Registered</h3> </div>
+                        <div class="panel-body">
+                        <div>
+                          <input type="text" class="form-control" name="a_placeRegistered" readonly>
+                        </div>
+                        </div>
+                    </div>
                 
                 
             

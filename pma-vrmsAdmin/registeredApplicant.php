@@ -96,10 +96,10 @@
             <li class="header">FORMS</li>
             <!-- Forms -->
             <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>New Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="form1.php">Camp Allen/Navybase</a></li>
-                <li><a href="form2.php">AFP</a></li>
+                <li><a href="form1.php">Fort del Pillar/Camp Allen/<br>Navybase</a></li>
+                <li><a href="form2.php">AFP/Military</a></li>
               </ul>
             </li>
               
@@ -154,6 +154,7 @@
                                     <th>Occupation</th>
                                     <th>Office Address</th>
                                     <th>Class</th>
+                                    <th>Place Registered</th>
                                     <th colspan=4 style="text-align:center">Options</th>
                                 </thead>
                                 <tbody>
@@ -171,6 +172,7 @@
                                             <td style='display:none'>$applicant[a_driversLicense]</td>
                                             <td style='display:none'>$applicant[a_expirationDate]</td>
                                             <td>$applicant[a_class]</td>
+                                            <td>$applicant[a_placeRegistered]</td>
                                             <td style='display:none'>$applicant[wheels]</td>
                                             <td style='display:none'>$applicant[vehicleMake]</td>
                                             <td style='display:none'>$applicant[plateNo]</td>
@@ -262,7 +264,7 @@ DATA;
 
 		var view_form1 = function(key, img){
 			$('#img_view').attr('src', img);
-      		var row = $('#applicant_'+key);
+  		var row = $('#applicant_'+key);
 			var a_id = row.find('td:first-child').text();
 			var a_lastname = row.find('td:nth-child(2)').text();
 			var a_firstname = row.find('td:nth-child(3)').text();
@@ -271,16 +273,18 @@ DATA;
 			var a_occupation = row.find('td:nth-child(6)').text();
 			var a_officeAddress = row.find('td:nth-child(7)').text();
 			var a_driversLicense = row.find('td:nth-child(8)').text();
-	      	var a_expirationDate = row.find('td:nth-child(9)').text();
-	      	var a_class = row.find('td:nth-child(10)').text();
-	      	var wheels = row.find('td:nth-child(11)').text();
-	      	var vehicleMake = row.find('td:nth-child(12)').text();
-	      	var plateNo = row.find('td:nth-child(13)').text();
-	      	var yearModel = row.find('td:nth-child(14)').text();
-	      	var color = row.find('td:nth-child(15)').text();
-	      	var motorNo = row.find('td:nth-child(16)').text();
-	      	var chassisNo = row.find('td:nth-child(17)').text();
-	      	var stickerNo = row.find('td:nth-child(18)').text();
+    	var a_expirationDate = row.find('td:nth-child(9)').text();
+      var a_class = row.find('td:nth-child(10)').text();
+    	var a_placeRegistered = row.find('td:nth-child(11)').text();
+
+    	var wheels = row.find('td:nth-child(12)').text();
+    	var vehicleMake = row.find('td:nth-child(13)').text();
+    	var plateNo = row.find('td:nth-child(14)').text();
+    	var yearModel = row.find('td:nth-child(15)').text();
+    	var color = row.find('td:nth-child(16)').text();
+    	var motorNo = row.find('td:nth-child(17)').text();
+    	var chassisNo = row.find('td:nth-child(18)').text();
+    	var stickerNo = row.find('td:nth-child(19)').text();
       
 			var modal = $('#view_modal_form1');
 			modal.find('input[name=a_applicantId]').val(a_id);
@@ -291,16 +295,18 @@ DATA;
 			modal.find('input[name=a_occupation]').val(a_occupation);
 			modal.find('input[name=a_officeAddress]').val(a_officeAddress);
 			modal.find('input[name=a_driversLicense]').val(a_driversLicense);
-	      	modal.find('input[name=a_expirationDate]').val(a_expirationDate);
-	      	modal.find('input[name=a_class]').val(a_class);
-	      	modal.find('input[name=wheels]').val(wheels);
-	      	modal.find('input[name=vehicleMake]').val(vehicleMake);
-	      	modal.find('input[name=plateNo]').val(plateNo);
-	      	modal.find('input[name=yearModel]').val(yearModel);
-	      	modal.find('input[name=color]').val(color);
-	      	modal.find('input[name=motorNo]').val(motorNo);
-	      	modal.find('input[name=chassisNo]').val(chassisNo);
-	      	modal.find('input[name=stickerNo]').val(stickerNo);
+    	modal.find('input[name=a_expirationDate]').val(a_expirationDate);
+      modal.find('input[name=a_class]').val(a_class);
+    	modal.find('input[name=a_placeRegistered]').val(a_placeRegistered);
+
+    	modal.find('input[name=wheels]').val(wheels);
+    	modal.find('input[name=vehicleMake]').val(vehicleMake);
+    	modal.find('input[name=plateNo]').val(plateNo);
+    	modal.find('input[name=yearModel]').val(yearModel);
+    	modal.find('input[name=color]').val(color);
+    	modal.find('input[name=motorNo]').val(motorNo);
+    	modal.find('input[name=chassisNo]').val(chassisNo);
+    	modal.find('input[name=stickerNo]').val(stickerNo);
 
 		}
 

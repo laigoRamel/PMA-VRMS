@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2016 at 10:23 AM
+-- Generation Time: Apr 14, 2016 at 05:43 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -32,14 +32,15 @@ CREATE TABLE IF NOT EXISTS `admin_logs` (
   `time_out` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `admin_logs`
 --
 
 INSERT INTO `admin_logs` (`id`, `time_in`, `time_out`, `user_id`) VALUES
-(1, '2016-04-12 14:59:23', '2016-04-12 16:23:35', 1);
+(1, '2016-04-12 14:59:23', '2016-04-12 16:23:35', 1),
+(2, '2016-04-14 10:55:42', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -99,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_submitted_requirements` varchar(255) NOT NULL,
   `a_status` varchar(255) NOT NULL,
   `a_dateRegistered` datetime NOT NULL,
+  `a_placeRegistered` varchar(65) NOT NULL,
   `a_vehicle_id` int(11) NOT NULL,
   `a_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`a_applicantId`)
@@ -108,14 +110,14 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
 -- Dumping data for table `form1_applicantpd`
 --
 
-INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_firstname`, `a_middlename`, `a_address`, `a_occupation`, `a_officeAddress`, `a_driversLicense`, `a_expirationDate`, `a_class`, `a_submitted_requirements`, `a_status`, `a_dateRegistered`, `a_vehicle_id`, `a_renew_status`) VALUES
-(1, 'Galen-Dudas.png', 'Dudas', 'Galen', 'Nelag', 'Baguio City', 'Driver', 'Fort del Pillar', '1111111111', '2017-01-16', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-12 09:10:11', 1, 1),
-(2, 'Marcelino-Dubuque.png', 'Dubuque', 'Marcelino', 'Stansbury', 'Baguio City', 'Driver', 'Fort del Pillar', '2222222222', '2018-01-01', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-12 09:12:40', 2, 1),
-(3, 'Bradley-Whisler.png', 'Whisler', 'Bradley', 'Dudas', 'Baguio City', 'Employee', 'Fort del Pillar', '3333333333', '2019-12-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:17:04', 3, 1),
-(4, 'Saran-Madere.png', 'Madere', 'Saran', 'Heist', 'La Trinidad', 'Secretary', 'Fort del Pillar', '4444444444', '2016-12-3', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:22:45', 4, 1),
-(5, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', 5, 1),
-(6, 'Jonas-Starkweather.png', 'Starkweather', 'Jonas', 'Cole', 'Baguio City', 'Database Administrator', 'Fort del Pillar', '6666666666', '2016-12-25', 'Class B', '3,2,1,', 'pending', '2016-04-12 09:31:51', 6, 1),
-(7, 'Eugenia-Alamo.png', 'Alamo', 'Eugenia', 'Dowdle', 'La Trinidad', 'Janitor', 'Fort del Pillar', '7777777777', '2017-04-06', 'Class B', '5,4,1,', 'pending', '2016-04-12 09:34:32', 7, 1);
+INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_firstname`, `a_middlename`, `a_address`, `a_occupation`, `a_officeAddress`, `a_driversLicense`, `a_expirationDate`, `a_class`, `a_submitted_requirements`, `a_status`, `a_dateRegistered`, `a_placeRegistered`, `a_vehicle_id`, `a_renew_status`) VALUES
+(1, 'Galen-Dudas.png', 'Dudas', 'Galen', 'Nelag', 'Baguio City', 'Driver', 'Fort del Pillar', '1111111111', '2017-01-16', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-12 09:10:11', 'Fort del Pilar', 1, 1),
+(2, 'Marcelino-Dubuque.png', 'Dubuque', 'Marcelino', 'Stansbury', 'Baguio City', 'Driver', 'Fort del Pillar', '2222222222', '2018-01-01', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-12 09:12:40', 'Camp Allen', 2, 1),
+(3, 'Bradley-Whisler.png', 'Whisler', 'Bradley', 'Dudas', 'Baguio City', 'Employee', 'Fort del Pillar', '3333333333', '2019-12-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:17:04', 'Navy Base', 3, 1),
+(4, 'Saran-Madere.png', 'Madere', 'Saran', 'Heist', 'La Trinidad', 'Secretary', 'Fort del Pillar', '4444444444', '2016-12-3', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:22:45', 'Fort del Pillar', 4, 1),
+(5, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', 'Camp Allen', 5, 1),
+(6, 'Jonas-Starkweather.png', 'Starkweather', 'Jonas', 'Cole', 'Baguio City', 'Database Administrator', 'Fort del Pillar', '6666666666', '2016-12-25', 'Class B', '3,2,1,', 'pending', '2016-04-12 09:31:51', 'Navy Base', 6, 1),
+(7, 'Eugenia-Alamo.png', 'Alamo', 'Eugenia', 'Dowdle', 'La Trinidad', 'Janitor', 'Fort del Pillar', '7777777777', '2017-04-06', 'Class B', '5,4,1,', 'pending', '2016-04-12 09:34:32', 'Fort del Pillar', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -144,6 +146,7 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_submitted_requirements` varchar(255) NOT NULL,
   `m_status` varchar(255) NOT NULL,
   `m_dateRegistered` datetime NOT NULL,
+  `m_placeRegistered` varchar(65) NOT NULL,
   `m_vehicle_id` int(11) NOT NULL,
   `m_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`m_militaryId`)
@@ -153,14 +156,14 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
 -- Dumping data for table `form2_militarypd`
 --
 
-INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_dateRegistered`, `m_vehicle_id`, `m_renew_status`) VALUES
-(1, 'Bernardo-Stansberry.png', 'Stansberry', 'Bernardo', 'Tomson', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson@gmail.com', '09305285214', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2030-12-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 09:48:21', 8, 1),
-(2, 'Davis-Olmo.png', 'Olmo', 'Davis', 'Labar', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'labar@gmail.com', '09125485241', 'ACAD1', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-30', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 09:54:13', 9, 1),
-(3, 'Rico-Ogle.png', 'Ogle', 'Rico', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'ogle@gmail.com', '09126548654', 'ACAD2', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-04-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 10:02:48', 10, 1),
-(4, 'Berry-Sanabria.png', 'Sanabria', 'Berry', 'Tomson', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson1@gmail.com', '09124565784', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2025-08-9-09', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:08:09', 11, 1),
-(5, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2019-04-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', 12, 1),
-(6, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-01', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', 13, 1),
-(7, 'Horacio-Desousa.png', 'Desousa', 'Horacio', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'horacio@gmail.com', '09304565871', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2015-06-09', 'Class B', '2,1,', 'pending', '2016-04-12 10:16:59', 14, 1);
+INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_dateRegistered`, `m_placeRegistered`, `m_vehicle_id`, `m_renew_status`) VALUES
+(1, 'Bernardo-Stansberry.png', 'Stansberry', 'Bernardo', 'Tomson', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson@gmail.com', '09305285214', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2030-12-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 09:48:21', 'Fort del Pilar', 8, 1),
+(2, 'Davis-Olmo.png', 'Olmo', 'Davis', 'Labar', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'labar@gmail.com', '09125485241', 'ACAD1', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-30', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 09:54:13', 'Camp Allen', 9, 1),
+(3, 'Rico-Ogle.png', 'Ogle', 'Rico', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'ogle@gmail.com', '09126548654', 'ACAD2', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-04-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 10:02:48', 'Navy Base', 10, 1),
+(4, 'Berry-Sanabria.png', 'Sanabria', 'Berry', 'Tomson', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson1@gmail.com', '09124565784', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2025-08-9-09', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:08:09', 'Fort del Pilar', 11, 1),
+(5, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2019-04-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', 'Camp Allen', 12, 1),
+(6, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-01', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', 'Navy Base', 13, 1),
+(7, 'Horacio-Desousa.png', 'Desousa', 'Horacio', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'horacio@gmail.com', '09304565871', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2015-06-09', 'Class B', '2,1,', 'pending', '2016-04-12 10:16:59', 'Fort del Pilar', 14, 1);
 
 -- --------------------------------------------------------
 

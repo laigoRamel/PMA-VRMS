@@ -94,11 +94,11 @@ include('login/session.php');
               
             <li class="header">FORMS</li>
             <!-- Forms -->
-            <li class="treeview active">
-              <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>New Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="active"><a href="form1.php">Camp Allen/Navybase</a></li>
-                <li><a href="form2.php">AFP</a></li>
+                <li><a href="form1.php">Fort del Pillar/Camp Allen/<br>Navybase</a></li>
+                <li><a href="form2.php">AFP/Military</a></li>
               </ul>
             </li>
               
@@ -228,6 +228,7 @@ include('login/session.php');
                 </div>
         
         <div class="col-md-5">
+        <!-- Vehicle type -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
@@ -253,6 +254,26 @@ include('login/session.php');
                             <p>&emsp; b. Official/Employee/Member of tenant entity/club facility on post</p>
                             <p>&emsp; c. Diplomats and expatriates</p>
                             <p>&emsp; d. Selected Sponsored Civilians</p>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                    <!-- place registered -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Place Registered</h3> </div>
+                        <div class="panel-body">
+                        <div class="radio">
+                            <label><input type="radio" name="a_placeRegistered" value="Fort del Pilar" required>Fort del Pilar</label>
+                        </div>
+
+                        <div class="radio">
+                            <label><input type="radio" name="a_placeRegistered" value="Camp Allen" required>Camp Allen</label>
+                        </div>
+
+                        <div class="radio">
+                            <label><input type="radio" name="a_placeRegistered" value="Navy Base" required>Navy Base</label>
                         </div>
         
                         </div>

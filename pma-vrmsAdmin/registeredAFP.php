@@ -96,10 +96,10 @@
             <li class="header">FORMS</li>
             <!-- Forms -->
             <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>New Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="form1.php">Camp Allen/Navybase</a></li>
-                <li><a href="form2.php">AFP</a></li>
+                <li><a href="form1.php">Fort del Pillar/Camp Allen/<br>Navybase</a></li>
+                <li><a href="form2.php">AFP/Military</a></li>
               </ul>
             </li>
             
@@ -156,6 +156,7 @@
                                     <th>Email Address</th>
                                     <th>Designated Office</th>
                                     <th>Class</th>
+                                    <th>Place Registered</th>
                                     <th colspan=4 style="text-align:center">Options</th>
                                 </thead>
                                 <tbody>
@@ -179,6 +180,7 @@
                                                     <td style='display:none'>$military[m_officeAddress]</td>
                                                     <td style='display:none'>$military[m_retirementDate]</td>
                                                     <td>$military[m_class]</td>
+                                                    <td>$military[m_placeRegistered]</td>
                                                     <td style='display:none'>$military[wheels]</td>
                                                     <td style='display:none'>$military[vehicleMake]</td>
                                                     <td style='display:none'>$military[plateNo]</td>
@@ -311,15 +313,16 @@ DATA;
 				var m_officeTelNo = row.find('td:nth-child(13)').text();
 				var m_officeAddress = row.find('td:nth-child(14)').text();
         var m_retirementDate = row.find('td:nth-child(15)').text();
-				var m_class = row.find('td:nth-child(16)').text();
-        var wheels = row.find('td:nth-child(17)').text();
-        var vehicleMake = row.find('td:nth-child(18)').text();
-        var plateNo = row.find('td:nth-child(19)').text();
-        var yearModel = row.find('td:nth-child(20)').text();
-        var color = row.find('td:nth-child(21)').text();
-        var motorNo = row.find('td:nth-child(22)').text();
-        var chassisNo = row.find('td:nth-child(23)').text();
-        var stickerNo = row.find('td:nth-child(24)').text();
+        var m_class = row.find('td:nth-child(16)').text();
+				var m_placeRegistered = row.find('td:nth-child(17)').text();
+        var wheels = row.find('td:nth-child(18)').text();
+        var vehicleMake = row.find('td:nth-child(19)').text();
+        var plateNo = row.find('td:nth-child(20)').text();
+        var yearModel = row.find('td:nth-child(21)').text();
+        var color = row.find('td:nth-child(22)').text();
+        var motorNo = row.find('td:nth-child(23)').text();
+        var chassisNo = row.find('td:nth-child(24)').text();
+        var stickerNo = row.find('td:nth-child(25)').text();
 				
 				var modal = $('#view_modal_form2');
 				modal.find('input[name=m_militaryId]').val(m_id);
@@ -337,7 +340,8 @@ DATA;
 				modal.find('input[name=m_officeTelNo]').val(m_officeTelNo);
 				modal.find('input[name=m_officeAddress]').val(m_officeAddress);
         modal.find('input[name=m_retirementDate]').val(m_retirementDate);
-				modal.find('input[name=m_class]').val(m_class);
+        modal.find('input[name=m_class]').val(m_class);
+				modal.find('input[name=m_placeRegistered]').val(m_placeRegistered);
         modal.find('input[name=wheels]').val(wheels);
         modal.find('input[name=vehicleMake]').val(vehicleMake);
         modal.find('input[name=plateNo]').val(plateNo);
