@@ -8,7 +8,7 @@
 			<div class='modal-body'>
 				<div class='row'>
 					<div class='col-lg-12'>
-						<form action="logic/add_form2Logic.php" enctype='multipart/form-data' method="POST">
+	<form action="logic/view_form2Logic.php" enctype='multipart/form-data' method="POST">
 		<!-- personal information -->
 		<div class="row" id="view_modal_form2">
             <div class="col-md-7">

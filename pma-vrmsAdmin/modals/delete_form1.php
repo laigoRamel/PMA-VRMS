@@ -8,81 +8,145 @@
 			<div class='modal-body'>
 				<div class='row'>
 					<div class='col-lg-12'>
-						<form action="logic/delete_form1Logic.php" method="POST">
-							<div id="delete_modal_form1">
-								<fieldset class="scheduler-border">
-									<legend class="scheduler-border">Camp Allen / Navy Base</legend>
-									<fieldset class="scheduler-border">
-										<legend class="scheduler-border">Personal Information</legend>
-										<input style="display:none;" type="text" name="a_applicantId" readonly>
-										<input type="file" name="fileToUpload" id="fileToUpload">
-						    			<br>
-										<label>Last Name: </label>
-										<input type="text" name='a_lastname' readonly>
-										<label>First Name: </label>
-										<input type="text" name='a_firstname' readonly>
-										<label>Middle Name: </label>
-										<input type="text" name='a_middlename' readonly>
-										<br>
-										<label>Address: </label>
-										<input type="text" name='a_address' readonly>
-										<br>
-										<label>Occupation: </label>
-										<input type="text" name='a_occupation' readonly>
-										<br>
-										<label>Office Address: </label>
-										<input type="text" name='a_officeAddress' readonly>
-										<br>
-										<label>Driver's License: </label>
-										<input type="text" name='a_driversLicense' readonly>
-										<label>Expiration Date: </label>
-										<input type="text" name='a_expirationDate' readonly>
-									</fieldset>
-									<br/>
-									<fieldset class="scheduler-border">
-										<legend class="scheduler-border">Requirements</legend>
-										<input type="checkbox">Photocopy of current military ID, Office ID, or driver's license</input><br>
-						                <input type="checkbox">Photocopy of retirement/separation/discharged order for former military personnel</input><br>
-						                <input type="checkbox">Photocopy of order for Commissionship/Enlistment for AFP Reservists</input><br>
-						                <input type="checkbox">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</input><br>
-						                <input type="checkbox">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</input><br>
-									</fieldset>
-									<br>
-									<fieldset class="scheduler-border">
-										<legend class="scheduler-border">Type/Class</legend>
-										<input type="radio">Class A</input>
-						                <input type="radio">Class B</input>
-						                <input type="radio">Class C</input>
-									</fieldset>
-									<br>
-									<fieldset class="scheduler-border">
-										<legend class="scheduler-border">Vehicle Information</legend>
-										<input style="display:none;" type="text" name="vehicleId" readonly>
-										<label>Vehicle Make/s: </label>
-										<input type="text" name='vehicleMake' readonly>
-										<br>
-										<label>Plate No.: </label>
-										<input type="text" name='plateNo' readonly>
-										<br>
-										<label>Year Model: </label>
-										<input type="text" name='yearModel' readonly>
-										<br>
-										<label>Color: </label>
-										<input type="text" name='color' readonly>
-										<br>
-										<label>Motor No.: </label>
-										<input type="text" name='motorNo' readonly>
-										<br>
-										<label>Chassis No.: </label>
-										<input type="text" name='chassisNo' readonly>
-										<br>
-										<label>Sticker No.: </label>
-										<input type="text" name='stickerNo' readonly>
-									</fieldset>
-									<button type="submit" value="Ok" class="btn btn-default pull-right" onclick="return confirm('Are you sure?')">OKAY</button>
-								</fieldset>
-							</div>
-						</form>
+						<!-- Main content -->
+        <section class="content">
+	<form action="logic/delete_form1Logic.php" enctype='multipart/form-data' method="POST">
+		<!-- personal information -->
+		<div class="row"  id="delete_modal_form1">
+            <div class="col-md-7">
+                <div class="panel panel-default ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Personal Information</h3> </div>
+                    <div class="panel-body">
+                        <input style="display:none;" type="text" name="a_applicantId" readonly>
+                        
+                        <!-- image display -->
+                        <img id='img_view' height="100px">
+
+                        <br>
+                        <br>
+                        <div class="form-horizontal">                  
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="name" readonly>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Address</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name='a_address' readonly>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Occupation</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name='a_occupation' readonly>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Office Address</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name='a_officeAddress' readonly>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Driver's License</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name='a_driversLicense' readonly>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Expiration Date</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name='a_expirationDate' data-mask="9999-99-99" readonly>
+                              </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                    
+                </div>
+        
+        <div class="col-md-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Vehicle Type/Class</h3> </div>
+                        <div class="panel-body">
+                        <div>
+                        	<input type="text" class="form-control" name="a_class" readonly>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Date and Time Registered</h3> </div>
+                        <div class="panel-body">
+                        <div>
+                          <input type="text" class="form-control" name="a_dateRegistered" readonly>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Place Registered</h3> </div>
+                        <div class="panel-body">
+                        <div>
+                          <input type="text" class="form-control" name="a_placeRegistered" readonly>
+                        </div>
+                        </div>
+                    </div>
+                
+                
+            
+                
+            </div>
+            
+                <div class="col-md-12">
+                <!-- Vehicle Information -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Vehicle Information</h3> </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal dynamic_field">
+                            
+                            <table class="table table-bordered" id="dynamic_field">
+                                
+					<tr>  
+						<td><input type="text" name="wheels" class="form-control name_list" readonly></input></td>  
+						<td><input type="text" name="vehicleMake" class="form-control name_list" readonly/></td>  
+						<td><input type="text" name="plateNo" class="form-control name_list" readonly/></td>  
+						<td><input type="text" name="yearModel" class="form-control name_list" readonly></input></td>  
+						<td><input type="text" name="color" class="form-control name_list" readonly/></td>  
+						<td><input type="text" name="motorNo" class="form-control name_list" readonly/></td>  
+						<td><input type="text" name="chassisNo" class="form-control name_list" readonly/></td>  
+						<td><input type="text" name="stickerNo" class="form-control name_list" readonly/></td>
+					</tr>  
+                            
+                            </table>
+                                
+                            
+                        </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+        
+		</div>
+          <button type="submit" value="Ok" class="btn btn-default pull-right" onclick="return confirm('Are you sure?')">OKAY</button>
+		<!--end of div class row-->
+	</form>
+</section>
 					</div>
 				</div>
 			</div>

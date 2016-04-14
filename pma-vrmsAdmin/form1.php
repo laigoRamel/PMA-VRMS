@@ -407,7 +407,7 @@ include('login/session.php');
 
 </body>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
 		$(document).ready(function(){  
 			var i=1;  
 			$('#add').click(function(){  

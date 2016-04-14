@@ -10,7 +10,7 @@
 	
 	function DeleteApplicantData($id){
 		global $database;
-		$query = "DELETE FROM form1_applicantpd WHERE a_applicantId='$id'";
+		$query = "DELETE FROM form1_applicantpd JOIN vehicle_information ON form1_applicantpd.a_vehicle_id=vehicle_information.vehicleId  WHERE a_applicantId='$id'";
 		$database->execute($query);
 		$database->disconnect();
 	}
