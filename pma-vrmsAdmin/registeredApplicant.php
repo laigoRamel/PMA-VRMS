@@ -147,9 +147,7 @@
                             <table class="table table-bordered table-hover" id="bootstrap-table">
                                 <thead>
                                     <th>Profile</th>
-                                    <th>Last Name</th>
-                                    <th>First Name</th>
-                                    <th>Middle Name</th>
+                                    <th>Name</th>
                                     <th>Address</th>
                                     <th>Occupation</th>
                                     <th>Office Address</th>
@@ -163,15 +161,14 @@
                                         echo <<<DATA
                                         <tr id='applicant_$key'>
                                             <td><img src='img/profile/applicant/$applicant[a_profile]' height='100px;'></td>
-                                            <td>$applicant[a_lastname]</td>
-                                            <td>$applicant[a_firstname]</td>
-                                            <td>$applicant[a_middlename]</td>
+                                            <td>$applicant[name]</td>
                                             <td>$applicant[a_address]</td>
                                             <td>$applicant[a_occupation]</td>
                                             <td>$applicant[a_officeAddress]</td>
                                             <td style='display:none'>$applicant[a_driversLicense]</td>
                                             <td style='display:none'>$applicant[a_expirationDate]</td>
                                             <td>$applicant[a_class]</td>
+                                            <td style='display:none'>$applicant[a_dateRegistered]</td>
                                             <td>$applicant[a_placeRegistered]</td>
                                             <td style='display:none'>$applicant[wheels]</td>
                                             <td style='display:none'>$applicant[vehicleMake]</td>
@@ -266,37 +263,35 @@ DATA;
 			$('#img_view').attr('src', img);
   		var row = $('#applicant_'+key);
 			var a_id = row.find('td:first-child').text();
-			var a_lastname = row.find('td:nth-child(2)').text();
-			var a_firstname = row.find('td:nth-child(3)').text();
-			var a_middlename = row.find('td:nth-child(4)').text();
-			var a_address = row.find('td:nth-child(5)').text();
-			var a_occupation = row.find('td:nth-child(6)').text();
-			var a_officeAddress = row.find('td:nth-child(7)').text();
-			var a_driversLicense = row.find('td:nth-child(8)').text();
-    	var a_expirationDate = row.find('td:nth-child(9)').text();
-      var a_class = row.find('td:nth-child(10)').text();
-    	var a_placeRegistered = row.find('td:nth-child(11)').text();
+			var name = row.find('td:nth-child(2)').text();
+			var a_address = row.find('td:nth-child(3)').text();
+			var a_occupation = row.find('td:nth-child(4)').text();
+			var a_officeAddress = row.find('td:nth-child(5)').text();
+			var a_driversLicense = row.find('td:nth-child(6)').text();
+    	var a_expirationDate = row.find('td:nth-child(7)').text();
+      var a_class = row.find('td:nth-child(8)').text();
+      var a_dateRegistered = row.find('td:nth-child(9)').text();
+    	var a_placeRegistered = row.find('td:nth-child(10)').text();
 
-    	var wheels = row.find('td:nth-child(12)').text();
-    	var vehicleMake = row.find('td:nth-child(13)').text();
-    	var plateNo = row.find('td:nth-child(14)').text();
-    	var yearModel = row.find('td:nth-child(15)').text();
-    	var color = row.find('td:nth-child(16)').text();
-    	var motorNo = row.find('td:nth-child(17)').text();
-    	var chassisNo = row.find('td:nth-child(18)').text();
-    	var stickerNo = row.find('td:nth-child(19)').text();
+    	var wheels = row.find('td:nth-child(11)').text();
+    	var vehicleMake = row.find('td:nth-child(12)').text();
+    	var plateNo = row.find('td:nth-child(13)').text();
+    	var yearModel = row.find('td:nth-child(14)').text();
+    	var color = row.find('td:nth-child(15)').text();
+    	var motorNo = row.find('td:nth-child(16)').text();
+    	var chassisNo = row.find('td:nth-child(17)').text();
+    	var stickerNo = row.find('td:nth-child(18)').text();
       
 			var modal = $('#view_modal_form1');
 			modal.find('input[name=a_applicantId]').val(a_id);
-			modal.find('input[name=a_lastname]').val(a_lastname);
-			modal.find('input[name=a_firstname]').val(a_firstname);
-			modal.find('input[name=a_middlename]').val(a_middlename);
+			modal.find('input[name=name]').val(name);
 			modal.find('input[name=a_address]').val(a_address);
 			modal.find('input[name=a_occupation]').val(a_occupation);
 			modal.find('input[name=a_officeAddress]').val(a_officeAddress);
 			modal.find('input[name=a_driversLicense]').val(a_driversLicense);
     	modal.find('input[name=a_expirationDate]').val(a_expirationDate);
       modal.find('input[name=a_class]').val(a_class);
+      modal.find('input[name=a_dateRegistered]').val(a_dateRegistered);
     	modal.find('input[name=a_placeRegistered]').val(a_placeRegistered);
 
     	modal.find('input[name=wheels]').val(wheels);

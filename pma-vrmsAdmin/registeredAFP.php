@@ -149,9 +149,7 @@
                             <table class="table table-bordered table-hover" id="bootstrap-table">
                                 <thead>
                                     <th>Profile</th>
-                                    <th>Last Name</th>
-                                    <th>First Name</th>
-                                    <th>Middle Name</th>
+                                    <th>Name</th>
                                     <th>Rank</th>
                                     <th>Email Address</th>
                                     <th>Designated Office</th>
@@ -165,9 +163,7 @@
                                             echo <<<DATA
                                                 <tr id='military_$key'>
                                                     <td><img src='img/profile/military/$military[m_profile]' height='100px;'></td>
-                                                    <td>$military[m_lastname]</td>
-                                                    <td>$military[m_firstname]</td>
-                                                    <td>$military[m_middlename]</td>
+                                                    <td>$military[name]</td>
                                                     <td>$military[m_rank]</td>
                                                     <td style='display:none'>$military[m_brSvc]</td>
                                                     <td style='display:none'>$military[m_afpsn]</td>
@@ -180,6 +176,7 @@
                                                     <td style='display:none'>$military[m_officeAddress]</td>
                                                     <td style='display:none'>$military[m_retirementDate]</td>
                                                     <td>$military[m_class]</td>
+                                                    <td style='display:none'>$military[m_dateRegistered]</td>
                                                     <td>$military[m_placeRegistered]</td>
                                                     <td style='display:none'>$military[wheels]</td>
                                                     <td style='display:none'>$military[vehicleMake]</td>
@@ -299,36 +296,34 @@ DATA;
         $('#img_view').attr('src', img);
 				var row = $('#military_'+key);
 				var m_id = row.find('td:first-child').text();
-				var m_lastname = row.find('td:nth-child(2)').text();
-				var m_firstname = row.find('td:nth-child(3)').text();
-				var m_middlename = row.find('td:nth-child(4)').text();
-				var m_rank = row.find('td:nth-child(5)').text();
-				var m_brSvc = row.find('td:nth-child(6)').text();
-				var m_afpsn = row.find('td:nth-child(7)').text();
-				var m_residenceAddress = row.find('td:nth-child(8)').text();
-				var m_residenceTelNo = row.find('td:nth-child(9)').text();
-				var m_emailAddress = row.find('td:nth-child(10)').text();
-				var m_mobileNo = row.find('td:nth-child(11)').text();
-				var m_designatedOffice = row.find('td:nth-child(12)').text();
-				var m_officeTelNo = row.find('td:nth-child(13)').text();
-				var m_officeAddress = row.find('td:nth-child(14)').text();
-        var m_retirementDate = row.find('td:nth-child(15)').text();
-        var m_class = row.find('td:nth-child(16)').text();
-				var m_placeRegistered = row.find('td:nth-child(17)').text();
-        var wheels = row.find('td:nth-child(18)').text();
-        var vehicleMake = row.find('td:nth-child(19)').text();
-        var plateNo = row.find('td:nth-child(20)').text();
-        var yearModel = row.find('td:nth-child(21)').text();
-        var color = row.find('td:nth-child(22)').text();
-        var motorNo = row.find('td:nth-child(23)').text();
-        var chassisNo = row.find('td:nth-child(24)').text();
-        var stickerNo = row.find('td:nth-child(25)').text();
+				var name = row.find('td:nth-child(2)').text();
+				var m_rank = row.find('td:nth-child(3)').text();
+				var m_brSvc = row.find('td:nth-child(4)').text();
+				var m_afpsn = row.find('td:nth-child(5)').text();
+				var m_residenceAddress = row.find('td:nth-child(6)').text();
+				var m_residenceTelNo = row.find('td:nth-child(7)').text();
+				var m_emailAddress = row.find('td:nth-child(8)').text();
+				var m_mobileNo = row.find('td:nth-child(9)').text();
+				var m_designatedOffice = row.find('td:nth-child(10)').text();
+				var m_officeTelNo = row.find('td:nth-child(11)').text();
+				var m_officeAddress = row.find('td:nth-child(12)').text();
+        var m_retirementDate = row.find('td:nth-child(13)').text();
+        var m_class = row.find('td:nth-child(14)').text();
+        var m_dateRegistered = row.find('td:nth-child(15)').text();
+				var m_placeRegistered = row.find('td:nth-child(16)').text();
+
+        var wheels = row.find('td:nth-child(17)').text();
+        var vehicleMake = row.find('td:nth-child(18)').text();
+        var plateNo = row.find('td:nth-child(19)').text();
+        var yearModel = row.find('td:nth-child(20)').text();
+        var color = row.find('td:nth-child(21)').text();
+        var motorNo = row.find('td:nth-child(22)').text();
+        var chassisNo = row.find('td:nth-child(23)').text();
+        var stickerNo = row.find('td:nth-child(24)').text();
 				
 				var modal = $('#view_modal_form2');
 				modal.find('input[name=m_militaryId]').val(m_id);
-				modal.find('input[name=m_lastname]').val(m_lastname);
-				modal.find('input[name=m_firstname]').val(m_firstname);
-				modal.find('input[name=m_middlename]').val(m_middlename);
+				modal.find('input[name=name]').val(name);
 				modal.find('input[name=m_rank]').val(m_rank);
 				modal.find('input[name=m_brSvc]').val(m_brSvc);
 				modal.find('input[name=m_afpsn]').val(m_afpsn);
@@ -341,7 +336,9 @@ DATA;
 				modal.find('input[name=m_officeAddress]').val(m_officeAddress);
         modal.find('input[name=m_retirementDate]').val(m_retirementDate);
         modal.find('input[name=m_class]').val(m_class);
+        modal.find('input[name=m_dateRegistered]').val(m_dateRegistered);
 				modal.find('input[name=m_placeRegistered]').val(m_placeRegistered);
+
         modal.find('input[name=wheels]').val(wheels);
         modal.find('input[name=vehicleMake]').val(vehicleMake);
         modal.find('input[name=plateNo]').val(plateNo);

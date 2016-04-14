@@ -25,23 +25,9 @@
                         <br>
                         <div class="form-horizontal">                  
                             <div class="form-group">
-                              <label class="col-sm-2 control-label">Last Name</label>
+                              <label class="col-sm-2 control-label">Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Last Name" name='m_lastname' required>
-                              </div>
-                            </div>
-                            
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label">First Name</label>
-                              <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="First Name" name='m_firstname' required>
-                              </div>
-                            </div>
-                            
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label">Middle Name</label>
-                              <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Middle Name" name='m_middlename' required>
+                                <input type="text" class="form-control" placeholder="Last Name" name='name' required>
                               </div>
                             </div>
                             
@@ -140,6 +126,17 @@
                         <div class="panel-body">
                         <div class="radio">
                             <label><input type="text" name="m_class" readonly>
+                        </div>
+        
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Date and Time Registered</h3> </div>
+                        <div class="panel-body">
+                        <div class="radio">
+                            <label><input type="text" name="m_dateRegistered" readonly>
                         </div>
         
                         </div>

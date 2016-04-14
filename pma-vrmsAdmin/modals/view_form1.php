@@ -27,23 +27,9 @@
                         <br>
                         <div class="form-horizontal">                  
                             <div class="form-group">
-                              <label class="col-sm-2 control-label">Last Name</label>
+                              <label class="col-sm-2 control-label">Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" name="a_lastname" readonly>
-                              </div>
-                            </div>
-                            
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label">First Name</label>
-                              <div class="col-sm-9">
-                                <input type="text" class="form-control" name='a_firstname' readonly>
-                              </div>
-                            </div>
-                            
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label">Middle Name</label>
-                              <div class="col-sm-9">
-                                <input type="text" class="form-control" name='a_middlename' readonly>
+                                <input type="text" class="form-control" name="name" readonly>
                               </div>
                             </div>
                             
@@ -96,6 +82,16 @@
                         <div class="panel-body">
                         <div>
                         	<input type="text" class="form-control" name="a_class" readonly>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Date and Time Registered</h3> </div>
+                        <div class="panel-body">
+                        <div>
+                          <input type="text" class="form-control" name="a_dateRegistered" readonly>
                         </div>
                         </div>
                     </div>
