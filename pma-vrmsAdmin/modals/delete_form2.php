@@ -19,7 +19,7 @@
                         <input style="display:none;" type="text" name="m_militaryId" readonly>
                         
                         <!-- image display -->
-                        <img id='img_view' height="100px">
+                        <img id='img_delete' height="100px">
 
                         <br>
                         <br>

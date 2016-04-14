@@ -21,7 +21,7 @@
                         <input style="display:none;" type="text" name="a_applicantId" readonly>
                         
                         <!-- image display -->
-                        <img id='img_view' height="100px">
+                        <img id='img_delete' height="100px">
 
                         <br>
                         <br>

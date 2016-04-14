@@ -211,7 +211,7 @@ DATA;
 
 	<script type="text/javascript">
 		var edit_form1 = function(key, img){
-      $('#img_view').attr('src', img);
+      $('#img_edit').attr('src', img);
       var row = $('#applicant_'+key);
       var a_id = row.find('td:first-child').text();
       var name = row.find('td:nth-child(2)').text();
@@ -256,7 +256,7 @@ DATA;
 		}
 
 		var delete_form1 = function(key, img){
-      $('#img_view').attr('src', img);
+      $('#img_delete').attr('src', img);
       var row = $('#applicant_'+key);
       var a_id = row.find('td:first-child').text();
       var name = row.find('td:nth-child(2)').text();
