@@ -6,6 +6,7 @@
 
 td{
 	text-align: center;
+	word-wrap: normal;
 }
 
 #login{
@@ -42,10 +43,21 @@ nav.menu{
 	padding: 5px;
 }
 
-.col{
+td.col{
 	text-align: center;
 	border: 1px solid #c2c2d6;
 	padding: 5px;
+	word-wrap: break-word;
+	text-overflow: ellipsis;
+}
+
+td.after{
+	text-align: center;
+	border: 1px solid #c2c2d6;
+	padding: 5px;
+	word-wrap: break-word;
+	color: red;
+	text-overflow: ellipsis;
 }
 
 
@@ -67,6 +79,10 @@ table{
 #view{
 	align: center;
 	height: 800px;
+}
+
+td{
+	word-wrap:break-word;
 }
 
 

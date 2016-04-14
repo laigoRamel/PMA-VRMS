@@ -11,18 +11,16 @@
 	require_once('connect.php');
 	
 	//QUERY
-	$query1 = "SELECT * FROM report ORDER BY rid desc";
+	$query1 = "SELECT * FROM log ORDER BY tid desc";
 	$results = mysqli_query($conn, $query1);
 	$sr = "All Records";
 	
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
-			$sd = $_POST['sdate'];
-			$ed = $_POST['edate'];
-			$sr = "Records from " .$sd . " to " . $ed ;
+			$key = $_POST['keyword'];
+			$sr = "Search Results for " .$key;
 			//$field = $_POST['field'];
-
 			
-			$query = "SELECT * FROM report WHERE datein BETWEEN '$sd' AND '$ed'";
+			$query = "SELECT * FROM log WHERE plateNum LIKE '%" . $key . "%' OR owner LIKE '%" . $key . "%' OR dateIn LIKE '%" . $key . "%' OR timein LIKE '%" . $key . "%' OR dateOut LIKE '%" . $key . "%' OR timeout LIKE '%" . $key . "%' OR  type LIKE '%" . $key . "%'   ORDER BY tid DESC";
 			$results = mysqli_query($conn, $query);
 			
 	}
@@ -54,7 +52,7 @@
 			$('table.table-sort').tablesort();
 		});
 		</script>
-		
+
 	</head>
 	<body>
 
@@ -68,19 +66,13 @@
 					<li><a href="client_vehicleout.php">Vehicle Time Out</a></li>
 					<li><a href="client_viewlog.php">View Vehicle Log</a></li>
 					<li class="dropdown">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Violation Reports <span class="caret"></span></a>
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports <span class="caret"></span></a>
 					  <ul class="dropdown-menu">
-						<li><a href="client_report.php">Create Violation Report</a></li>
-						<li><a href="client_viewreport.php">View Violation Report</a></li>
+						<li><a href="client_report.php">Create Report</a></li>
+						<li><a href="client_viewreport.php">View Report</a></li>
 					  </ul>
 					</li>
-					<?php
-						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
-							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
-						}else{
-							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
-						}
-					?>
+					<li><a href="client_afterfive.php">17:00</a></li>
 				  </ul>
 			</div>
 		</div>
@@ -98,22 +90,11 @@
 				<div class='col-md-12' align="center">
 					<br>
 					
-				<!--	<form method="POST" action="client_viewreport.php" id="client_viewreport">
+					<form method="POST" action="" id="samplesort.php">
 						<table id="search">
 							<tr><td>Keyword: </td><td><input type="text" name="keyword" /></td>
-							<td colspan="2"><button type="submit" form="client_viewreport">
+							<td colspan="2"><button type="submit" form="samplesort.php">
 								<span class="glyphicon glyphicon-search"> Search</span>
-								</button></td></tr>
-						</table>
-					</form> -->
-					
-					<form method="POST" action="" id="client_viewreport.php">
-						<table id="search">
-							<tr><td>Filter by date:</td></tr>
-							<tr><td>From: </td><td><input type="date" name="sdate" /></td>
-								<td>To: </td><td><input type="date" name="edate" /></td>
-							<td><button type="submit" form="client_viewreport.php">
-								<span class="glyphicon glyphicon-search"> Filter</span>
 								</button></td></tr>
 						</table>
 					</form>
@@ -124,28 +105,24 @@
 					
 					<div id="view" style="overflow-y:auto;">
 					<?php
-									echo "<table align='center' class='table-sort table-sort-search table-sort-show-search-count'><thead><tr><th class='table-sort'>Plate No. </th><th class='table-sort'>Registered Under</th><th class='table-sort'>Date</th><th class='table-sort'>Time</th><th class='table-sort'>Violation</th><th class='table-sort'>Type</th><th class='table-sort'>License No.</th><th class='table-sort'>Details</th></tr></thead>";
+							//		echo "<table align='center' id='viewtable'><tr><th class='head' rowspan='2'>Plate No. </th><th class='head' rowspan='2'>Registered Under</th><th class='head' colspan='2'>Time In</th><th class='head' colspan='2'>Time Out</th><th class='head' rowspan='2'>Type</th></tr>";
+							//		echo "<tr><th class='head'>Date</th><th class='head'>Time</th><th class='head'>Date</th><th class='head'>Time</th></tr>";
+								
+							//		echo "<table align='center' class='table-sort table-sort-search'><tr><td></td><td></td><td class='head' colspan='2'>Time In</td><td class='head' colspan='2'>Time Out</td><td></td></tr>";
+									echo "<table align='center' class='table-sort table-sort-search'><thead><tr><th class='table-sort'>Plate No. </th><th class='table-sort'>Registered Under</th><th class='table-sort'>Date</th><th class='table-sort'>Time</th><th class='table-sort'>Date</th><th class='table-sort'>Time</th><th class='table-sort'>Type</th></thead></tr>";
 									
+								
 									if(mysqli_num_rows($results) >= 1){
 										while($row = mysqli_fetch_assoc($results)){
 											$a = $row['plateNum'];
 											$b = $row['owner'];
-											$c = $row['datein'];
+											$c = $row['dateIn'];
 											$d = $row['timein'];
-											$e = $row['violation'];
-											$f = $row['type'];
-											
-											$query2 = "SELECT * FROM log WHERE plateNum = '$a' and dateIn = '$c'";
-											$results2 = mysqli_query($conn, $query2);
-											
-											if(mysqli_num_rows($results2) >= 1){
-												while($row = mysqli_fetch_assoc($results2)){
-													$g = $row['licenseNo'];
-													$h = $row['details'];
-												}
-											}
-											
-											echo "<tr><td class='col'> " . $a . "</td><td class='col'>" . $b . "</td><td class='col'>" . $c . "</td><td class='col'>" . $d ."</td><td class='col'>" . $e ."</td><td class='col'>" . $f. "</td><td class='col'>" . $g. "</td><td class='col'>" . $h. "</td></tr>";
+											$e = $row['dateOut'];
+											$f = $row['timeout'];
+											$g = $row['type'];
+					
+											echo "<tr><td class='col'> " . $a . "</td><td class='col'>" . $b . "</td><td class='col'>" . $c . "</td><td class='col'>" . $d ."</td><td class='col'>" . $e ."</td><td class='col'>" . $f. "</td><td class='col'>" . $g."</td></tr>";
 																						
 										
 									}

@@ -43,7 +43,13 @@ $t = date("H:i:s");
 						<li><a href="client_viewreport.php">View Report</a></li>
 					  </ul>
 					</li>
-					<li><a href="client_afterfive.php">17:00</a></li>
+					<?php
+						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
+							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
+						}else{
+							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+						}
+					?>
 				  </ul>
 			</div>
 	

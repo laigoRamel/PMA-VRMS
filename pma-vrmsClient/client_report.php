@@ -48,13 +48,19 @@ $t = date("H:i:s");
 			<li><a href="client_vehicleout.php">Vehicle Time Out</a></li>
 			<li><a href="client_viewlog.php">View Vehicle Log</a></li>
 			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports <span class="caret"></span></a>
-			  <ul class="dropdown-menu">
-				<li><a href="client_report.php">Create Report</a></li>
-				<li><a href="client_viewreport.php">View Report</a></li>
-			  </ul>
-			</li>
-			<li><a href="client_afterfive.php">17:00</a></li>
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Violation Reports <span class="caret"></span></a>
+					  <ul class="dropdown-menu">
+						<li><a href="client_report.php">Create Violation Report</a></li>
+						<li><a href="client_viewreport.php">View Violation Report</a></li>
+					  </ul>
+					</li>
+			<?php
+						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
+							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
+						}else{
+							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+						}
+					?>
 		  </ul>
       
 		</div>
@@ -76,8 +82,8 @@ $t = date("H:i:s");
 					<br>
 					<form method="POST" action="client_report.php" id="createreport">
 						<table>
-							<tr><td>Plate Number: </td><td><input type="text" name="plate" placeholder="AAA####" /></td></tr>
-							<tr><td>Violation: </td><td><input type="text" name="vio" /></td></tr>
+							<tr><td>Plate Number: </td><td><input type="text" name="plate" placeholder="AAA####" required/></td></tr>
+							<tr><td>Violation: </td><td><input type="text" name="vio" required /></td></tr>
 							<tr><td colspan="2"><button type="submit" form="createreport">
 								<span class="glyphicon glyphicon-ok"> Record Report</span>
 								</button></td></tr>

@@ -37,13 +37,19 @@ $t = date("H:i:s");
 					<li><a href="client_vehicleout.php">Vehicle Time Out</a></li>
 					<li><a href="client_viewlog.php">View Vehicle Log</a></li>
 					<li class="dropdown">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports <span class="caret"></span></a>
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Violation Reports <span class="caret"></span></a>
 					  <ul class="dropdown-menu">
-						<li><a href="client_report.php">Create Report</a></li>
-						<li><a href="client_viewreport.php">View Report</a></li>
+						<li><a href="client_report.php">Create Violation Report</a></li>
+						<li><a href="client_viewreport.php">View Violation Report</a></li>
 					  </ul>
 					</li>
-					<li><a href="client_afterfive.php">17:00</a></li>
+					<?php
+						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
+							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
+						}else{
+							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+						}
+					?>
 				  </ul>
 			</div>
 		</div>
@@ -68,16 +74,32 @@ $t = date("H:i:s");
 							$d = $_POST['d'];
 							$t = $_POST['t'];
 							$type = $_POST['type'];
+							if($type=="Visitor"){
+								$l = $_POST['lic'];
+								$detail = $_POST['detail'];
+								$vp = $_POST['vp'];
+							}
+							
 							$flag = 1;
+							$u = $_SESSION['user'];
 							
 							
 							$q = "SELECT * FROM log WHERE plateNum = '$plate' AND flag=1";
 							$results = mysqli_query($conn, $q);
 							$num = mysqli_num_rows($results);
 								
-							if($num==0){
-								$query = "INSERT INTO log (plateNum, owner, dateIn, timein, type, flag) VALUES ('$plate', '$owner', '$d', '$t', '$type', $flag)";
+							if($num==0 and $type=="Registered"){
+								$query = "INSERT INTO log (plateNum, owner, dateIn, timein, type, flag, pIN) VALUES ('$plate', '$owner', '$d', '$t', '$type', $flag, '$u')";
 								$results = mysqli_query($conn, $query);
+								echo "<br>Plate Number: <b>" .$plate. "</b> <br>Time in: " . $d . " " . $t;
+								echo "<br><form> <button formaction='client_vehiclelog.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";
+							}else if($num==0 and $type=="Visitor"){
+								$query = "INSERT INTO log (plateNum, owner, dateIn, timein, type, licenseNo, details, flag, vid, pIN) VALUES ('$plate', '$owner', '$d', '$t', '$type', '$l', '$detail', $flag, '$vp', '$u')";
+								$results = mysqli_query($conn, $query);
+								
+								$update = "UPDATE visitorpass SET flag=1 WHERE vid='$vp'";
+								$uresult = mysqli_query($conn, $update);
+								
 								echo "<br>Plate Number: <b>" .$plate. "</b> <br>Time in: " . $d . " " . $t;
 								echo "<br><form> <button formaction='client_vehiclelog.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";
 							}else{

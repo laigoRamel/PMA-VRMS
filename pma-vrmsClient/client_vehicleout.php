@@ -37,13 +37,19 @@ $t = date("H:i:s");
 					<li><a href="client_vehicleout.php">Vehicle Time Out</a></li>
 					<li><a href="client_viewlog.php">View Vehicle Log</a></li>
 					<li class="dropdown">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports <span class="caret"></span></a>
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Violation Reports <span class="caret"></span></a>
 					  <ul class="dropdown-menu">
-						<li><a href="client_report.php">Create Report</a></li>
-						<li><a href="client_viewreport.php">View Report</a></li>
+						<li><a href="client_report.php">Create Violation Report</a></li>
+						<li><a href="client_viewreport.php">View Violation Report</a></li>
 					  </ul>
 					</li>
-					<li><a href="client_afterfive.php">17:00</a></li>
+					<?php
+						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
+							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
+						}else{
+							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+						}
+					?>
 				  </ul>
 			</div>
 		</div>
@@ -59,7 +65,7 @@ $t = date("H:i:s");
 					<br>
 					<form method="POST" action="" id="checkvehicle">
 						<table>
-							<tr><td>Plate Number: </td><td><input type="text" name="plate" placeholder="AAA####" /></td><td></td>
+							<tr><td>Plate Number: </td><td><input type="text" name="plate" placeholder="AAA####" pattern="[A-Za-z]{3}\d{3}|[A-Za-z]{3}\d{4}|[A-Za-z]{2}\d{4}" title="Plate Number format: AAA### or AAA#### or Conduction Sticker: AA####" required /></td><td></td>
 							<td colspan="2"><button type="submit" form="checkvehicle">
 								<span class="glyphicon glyphicon-ok"> Check Plate Number</span>
 								</button></td></tr>
@@ -86,6 +92,9 @@ $t = date("H:i:s");
 											$b = $row['owner'];
 											$c = $row['dateIn'];
 											$d = $row['timein'];
+											$e = $row['type'];
+											$f = $row['vid'];
+											$g = $row['details'];
 										}	
 											
 										$query="SELECT * FROM report WHERE plateNum = '" . $plate  . "' and flag=1";
@@ -98,17 +107,31 @@ $t = date("H:i:s");
 											$vio = "";
 										}
 										
-					
-											echo "<table align='center' id='vLog'><tr><th class='head'>Plate No. </th><th class='head'>Registered Under</th><th class='head'>Last Login</th><th class='head'>Violation</th></tr><tr><td class='col'> " . $a . "</td><td class='col'>" . $b . "</td><td class='col'>" . $c . " " . $d .	"</td><td class='col'>" . $vio . "</td></tr><table><br>";
+											if($e=="Visitor"){
+											echo "<table align='center' id='vLog'><tr><th class='head'>Visitor ID</th><th class='head'>Plate No. </th><th class='head'>Registered Under</th><th class='head'>Last Login</th><th class='head'>Details</th><th class='head'>Violation</th></tr><tr><td class='col'> " . $f ."<td class='col'> " . $a . "</td><td class='col'>" . $b . "</td><td class='col'>" . $c . " " . $d .	"</td><td class='col'>" . $g ."</td><td class='col'>" . $vio . "</td></tr><table><br>";
 																						
 											echo "<form method='POST' action='timeout.php'>
+													<input type='hidden' name='type' value='" . $e . "'>
+													<input type='hidden' name='vid' value='" . $f . "'>
 													<input type='hidden' name='plate' value='" . $a . "'>
 													<input type='hidden' name='owner' value='" . $b . "'>
 													<input type='hidden' name='d' value='" . $c . "'>
 													<input type='hidden' name='t' value='" . $t . "'>
 													<button formaction='timeout.php'>Time Out</button>
 													</form><form method='GET'><button formaction='client_vehicleout.php'>Cancel</button></form>";
-											
+											}else{
+												echo "<table align='center' id='vLog'><tr><th class='head'>Plate No. </th><th class='head'>Registered Under</th><th class='head'>Last Login</th><th class='head'>Violation</th></tr><tr><td class='col'> " . $a . "</td><td class='col'>" . $b . "</td><td class='col'>" . $c . " " . $d .	"</td><td class='col'>" . $vio . "</td></tr><table><br>";
+																						
+												echo "<form method='POST' action='timeout.php'>
+													<input type='hidden' name='type' value='" . $e . "'>
+													<input type='hidden' name='vid' value='" . $f . "'>
+													<input type='hidden' name='plate' value='" . $a . "'>
+													<input type='hidden' name='owner' value='" . $b . "'>
+													<input type='hidden' name='d' value='" . $c . "'>
+													<input type='hidden' name='t' value='" . $t . "'>
+													<button formaction='timeout.php'>Time Out</button>
+													</form><form method='GET'><button formaction='client_vehicleout.php'>Cancel</button></form>";
+											}
 										
 									}else{
 										$query2="SELECT * FROM log WHERE plateNum = '" . $plate  . "' and flag=0 ORDER BY tid DESC LIMIT 1";

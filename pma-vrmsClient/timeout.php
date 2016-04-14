@@ -38,13 +38,19 @@ $t = date("H:i:s");
 					<li><a href="client_vehicleout.php">Vehicle Time Out</a></li>
 					<li><a href="client_viewlog.php">View Vehicle Log</a></li>
 					<li class="dropdown">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports <span class="caret"></span></a>
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Violation Reports <span class="caret"></span></a>
 					  <ul class="dropdown-menu">
-						<li><a href="client_report.php">Create Report</a></li>
-						<li><a href="client_viewreport.php">View Report</a></li>
+						<li><a href="client_report.php">Create Violation Report</a></li>
+						<li><a href="client_viewreport.php">View Violation Report</a></li>
 					  </ul>
 					</li>
-					<li><a href="client_afterfive.php">17:00</a></li>
+					<?php
+						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
+							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
+						}else{
+							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+						}
+					?>
 				  </ul>
 			</div>
 		</div>
@@ -67,6 +73,9 @@ $t = date("H:i:s");
 							$plate = strtoupper($_POST['plate']);
 							$owner = $_POST['owner'];
 							$t = $_POST['t'];
+							$u = $_SESSION['user'];
+							$type = $_POST['type'];
+							$vp = $_POST['vid'];
 							
 						
 							$q = "SELECT * FROM log WHERE plateNum = '$plate' AND flag=1";
@@ -74,11 +83,16 @@ $t = date("H:i:s");
 							$num = mysqli_num_rows($results);
 							
 							if($num>=1){
-								$query = "UPDATE log SET dateout= '$d', timeout='$t', flag=0 WHERE plateNum='$plate' AND flag=1";
+								$query = "UPDATE log SET dateout= '$d', timeout='$t', flag=0, pOUT='$u' WHERE plateNum='$plate' AND flag=1";
 								$results = mysqli_query($conn, $query);
+								
+								if($type=='Visitor'){
+									$update = "UPDATE visitorpass SET flag=0 WHERE vid='$vp'";
+									$uresult = mysqli_query($conn, $update);
+								}
 								echo "<br>Plate Number: <b>" .$plate. "</b> <br>Time Out: " . $d . " " . $t;
 								echo "<br><form> <button formaction='client_vehicleout.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";
-
+						
 							}else{
 								echo "Vehicle with Plate Number <b>" . $plate . "</b>was logged out earlier";
 								echo "<br><form> <button formaction='client_vehicleout.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";

@@ -11,7 +11,7 @@
 			$host			= 'localhost';
 			$username		= 'root';
 			$password		= '';
-			$database_name	= 'pma-vrms';
+			$database_name	= 'clientDB';
 			$port			= 3306;
 			
 			$this->database = mysqli_connect($host, $username, $password, $database_name, $port);
