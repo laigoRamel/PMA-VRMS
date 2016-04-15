@@ -221,7 +221,7 @@ include('login/session.php');
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Email Address</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Email Address" name='m_emailAddress' required>
+                                <input type="email" class="form-control" placeholder="Email Address" name='m_emailAddress' required>
                               </div>
                             </div>
                             
