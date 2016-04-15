@@ -38,13 +38,26 @@
 			$all_requirements = $requirement.','.$all_requirements;
 		}
 
+		date_default_timezone_set("Asia/Hong_Kong");
+
 		$a_dateRegistered = date('Y-m-d H:i:s');
+
+		$current_date = date("Y-m-d");
+		$current_time = date("h:i:s");
 		
 	
 		$query = "INSERT INTO form1_applicantpd (a_profile, a_lastname, a_firstname, a_middlename, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_placeRegistered, a_submitted_requirements, a_status, a_dateRegistered, a_vehicle_id, a_renew_status) 
 				VALUES ('$img_name', '$a_lastname', '$a_firstname', '$a_middlename', '$a_address', '$a_occupation', '$a_officeAddress', '$a_driversLicense', '$a_expirationDate', '$a_class', '$a_placeRegistered', '$all_requirements', '$status', '$a_dateRegistered', '$vehicle_id', '1')";
 
 		$database->execute($query);
+
+		$full_name = $a_lastname . ', ' . $a_firstname . ' ' . $a_middlename . '.';
+
+		$query2 = "INSERT INTO admin_logs (id, user, activity, curr_date, curr_time)
+					VALUES ('', '$username', 'Registered $full_name', '$current_date', '$current_time')";
+
+		$database->execute($query2);
+
 		$database->disconnect();
 	}
 

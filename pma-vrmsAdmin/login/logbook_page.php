@@ -145,14 +145,42 @@ include('session.php');
                         <div class="box-body">
                             <table class="table table-bordered table-hover" id="bootstrap-table">
 				<thead>
-					<th>Name</th>
-					<th>Time-in</th>
-					<th>Time-out</th>
+					<th>System User</th>
+					<th>Activity</th>
+          <th>Date</th>
+					<th>Time</th>
 				</thead>
 				<tbody>
 
 					<?php
-					require_once('logbook_logic.php');
+            $handler = mysqli_connect('localhost', 'root', '', 'pma-vrms')
+              or die ('Error connecting to MySQL server.');
+
+            $query = "SELECT * FROM admin_logs";
+
+            $result = mysqli_query($handler, $query)
+              or die ('Error querying database.');
+
+            while ($row = mysqli_fetch_array($result)) {
+              $user = $row['user'];
+              $activity = $row['activity'];
+              $date = $row['curr_date'];
+              $time = $row['curr_time'];
+          ?>
+              <tr>
+                <td><?php echo $user; ?></td>
+                <td><?php echo $activity; ?></td>
+                <td><?php echo $date; ?></td>
+                <td><?php echo $time; ?></td>
+              </tr>
+
+          <?php
+            }
+          ?>
+
+          <?php
+
+					/*require_once('logbook_logic.php');
 
 					$date = 'date';
 					foreach($record as $rec){
@@ -166,7 +194,7 @@ include('session.php');
 						</tr>
 REC;
 
-					}
+					}*/
 
 
 
@@ -188,7 +216,7 @@ REC;
 	    					//echo $
 					}
 					echo "</tbody>";**/
-					?>
+				?>
 
 				</tbody>
 			</table>
