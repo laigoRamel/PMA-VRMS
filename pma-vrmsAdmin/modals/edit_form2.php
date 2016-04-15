@@ -113,7 +113,7 @@
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Date of Retirement</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="YYYY-MM-DD @MarcLim gawin mong datepicker" name='m_retirementDate' data-mask="9999-99-99" required>
+                                <input type="date" class="form-control" placeholder="YYYY-MM-DD @MarcLim gawin mong datepicker" name='m_retirementDate' data-mask="9999-99-99" required>
                               </div>
                             </div>
                             
