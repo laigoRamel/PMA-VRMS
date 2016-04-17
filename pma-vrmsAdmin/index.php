@@ -1,7 +1,11 @@
 <?php
 include('login/session.php');
+$connect=mysqli_connect("localhost","root","","pma-vrms");
+// d ko pa magets ung gngwa nio mag connect sa database ito muna
+    if (mysqli_connect_errno()){
+    echo "Failed to connect to MySQL(pending): " . mysqli_connect_error();
+    }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -155,7 +159,21 @@ include('login/session.php');
                     </a>
                     <div class="info-box-content">
                       <span class="info-box-text">Pending Forms</span>
-                      <span class="info-box-number">15</span>
+                      <span class="info-box-number">
+                        <?php
+                        $queryPendingApplicants="SELECT a_applicantId FROM form1_applicantpd";
+                        if ($result=mysqli_query($connect,$queryPendingApplicants))
+                          {
+                          // Return # of Pending Applicants based on counting the applicant id on the db.
+                          $rowcount=mysqli_num_rows($result);
+                          printf("There are  %d Pending Application \n",$rowcount);
+                          // Free result set
+                          mysqli_free_result($result);
+                          }
+                        
+                          ?>
+                      </span>
+
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
@@ -165,7 +183,20 @@ include('login/session.php');
                     <span class="info-box-icon bg-green"><i class="fa fa-user-plus"></i></span>
                     <div class="info-box-content">
                       <span class="info-box-text">Today's visitors</span>
-                      <span class="info-box-number">55</span>
+                      <span class="info-box-number">
+                        <?php
+                        $queryTodaysVisitor="select tid, dateIn from log where dateIn = curdate();";
+                        if ($result=mysqli_query($connect,$queryTodaysVisitor))
+                          {
+                          // Return # of Pending Applicants based on counting the applicant id on the db.
+                          $rowcount=mysqli_num_rows($result);
+                          printf("There are  %d Pending Application \n",$rowcount);
+                          // Free result set
+                          mysqli_free_result($result);
+                          }
+                        mysqli_close($connect);
+                          ?>
+                      </span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
@@ -188,7 +219,6 @@ include('login/session.php');
 <body>
 
 
-        
       
         </div><!-- /.content-wrapper -->
 
@@ -203,7 +233,4 @@ include('login/session.php');
 
 </body>
 
-
-   
-    
 </html>
