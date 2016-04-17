@@ -40,6 +40,21 @@
 
 		$update = "UPDATE form1_applicantpd SET a_renew_status='0' WHERE a_applicantId='".$_POST['a_applicantId']."'";
 		$database->execute($update);
+
+		date_default_timezone_set("Asia/Hong_Kong");
+
+		$current_date = date("Y-m-d");
+		$current_time = date("h:i:s");
+
+		//$full_name = $a_lastname . ', ' . $a_firstname . ' ' . $a_middlename;
+
+		$full_name = $row['a_lastname'] . ', ' . $row['a_firstname'] . ' ' . $row['a_middlename'];
+
+		$query2 = "INSERT INTO admin_logs (id, user, activity, curr_date, curr_time)
+					VALUES ('', '$username', 'Renewed: $full_name', '$current_date', '$current_time')";
+
+		$database->execute($query2);
+
 		$database->disconnect();
 	}
 

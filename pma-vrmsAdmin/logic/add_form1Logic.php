@@ -51,10 +51,10 @@
 
 		$database->execute($query);
 
-		$full_name = $a_lastname . ', ' . $a_firstname . ' ' . $a_middlename . '.';
+		$full_name = $a_lastname . ', ' . $a_firstname . ' ' . $a_middlename;
 
 		$query2 = "INSERT INTO admin_logs (id, user, activity, curr_date, curr_time)
-					VALUES ('', '$username', 'Registered $full_name', '$current_date', '$current_time')";
+					VALUES ('', '$username', 'Registered: $full_name', '$current_date', '$current_time')";
 
 		$database->execute($query2);
 

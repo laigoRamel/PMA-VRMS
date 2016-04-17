@@ -40,6 +40,20 @@
 		$update = "UPDATE form2_militarypd SET m_renew_status='0' WHERE m_militaryId='".$_POST['m_militaryId']."'";
 		$database->execute($update);
 
+		date_default_timezone_set("Asia/Hong_Kong");
+
+		$current_date = date("Y-m-d");
+		$current_time = date("h:i:s");
+
+		//$full_name = $a_lastname . ', ' . $a_firstname . ' ' . $a_middlename;
+
+		$full_name = $row['m_lastname'] . ', ' . $row['m_firstname'] . ' ' . $row['m_middlename'];
+
+		$query2 = "INSERT INTO admin_logs (id, user, activity, curr_date, curr_time)
+					VALUES ('', '$username', 'Renewed: $full_name (AFP)', '$current_date', '$current_time')";
+
+		$database->execute($query2);
+
 		$database->disconnect();
 	}
 
