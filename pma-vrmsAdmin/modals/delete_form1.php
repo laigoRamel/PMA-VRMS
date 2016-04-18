@@ -124,6 +124,16 @@
                             <div class="form-horizontal dynamic_field">
                             
                             <table class="table table-bordered" id="dynamic_field">
+                            <thead>
+                              <th>Wheels</th>
+                              <th>Vehicle Make</th>
+                              <th>Plate No</th>
+                              <th>Year Model</th>
+                              <th>Color</th>
+                              <th>Motor No</th>
+                              <th>Chassis No</th>
+                              <th>Sticker No</th>
+                            </thead>
                                 
 					<tr>  
 						<td><input type="text" name="wheels" class="form-control name_list" readonly></input></td>  
