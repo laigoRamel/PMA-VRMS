@@ -1,3 +1,7 @@
+<?php 
+  //require_once('../login/session.php');
+?>
+
 <div class="modal fade" id='delete_form1'>
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
