@@ -300,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_vehicle_id` int(11) NOT NULL,
   `a_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`a_applicantId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `form1_applicantpd`
@@ -313,10 +313,7 @@ INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_
 (4, 'Saran-Madere.png', 'Madere', 'Saran', 'Heist', 'La Trinidad', 'Secretary', 'Fort del Pillar', '4444444444', '2016-12-3', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:22:45', 'Fort del Pillar', 4, 1),
 (5, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', 'Camp Allen', 5, 1),
 (6, 'Jonas-Starkweather.png', 'Starkweather', 'Jonas', 'Cole', 'Baguio City', 'Database Administrator', 'Fort del Pillar', '6666666666', '2016-12-25', 'Class B', '3,2,1,', 'pending', '2016-04-12 09:31:51', 'Navy Base', 6, 1),
-(7, 'Eugenia-Alamo.png', 'Alamo', 'Eugenia', 'Dowdle', 'La Trinidad', 'Janitor', 'Fort del Pillar', '7777777777', '2017-04-06', 'Class B', '5,4,1,', 'pending', '2016-04-12 09:34:32', 'Fort del Pillar', 7, 1),
-(8, 'Daryll-Go.png', 'Go', 'Daryll', 'Chan', 'Loakan', 'Unemployed', 'Fort del Pilar', 'AAAA1111', '2020-04-28', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-17 16:58:56', 'Fort del Pilar', 15, 0),
-(9, 'Daryll-Go.png', 'Go', 'Daryll', 'Chan', 'Loakan', 'Unemployed', 'Fort del Pilar', 'AAAA1111', '2020-04-28', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-17 16:58:56', '', 15, 1),
-(10, 'Daryll-Go.png', 'Go', 'Daryll', 'Chan', 'Loakan', 'Unemployed', 'Fort del Pilar', 'AAAA1111', '2020-04-28', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-17 16:58:56', '', 15, 1);
+(7, 'Eugenia-Alamo.png', 'Alamo', 'Eugenia', 'Dowdle', 'La Trinidad', 'Janitor', 'Fort del Pillar', '7777777777', '2017-04-06', 'Class B', '5,4,1,', 'pending', '2016-04-12 09:34:32', 'Fort del Pillar', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -349,7 +346,7 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_vehicle_id` int(11) NOT NULL,
   `m_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`m_militaryId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `form2_militarypd`
@@ -362,9 +359,7 @@ INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_fi
 (4, 'Berry-Sanabria.png', 'Sanabria', 'Berry', 'Tomson', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson1@gmail.com', '09124565784', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2025-08-9-09', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:08:09', 'Fort del Pilar', 11, 1),
 (5, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2019-04-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', 'Camp Allen', 12, 1),
 (6, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-01', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', 'Navy Base', 13, 1),
-(7, 'Horacio-Desousa.png', 'Desousa', 'Horacio', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'horacio@gmail.com', '09304565871', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2015-06-09', 'Class B', '2,1,', 'pending', '2016-04-12 10:16:59', 'Fort del Pilar', 14, 1),
-(9, 'Juanito-Pedro.png', 'Pedro', 'Juanito', 'Pitoy', 'Major', 'NA', '222222', 'Baguio', '7444567890', 'juanitopedro@email.com', '09271112222', 'MA11', '8571', 'Fort Del Pilar', '2019-12-13', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-17 17:31:32', 'Fort del Pilar', 17, 0),
-(10, 'Juanito-Pedro.png', 'Pedro', 'Juanito', 'Pitoy', 'Major', 'NA', '222222', 'Baguio', '7444567890', 'juanitopedro@email.com', '09271112222', 'MA11', '8571', 'Fort Del Pilar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-17 17:31:32', '', 0, 1);
+(7, 'Horacio-Desousa.png', 'Desousa', 'Horacio', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'horacio@gmail.com', '09304565871', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2015-06-09', 'Class B', '2,1,', 'pending', '2016-04-12 10:16:59', 'Fort del Pilar', 14, 1);
 
 -- --------------------------------------------------------
 
@@ -383,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `chassisNo` varchar(60) NOT NULL,
   `stickerNo` varchar(60) NOT NULL,
   PRIMARY KEY (`vehicleId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `vehicle_information`
@@ -403,10 +398,7 @@ INSERT INTO `vehicle_information` (`vehicleId`, `wheels`, `vehicleMake`, `plateN
 (11, '4-wheeled', 'Ford', 'poi567', '2017', 'yellow', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
 (12, '4-wheeled', 'Honda', 'fgh523', '2005', 'red', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
 (13, '4-wheeled', 'Ferrari', 'dfg123', '2016', 'red', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
-(14, '4-wheeled', 'Honda', 'ghr234', '2007', 'blue', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
-(15, '2-wheeled', 'Motorola', 'AAA111', '2020', 'Pink', 'AAA121', 'AAA131', 'AAA141'),
-(16, '4-wheeled', 'Toyota', 'BBB222', '2017', 'Black', '222333', '222444', '222555'),
-(17, '4-wheeled', 'Toyota', 'BBB222', '2017', 'Black', '222333', '222444', '222555');
+(14, '4-wheeled', 'Honda', 'ghr234', '2007', 'blue', 'xxxxxx', 'xxxxxx', 'xxxxxx');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

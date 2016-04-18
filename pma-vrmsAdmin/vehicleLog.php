@@ -96,7 +96,7 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><p><a href="form1.php">Fort del Pillar/Camp Allen/<br>Navybase</a></p></li>
+                <li><a href="form1.php">Fort del Pillar/Camp Allen/<br>Navybase</a></li>
                 <li><a href="form2.php">AFP/Military</a></li>
               </ul>
             </li>
