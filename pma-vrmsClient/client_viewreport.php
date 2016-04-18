@@ -11,7 +11,7 @@
 	require_once('connect.php');
 	
 	//QUERY
-	$query1 = "SELECT * FROM report ORDER BY rid desc";
+	$query1 = "SELECT * FROM client_report ORDER BY rid desc";
 	$results = mysqli_query($conn, $query1);
 	$sr = "All Records";
 	
@@ -22,7 +22,7 @@
 			//$field = $_POST['field'];
 
 			
-			$query = "SELECT * FROM report WHERE datein BETWEEN '$sd' AND '$ed'";
+			$query = "SELECT * FROM client_report WHERE datein BETWEEN '$sd' AND '$ed'";
 			$results = mysqli_query($conn, $query);
 			
 	}
@@ -135,7 +135,7 @@
 											$e = $row['violation'];
 											$f = $row['type'];
 											
-											$query2 = "SELECT * FROM log WHERE plateNum = '$a' and dateIn = '$c'";
+											$query2 = "SELECT * FROM client_log WHERE plateNum = '$a' and dateIn = '$c'";
 											$results2 = mysqli_query($conn, $query2);
 											
 											if(mysqli_num_rows($results2) >= 1){

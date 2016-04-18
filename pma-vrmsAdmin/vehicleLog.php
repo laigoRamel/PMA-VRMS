@@ -152,6 +152,8 @@ include('login/session.php');
                                     <th>Date Out</th>
                                     <th>Timeout</th>
                                     <th>Type</th>
+                                    <th>License No</th>
+                                    <th>Details</th>
                                 </thead>
                                 <tbody>
                                     <?php 
@@ -166,6 +168,8 @@ include('login/session.php');
                                                     <td>$log[dateOut]</td>
                                                     <td>$log[timeout]</td>
                                                     <td>$log[type]</td>
+                                                    <td>$log[licenseNo]</td>
+                                                    <td>$log[details]</td>
                                                 </tr>
 DATA;
                                         }

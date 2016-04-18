@@ -14,7 +14,7 @@
 	//QUERY
 	$sr = "All Records";
 	if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
-		$query1 = "SELECT * FROM log WHERE flag=1 and type='Visitor' ORDER BY tid desc";
+		$query1 = "SELECT * FROM client_log WHERE flag=1 and type='Visitor' ORDER BY tid desc";
 		$results = mysqli_query($conn, $query1);
 	
 		if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -23,12 +23,12 @@
 				$sr = "Records from " .$sd . " to " . $ed ;
 				//$field = $_POST['field'];
 				
-				$query = "SELECT * FROM log WHERE (dateIn BETWEEN '$sd' AND '$ed') AND flag=1 and type = 'visitor' ORDER BY tid DESC";
+				$query = "SELECT * FROM client_log WHERE (dateIn BETWEEN '$sd' AND '$ed') AND flag=1 and type = 'visitor' ORDER BY tid DESC";
 				$results = mysqli_query($conn, $query);
 				
 		}
 	}else{
-		$query1 = "SELECT * FROM log WHERE flag=3";
+		$query1 = "SELECT * FROM client_log WHERE flag=3";
 		$results = mysqli_query($conn, $query1);
 	}
 

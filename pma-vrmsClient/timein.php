@@ -84,20 +84,20 @@ $t = date("H:i:s");
 							$u = $_SESSION['user'];
 							
 							
-							$q = "SELECT * FROM log WHERE plateNum = '$plate' AND flag=1";
+							$q = "SELECT * FROM client_log WHERE plateNum = '$plate' AND flag=1";
 							$results = mysqli_query($conn, $q);
 							$num = mysqli_num_rows($results);
 								
 							if($num==0 and $type=="Registered"){
-								$query = "INSERT INTO log (plateNum, owner, dateIn, timein, type, flag, pIN) VALUES ('$plate', '$owner', '$d', '$t', '$type', $flag, '$u')";
+								$query = "INSERT INTO client_log (plateNum, owner, dateIn, timein, type, flag, pIN) VALUES ('$plate', '$owner', '$d', '$t', '$type', $flag, '$u')";
 								$results = mysqli_query($conn, $query);
 								echo "<br>Plate Number: <b>" .$plate. "</b> <br>Time in: " . $d . " " . $t;
 								echo "<br><form> <button formaction='client_vehiclelog.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";
 							}else if($num==0 and $type=="Visitor"){
-								$query = "INSERT INTO log (plateNum, owner, dateIn, timein, type, licenseNo, details, flag, vid, pIN) VALUES ('$plate', '$owner', '$d', '$t', '$type', '$l', '$detail', $flag, '$vp', '$u')";
+								$query = "INSERT INTO client_log (plateNum, owner, dateIn, timein, type, licenseNo, details, flag, vid, pIN) VALUES ('$plate', '$owner', '$d', '$t', '$type', '$l', '$detail', $flag, '$vp', '$u')";
 								$results = mysqli_query($conn, $query);
 								
-								$update = "UPDATE visitorpass SET flag=1 WHERE vid='$vp'";
+								$update = "UPDATE client_visitorpass SET flag=1 WHERE vid='$vp'";
 								$uresult = mysqli_query($conn, $update);
 								
 								echo "<br>Plate Number: <b>" .$plate. "</b> <br>Time in: " . $d . " " . $t;

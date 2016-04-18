@@ -106,8 +106,8 @@
 	}
 
 
-//vehicle log
-	$query = 'SELECT * FROM log';
+//client_vehicle log
+	$query = 'SELECT * FROM client_log';
 	$database->execute($query);
 	
 	$rows = $database->getResult();
@@ -117,19 +117,21 @@
 	while($log = mysqli_fetch_array($rows)){
 		$id 		= $log['tid'];
 		$plateNum 	= $log['plateNum'];
-		$owner 	= $log['owner'];
+		$owner 		= $log['owner'];
 		$datein 	= $log['dateIn'];
 		$timein 	= $log['timein'];
 		$dateout 	= $log['dateOut'];
 		$timeout 	= $log['timeout'];
-		$type 	= $log['type'];
+		$type 		= $log['type'];
+		$licenseNo 		= $log['licenseNo'];
+		$details 		= $log['details'];
 		
-		array_push($logs, array('tid' => $id, 'plateNum' => $plateNum, 'owner' => $owner, 'dateIn' => $datein, 'timein' => $timein, 'dateOut' => $dateout, 'timeout' => $timeout, 'type' => $type));
+		array_push($logs, array('tid' => $id, 'plateNum' => $plateNum, 'owner' => $owner, 'dateIn' => $datein, 'timein' => $timein, 'dateOut' => $dateout, 'timeout' => $timeout, 'type' => $type, 'licenseNo' => $licenseNo, 'details' => $details));
 	}
 
 
-//userlog
-	$query = 'SELECT * FROM userlog';
+//client_userlog
+	$query = 'SELECT * FROM client_userlog';
 	$database->execute($query);
 	
 	$rows = $database->getResult();
@@ -148,8 +150,8 @@
 	}
 
 
-//report
-	$query = 'SELECT * FROM report';
+//client_report
+	$query = 'SELECT * FROM client_report';
 	$database->execute($query);
 	
 	$rows = $database->getResult();

@@ -102,7 +102,7 @@ $t = date("H:i:s");
 									$vio = $_POST['vio'];
 
 									
-									$query="SELECT * FROM log WHERE plateNum = '" . $plate  . "' AND flag=1";
+									$query="SELECT * FROM client_log WHERE plateNum = '" . $plate  . "' AND flag=1";
 									$results = mysqli_query($conn, $query);
 									
 									if(mysqli_num_rows($results) >= 1){
@@ -111,7 +111,7 @@ $t = date("H:i:s");
 											$type = $row['type'];
 										}			
 										
-										$query="INSERT INTO report (plateNum, owner, datein, timein, violation, type, flag) VALUES ('$plate', '$owner', '$d' , '$t', '$vio', '$type', 1)";
+										$query="INSERT INTO client_report (plateNum, owner, datein, timein, violation, type, flag) VALUES ('$plate', '$owner', '$d' , '$t', '$vio', '$type', 1)";
 										$results = mysqli_query($conn, $query);
 									}else{
 										echo "Vehicle is not logged in.";
