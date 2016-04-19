@@ -1,3 +1,7 @@
+<?php
+	//session_start();
+?>
+
 <div class="modal fade" id='renew_applicant'>
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
