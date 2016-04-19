@@ -78,16 +78,16 @@ $t = date("H:i:s");
 							$vp = $_POST['vid'];
 							
 						
-							$q = "SELECT * FROM log WHERE plateNum = '$plate' AND flag=1";
+							$q = "SELECT * FROM client_log WHERE plateNum = '$plate' AND flag=1";
 							$results = mysqli_query($conn, $q);
 							$num = mysqli_num_rows($results);
 							
 							if($num>=1){
-								$query = "UPDATE log SET dateout= '$d', timeout='$t', flag=0, pOUT='$u' WHERE plateNum='$plate' AND flag=1";
+								$query = "UPDATE client_log SET dateout= '$d', timeout='$t', flag=0, pOUT='$u' WHERE plateNum='$plate' AND flag=1";
 								$results = mysqli_query($conn, $query);
 								
 								if($type=='Visitor'){
-									$update = "UPDATE visitorpass SET flag=0 WHERE vid='$vp'";
+									$update = "UPDATE client_visitorpass SET flag=0 WHERE vid='$vp'";
 									$uresult = mysqli_query($conn, $update);
 								}
 								echo "<br>Plate Number: <b>" .$plate. "</b> <br>Time Out: " . $d . " " . $t;
@@ -99,12 +99,12 @@ $t = date("H:i:s");
 							}
 							
 
-							$q = "SELECT * FROM report WHERE plateNum = '$plate' AND flag=1";
+							$q = "SELECT * FROM client_report WHERE plateNum = '$plate' AND flag=1";
 							$results = mysqli_query($conn, $q);
 							$num = mysqli_num_rows($results);
 								
 							if($num>=1){
-								$query = "UPDATE report SET flag=0 WHERE plateNum='$plate' AND flag=1";
+								$query = "UPDATE client_report SET flag=0 WHERE plateNum='$plate' AND flag=1";
 								$results = mysqli_query($conn, $query);
 							}
 

@@ -96,7 +96,7 @@ include('session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>New Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="../form1.php">Camp Allen/Navybase</a></li>
+                <li><a href="../form1.php">Camp Allen/Navybase/<br>Fort del Pilar</a></li>
                 <li><a href="../form2.php">AFP</a></li>
               </ul>
             </li>
@@ -107,7 +107,6 @@ include('session.php');
               <ul class="treeview-menu">
                 <li><a href="../registeredPerson.php">Applicants</a></li>
                 <li><a href="../registeredAFP.php">Military</a></li>
-                <li><a href="../registeredVehicle.php">Vehicles</a></li>
               </ul>
             </li>
               

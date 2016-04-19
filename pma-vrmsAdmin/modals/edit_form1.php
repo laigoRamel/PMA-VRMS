@@ -25,7 +25,8 @@
                           <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                           <div>
                                <span class="fileinput-filename"></span>
-                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" id="img_edit" name="a_profile" required></span>
+                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>
+                            <input type="file" id="img_edit" name="a_profile" required></span>
                               
                             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                           </div>
@@ -91,14 +92,14 @@
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
                         <div class="panel-body">
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class A" required>Class A (PASSCARD)</label>
+                            <label><input type="radio" name="a_class" value="Class A" <?php echo ($a_class=='Class A')?'checked':'' ?> required>Class A (PASSCARD)</label>
                             <p>&emsp; a. Registered to active Military Personnel</p>
                             <p>&emsp; b. Staff vehicles registered to the AFP</p>
                         </div>
         				<br>
 
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class B" required>Class B (RED Sticker)</label>
+                            <label><input type="radio" name="a_class" value="Class B" <?php echo ($a_class=='Class B')?'checked':'' ?> required>Class B (RED Sticker)</label>
                             <p>&emsp; a. Former military personnel or AFP Reservists</p>
                             <p>&emsp; b. Unremarried widow/widower of Military Personnel</p>
                             <p>&emsp; c. AFP & DND Civillian employees</p>
@@ -106,7 +107,7 @@
         				<br>
 
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class C" required>Class C (YELLOW Sticker)</label>
+                            <label><input type="radio" name="a_class" value="Class C" <?php echo ($a_class=='Class C')?'checked':'' ?> required>Class C (YELLOW Sticker)</label>
                             <p>&emsp; a. Concessionaires/Traders with AFP Contract</p>
                             <p>&emsp; b. Official/Employee/Member of tenant entity/club facility on post</p>
                             <p>&emsp; c. Diplomats and expatriates</p>
@@ -122,15 +123,15 @@
                             <h3 class="panel-title">Place Registered</h3> </div>
                         <div class="panel-body">
                         <div class="radio">
-                            <label><input type="radio" name="a_placeRegistered" value="Fort del Pilar" required>Fort del Pilar</label>
+                            <label><input type="radio" name="a_placeRegistered" value="Fort del Pilar" <?php echo ($a_placeRegistered=='Fort del Pilar')?'checked':'' ?> required>Fort del Pilar</label>
                         </div>
 
                         <div class="radio">
-                            <label><input type="radio" name="a_placeRegistered" value="Camp Allen" required>Camp Allen</label>
+                            <label><input type="radio" name="a_placeRegistered" value="Camp Allen" <?php echo ($a_placeRegistered=='Camp Allen')?'checked':'' ?> required>Camp Allen</label>
                         </div>
 
                         <div class="radio">
-                            <label><input type="radio" name="a_placeRegistered" value="Navy Base" required>Navy Base</label>
+                            <label><input type="radio" name="a_placeRegistered" value="Navy Base" <?php echo ($a_placeRegistered=='Navy Base')?'checked':'' ?> required>Navy Base</label>
                         </div>
         
                         </div>
@@ -173,19 +174,29 @@
                             <div class="form-horizontal dynamic_field">
                             <input style="display:none;" type="text" name="vehicleId" readonly>
                             <table class="table table-bordered" id="dynamic_field">
+                            <thead>
+                              <th>Wheels</th>
+                              <th>Vehicle Make</th>
+                              <th>Plate No</th>
+                              <th>Year Model</th>
+                              <th>Color</th>
+                              <th>Motor No</th>
+                              <th>Chassis No</th>
+                              <th>Sticker No</th>
+                            </thead>
                                 
 					<tr>  
 						<td>
-							<select name="wheels[]" class="form-control name_list" required>
+							<select name="wheels" class="form-control name_list" required>
 								<option value="">No. of Wheels...</option>
 								<option value="2-wheeled">2-wheeled</option>
 								<option value="4-wheeled">4-wheeled</option>
 							</select>
 						</td>  
-						<td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" required/></td>  
-						<td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" required/></td>  
+						<td><input type="text" name="vehicleMake" placeholder="Vehicle Make" class="form-control name_list" required/></td>  
+						<td><input type="text" name="plateNo" placeholder="Plate No." class="form-control name_list" required/></td>  
 						<td>
-							<select name="yearModel[]" class="form-control name_list" required>
+							<select name="yearModel" class="form-control name_list" required>
 								<option value="">Year Model...</option>
 								<option value="1990">1990</option>
 								<option value="1991">1991</option>
@@ -220,10 +231,10 @@
 								<option value="2020">2020</option>
 							</select>
 						</td>  
-						<td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" required/></td>  
-						<td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" required/></td>  
-						<td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" required/></td>  
-						<td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" required/></td>  
+						<td><input type="text" name="color" placeholder="Color" class="form-control name_list" required/></td>  
+						<td><input type="text" name="motorNo" placeholder="Motor No." class="form-control name_list" required/></td>  
+						<td><input type="text" name="chassisNo" placeholder="Chassis No." class="form-control name_list" required/></td>  
+						<td><input type="text" name="stickerNo" placeholder="Sticker No" class="form-control name_list" required/></td>  
 						<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
 					</tr>  
                             

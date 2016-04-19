@@ -2,7 +2,7 @@
 	$host="localhost"; // Host name 
 	$username="root"; // Mysql username 
 	$password=""; // Mysql password 
-	$db_name="clientdb"; // Database name 
+	$db_name="pma-vrms"; // Database name 
 	//$tbl_name="equip"; // Table name 
 
 	// Create connection

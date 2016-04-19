@@ -85,7 +85,7 @@ $t = date("H:i:s");
 									
 									$plate=strtoupper($_POST['plate']);
 									
-									$query="SELECT * FROM records WHERE plateNo = '" . $plate  . "'";
+									$query="SELECT * FROM client_records WHERE plateNo = '" . $plate  . "'";
 									$results = mysqli_query($conn, $query);
 									
 									if(mysqli_num_rows($results) >= 1){
@@ -107,14 +107,14 @@ $t = date("H:i:s");
 											
 									}
 									}else{
-										$qvisitor = "SELECT * FROM visitorpass WHERE flag=0 ORDER BY vid asc";
+										$qvisitor = "SELECT * FROM client_visitorpass WHERE flag=0 ORDER BY vid asc";
 										$rvisitor = mysqli_query($conn, $qvisitor);
 										$r = mysqli_fetch_array($rvisitor);
 										
 										$vp = $r[0];
 										
 										
-										$query="SELECT * FROM report WHERE plateNum = '" . $plate ."' and type='visitor'";
+										$query="SELECT * FROM client_report WHERE plateNum = '" . $plate ."' and type='visitor'";
 										$results = mysqli_query($conn, $query);
 										
 										if(mysqli_num_rows($results) >=3){

@@ -83,7 +83,7 @@ $t = date("H:i:s");
 									$plate=strtoupper($_POST['plate']);
 									
 									
-									$query="SELECT * FROM log WHERE plateNum = '" . $plate  . "' and flag=1";
+									$query="SELECT * FROM client_log WHERE plateNum = '" . $plate  . "' and flag=1";
 									$results = mysqli_query($conn, $query);
 									
 									if(mysqli_num_rows($results) >= 1){
@@ -97,7 +97,7 @@ $t = date("H:i:s");
 											$g = $row['details'];
 										}	
 											
-										$query="SELECT * FROM report WHERE plateNum = '" . $plate  . "' and flag=1";
+										$query="SELECT * FROM client_report WHERE plateNum = '" . $plate  . "' and flag=1";
 										$results = mysqli_query($conn, $query);
 										if(mysqli_num_rows($results) >= 1){
 											while($row = mysqli_fetch_assoc($results)){
@@ -134,7 +134,7 @@ $t = date("H:i:s");
 											}
 										
 									}else{
-										$query2="SELECT * FROM log WHERE plateNum = '" . $plate  . "' and flag=0 ORDER BY tid DESC LIMIT 1";
+										$query2="SELECT * FROM client_log WHERE plateNum = '" . $plate  . "' and flag=0 ORDER BY tid DESC LIMIT 1";
 										$results = mysqli_query($conn, $query2);
 										
 										if(mysqli_num_rows($results) >= 1){

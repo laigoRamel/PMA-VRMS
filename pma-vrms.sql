@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2016 at 05:43 AM
+-- Generation Time: Apr 18, 2016 at 05:20 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -27,20 +27,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `admin_logs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `time_in` datetime NOT NULL,
-  `time_out` datetime NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `user` varchar(100) NOT NULL,
+  `activity` varchar(100) NOT NULL,
+  `curr_date` date NOT NULL,
+  `curr_time` time NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `admin_logs`
 --
 
-INSERT INTO `admin_logs` (`id`, `time_in`, `time_out`, `user_id`) VALUES
-(1, '2016-04-12 14:59:23', '2016-04-12 16:23:35', 1),
-(2, '2016-04-14 10:55:42', '0000-00-00 00:00:00', 1);
+INSERT INTO `admin_logs` (`id`, `user`, `activity`, `curr_date`, `curr_time`) VALUES
+(1, '', 'Registered Go, Daryll Chan.', '2016-04-17', '04:58:56'),
+(3, '', 'Registered Pedro, Juanito Pitoy (AFP)', '2016-04-17', '05:31:32'),
+(4, '', 'Renewed: ,  ', '2016-04-17', '05:40:44'),
+(5, '', 'Renewed: Go, Daryll Chan', '2016-04-17', '05:44:14'),
+(6, '', 'Renewed: Pedro, Juanito Pitoy (AFP)', '2016-04-17', '05:48:36');
 
 -- --------------------------------------------------------
 
@@ -78,6 +82,198 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 INSERT INTO `admin_users` (`id`, `username`, `password`) VALUES
 (1, 'user1', 'password1'),
 (2, 'user2', 'password2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_log`
+--
+
+CREATE TABLE IF NOT EXISTS `client_log` (
+  `tid` int(11) NOT NULL AUTO_INCREMENT,
+  `plateNum` varchar(7) NOT NULL,
+  `owner` varchar(50) NOT NULL,
+  `dateIn` date NOT NULL,
+  `timein` time NOT NULL,
+  `dateOut` date NOT NULL,
+  `timeout` time NOT NULL,
+  `type` varchar(15) NOT NULL,
+  `licenseNo` varchar(11) NOT NULL,
+  `details` varchar(300) NOT NULL,
+  `flag` int(11) NOT NULL,
+  `vid` varchar(10) NOT NULL,
+  `pIN` varchar(50) NOT NULL,
+  `pOUT` varchar(50) NOT NULL,
+  PRIMARY KEY (`tid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+
+--
+-- Dumping data for table `client_log`
+--
+
+INSERT INTO `client_log` (`tid`, `plateNum`, `owner`, `dateIn`, `timein`, `dateOut`, `timeout`, `type`, `licenseNo`, `details`, `flag`, `vid`, `pIN`, `pOUT`) VALUES
+(9, 'CRN701', 'Gene Zafra', '2016-03-13', '00:29:31', '2016-03-13', '01:21:23', 'Registered', '', '', 0, '', '', ''),
+(12, 'AEV850', '', '2016-03-13', '01:24:06', '2016-03-13', '01:27:33', 'Visitor', '', '', 0, '', '', ''),
+(13, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '13:08:05', '2016-03-13', '15:41:16', 'Visitor', '', '', 0, '', '', ''),
+(14, 'CRN701', 'Gene Zafra', '2016-03-13', '17:39:33', '2016-03-13', '19:19:57', 'Registered', '', '', 0, '', '', ''),
+(15, 'ACS511', 'pendong', '2016-03-13', '17:42:23', '2016-03-13', '20:38:00', 'Visitor', '', '', 0, '', '', ''),
+(16, 'AAA0000', 'gene', '2016-03-13', '19:05:04', '0000-00-00', '00:00:00', 'Visitor', '', '', 1, '', '', ''),
+(17, 'CRN701', 'Gene Zafra', '2016-03-13', '19:20:20', '2016-04-10', '21:00:02', 'Registered', '', '', 0, '', '', 'admin'),
+(18, 'CT1890', 'Raphael Zafra', '2016-04-10', '17:54:23', '2016-04-10', '17:57:10', 'Registered', '', '', 0, '', '', ''),
+(19, 'CT1890', 'R', '2016-04-10', '17:58:20', '2016-04-10', '18:13:19', 'Registered', '', '', 0, '', '', ''),
+(20, 'ABC121', 'R', '2016-04-10', '18:09:38', '0000-00-00', '00:00:00', 'Registered', '', '', 1, '', '', ''),
+(22, 'ABC1234', 'gene', '2016-04-10', '19:56:21', '0000-00-00', '00:00:00', 'Visitor', 'a2345678901', 'black, lancer, 4 people, mitsubishi', 1, '', 'admin', ''),
+(23, 'AAA1111', 'gene', '2016-04-13', '09:28:06', '2016-04-13', '09:35:26', 'Visitor', 'a1111111111', 'black lancer', 0, 'V001', 'admin', 'admin'),
+(24, 'CRN701', 'Gene Zafra', '2016-04-13', '11:19:20', '0000-00-00', '00:00:00', 'Registered', '', '', 1, '', 'admin', ''),
+(25, 'AAA1111', 'RAMEL', '2016-04-18', '11:06:18', '2016-04-18', '11:08:23', 'Visitor', 'A4654564561', 'ASDASDASD', 0, 'V001', 'admin', 'admin'),
+(26, 'QWE321', 'alvy', '2016-04-18', '11:11:38', '2016-04-18', '11:19:19', 'Visitor', 'b0000000000', 'sedan', 0, 'V001', 'admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_records`
+--
+
+CREATE TABLE IF NOT EXISTS `client_records` (
+  `plateNo` varchar(7) NOT NULL,
+  `owner` varchar(100) NOT NULL,
+  `remarks` varchar(500) NOT NULL,
+  PRIMARY KEY (`plateNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `client_records`
+--
+
+INSERT INTO `client_records` (`plateNo`, `owner`, `remarks`) VALUES
+('CRN701', 'Gene Zafra', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_report`
+--
+
+CREATE TABLE IF NOT EXISTS `client_report` (
+  `rid` int(11) NOT NULL AUTO_INCREMENT,
+  `plateNum` varchar(7) NOT NULL,
+  `owner` varchar(50) NOT NULL,
+  `datein` date NOT NULL,
+  `timein` time NOT NULL,
+  `violation` text NOT NULL,
+  `type` varchar(15) NOT NULL,
+  `flag` int(11) NOT NULL,
+  PRIMARY KEY (`rid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `client_report`
+--
+
+INSERT INTO `client_report` (`rid`, `plateNum`, `owner`, `datein`, `timein`, `violation`, `type`, `flag`) VALUES
+(1, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '15:06:11', 'overspeeding', 'Visitor', 0),
+(2, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '15:16:58', 'overspeeding', 'Visitor', 0),
+(3, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '15:17:11', 'no parking', 'Visitor', 0),
+(4, 'QWE321', 'alvy', '2016-04-18', '11:12:24', 'overspeeding', 'Visitor', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_userlog`
+--
+
+CREATE TABLE IF NOT EXISTS `client_userlog` (
+  `logid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `datein` date NOT NULL,
+  `timein` time NOT NULL,
+  `dateout` date NOT NULL,
+  `timeout` time NOT NULL,
+  `flag` int(1) NOT NULL,
+  PRIMARY KEY (`logid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+
+--
+-- Dumping data for table `client_userlog`
+--
+
+INSERT INTO `client_userlog` (`logid`, `username`, `datein`, `timein`, `dateout`, `timeout`, `flag`) VALUES
+(1, 'admin', '2016-03-13', '15:57:51', '0000-00-00', '00:00:00', 0),
+(2, 'admin', '2016-03-13', '15:59:50', '0000-00-00', '00:00:00', 0),
+(3, 'admin', '2016-03-13', '16:01:33', '2016-03-13', '16:02:05', 0),
+(4, 'admin', '2016-03-13', '16:20:45', '2016-03-13', '17:45:44', 0),
+(5, 'admin', '2016-03-13', '17:45:56', '2016-03-13', '16:47:26', 0),
+(6, 'admin', '2016-03-13', '19:04:23', '2016-03-13', '20:30:41', 0),
+(7, 'admin', '2016-03-13', '20:34:14', '2016-04-18', '10:40:31', 0),
+(8, 'admin', '2016-04-10', '09:38:42', '2016-04-18', '10:40:31', 0),
+(9, 'admin', '2016-04-10', '16:29:50', '2016-04-18', '10:40:31', 0),
+(10, 'admin', '2016-04-10', '20:08:20', '2016-04-18', '10:40:31', 0),
+(11, 'admin', '2016-04-11', '11:26:01', '2016-04-18', '10:40:31', 0),
+(12, 'admin', '2016-04-11', '11:29:44', '2016-04-18', '10:40:31', 0),
+(13, 'admin', '2016-04-11', '12:31:18', '2016-04-18', '10:40:31', 0),
+(14, 'admin', '2016-04-11', '23:35:17', '2016-04-18', '10:40:31', 0),
+(15, 'admin', '2016-04-12', '20:28:44', '2016-04-18', '10:40:31', 0),
+(16, 'admin', '2016-04-12', '20:29:06', '2016-04-18', '10:40:31', 0),
+(17, 'admin', '2016-04-12', '22:44:14', '2016-04-18', '10:40:31', 0),
+(18, 'admin', '2016-04-13', '08:44:20', '2016-04-18', '10:40:31', 0),
+(19, 'admin', '2016-04-13', '10:37:34', '2016-04-18', '10:40:31', 0),
+(20, 'admin', '2016-04-18', '10:39:15', '2016-04-18', '10:40:31', 0),
+(21, 'admin', '2016-04-18', '10:40:38', '2016-04-18', '10:40:41', 0),
+(22, 'admin', '2016-04-18', '10:40:48', '2016-04-18', '11:19:33', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_users`
+--
+
+CREATE TABLE IF NOT EXISTS `client_users` (
+  `userNo` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `flag` int(11) NOT NULL,
+  PRIMARY KEY (`userNo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `client_users`
+--
+
+INSERT INTO `client_users` (`userNo`, `username`, `password`, `flag`) VALUES
+(1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_visitorpass`
+--
+
+CREATE TABLE IF NOT EXISTS `client_visitorpass` (
+  `vid` varchar(10) NOT NULL,
+  `flag` int(11) NOT NULL,
+  PRIMARY KEY (`vid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `client_visitorpass`
+--
+
+INSERT INTO `client_visitorpass` (`vid`, `flag`) VALUES
+('V001', 0),
+('V002', 0),
+('V003', 0),
+('V004', 0),
+('V005', 0),
+('V006', 0),
+('V007', 0),
+('V008', 0),
+('V009', 0),
+('V010', 0),
+('V011', 0),
+('V012', 0),
+('V013', 0),
+('V014', 0),
+('V015', 0);
 
 -- --------------------------------------------------------
 
@@ -164,185 +360,6 @@ INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_fi
 (5, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2019-04-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', 'Camp Allen', 12, 1),
 (6, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-01', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', 'Navy Base', 13, 1),
 (7, 'Horacio-Desousa.png', 'Desousa', 'Horacio', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'horacio@gmail.com', '09304565871', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2015-06-09', 'Class B', '2,1,', 'pending', '2016-04-12 10:16:59', 'Fort del Pilar', 14, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `log`
---
-
-CREATE TABLE IF NOT EXISTS `log` (
-  `tid` int(11) NOT NULL AUTO_INCREMENT,
-  `plateNum` varchar(7) NOT NULL,
-  `owner` varchar(50) NOT NULL,
-  `dateIn` date NOT NULL,
-  `timein` time NOT NULL,
-  `dateOut` date NOT NULL,
-  `timeout` time NOT NULL,
-  `type` varchar(15) NOT NULL,
-  `flag` int(11) NOT NULL,
-  PRIMARY KEY (`tid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
-
---
--- Dumping data for table `log`
---
-
-INSERT INTO `log` (`tid`, `plateNum`, `owner`, `dateIn`, `timein`, `dateOut`, `timeout`, `type`, `flag`) VALUES
-(3, 'crn701', 'Gene Zafra', '2016-03-12', '14:25:33', '0000-00-00', '14:53:41', 'Registered', 0),
-(4, 'aev850', 'Gene', '2016-03-12', '14:25:57', '0000-00-00', '14:56:07', 'Visitor', 0),
-(5, 'crn701', 'Gene Zafra', '2016-03-12', '15:11:39', '0000-00-00', '15:15:13', 'Registered', 0),
-(6, 'crn701', 'Gene Zafra', '2016-03-12', '21:41:35', '0000-00-00', '00:11:41', 'Registered', 0),
-(8, 'AEV850', 'Gene', '2016-03-12', '23:43:20', '0000-00-00', '00:09:19', 'Visitor', 0),
-(9, 'CRN701', 'Gene Zafra', '2016-03-13', '00:29:31', '2016-03-13', '01:21:23', 'Registered', 0),
-(10, 'AEV850', 'Raphael', '2016-03-13', '00:31:42', '0000-00-00', '00:34:21', 'Visitor', 0),
-(11, 'AEV850', 'Raphael', '2016-03-13', '00:50:53', '0000-00-00', '00:00:00', 'Visitor', 0),
-(12, 'AEV850', '', '2016-03-13', '01:24:06', '2016-03-13', '01:27:33', 'Visitor', 0),
-(13, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '13:08:05', '2016-03-13', '15:41:16', 'Visitor', 0),
-(14, 'CRN701', 'Gene Zafra', '2016-03-13', '17:39:33', '0000-00-00', '00:00:00', 'Registered', 1),
-(15, 'ACS511', 'pendong', '2016-03-13', '17:42:23', '0000-00-00', '00:00:00', 'Visitor', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `records`
---
-
-CREATE TABLE IF NOT EXISTS `records` (
-  `plateNo` varchar(7) NOT NULL,
-  `owner` varchar(100) NOT NULL,
-  `remarks` varchar(500) NOT NULL,
-  PRIMARY KEY (`plateNo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `records`
---
-
-INSERT INTO `records` (`plateNo`, `owner`, `remarks`) VALUES
-('CRN701', 'Gene Zafra', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `registration_type`
---
-
-CREATE TABLE IF NOT EXISTS `registration_type` (
-  `registration_typeId` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(10) NOT NULL,
-  `amount` int(11) NOT NULL,
-  PRIMARY KEY (`registration_typeId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `registration_type`
---
-
-INSERT INTO `registration_type` (`registration_typeId`, `type`, `amount`) VALUES
-(1, 'A', 200),
-(2, 'B', 300),
-(3, 'C', 400);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `report`
---
-
-CREATE TABLE IF NOT EXISTS `report` (
-  `rid` int(11) NOT NULL AUTO_INCREMENT,
-  `plateNum` varchar(7) NOT NULL,
-  `owner` varchar(50) NOT NULL,
-  `datein` date NOT NULL,
-  `timein` time NOT NULL,
-  `violation` text NOT NULL,
-  `type` varchar(15) NOT NULL,
-  `flag` int(11) NOT NULL,
-  PRIMARY KEY (`rid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `report`
---
-
-INSERT INTO `report` (`rid`, `plateNum`, `owner`, `datein`, `timein`, `violation`, `type`, `flag`) VALUES
-(1, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '15:06:11', 'overspeeding', 'Visitor', 0),
-(2, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '15:16:58', 'overspeeding', 'Visitor', 0),
-(3, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '15:17:11', 'no parking', 'Visitor', 0),
-(5, 'CRN701', 'Gene Zafra', '2016-03-13', '20:17:47', 'over speeding', 'Registered', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `requirements`
---
-
-CREATE TABLE IF NOT EXISTS `requirements` (
-  `requirements_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `requirements_list` varchar(130) NOT NULL,
-  PRIMARY KEY (`requirements_Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `requirements`
---
-
-INSERT INTO `requirements` (`requirements_Id`, `requirements_list`) VALUES
-(1, 'Photocopy of current military ID, Office ID, or driver''s license'),
-(2, 'Photocopy of retirement/separation/discharged order for former military personnel'),
-(3, 'Photocopy of order for Commissionship/Enlistment for AFP Reservists'),
-(4, 'Photocopy of latest appointment order for AFP civilian employees and DND organic personnel'),
-(5, 'Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `userlog`
---
-
-CREATE TABLE IF NOT EXISTS `userlog` (
-  `logid` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(30) NOT NULL,
-  `datein` date NOT NULL,
-  `timein` time NOT NULL,
-  `dateout` date NOT NULL,
-  `timeout` time NOT NULL,
-  `flag` int(1) NOT NULL,
-  PRIMARY KEY (`logid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `userlog`
---
-
-INSERT INTO `userlog` (`logid`, `username`, `datein`, `timein`, `dateout`, `timeout`, `flag`) VALUES
-(1, 'admin', '2016-03-13', '15:57:51', '0000-00-00', '00:00:00', 0),
-(2, 'admin', '2016-03-13', '15:59:50', '0000-00-00', '00:00:00', 0),
-(3, 'admin', '2016-03-13', '16:01:33', '2016-03-13', '16:02:05', 0),
-(4, 'admin', '2016-03-13', '16:20:45', '2016-03-13', '17:45:44', 0),
-(5, 'admin', '2016-03-13', '17:45:56', '2016-03-13', '16:47:26', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `userNo` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `flag` int(11) NOT NULL,
-  PRIMARY KEY (`userNo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`userNo`, `username`, `password`, `flag`) VALUES
-(1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 0);
 
 -- --------------------------------------------------------
 

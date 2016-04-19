@@ -38,6 +38,18 @@
 			'vehicleId' => $id, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 
 			'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 
 			'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
+
+		date_default_timezone_set("Asia/Hong_Kong");
+
+		$current_date = date("Y-m-d");
+		$current_time = date("h:i:s");
+
+		$full_name = $a_lastname . ', ' . $a_firstname . ' ' . $a_middlename;
+
+		$query2 = "INSERT INTO admin_logs (id, user, activity, curr_date, curr_time)
+					VALUES ('', '$username', 'Registered: $full_name (from pending)', '$current_date', '$current_time')";
+
+		$database->execute($query2);
 	}
 
 ?>

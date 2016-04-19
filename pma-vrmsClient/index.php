@@ -44,7 +44,7 @@ $t = date("H:i:s");
 									$host="localhost"; // Host name 
 									$username="root"; // Mysql username 
 									$password=""; // Mysql password 
-									$db_name="clientdb"; // Database name 
+									$db_name="pma-vrms"; // Database name 
 									//$tbl_name="equip"; // Table name 
 
 									// Create connection
@@ -57,7 +57,7 @@ $t = date("H:i:s");
 									$u=$_POST['username'];
 									$p=md5($_POST['passw']);
 									
-									$query="SELECT * FROM users WHERE username = '" . $u . "' AND password = '" . $p . "'";
+									$query="SELECT * FROM client_users WHERE username = '" . $u . "' AND password = '" . $p . "'";
 									$results = mysqli_query($conn, $query);
 									
 									echo $u;
@@ -66,7 +66,7 @@ $t = date("H:i:s");
 									
 									if(mysqli_num_rows($results) >= 1){
 										$_SESSION['user'] = $u;
-										$query="INSERT INTO userlog (username, datein, timein, flag) VALUES ('$u', '$d', '$t', 1)";
+										$query="INSERT INTO client_userlog (username, datein, timein, flag) VALUES ('$u', '$d', '$t', 1)";
 										$results = mysqli_query($conn, $query);
 										header("location:home.php");
 									}else{

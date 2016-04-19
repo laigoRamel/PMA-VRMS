@@ -11,7 +11,7 @@
 	require_once('connect.php');
 	
 	//QUERY
-	$query1 = "SELECT * FROM log ORDER BY tid desc";
+	$query1 = "SELECT * FROM client_log ORDER BY tid desc";
 	$results = mysqli_query($conn, $query1);
 	$sr = "All Records";
 	
@@ -26,7 +26,7 @@
 			
 		//	$query = "SELECT * FROM log WHERE plateNum LIKE '%" . $key . "%' OR owner LIKE '%" . $key . "%' OR dateIn LIKE '%" . $key . "%' OR timein LIKE '%" . $key . "%' OR dateOut LIKE '%" . $key . "%' OR timeout LIKE '%" . $key . "%' OR  type LIKE '%" . $key . "%'   ORDER BY tid DESC";
 		//	$query = "SELECT * FROM log WHERE (dateIn>='$sd' AND dateIn<='$ed') OR (dateOut>='$sd' AND dateOUT<=$'ed')";
-			$query = "SELECT * FROM log WHERE (dateIn BETWEEN '$sd' AND '$ed') OR (dateOut BETWEEN '$sd' AND '$ed')";
+			$query = "SELECT * FROM client_log WHERE (dateIn BETWEEN '$sd' AND '$ed') OR (dateOut BETWEEN '$sd' AND '$ed')";
 			$results = mysqli_query($conn, $query);
 			
 	}

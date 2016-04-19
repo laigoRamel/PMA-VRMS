@@ -1,0 +1,34 @@
+#printHeader {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media print {
+    .main-footer {
+        display: none;
+    }
+    
+    #printReports {
+        display: none;
+    }
+    
+    .form-control {
+        display: none;
+    }
+    
+    label {
+        display: none;
+    }
+    
+    #printHeader {
+    display: block;
+}
+}
+
+
