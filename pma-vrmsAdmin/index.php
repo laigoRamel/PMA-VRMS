@@ -1,7 +1,7 @@
 <?php
 include('login/session.php');
-?>
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -155,17 +155,40 @@ include('login/session.php');
                     </a>
                     <div class="info-box-content">
                       <span class="info-box-text">Pending Forms</span>
-                      <span class="info-box-number">15</span>
+                      <span class="info-box-number" id="showPending">
+                        <! updates the number of pending applicant's without needing to refresh the dashboard itself. -->
+                        <script type="text/javascript"></script>
+                        <script type="text/javascript">
+                          $(document).ready(function() {
+                            setInterval(function () {
+                              $('#showPending').load('dashboard/dashboardPending.php')
+                            }, 3000);
+                          }
+                          );
+                        </script>
+                      </span>
+
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
                 
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                 <div class="col-md-3 col-sm-6 col-xs-12">
                   <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fa fa-user-plus"></i></span>
                     <div class="info-box-content">
                       <span class="info-box-text">Today's visitors</span>
-                      <span class="info-box-number">55</span>
+                      <span class="info-box-number" id="showVisitor">
+                        <script type="text/javascript"></script>
+                        <script type="text/javascript">
+                          $(document).ready(function() {
+                            setInterval(function () {
+                              $('#showVisitor').load('dashboard/dashboardtodaysVisitor.php')
+                            }, 3000);
+                          }
+                          );
+                        </script>
+                       
+                      </span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
@@ -177,10 +200,12 @@ include('login/session.php');
                     </a>
                     <div class="info-box-content">
                       <span class="info-box-text">Today's Violations</span>
-                      <span class="info-box-number">5</span>
+                      <span class="info-box-number"></span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
+
+               
                 
             </div>
         </section>
@@ -188,7 +213,6 @@ include('login/session.php');
 <body>
 
 
-        
       
         </div><!-- /.content-wrapper -->
 
@@ -203,7 +227,4 @@ include('login/session.php');
 
 </body>
 
-
-   
-    
 </html>
