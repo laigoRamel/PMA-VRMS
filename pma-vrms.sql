@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2016 at 05:20 AM
+-- Generation Time: Apr 19, 2016 at 03:42 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `pma-vrms`
 --
+CREATE DATABASE IF NOT EXISTS `pma-vrms` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `pma-vrms`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin_logs`
 --
 
+DROP TABLE IF EXISTS `admin_logs`;
 CREATE TABLE IF NOT EXISTS `admin_logs` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
   `user` varchar(100) NOT NULL,
@@ -52,6 +55,7 @@ INSERT INTO `admin_logs` (`id`, `user`, `activity`, `curr_date`, `curr_time`) VA
 -- Table structure for table `admin_pending_accounts`
 --
 
+DROP TABLE IF EXISTS `admin_pending_accounts`;
 CREATE TABLE IF NOT EXISTS `admin_pending_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `last_name` varchar(50) NOT NULL,
@@ -68,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `admin_pending_accounts` (
 -- Table structure for table `admin_users`
 --
 
+DROP TABLE IF EXISTS `admin_users`;
 CREATE TABLE IF NOT EXISTS `admin_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
@@ -89,6 +94,7 @@ INSERT INTO `admin_users` (`id`, `username`, `password`) VALUES
 -- Table structure for table `client_log`
 --
 
+DROP TABLE IF EXISTS `client_log`;
 CREATE TABLE IF NOT EXISTS `client_log` (
   `tid` int(11) NOT NULL AUTO_INCREMENT,
   `plateNum` varchar(7) NOT NULL,
@@ -134,6 +140,7 @@ INSERT INTO `client_log` (`tid`, `plateNum`, `owner`, `dateIn`, `timein`, `dateO
 -- Table structure for table `client_records`
 --
 
+DROP TABLE IF EXISTS `client_records`;
 CREATE TABLE IF NOT EXISTS `client_records` (
   `plateNo` varchar(7) NOT NULL,
   `owner` varchar(100) NOT NULL,
@@ -154,6 +161,7 @@ INSERT INTO `client_records` (`plateNo`, `owner`, `remarks`) VALUES
 -- Table structure for table `client_report`
 --
 
+DROP TABLE IF EXISTS `client_report`;
 CREATE TABLE IF NOT EXISTS `client_report` (
   `rid` int(11) NOT NULL AUTO_INCREMENT,
   `plateNum` varchar(7) NOT NULL,
@@ -182,6 +190,7 @@ INSERT INTO `client_report` (`rid`, `plateNum`, `owner`, `datein`, `timein`, `vi
 -- Table structure for table `client_userlog`
 --
 
+DROP TABLE IF EXISTS `client_userlog`;
 CREATE TABLE IF NOT EXISTS `client_userlog` (
   `logid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
@@ -227,6 +236,7 @@ INSERT INTO `client_userlog` (`logid`, `username`, `datein`, `timein`, `dateout`
 -- Table structure for table `client_users`
 --
 
+DROP TABLE IF EXISTS `client_users`;
 CREATE TABLE IF NOT EXISTS `client_users` (
   `userNo` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
@@ -248,6 +258,7 @@ INSERT INTO `client_users` (`userNo`, `username`, `password`, `flag`) VALUES
 -- Table structure for table `client_visitorpass`
 --
 
+DROP TABLE IF EXISTS `client_visitorpass`;
 CREATE TABLE IF NOT EXISTS `client_visitorpass` (
   `vid` varchar(10) NOT NULL,
   `flag` int(11) NOT NULL,
@@ -281,6 +292,7 @@ INSERT INTO `client_visitorpass` (`vid`, `flag`) VALUES
 -- Table structure for table `form1_applicantpd`
 --
 
+DROP TABLE IF EXISTS `form1_applicantpd`;
 CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_applicantId` int(11) NOT NULL AUTO_INCREMENT,
   `a_profile` varchar(255) NOT NULL,
@@ -321,6 +333,7 @@ INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_
 -- Table structure for table `form2_militarypd`
 --
 
+DROP TABLE IF EXISTS `form2_militarypd`;
 CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_militaryId` int(11) NOT NULL AUTO_INCREMENT,
   `m_profile` varchar(255) NOT NULL,
@@ -367,6 +380,7 @@ INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_fi
 -- Table structure for table `vehicle_information`
 --
 
+DROP TABLE IF EXISTS `vehicle_information`;
 CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `vehicleId` int(11) NOT NULL AUTO_INCREMENT,
   `wheels` varchar(15) NOT NULL,
