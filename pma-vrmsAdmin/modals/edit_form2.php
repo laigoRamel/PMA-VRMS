@@ -135,20 +135,20 @@
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
                         <div class="panel-body">
                         <div class="radio">
-                            <label><input type="radio" name="m_class" value="Class A" required>Class A (PASSCARD)</label>
+                            <label><input type="radio" name="m_class" value="Class A" <?php echo ($m_class=='Class A')?'checked':'' ?> required>Class A (PASSCARD)</label>
                             <p>&emsp; a. Registered to active Military Personnel</p>
                             <p>&emsp; b. Staff vehicles registered to the AFP</p>
                         </div>
         
                         <div class="radio">
-                            <label><input type="radio" name="m_class" value="Class B" required>Class B (RED Sticker)</label>
+                            <label><input type="radio" name="m_class" value="Class B" <?php echo ($m_class=='Class B')?'checked':'' ?> required>Class B (RED Sticker)</label>
                             <p>&emsp; a. Former military personnel or AFP Reservists</p>
                             <p>&emsp; b. Unremarried widow/widower of Military Personnel</p>
                             <p>&emsp; c. AFP & DND Civillian employees</p>
                         </div>
         
                         <div class="radio">
-                            <label><input type="radio" name="m_class" value="Class C" required>Class C (YELLOW Sticker)</label>
+                            <label><input type="radio" name="m_class" value="Class C" <?php echo ($m_class=='Class C')?'checked':'' ?> required>Class C (YELLOW Sticker)</label>
                             <p>&emsp; a. Concessionaires/Traders with AFP Contract</p>
                             <p>&emsp; b. Official/Employee/Member of tenant entity/club facility on post</p>
                             <p>&emsp; c. Diplomats and expatriates</p>
@@ -164,15 +164,15 @@
                             <h3 class="panel-title">Place Registered</h3> </div>
                         <div class="panel-body">
                         <div class="radio">
-                            <label><input type="radio" name="m_placeRegistered" value="Fort del Pilar" required>Fort del Pilar</label>
+                            <label><input type="radio" name="m_placeRegistered" value="Fort del Pilar" <?php echo ($m_placeRegistered=='Fort del Pilar')?'checked':'' ?> required>Fort del Pilar</label>
                         </div>
 
                         <div class="radio">
-                            <label><input type="radio" name="m_placeRegistered" value="Camp Allen" required>Camp Allen</label>
+                            <label><input type="radio" name="m_placeRegistered" value="Camp Allen" <?php echo ($m_placeRegistered=='Camp Allen')?'checked':'' ?> required>Camp Allen</label>
                         </div>
 
                         <div class="radio">
-                            <label><input type="radio" name="m_placeRegistered" value="Navy Base" required>Navy Base</label>
+                            <label><input type="radio" name="m_placeRegistered" value="Navy Base" <?php echo ($m_placeRegistered=='Navy Base')?'checked':'' ?> required>Navy Base</label>
                         </div>
         
                         </div>
@@ -186,19 +186,19 @@
                     
                     <div class="panel-body">
                         <div class="checkbox">
-                            <label><input name='requirements[]' value='1' type="checkbox">Photocopy of current military ID, Office ID, or driver's license</label>
+                            <label><input name='requirements[]' value='1' type="checkbox" checked="checked">Photocopy of current military ID, Office ID, or driver's license</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='2' type="checkbox">Photocopy of retirement/separation/discharged order for former military personnel</label>
+                            <label><input name='requirements[]' value='2' type="checkbox" checked="checked">Photocopy of retirement/separation/discharged order for former military personnel</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='3' type="checkbox">Photocopy of order for Commissionship/Enlistment for AFP Reservists</label>
+                            <label><input name='requirements[]' value='3' type="checkbox" checked="checked">Photocopy of order for Commissionship/Enlistment for AFP Reservists</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='4' type="checkbox">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</label>
+                            <label><input name='requirements[]' value='4' type="checkbox" checked="checked">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='5' type="checkbox">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</label>
+                            <label><input name='requirements[]' value='5' type="checkbox" checked="checked">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</label>
                             </div>
                     </div>
                 </div>

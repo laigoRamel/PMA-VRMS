@@ -145,19 +145,19 @@
                     
                     <div class="panel-body">
                         <div class="checkbox">
-                            <label><input name='requirements[]' value='1' type="checkbox">Photocopy of current military ID, Office ID, or driver's license</label>
+                            <label><input name='requirements[]' value='1' type="checkbox" checked="checked">Photocopy of current military ID, Office ID, or driver's license</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='2' type="checkbox">Photocopy of retirement/separation/discharged order for former military personnel</label>
+                            <label><input name='requirements[]' value='2' type="checkbox" checked="checked">Photocopy of retirement/separation/discharged order for former military personnel</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='3' type="checkbox">Photocopy of order for Commissionship/Enlistment for AFP Reservists</label>
+                            <label><input name='requirements[]' value='3' type="checkbox" checked="checked">Photocopy of order for Commissionship/Enlistment for AFP Reservists</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='4' type="checkbox">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</label>
+                            <label><input name='requirements[]' value='4' type="checkbox" checked="checked">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='5' type="checkbox">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</label>
+                            <label><input name='requirements[]' value='5' type="checkbox" checked="checked">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</label>
                             </div>
                     </div>
                 </div>
