@@ -1,10 +1,6 @@
 <?php
 include('login/session.php');
-$connect=mysqli_connect("localhost","root","","pma-vrms");
-// d ko pa magets ung gngwa nio mag connect sa database ito muna
-    if (mysqli_connect_errno()){
-    echo "Failed to connect to MySQL(pending): " . mysqli_connect_error();
-    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -159,43 +155,39 @@ $connect=mysqli_connect("localhost","root","","pma-vrms");
                     </a>
                     <div class="info-box-content">
                       <span class="info-box-text">Pending Forms</span>
-                      <span class="info-box-number">
-                        <?php
-                        $queryPendingApplicants="SELECT a_applicantId FROM form1_applicantpd";
-                        if ($result=mysqli_query($connect,$queryPendingApplicants))
-                          {
-                          // Return # of Pending Applicants based on counting the applicant id on the db.
-                          $rowcount=mysqli_num_rows($result);
-                          printf("There are  %d Pending Application \n",$rowcount);
-                          // Free result set
-                          mysqli_free_result($result);
+                      <span class="info-box-number" id="showPending">
+                        <! updates the number of pending applicant's without needing to refresh the dashboard itself. -->
+                        <script type="text/javascript"></script>
+                        <script type="text/javascript">
+                          $(document).ready(function() {
+                            setInterval(function () {
+                              $('#showPending').load('dashboard/dashboardPending.php')
+                            }, 3000);
                           }
-                        
-                          ?>
+                          );
+                        </script>
                       </span>
 
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
                 
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                 <div class="col-md-3 col-sm-6 col-xs-12">
                   <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fa fa-user-plus"></i></span>
                     <div class="info-box-content">
                       <span class="info-box-text">Today's visitors</span>
-                      <span class="info-box-number">
-                        <?php
-                        $queryTodaysVisitor="select tid, dateIn from log where dateIn = curdate();";
-                        if ($result=mysqli_query($connect,$queryTodaysVisitor))
-                          {
-                          // Return # of Pending Applicants based on counting the applicant id on the db.
-                          $rowcount=mysqli_num_rows($result);
-                          printf("There are  %d Pending Application \n",$rowcount);
-                          // Free result set
-                          mysqli_free_result($result);
+                      <span class="info-box-number" id="showVisitor">
+                        <script type="text/javascript"></script>
+                        <script type="text/javascript">
+                          $(document).ready(function() {
+                            setInterval(function () {
+                              $('#showVisitor').load('dashboard/dashboardtodaysVisitor.php')
+                            }, 3000);
                           }
-                        mysqli_close($connect);
-                          ?>
+                          );
+                        </script>
+                       
                       </span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
@@ -208,10 +200,12 @@ $connect=mysqli_connect("localhost","root","","pma-vrms");
                     </a>
                     <div class="info-box-content">
                       <span class="info-box-text">Today's Violations</span>
-                      <span class="info-box-number">5</span>
+                      <span class="info-box-number"></span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
+
+               
                 
             </div>
         </section>
