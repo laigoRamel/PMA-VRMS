@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" href="css/print.css">
+
+
 <div class="modal fade" id='view_form1'>
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -20,8 +23,7 @@
                     <div class="panel-body">
                         <input style="display:none;" type="text" name="a_applicantId" readonly>
                         
-                        <!-- image display -->
-                        <img id='img_view' height="100px">
+                        
 
                         <br>
                         <br>
@@ -76,6 +78,15 @@
                 </div>
         
         <div class="col-md-5">
+                    <!-- image display -->
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                        <div>
+                        <img id='img_view' height="100px">
+                        </div>
+                        </div>
+                    </div>
+            
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
@@ -106,7 +117,9 @@
                         </div>
                     </div>
                 
-                
+                <button id="printReports" class="btn btn-primary btn-lg pull-right" onclick="printReports()">
+                                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print
+                            </button>
             
                 
             </div>
@@ -121,7 +134,7 @@
                             
                             <table class="table table-bordered" id="dynamic_field">
                             <thead>
-                              <th>Wheels</th>
+                              <th>Type</th>
                               <th>Vehicle Make</th>
                               <th>Plate No</th>
                               <th>Year Model</th>
@@ -166,5 +179,6 @@
 	</div>
 </div>
 
+<script src="js/print.js" type="text/javascript"></script>
 
 			

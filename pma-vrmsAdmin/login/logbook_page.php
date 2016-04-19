@@ -14,6 +14,7 @@ include('session.php');
     <link rel="stylesheet" href="../css/style-main.min.css">
     <link rel="stylesheet" href="../bootstrap/css/jquery.bdt.css">
     <link rel="stylesheet" href="../css/skin.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/print.css">
     <link rel="icon" href="img/seal.png">
     
 	<script src="../bootstrap/jquery.min.js"></script>
@@ -140,13 +141,20 @@ include('session.php');
 		<div class="'container">
 			<div class="row">
 				<div class="col-md-12">
+                    <h3>    
+                        <span id="printHeader" class="logo-lg"><b>PMA</b>VRMS: Employee Log</span>
+                    </h3>
                     <div class="box">
                         <div class="box-body">
+                            <!-- Print -->
+                            <button id="printReports" class="btn btn-primary btn-lg pull-right" onclick="printReports()">
+                                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print
+                            </button>
                             <table class="table table-bordered table-hover" id="bootstrap-table">
 				<thead>
-					<th>System User</th>
+					<th>User</th>
 					<th>Activity</th>
-          <th>Date</th>
+                    <th>Date</th>
 					<th>Time</th>
 				</thead>
 				<tbody>
@@ -241,7 +249,7 @@ REC;
                         </div>
                     </div>
                 </div>
-
+    <script src="../js/print.js" type="text/javascript"></script>
 	<script src="../bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
 	<script src="../bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
 	<script>

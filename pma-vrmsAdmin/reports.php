@@ -143,17 +143,17 @@ include('login/session.php');
 		<div class="'container">
 			<div class="row">
 				<div class="col-md-12">
-                    
+                    <h3>    
+                        <span id="printHeader" class="logo-lg"><b>PMA</b>VRMS: REPORTS</span>
+                    </h3>
                     <div class="box">
-                        <h3>
-                            <span id="printHeader" class="logo-lg"><b>PMA</b>VRMS: REPORTS</span>
-                        </h3>
                         <div class="box-body">
-                            
-                            <button id="printReports" class="btn btn-default btn-md pull-right" onclick="printReports()">
+                            <!-- Print -->
+                            <button id="printReports" class="btn btn-primary btn-lg pull-right" onclick="printReports()">
                                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print
                             </button>
                             <table class="table table-bordered table-hover" id="bootstrap-table">
+                                
                                 <thead>
                                     <th>Plate No.</th>
                                     <th>Owner</th>

@@ -18,9 +18,6 @@
                     <div class="panel-body">
                         <input style="display:none;" type="text" name="m_militaryId" readonly>
                         
-                        <!-- image display -->
-                        <img id='img_view' height="100px">
-
                         <br>
                         <br>
                         <div class="form-horizontal">                  
@@ -120,6 +117,15 @@
                 </div>
         
         <div class="col-md-5">
+                    <!-- image display -->
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                        <div>
+                        <img id='img_view' height="100px">
+                        </div>
+                        </div>
+                    </div>
+                    
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
@@ -167,7 +173,7 @@
                             <input style="display:none;" type="text" name="vehicleId" readonly>
                             <table class="table table-bordered" id="dynamic_field">
                             <thead>
-                              <th>Wheels</th>
+                              <th>Type</th>
                               <th>Vehicle Make</th>
                               <th>Plate No</th>
                               <th>Year Model</th>

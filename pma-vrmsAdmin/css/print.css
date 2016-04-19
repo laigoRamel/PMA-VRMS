@@ -10,6 +10,11 @@
 
 
 @media print {
+    
+    body {
+        left: 0;
+    }
+    
     .main-footer {
         display: none;
     }
@@ -26,6 +31,17 @@
         display: none;
     }
     
+    .pagination {
+        display: none;
+    }
+    
+    .column-options {
+        display: none;
+    }
+    
+    .modal {
+        display:block;
+    }
     #printHeader {
     display: block;
 }

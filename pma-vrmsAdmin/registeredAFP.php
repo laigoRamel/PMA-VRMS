@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="fonts/font-awesome.min.css">
     <link rel="stylesheet" href="css/style-main.min.css">
     <link rel="stylesheet" href="css/skin.min.css">
+    <link rel="stylesheet" type="text/css" href="css/print.css">
     <link rel="icon" href="img/seal.png">
 
 	<script src="bootstrap/jquery.min.js"></script>
@@ -144,8 +145,15 @@
         <div class="'container">
 			<div class="row">
 				<div class="col-md-12">
+                    <h3>    
+                        <span id="printHeader" class="logo-lg"><b>PMA</b>VRMS: Registered Military</span>
+                    </h3>
                     <div class="box">
                         <div class="box-body">
+                            <!-- Print -->
+                            <button id="printReports" class="btn btn-primary btn-lg pull-right" onclick="printReports()">
+                                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print
+                            </button>
                             <table class="table table-bordered table-hover" id="bootstrap-table">
                                 <thead>
                                     <th>Profile</th>
@@ -155,14 +163,14 @@
                                     <th>Designated Office</th>
                                     <th>Class</th>
                                     <th>Place Registered</th>
-                                    <th colspan=4 style="text-align:center">Options</th>
+                                    <th colspan=4 style="text-align:center" class="column-options">Options</th>
                                 </thead>
                                 <tbody>
                                     <?php 
                                         foreach ($militarys as $key => $military) {
                                             echo <<<DATA
                                                 <tr id='military_$key'>
-                                                    <td><img src='img/profile/military/$military[m_profile]' height='100px;'></td>
+                                                    <td><img style="width="40" height="40"" src='img/profile/military/$military[m_profile]' height='100px;'></td>
                                                     <td>$military[name]</td>
                                                     <td>$military[m_rank]</td>
                                                     <td style='display:none'>$military[m_brSvc]</td>
@@ -186,10 +194,10 @@
                                                     <td style='display:none'>$military[motorNo]</td>
                                                     <td style='display:none'>$military[chassisNo]</td>
                                                     <td style='display:none'>$military[stickerNo]</td>
-                                                    <td><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick="view_form2($key, 'img/profile/military/$military[m_profile]')">View</button></td>
-                                                    <td><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick='renew_military($military[m_militaryId])'>Renew</button></td>
-                                                    <td><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick="edit_form2($key, 'img/profile/military/$military[m_profile]')">Edit</button></td>
-                                                    <td><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form2' onclick="delete_form2($key, 'img/profile/military/$military[m_profile]')">Delete</button></td>
+                                                    <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick="view_form2($key, 'img/profile/military/$military[m_profile]')">View</button></td>
+                                                    <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick='renew_military($military[m_militaryId])'>Renew</button></td>
+                                                    <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick="edit_form2($key, 'img/profile/military/$military[m_profile]')">Edit</button></td>
+                                                    <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form2' onclick="delete_form2($key, 'img/profile/military/$military[m_profile]')">Delete</button></td>
                                                 </tr>
 DATA;
                                         }
@@ -201,7 +209,7 @@ DATA;
                 </div>
 			</div>
 		</div>
-
+    <script src="js/print.js" type="text/javascript"></script>
 	<script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
 	<script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
 	<script>
@@ -209,7 +217,8 @@ DATA;
 			$('#bootstrap-table').bdt();
 		});
 	</script>
-
+        
+        <!-- causing footer problem ? ? ? -->
 		<?php  
 			require_once('modals/view_form2.php');
 			require_once('modals/renew_military.php');
