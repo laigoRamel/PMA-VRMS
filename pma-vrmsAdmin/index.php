@@ -156,7 +156,6 @@ include('login/session.php');
                     <div class="info-box-content">
                       <span class="info-box-text">Pending Forms</span>
                       <span class="info-box-number" id="showPending">
-                        <! updates the number of pending applicant's without needing to refresh the dashboard itself. -->
                         <script type="text/javascript"></script>
                         <script type="text/javascript">
                           $(document).ready(function() {
@@ -193,18 +192,29 @@ include('login/session.php');
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
                 
-                <div class="col-md-3 col-sm-6 col-xs-12">
+               <div class="col-md-3 col-sm-6 col-xs-12">
                   <div class="info-box">
                     <a href ="reports.php">
                         <span class="info-box-icon bg-purple"><i class="fa fa-ban"></i></span>
                     </a>
                     <div class="info-box-content">
                       <span class="info-box-text">Today's Violations</span>
-                      <span class="info-box-number"></span>
+                      <span class="info-box-number" id="showViolations">
+                      <script type="text/javascript"></script>
+                        <script type="text/javascript">
+                          $(document).ready(function() {
+                            setInterval(function () {
+                              $('#showViolations').load('dashboard/dashboardtodaysViolation.php')
+                            }, 3000);
+                          }
+                          );
+                        </script>
+                        
+                      </span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
-
+               
                
                 
             </div>

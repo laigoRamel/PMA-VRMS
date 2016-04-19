@@ -5,7 +5,7 @@ if ($conn->connect_error) {
 }
 $result = $conn->query("select plateNum, owner, datein, violation from report where datein = curdate()");
 $num_rows = mysqli_num_rows($result);
-echo "$num_rows \n pending form in progress";
+echo "$num_rows \n recorded violation for today.";
 ?>
 
 
