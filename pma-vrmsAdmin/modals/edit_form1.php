@@ -189,8 +189,8 @@
 						<td>
 							<select name="wheels" class="form-control name_list" required>
 								<option value="">No. of Wheels...</option>
-								<option value="2-wheeled">2-wheeled</option>
-								<option value="4-wheeled">4-wheeled</option>
+								<option value="2-wheeled" <?php if($wheels=="2-wheeled") echo 'selected="selected"'; ?> >2-wheeled</option>
+								<option value="4-wheeled" <?php if($wheels=="4-wheeled") echo 'selected="selected"'; ?> >4-wheeled</option>
 							</select>
 						</td>  
 						<td><input type="text" name="vehicleMake" placeholder="Vehicle Make" class="form-control name_list" required/></td>  
@@ -198,37 +198,37 @@
 						<td>
 							<select name="yearModel" class="form-control name_list" required>
 								<option value="">Year Model...</option>
-								<option value="1990">1990</option>
-								<option value="1991">1991</option>
-								<option value="1992">1992</option>
-								<option value="1993">1993</option>
-								<option value="1994">1994</option>
-								<option value="1995">1995</option>
-								<option value="1996">1996</option>
-								<option value="1997">1997</option>
-								<option value="1998">1998</option>
-								<option value="1999">1999</option>
-								<option value="2000">2000</option>
-								<option value="2001">2001</option>
-								<option value="2002">2002</option>
-								<option value="2003">2003</option>
-								<option value="2004">2004</option>
-								<option value="2005">2005</option>
-								<option value="2006">2006</option>
-								<option value="2007">2007</option>
-								<option value="2008">2008</option>
-								<option value="2009">2009</option>
-								<option value="2010">2010</option>
-								<option value="2011">2011</option>
-								<option value="2012">2012</option>
-								<option value="2013">2013</option>
-								<option value="2014">2014</option>
-								<option value="2015">2015</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
+								<option value="1990" <?php if($yearModel=="1990") echo 'selected="selected"'; ?> >1990</option>
+								<option value="1991" <?php if($yearModel=="1991") echo 'selected="selected"'; ?> >1991</option>
+								<option value="1992" <?php if($yearModel=="1992") echo 'selected="selected"'; ?> >1992</option>
+								<option value="1993" <?php if($yearModel=="1993") echo 'selected="selected"'; ?> >1993</option>
+								<option value="1994" <?php if($yearModel=="1994") echo 'selected="selected"'; ?> >1994</option>
+								<option value="1995" <?php if($yearModel=="1995") echo 'selected="selected"'; ?> >1995</option>
+								<option value="1996" <?php if($yearModel=="1996") echo 'selected="selected"'; ?> >1996</option>
+								<option value="1997" <?php if($yearModel=="1997") echo 'selected="selected"'; ?> >1997</option>
+								<option value="1998" <?php if($yearModel=="1998") echo 'selected="selected"'; ?> >1998</option>
+								<option value="1999" <?php if($yearModel=="1999") echo 'selected="selected"'; ?> >1999</option>
+								<option value="2000" <?php if($yearModel=="2000") echo 'selected="selected"'; ?> >2000</option>
+								<option value="2001" <?php if($yearModel=="2001") echo 'selected="selected"'; ?> >2001</option>
+								<option value="2002" <?php if($yearModel=="2002") echo 'selected="selected"'; ?> >2002</option>
+								<option value="2003" <?php if($yearModel=="2003") echo 'selected="selected"'; ?> >2003</option>
+								<option value="2004" <?php if($yearModel=="2004") echo 'selected="selected"'; ?> >2004</option>
+								<option value="2005" <?php if($yearModel=="2005") echo 'selected="selected"'; ?> >2005</option>
+								<option value="2006" <?php if($yearModel=="2006") echo 'selected="selected"'; ?> >2006</option>
+								<option value="2007" <?php if($yearModel=="2007") echo 'selected="selected"'; ?> >2007</option>
+								<option value="2008" <?php if($yearModel=="2008") echo 'selected="selected"'; ?> >2008</option>
+								<option value="2009" <?php if($yearModel=="2009") echo 'selected="selected"'; ?> >2009</option>
+								<option value="2010" <?php if($yearModel=="2010") echo 'selected="selected"'; ?> >2010</option>
+								<option value="2011" <?php if($yearModel=="2011") echo 'selected="selected"'; ?> >2011</option>
+								<option value="2012" <?php if($yearModel=="2012") echo 'selected="selected"'; ?> >2012</option>
+								<option value="2013" <?php if($yearModel=="2013") echo 'selected="selected"'; ?> >2013</option>
+								<option value="2014" <?php if($yearModel=="2014") echo 'selected="selected"'; ?> >2014</option>
+								<option value="2015" <?php if($yearModel=="2015") echo 'selected="selected"'; ?> >2015</option>
+								<option value="2016" <?php if($yearModel=="2016") echo 'selected="selected"'; ?> >2016</option>
+								<option value="2017" <?php if($yearModel=="2017") echo 'selected="selected"'; ?> >2017</option>
+								<option value="2018" <?php if($yearModel=="2018") echo 'selected="selected"'; ?> >2018</option>
+								<option value="2019" <?php if($yearModel=="2019") echo 'selected="selected"'; ?> >2019</option>
+								<option value="2020" <?php if($yearModel=="2020") echo 'selected="selected"'; ?> >2020</option>
 							</select>
 						</td>  
 						<td><input type="text" name="color" placeholder="Color" class="form-control name_list" required/></td>  
