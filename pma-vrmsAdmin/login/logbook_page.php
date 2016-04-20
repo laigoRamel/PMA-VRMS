@@ -163,13 +163,14 @@ include('session.php');
             $handler = mysqli_connect('localhost', 'root', '', 'pma-vrms')
               or die ('Error connecting to MySQL server.');
 
-            $query = "SELECT * FROM admin_logs";
+            $query = "SELECT * FROM admin_logs
+                        ORDER BY curr_date, curr_time DESC";
 
             $result = mysqli_query($handler, $query)
               or die ('Error querying database.');
 
             while ($row = mysqli_fetch_array($result)) {
-              $user = $row['user'];
+              $user = $row['username'];
               $activity = $row['activity'];
               $date = $row['curr_date'];
               $time = $row['curr_time'];

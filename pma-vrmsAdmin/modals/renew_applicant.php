@@ -1,5 +1,5 @@
 <?php
-	//session_start();
+	//include('login/session.php');
 ?>
 
 <div class="modal fade" id='renew_applicant'>
@@ -30,6 +30,8 @@
                             </div>
                             <div class="checkbox">
                             <label><input name='requirements[]' value='5' type="checkbox">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</label>
+
+                            <label><?php echo $login_session; ?></label>
                             </div>
                     </div>
 											

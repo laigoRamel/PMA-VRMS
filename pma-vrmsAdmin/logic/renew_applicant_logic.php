@@ -1,6 +1,7 @@
 <?php 
 	require_once('../db/database.php');
 	session_start();
+	//include('login/session.php');
 	
 	$database = new Database();
 	
@@ -46,13 +47,14 @@
 
 		$current_date = date("Y-m-d");
 		$current_time = date("h:i:s");
+		$username = $_SESSION['getUser'];
 
 		//$full_name = $a_lastname . ', ' . $a_firstname . ' ' . $a_middlename;
 
 		$full_name = $row['a_lastname'] . ', ' . $row['a_firstname'] . ' ' . $row['a_middlename'];
 
-		$query2 = "INSERT INTO admin_logs (id, user, activity, curr_date, curr_time)
-					VALUES ('', '$login_session', 'Renewed: $full_name', '$current_date', '$current_time')";
+		$query2 = "INSERT INTO admin_logs (id, username, activity, curr_date, curr_time)
+					VALUES ('', '$username', 'Renewed: $full_name', '$current_date', '$current_time')";
 
 		$database->execute($query2);
 
@@ -61,5 +63,7 @@
 
 		$database->disconnect();
 	}
+
+	
 
 ?>

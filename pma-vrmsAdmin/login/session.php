@@ -15,6 +15,8 @@
 
 	$login_session = $row['username'];
 
+	$_SESSION['getUser'] = $login_session;
+
 	if(!isset($login_session)) {
 		mysqli_close($dbc);
 		header('Location: login_page.php');

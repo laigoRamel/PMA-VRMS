@@ -54,7 +54,7 @@
 		$full_name = $m_lastname . ', ' . $m_firstname . ' ' . $m_middlename;
 
 		$query2 = "INSERT INTO admin_logs (id, user, activity, curr_date, curr_time)
-					VALUES ('', '$username', 'Registered: $full_name (from pending AFP)', '$current_date', '$current_time')";
+					VALUES ('', '$login_session', 'Registered: $full_name (from pending AFP)', '$current_date', '$current_time')";
 
 		$database->execute($query2);
 	}
