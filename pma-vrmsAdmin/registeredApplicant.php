@@ -81,6 +81,9 @@
               
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
+            
+             <!-- Create Account -->
+            <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li>
               
             <!-- Employee Log -->
             <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>

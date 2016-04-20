@@ -21,13 +21,13 @@
 			or die('Error querying database.');*/
 	//}
 
-	$lastname = (isset($_POST['last_name']) ? $_POST['last_name'] : '');
+	/*$lastname = (isset($_POST['last_name']) ? $_POST['last_name'] : '');
 	$firstname = (isset($_POST['first_name']) ? $_POST['first_name'] : '');
 	$middleInitial = (isset($_POST['middle_initial']) ? $_POST['middle_initial'] : '');	
 	$email = (isset($_POST['email']) ? $_POST['email'] : '');
 	$password = md5(isset($_POST['password']) ? $_POST['password'] : '');
 
-	$dbc = mysqli_connect('localhost', 'root', '', 'pma-vrms');
+	$dbc = mysqli_connect('localhost', 'root', '', 'pma-vrms');*/
 
 		/*$query = "INSERT INTO pending_accounts (id, last_name, first_name, middle_initial, email, password)
 					VALUES ('', '$lastname', '$firstname', '$middleInitial',
@@ -38,7 +38,7 @@
 					"VALUES ('', '$lastname', '$firstname', 'middle_initial', ".
 					"'$email', '$password')";*/
 
-		$query = "INSERT INTO admin_pending_accounts (id, last_name, first_name, middle_initial, email, password)" . 
+		/*$query = "INSERT INTO admin_pending_accounts (id, last_name, first_name, middle_initial, email, password)" . 
 					"VALUES ('', '$lastname', '$firstname', '$middleInitial', '$email', '$password')";
 
 		$result = mysqli_query($dbc, $query)
@@ -47,5 +47,29 @@
 	echo "Thank you for registering! Please wait for account approval. <br />";
 	echo "<a href=../login_page.php>Back to Login Page</a>";
 
-	mysqli_close($dbc);
+	mysqli_close($dbc);*/
+
+	if (isset($_POST['submit2'])) {
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+
+		if ((!empty($email)) && (!empty($password))) {
+			$dbc = mysqli_connect('localhost', 'root', '', 'pma-vrms')
+				or die ('Error connecting to MySQL server.');
+
+			$query = "INSERT INTO admin_users (id, username, password)
+						VALUES ('', '$email', '$password')";
+
+			$result = mysqli_query($dbc, $query)
+				or die ('Error querying database.');
+
+			mysqli_close($dbc);
+
+			
+		}
+
+		header('Location: create_account_page.php');
+		echo 'Account created.';
+	}
 ?>
+

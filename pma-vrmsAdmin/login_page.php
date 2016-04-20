@@ -72,7 +72,7 @@
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
 
-                            <a href="login/create_account_page.php" class="btn btn-primary">Sign Up</a>
+                            <!--<a href="login/create_account_page.php" class="btn btn-primary">Sign Up</a>-->
                             <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-1">Sign Up</button>-->
         <!--<div class="modal fade" id="modal-1">
             <div class="modal-dialog modal-lg">

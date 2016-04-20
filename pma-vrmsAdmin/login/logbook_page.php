@@ -82,6 +82,9 @@ include('session.php');
               
             <!-- Employee Log -->
             <li class="active"><a href="../login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+
+            <!-- Create Account -->
+            <li class=""><a href="../login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li>
             
             <!-- Accounting --> 
             <li class="treeview">
