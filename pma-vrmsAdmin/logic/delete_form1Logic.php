@@ -6,12 +6,15 @@
 	if(isset($_POST)){
 		DeleteApplicantData($_POST['a_applicantId'], $_POST['vehicleId']);
 		header('Location: ../registeredApplicant.php');
+
 	}
 	
 	function DeleteApplicantData($a_id, $id){
 		global $database;
-		$query = "DELETE form1_applicantpd, vehicle_information FROM form1_applicantpd JOIN vehicle_information ON form1_applicantpd.a_vehicle_id=vehicle_information.vehicleId WHERE form1_applicantpd.a_applicantId='$a_id' AND form1_applicantpd.a_vehicle_id='$id'";
+		$query = "DELETE FROM form1_applicantpd WHERE a_applicantId='$a_id'";
 		$database->execute($query);
+		$query1 = "DELETE FROM vehicle_information WHERE vehicleId='$id'";
+		$database->execute($query1);
 		
 		$database->disconnect();
 	}
