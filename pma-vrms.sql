@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2016 at 03:42 PM
+-- Generation Time: Apr 21, 2016 at 02:02 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `pma-vrms`
 --
-CREATE DATABASE IF NOT EXISTS `pma-vrms` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `pma-vrms`;
 
 -- --------------------------------------------------------
 
@@ -28,26 +26,55 @@ USE `pma-vrms`;
 -- Table structure for table `admin_logs`
 --
 
-DROP TABLE IF EXISTS `admin_logs`;
 CREATE TABLE IF NOT EXISTS `admin_logs` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
-  `user` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `activity` varchar(100) NOT NULL,
   `curr_date` date NOT NULL,
   `curr_time` time NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `admin_logs`
 --
 
-INSERT INTO `admin_logs` (`id`, `user`, `activity`, `curr_date`, `curr_time`) VALUES
+INSERT INTO `admin_logs` (`id`, `username`, `activity`, `curr_date`, `curr_time`) VALUES
 (1, '', 'Registered Go, Daryll Chan.', '2016-04-17', '04:58:56'),
 (3, '', 'Registered Pedro, Juanito Pitoy (AFP)', '2016-04-17', '05:31:32'),
 (4, '', 'Renewed: ,  ', '2016-04-17', '05:40:44'),
 (5, '', 'Renewed: Go, Daryll Chan', '2016-04-17', '05:44:14'),
-(6, '', 'Renewed: Pedro, Juanito Pitoy (AFP)', '2016-04-17', '05:48:36');
+(6, '', 'Renewed: Pedro, Juanito Pitoy (AFP)', '2016-04-17', '05:48:36'),
+(7, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '10:21:15'),
+(8, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '10:22:22'),
+(9, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '10:35:21'),
+(10, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '10:35:59'),
+(11, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '11:04:59'),
+(12, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '11:09:38'),
+(13, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '11:46:34'),
+(14, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '12:35:15'),
+(15, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '12:35:51'),
+(16, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '12:36:18'),
+(17, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '12:51:22'),
+(18, 'login_session', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:28:28'),
+(19, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:29:42'),
+(20, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:30:35'),
+(21, '<?php echo $login_session; ?>', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:32:17'),
+(22, '$login_session', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:33:16'),
+(23, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:36:54'),
+(24, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:40:38'),
+(25, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:41:52'),
+(26, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:43:54'),
+(27, '', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:44:26'),
+(28, 'user1', 'Renewed: Saliba, Sheena Alamo', '2016-04-20', '01:47:45'),
+(29, 'user1', 'Renewed: Madere, Saran Heist', '2016-04-20', '01:49:56'),
+(30, 'user1', 'Renewed: Pursel, Roderick Stansberry', '2016-04-20', '02:02:17'),
+(31, 'user1', 'Renewed: Sanabria, Berry Tomson (AFP)', '2016-04-20', '02:03:44'),
+(32, 'user2', 'Renewed: Whisler, Bradley Dudas', '2016-04-20', '02:04:44'),
+(33, 'user1', 'Registered: Generoso, Agimat Gitna', '2016-04-20', '03:10:32'),
+(34, 'user1', 'Registered: Matibag, Makulay Una (AFP)', '2016-04-20', '03:14:34'),
+(35, 'user1', 'Renewed: Matibag, Makulay Una (AFP)', '2016-04-21', '07:24:51'),
+(36, 'user11@gmail.com', 'Renewed: Ogle, Rico Cannaday (AFP)', '2016-04-21', '07:41:06');
 
 -- --------------------------------------------------------
 
@@ -55,7 +82,6 @@ INSERT INTO `admin_logs` (`id`, `user`, `activity`, `curr_date`, `curr_time`) VA
 -- Table structure for table `admin_pending_accounts`
 --
 
-DROP TABLE IF EXISTS `admin_pending_accounts`;
 CREATE TABLE IF NOT EXISTS `admin_pending_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `last_name` varchar(50) NOT NULL,
@@ -64,7 +90,15 @@ CREATE TABLE IF NOT EXISTS `admin_pending_accounts` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `admin_pending_accounts`
+--
+
+INSERT INTO `admin_pending_accounts` (`id`, `last_name`, `first_name`, `middle_initial`, `email`, `password`) VALUES
+(1, 'Pedro', 'Juan', 'A', 'pedrojuan@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(2, '', '', '', '', 'd41d8cd98f00b204e9800998ecf8427e');
 
 -- --------------------------------------------------------
 
@@ -72,13 +106,12 @@ CREATE TABLE IF NOT EXISTS `admin_pending_accounts` (
 -- Table structure for table `admin_users`
 --
 
-DROP TABLE IF EXISTS `admin_users`;
 CREATE TABLE IF NOT EXISTS `admin_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `admin_users`
@@ -86,7 +119,11 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 
 INSERT INTO `admin_users` (`id`, `username`, `password`) VALUES
 (1, 'user1', 'password1'),
-(2, 'user2', 'password2');
+(2, 'user2', 'password2'),
+(3, '', 'password11'),
+(4, '', 'password11'),
+(5, 'user11@gmail.com', 'password11'),
+(6, 'user12@gmail.com', 'password12');
 
 -- --------------------------------------------------------
 
@@ -94,7 +131,6 @@ INSERT INTO `admin_users` (`id`, `username`, `password`) VALUES
 -- Table structure for table `client_log`
 --
 
-DROP TABLE IF EXISTS `client_log`;
 CREATE TABLE IF NOT EXISTS `client_log` (
   `tid` int(11) NOT NULL AUTO_INCREMENT,
   `plateNum` varchar(7) NOT NULL,
@@ -140,7 +176,6 @@ INSERT INTO `client_log` (`tid`, `plateNum`, `owner`, `dateIn`, `timein`, `dateO
 -- Table structure for table `client_records`
 --
 
-DROP TABLE IF EXISTS `client_records`;
 CREATE TABLE IF NOT EXISTS `client_records` (
   `plateNo` varchar(7) NOT NULL,
   `owner` varchar(100) NOT NULL,
@@ -161,7 +196,6 @@ INSERT INTO `client_records` (`plateNo`, `owner`, `remarks`) VALUES
 -- Table structure for table `client_report`
 --
 
-DROP TABLE IF EXISTS `client_report`;
 CREATE TABLE IF NOT EXISTS `client_report` (
   `rid` int(11) NOT NULL AUTO_INCREMENT,
   `plateNum` varchar(7) NOT NULL,
@@ -190,7 +224,6 @@ INSERT INTO `client_report` (`rid`, `plateNum`, `owner`, `datein`, `timein`, `vi
 -- Table structure for table `client_userlog`
 --
 
-DROP TABLE IF EXISTS `client_userlog`;
 CREATE TABLE IF NOT EXISTS `client_userlog` (
   `logid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
@@ -236,7 +269,6 @@ INSERT INTO `client_userlog` (`logid`, `username`, `datein`, `timein`, `dateout`
 -- Table structure for table `client_users`
 --
 
-DROP TABLE IF EXISTS `client_users`;
 CREATE TABLE IF NOT EXISTS `client_users` (
   `userNo` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
@@ -258,7 +290,6 @@ INSERT INTO `client_users` (`userNo`, `username`, `password`, `flag`) VALUES
 -- Table structure for table `client_visitorpass`
 --
 
-DROP TABLE IF EXISTS `client_visitorpass`;
 CREATE TABLE IF NOT EXISTS `client_visitorpass` (
   `vid` varchar(10) NOT NULL,
   `flag` int(11) NOT NULL,
@@ -292,7 +323,6 @@ INSERT INTO `client_visitorpass` (`vid`, `flag`) VALUES
 -- Table structure for table `form1_applicantpd`
 --
 
-DROP TABLE IF EXISTS `form1_applicantpd`;
 CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_applicantId` int(11) NOT NULL AUTO_INCREMENT,
   `a_profile` varchar(255) NOT NULL,
@@ -312,7 +342,7 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_vehicle_id` int(11) NOT NULL,
   `a_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`a_applicantId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
 
 --
 -- Dumping data for table `form1_applicantpd`
@@ -321,11 +351,39 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
 INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_firstname`, `a_middlename`, `a_address`, `a_occupation`, `a_officeAddress`, `a_driversLicense`, `a_expirationDate`, `a_class`, `a_submitted_requirements`, `a_status`, `a_dateRegistered`, `a_placeRegistered`, `a_vehicle_id`, `a_renew_status`) VALUES
 (1, 'Galen-Dudas.png', 'Dudas', 'Galen', 'Nelag', 'Baguio City', 'Driver', 'Fort del Pillar', '1111111111', '2017-01-16', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-12 09:10:11', 'Fort del Pilar', 1, 1),
 (2, 'Marcelino-Dubuque.png', 'Dubuque', 'Marcelino', 'Stansbury', 'Baguio City', 'Driver', 'Fort del Pillar', '2222222222', '2018-01-01', 'Class C', '5,4,3,2,1,', 'registered', '2016-04-12 09:12:40', 'Camp Allen', 2, 1),
-(3, 'Bradley-Whisler.png', 'Whisler', 'Bradley', 'Dudas', 'Baguio City', 'Employee', 'Fort del Pillar', '3333333333', '2019-12-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:17:04', 'Navy Base', 3, 1),
-(4, 'Saran-Madere.png', 'Madere', 'Saran', 'Heist', 'La Trinidad', 'Secretary', 'Fort del Pillar', '4444444444', '2016-12-3', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:22:45', 'Fort del Pillar', 4, 1),
-(5, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', 'Camp Allen', 5, 1),
+(3, 'Bradley-Whisler.png', 'Whisler', 'Bradley', 'Dudas', 'Baguio City', 'Employee', 'Fort del Pillar', '3333333333', '2019-12-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:17:04', 'Navy Base', 3, 0),
+(4, 'Saran-Madere.png', 'Madere', 'Saran', 'Heist', 'La Trinidad', 'Secretary', 'Fort del Pillar', '4444444444', '2016-12-3', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:22:45', 'Fort del Pillar', 4, 0),
+(5, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', 'Camp Allen', 5, 0),
 (6, 'Jonas-Starkweather.png', 'Starkweather', 'Jonas', 'Cole', 'Baguio City', 'Database Administrator', 'Fort del Pillar', '6666666666', '2016-12-25', 'Class B', '3,2,1,', 'pending', '2016-04-12 09:31:51', 'Navy Base', 6, 1),
-(7, 'Eugenia-Alamo.png', 'Alamo', 'Eugenia', 'Dowdle', 'La Trinidad', 'Janitor', 'Fort del Pillar', '7777777777', '2017-04-06', 'Class B', '5,4,1,', 'pending', '2016-04-12 09:34:32', 'Fort del Pillar', 7, 1);
+(7, 'Eugenia-Alamo.png', 'Alamo', 'Eugenia', 'Dowdle', 'La Trinidad', 'Janitor', 'Fort del Pillar', '7777777777', '2017-04-06', 'Class B', '5,4,1,', 'pending', '2016-04-12 09:34:32', 'Fort del Pillar', 7, 1),
+(8, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(9, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(10, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(11, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(12, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(13, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(14, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(15, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(16, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(17, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '', 'pending', '2016-04-12 09:26:20', '', 5, 1),
+(18, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '', 'pending', '2016-04-12 09:26:20', '', 5, 1),
+(19, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(20, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,3,2,1,', 'pending', '2016-04-12 09:26:20', '', 5, 1),
+(21, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(22, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(23, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(24, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(25, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(26, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(27, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(28, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(29, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(30, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 0),
+(31, 'Sheena-Saliba.png', 'Saliba', 'Sheena', 'Alamo', 'Baguio City', 'IT', 'Fort del Pillar', '5555555555', '2017-03-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:26:20', '', 5, 1),
+(32, 'Saran-Madere.png', 'Madere', 'Saran', 'Heist', 'La Trinidad', 'Secretary', 'Fort del Pillar', '4444444444', '2016-12-3', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:22:45', '', 4, 1),
+(33, 'Bradley-Whisler.png', 'Whisler', 'Bradley', 'Dudas', 'Baguio City', 'Employee', 'Fort del Pillar', '3333333333', '2019-12-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 09:17:04', '', 3, 1),
+(34, 'Agimat-Generoso.png', 'Generoso', 'Agimat', 'Gitna', 'Baguio', 'Unemployed', 'Fort del Pilar', 'zzzz3333', '2020-03-23', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-20 15:10:12', 'Fort del Pilar', 15, 1),
+(35, 'Agimat-Generoso.png', 'Generoso', 'Agimat', 'Gitna', 'Baguio', 'Unemployed', 'Fort del Pilar', 'zzzz3333', '2020-03-23', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-20 15:10:32', 'Fort del Pilar', 16, 1);
 
 -- --------------------------------------------------------
 
@@ -333,7 +391,6 @@ INSERT INTO `form1_applicantpd` (`a_applicantId`, `a_profile`, `a_lastname`, `a_
 -- Table structure for table `form2_militarypd`
 --
 
-DROP TABLE IF EXISTS `form2_militarypd`;
 CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_militaryId` int(11) NOT NULL AUTO_INCREMENT,
   `m_profile` varchar(255) NOT NULL,
@@ -359,7 +416,7 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_vehicle_id` int(11) NOT NULL,
   `m_renew_status` int(11) NOT NULL,
   PRIMARY KEY (`m_militaryId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `form2_militarypd`
@@ -368,11 +425,28 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
 INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_firstname`, `m_middlename`, `m_rank`, `m_brSvc`, `m_afpsn`, `m_residenceAddress`, `m_residenceTelNo`, `m_emailAddress`, `m_mobileNo`, `m_designatedOffice`, `m_officeTelNo`, `m_officeAddress`, `m_retirementDate`, `m_class`, `m_submitted_requirements`, `m_status`, `m_dateRegistered`, `m_placeRegistered`, `m_vehicle_id`, `m_renew_status`) VALUES
 (1, 'Bernardo-Stansberry.png', 'Stansberry', 'Bernardo', 'Tomson', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson@gmail.com', '09305285214', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2030-12-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 09:48:21', 'Fort del Pilar', 8, 1),
 (2, 'Davis-Olmo.png', 'Olmo', 'Davis', 'Labar', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'labar@gmail.com', '09125485241', 'ACAD1', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-30', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 09:54:13', 'Camp Allen', 9, 1),
-(3, 'Rico-Ogle.png', 'Ogle', 'Rico', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'ogle@gmail.com', '09126548654', 'ACAD2', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-04-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 10:02:48', 'Navy Base', 10, 1),
-(4, 'Berry-Sanabria.png', 'Sanabria', 'Berry', 'Tomson', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson1@gmail.com', '09124565784', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2025-08-9-09', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:08:09', 'Fort del Pilar', 11, 1),
-(5, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2019-04-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', 'Camp Allen', 12, 1),
-(6, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-01', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', 'Navy Base', 13, 1),
-(7, 'Horacio-Desousa.png', 'Desousa', 'Horacio', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'horacio@gmail.com', '09304565871', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2015-06-09', 'Class B', '2,1,', 'pending', '2016-04-12 10:16:59', 'Fort del Pilar', 14, 1);
+(3, 'Rico-Ogle.png', 'Ogle', 'Rico', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'ogle@gmail.com', '09126548654', 'ACAD2', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-04-12', 'Class B', '5,4,3,2,1,', 'registered', '2016-04-12 10:02:48', 'Navy Base', 10, 0),
+(4, 'Berry-Sanabria.png', 'Sanabria', 'Berry', 'Tomson', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson1@gmail.com', '09124565784', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2025-08-9-09', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:08:09', 'Fort del Pilar', 11, 0),
+(5, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '2019-04-04', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', 'Camp Allen', 12, 0),
+(6, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '2016-12-01', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', 'Navy Base', 13, 0),
+(7, 'Horacio-Desousa.png', 'Desousa', 'Horacio', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'horacio@gmail.com', '09304565871', 'MA2', 'xxx-xxx-xxx', 'Fort del Pillar', '2015-06-09', 'Class B', '2,1,', 'pending', '2016-04-12 10:16:59', 'Fort del Pilar', 14, 1),
+(8, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', '', 0, 1),
+(9, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', '', 0, 1),
+(10, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', '', 0, 1),
+(11, 'Marc Jazztin-Lim.png', 'Lim', 'Marc Jazztin', 'Gawe', 'Sergeant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'lim@gmail.com', '09451254652', 'Computer Office', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:13:35', '', 0, 1),
+(12, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', '', 0, 1),
+(13, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', '', 0, 1),
+(14, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', '', 0, 1),
+(15, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', '', 0, 1),
+(16, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', '', 0, 1),
+(17, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', '', 0, 1),
+(18, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', '', 0, 1),
+(19, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', '', 0, 1),
+(20, 'Roderick-Pursel.png', 'Pursel', 'Roderick', 'Stansberry', 'General', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'pursel@gmail.com', '09304562154', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:10:43', '', 0, 1),
+(21, 'Berry-Sanabria.png', 'Sanabria', 'Berry', 'Tomson', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'Baguio City', 'xxx-xxx-xxx', 'tomson1@gmail.com', '09124565784', 'ACAD6', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:08:09', '', 0, 1),
+(22, 'Makulay-Matibag.png', 'Matibag', 'Makulay', 'Una', 'SSG', 'NA', 'aaa121', 'Fort Del Pilar', '0741112223', 'makulaymatibag@email.com', '09291234321', 'Fort Del Pilar', '8765', 'Baguio City', '2019-09-09', 'Class A', '5,4,3,2,1,', 'registered', '2016-04-20 15:14:34', 'Fort del Pilar', 17, 0),
+(23, 'Makulay-Matibag.png', 'Matibag', 'Makulay', 'Una', 'SSG', 'NA', 'aaa121', 'Fort Del Pilar', '0741112223', 'makulaymatibag@email.com', '09291234321', 'Fort Del Pilar', '8765', 'Baguio City', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-20 15:14:34', '', 0, 1),
+(24, 'Rico-Ogle.png', 'Ogle', 'Rico', 'Cannaday', 'Lieutenant', 'xxxxxx', 'xxxxxx', 'La Trinidad', 'xxx-xxx-xxx', 'ogle@gmail.com', '09126548654', 'ACAD2', 'xxx-xxx-xxx', 'Fort del Pillar', '$[m_retirementDate]', '$[m_class]', '5,4,3,2,1,', 'registered', '2016-04-12 10:02:48', '', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -380,7 +454,6 @@ INSERT INTO `form2_militarypd` (`m_militaryId`, `m_profile`, `m_lastname`, `m_fi
 -- Table structure for table `vehicle_information`
 --
 
-DROP TABLE IF EXISTS `vehicle_information`;
 CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `vehicleId` int(11) NOT NULL AUTO_INCREMENT,
   `wheels` varchar(15) NOT NULL,
@@ -392,7 +465,7 @@ CREATE TABLE IF NOT EXISTS `vehicle_information` (
   `chassisNo` varchar(60) NOT NULL,
   `stickerNo` varchar(60) NOT NULL,
   PRIMARY KEY (`vehicleId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `vehicle_information`
@@ -412,7 +485,10 @@ INSERT INTO `vehicle_information` (`vehicleId`, `wheels`, `vehicleMake`, `plateN
 (11, '4-wheeled', 'Ford', 'poi567', '2017', 'yellow', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
 (12, '4-wheeled', 'Honda', 'fgh523', '2005', 'red', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
 (13, '4-wheeled', 'Ferrari', 'dfg123', '2016', 'red', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
-(14, '4-wheeled', 'Honda', 'ghr234', '2007', 'blue', 'xxxxxx', 'xxxxxx', 'xxxxxx');
+(14, '4-wheeled', 'Honda', 'ghr234', '2007', 'blue', 'xxxxxx', 'xxxxxx', 'xxxxxx'),
+(15, '4-wheeled', 'Pajero', 'zaz838', '2013', 'Black', '333111', '222111', '444111'),
+(16, '4-wheeled', 'Pajero', 'zaz838', '2013', 'Black', '333111', '222111', '444111'),
+(17, '4-wheeled', 'Nissan', 'abc321', '2018', 'Black', '444111', '222333', '4444444');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
