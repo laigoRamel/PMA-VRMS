@@ -35,7 +35,7 @@
 		$query = "INSERT INTO form2_militarypd (m_profile, m_lastname, m_firstname, m_middlename, m_rank, m_brSvc, m_afpsn, m_residenceAddress, m_residenceTelNo, 
 					m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_submitted_requirements, m_status, m_dateRegistered, m_placeRegistered, m_vehicle_id, m_renew_status) 
 				VALUES ('$row[m_profile]', '$row[m_lastname]', '$row[m_firstname]', '$row[m_middlename]', '$row[m_rank]', '$row[m_brSvc]', '$row[m_afpsn]', '$row[m_residenceAddress]', '$row[m_residenceTelNo]', 
-					'$row[m_emailAddress]', '$row[m_mobileNo]', '$row[m_designatedOffice]', '$row[m_officeTelNo]', '$row[m_officeAddress]', '$row[m_retirementDate]', '$row[m_class]', '$all_requirements', '$m_status', '$row[m_dateRegistered]', '$row[m_placeRegistered]', '$row[m_vehicle_id]', '1')";
+					'$row[m_emailAddress]', '$row[m_mobileNo]', '$row[m_designatedOffice]', '$row[m_officeTelNo]', '$row[m_officeAddress]', '$row[m_retirementDate]', '$row[m_class]', '$all_requirements', '$m_status', '$m_dateRegistered', '$row[m_placeRegistered]', '$row[m_vehicle_id]', '1')";
 		
 		$database->execute($query);
 

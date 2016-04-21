@@ -36,7 +36,7 @@
 		
 	
 		$query = "INSERT INTO form1_applicantpd (a_profile, a_lastname, a_firstname, a_middlename, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_submitted_requirements, a_status, a_dateRegistered, a_placeRegistered, a_vehicle_id, a_renew_status) 
-				VALUES ('$row[a_profile]', '$row[a_lastname]', '$row[a_firstname]', '$row[a_middlename]', '$row[a_address]', '$row[a_occupation]', '$row[a_officeAddress]', '$row[a_driversLicense]', '$row[a_expirationDate]', '$row[a_class]', '$all_requirements', '$a_status', '$row[a_dateRegistered]', '$row[a_placeRegistered]', '$row[a_vehicle_id]', '1')";
+				VALUES ('$row[a_profile]', '$row[a_lastname]', '$row[a_firstname]', '$row[a_middlename]', '$row[a_address]', '$row[a_occupation]', '$row[a_officeAddress]', '$row[a_driversLicense]', '$row[a_expirationDate]', '$row[a_class]', '$all_requirements', '$a_status', '$a_dateRegistered', '$row[a_placeRegistered]', '$row[a_vehicle_id]', '1')";
 
 		$database->execute($query);
 
