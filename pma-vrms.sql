@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `admin_logs` (
 -- Dumping data for table `admin_logs`
 --
 
-INSERT INTO `admin_logs` (`id`, `user`, `activity`, `curr_date`, `curr_time`) VALUES
+INSERT INTO `admin_logs` (`id`, `username`, `activity`, `curr_date`, `curr_time`) VALUES
 (1, '', 'Registered Go, Daryll Chan.', '2016-04-17', '04:58:56'),
 (3, '', 'Registered Pedro, Juanito Pitoy (AFP)', '2016-04-17', '05:31:32'),
 (4, '', 'Renewed: ,  ', '2016-04-17', '05:40:44'),
