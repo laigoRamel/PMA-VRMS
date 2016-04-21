@@ -67,8 +67,8 @@ include('login/session.php');
           <ul class="sidebar-menu">
             <li class="header">NAVIGATION</li>
               
-            <!-- Dashboard -->
-            <li class="active"><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
+            <!-- DASHBOARD   -->
+            <li class="active"><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>DASHBOARD</span></a></li>
               
             
             
@@ -128,7 +128,7 @@ include('login/session.php');
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Dashboard
+            DASHBOARD
           </h1>
           
         </section>
@@ -137,13 +137,13 @@ include('login/session.php');
         <section class="content">
 
             <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class=""><!--col-md-3 col-sm-6 col-xs-12-->
                   <div class="info-box">
                     <a href ="#">
                         <span class="info-box-icon bg-aqua"><i class="fa fa-car"></i></span>
                     </a>
                     <div class="info-box-content">
-                      <span class="info-box-text">Latest Activity</span>
+                      <span class="info-box-text">LATEST ACTIVITY</span>
                       <span class="info-box-number" id="showActivity">
                           <script type="text/javascript"></script>
                           <script type="text/javascript">
@@ -160,7 +160,7 @@ include('login/session.php');
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
                 
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class=""><!--col-md-3 col-sm-6 col-xs-12-->
                   <div class="info-box">
                     <a href ="pending.php">
                         <span class="info-box-icon bg-red"><i class="fa fa-exclamation"></i></span>
@@ -183,7 +183,7 @@ include('login/session.php');
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
                 
-                 <div class="col-md-3 col-sm-6 col-xs-12">
+                 <div class=""><!--col-md-3 col-sm-6 col-xs-12-->
                   <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fa fa-user-plus"></i></span>
                     <div class="info-box-content">
@@ -204,7 +204,7 @@ include('login/session.php');
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
                 
-               <div class="col-md-3 col-sm-6 col-xs-12">
+               <div class=""><!--col-md-3 col-sm-6 col-xs-12-->
                   <div class="info-box">
                     <a href ="reports.php">
                         <span class="info-box-icon bg-purple"><i class="fa fa-ban"></i></span>
