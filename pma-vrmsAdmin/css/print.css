@@ -3,12 +3,6 @@
 }
 
 
-
-
-
-
-
-
 @media print {
     
     body {
@@ -40,6 +34,9 @@
     }
     
     .modal {
+        display:block;
+    }
+    #view_form1 {
         display:block;
     }
     #printHeader {
