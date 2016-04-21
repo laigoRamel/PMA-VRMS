@@ -22,7 +22,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Personal Information</h3> </div>
                     <div class="panel-body">
-                        <input style="display:none;" type="text" name="a_applicantId" readonly>
+                        <input style="display: none;" type="txt" class="form-control" name="a_applicantId" readonly>
                         
                         <!-- image display -->
                         <img id='img_delete' height="100px">
