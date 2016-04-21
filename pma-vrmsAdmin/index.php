@@ -135,6 +135,7 @@ include('login/session.php');
 
         <!-- Main content -->
         <section class="content">
+
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                   <div class="info-box">
@@ -142,8 +143,19 @@ include('login/session.php');
                         <span class="info-box-icon bg-aqua"><i class="fa fa-car"></i></span>
                     </a>
                     <div class="info-box-content">
-                      <span class="info-box-text">Current Visitors</span>
-                      <span class="info-box-number">50</span>
+                      <span class="info-box-text">Latest Activity</span>
+                      <span class="info-box-number" id="showActivity">
+                          <script type="text/javascript"></script>
+                          <script type="text/javascript">
+                          $(document).ready(function() {
+                            setInterval(function () {
+                              $('#showActivity').load('dashboard/dashboardActivity.php')
+                            }, 3000);
+                          }
+                          );
+                        </script>
+                        
+                      </span>
                     </div><!-- /.info-box-content -->
                   </div><!-- /.info-box -->
                 </div><!-- /.col -->
