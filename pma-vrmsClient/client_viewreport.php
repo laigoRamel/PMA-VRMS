@@ -53,6 +53,11 @@
 			$(function () {
 			$('table.table-sort').tablesort();
 		});
+		
+		function setdate(){
+			var x = document.getElementById("sdate").value;
+			document.getElementById("edate").min = x;
+		}
 		</script>
 		
 	</head>
@@ -64,6 +69,7 @@
 		<div class="panel-heading" align="center">
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav">
+                    <li><a href="home.php">Home</a></li>
 					<li><a href="client_vehiclelog.php">Vehicle Time In</a></li>
 					<li><a href="client_vehicleout.php">Vehicle Time Out</a></li>
 					<li><a href="client_viewlog.php">View Vehicle Log</a></li>
@@ -78,7 +84,8 @@
 						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
 							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
 						}else{
-							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+						//	echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+							echo "";
 						}
 					?>
 				  </ul>
@@ -110,8 +117,8 @@
 					<form method="POST" action="" id="client_viewreport.php">
 						<table id="search">
 							<tr><td>Filter by date:</td></tr>
-							<tr><td>From: </td><td><input type="date" name="sdate" /></td>
-								<td>To: </td><td><input type="date" name="edate" /></td>
+							<tr><td>From: </td><td><input type="date" id="sdate" name="sdate" onchange="setdate()" /></td>
+								<td>To: </td><td><input type="date" id="edate" name="edate" ></td>
 							<td><button type="submit" form="client_viewreport.php">
 								<span class="glyphicon glyphicon-search"> Filter</span>
 								</button></td></tr>
@@ -134,6 +141,7 @@
 											$d = $row['timein'];
 											$e = $row['violation'];
 											$f = $row['type'];
+                                            
 											
 											$query2 = "SELECT * FROM client_log WHERE plateNum = '$a' and dateIn = '$c'";
 											$results2 = mysqli_query($conn, $query2);

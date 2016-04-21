@@ -23,7 +23,7 @@
 		$a_dateRegistered 	= $applicant['a_dateRegistered'];
 		$a_placeRegistered 	= $applicant['a_placeRegistered'];
 		
-		$id 				= $applicant['vehicleId'];
+		$vehicleId 			= $applicant['vehicleId'];
 		$wheels 			= $applicant['wheels'];
 		$vehicleMake 		= $applicant['vehicleMake'];
 		$plateNo 			= $applicant['plateNo'];
@@ -34,7 +34,7 @@
 		$stickerNo 			= $applicant['stickerNo'];
 		
 		array_push($applicants, array('a_applicantId' => $a_id, 'a_profile' => $a_profile, 'name' => $name,  'a_address' => $a_address, 'a_occupation' => $a_occupation, 'a_officeAddress' => $a_officeAddress, 'a_driversLicense' => $a_driversLicense, 'a_expirationDate' => $a_expirationDate, 'a_class' => $a_class, 'a_placeRegistered' => $a_placeRegistered, 'a_dateRegistered' => $a_dateRegistered,
-			'vehicleId' => $id, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 
+			'vehicleId' => $vehicleId, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 
 			'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 
 			'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
 	}

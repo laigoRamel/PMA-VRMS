@@ -83,7 +83,8 @@
 						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
 							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
 						}else{
-							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+						//	echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+							echo "";
 						}
 					?>
 				  </ul>
@@ -132,10 +133,11 @@
 								//	echo "<table align='center' id='viewtable'><tr><th class='head' rowspan='2'>Plate No. </th><th class='head' rowspan='2'>Registered Under</th><th class='head' colspan='2'>Time In</th><th class='head' colspan='2'>Time Out</th><th class='head' rowspan='2'>Type</th></tr>";
 								//	echo "<tr><th class='head'>Date</th><th class='head'>Time</th><th class='head'>Date</th><th class='head'>Time</th></tr>";
 									
-								echo "<table align='center' class='table-sort table-sort-search table-sort-show-search-count'><thead><tr><th class='table-sort'>Plate No. </th><th class='table-sort'>Registered Under</th><th class='table-sort'>Date (IN)</th><th class='table-sort'>Time (IN)</th><th class='table-sort'>Date (OUT)</th><th class='table-sort'>Time (OUT)</th><th class='table-sort'>Type</th><th class='table-sort'>Other Details</th><th class='table-sort'>Personnel</th></thead></tr>";
+								echo "<table align='center' class='table-sort table-sort-search table-sort-show-search-count'><thead><tr><th class='table-sort'>Plate No. </th><th class='table-sort'>Registered Under</th><th class='table-sort'>Time IN</th><th class='table-sort'>Time OUT</th><th class='table-sort'>Type</th><th class='table-sort'>Other Details</th><th class='table-sort'>Personnel</th><th class='table-sort'></th></tr></thead>";
 								
 								if(mysqli_num_rows($results) >= 1){
 										while($row = mysqli_fetch_assoc($results)){
+											$tid = $row['tid'];
 											$a = $row['plateNum'];
 											$b = $row['owner'];
 											$c = $row['dateIn'];
@@ -145,18 +147,80 @@
 											$g = $row['type'];
 											$h = $row['licenseNo'];
 											$i = $row['details'];
-											$j = $row['pIN'];
-											$k = $row['pOUT'];
-					
-											echo "<tr><td class='col'> " . $a . "</td><td class='col'>" . $b . "</td><td class='col'>" . $c . "</td><td class='col'>" . $d ."</td><td class='col'>" . $e ."</td><td class='col'>" . $f. "</td><td class='col'>" . $g. "<br>" . $h. "</td><td class='col'>" . $i . "</td><td class='col'>" . $j . " / ". $k . "</td></tr>";
-																						
+											$j = $row['vid'];
+											$k = $row['pIN'];
+											$l = $row['pOUT'];
+											
+											//if($e=="0000-00-00"){
+											//	$e=""; $f="";
+											//}
+											
+											if($g=="Visitor"){
+												$g = $g . " - ";
+											}
+											
+											
+											if($e=="0000-00-00"){
+												$e=""; $f="";
+												
+												if(strtotime(date("H:i:s"))>strtotime('16:59:59') && $e=="" && $g=="Visitor - "){
+													echo "<tr><td class='after'> " . $a . "</td>".
+														 "<td class='after'>" . $b . "</td>". 
+														 "<td class='after'>" . $c .  "<br>" . $d ."</td>".
+														 "<td class='after'>" . $e .  "<br>" . $f. "</td>".
+														 "<td class='after'>" . $g. $j . "<br>" . $h . "</td>". 
+														 "<td class='after'>" . $i . "</td>".
+														 "<td class='after'>" . $k . " / ". $l . "</td>".
+														 "<td class='after'><form method='POST' action='timeoutinfo.php'>".
+																			"<input type='hidden' name='tid' value='". $tid. "'>".
+																			"<input type='hidden' name='vid' value='". $j 	. "'>".
+																			"<input type='hidden' name='type' value='". $g 	. "'>".
+																			"<input type='hidden' name='plate' value='". $a 	. "'>".
+																			"<input type='submit' value='Time Out'> </form></td></tr>";
+												}else{
+													echo "<tr><td class='col'> " . $a . "</td>".
+														 "<td class='col'>" . $b . "</td>".
+														 "<td class='col'>" . $c .  "<br>" . $d. "</td>".
+														 "<td class='col'>" . $e .  "<br>" . $f."</td>".
+														 "<td class='col'>" . $g. $j . "<br>" . $h. "</td>".
+														 "<td class='col'>" . $i . "</td>".
+														 "<td class='col'>" . $k . " / ". $l . "</td>".
+														 "<td class='col'><form method='POST' action='timeoutinfo.php'>".
+																			"<input type='hidden' name='tid' value='". $tid. "'>".
+																			"<input type='hidden' name='vid' value='". $j 	. "'>".
+																			"<input type='hidden' name='type' value='". $g 	. "'>".
+																			"<input type='hidden' name='plate' value='". $a 	. "'>".
+																			"<input type='submit' value='Time Out'> </form></td></tr>";
+												}
+											}else{
+												if(strtotime(date("H:i:s"))>strtotime('16:59:59') && $e=="" && $g=="Visitor - "){
+													echo "<tr><td class='after'> " . $a . "</td>".
+														 "<td class='after'>" . $b . "</td>". 
+														 "<td class='after'>" . $c .  "<br>" . $d ."</td>".
+														 "<td class='after'>" . $e .  "<br>" . $f. "</td>".
+														 "<td class='after'>" . $g. $j . "<br>" . $h . "</td>". 
+														 "<td class='after'>" . $i . "</td>".
+														 "<td class='after'>" . $k . " / ". $l . "</td>".
+														 "</tr>";
+												}else{
+													echo "<tr><td class='col'> " . $a . "</td>".
+														 "<td class='col'>" . $b . "</td>".
+														 "<td class='col'>" . $c .  "<br>" . $d. "</td>".
+														 "<td class='col'>" . $e .  "<br>" . $f."</td>".
+														 "<td class='col'>" . $g. $j . "<br>" . $h. "</td>".
+														 "<td class='col'>" . $i . "</td>".
+														 "<td class='col'>" . $k . " / ". $l . "</td>".
+														 "<td class='col'></td></tr>";
+												}
+											}
 										
+											
 									}
+								
 									echo "</table>";
 									}else{
 										echo "<br> No Records.";
 									}
-									
 							
 						?>
 						</div>

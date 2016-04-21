@@ -71,24 +71,28 @@ $t = date("H:i:s");
 													
 							require_once('connect.php');
 							
-							$plate = strtoupper($_POST['plate']);
-							$owner = $_POST['owner'];
-							$t = $_POST['t'];
+						//	$plate = strtoupper($_POST['plate']);
+						//	$owner = $_POST['owner'];
+						//	$t = $_POST['t'];
 							$u = $_SESSION['user'];
-							$type = $_POST['type'];
-							$vp = $_POST['vid'];
+						//	$type = $_POST['type'];
+						//	$vp = $_POST['vid'];
 							
+							$tid = $_POST['tid'];
+							$vid = $_POST['vid'];
+							$type = $_POST['type'];
+							$plate = $_POST['plate'];
 						
-							$q = "SELECT * FROM client_log WHERE plateNum = '$plate' AND flag=1";
+							$q = "SELECT * FROM client_log WHERE tid='$tid'";
 							$results = mysqli_query($conn, $q);
 							$num = mysqli_num_rows($results);
 							
 							if($num>=1){
-								$query = "UPDATE client_log SET dateout= '$d', timeout='$t', flag=0, pOUT='$u' WHERE plateNum='$plate' AND flag=1";
+								$query = "UPDATE client_log SET dateout= '$d', timeout='$t', flag=0, pOUT='$u' WHERE tid = '$tid'";
 								$results = mysqli_query($conn, $query);
 								
 								if($type=='Visitor'){
-									$update = "UPDATE client_visitorpass SET flag=0 WHERE vid='$vp'";
+									$update = "UPDATE client_visitorpass SET flag=0 WHERE vid='$vid'";
 									$uresult = mysqli_query($conn, $update);
 								}
 								echo "<br>Plate Number: <b>" .$plate. "</b> <br>Time Out: " . $d . " " . $t;
@@ -96,7 +100,7 @@ $t = date("H:i:s");
 						
 							}else{
 								echo "Vehicle with Plate Number <b>" . $plate . "</b>was logged out earlier";
-								echo "<br><form> <button formaction='client_vehicleout.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";
+								echo "<br><form> <button formaction='client_viewlog.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";
 							}
 							
 

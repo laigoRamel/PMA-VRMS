@@ -190,6 +190,7 @@
                                                     <td>$military[m_class]</td>
                                                     <td style='display:none'>$military[m_dateRegistered]</td>
                                                     <td>$military[m_placeRegistered]</td>
+                                                    <td style='display:none'>$military[vehicleId]</td>
                                                     <td style='display:none'>$military[wheels]</td>
                                                     <td style='display:none'>$military[vehicleMake]</td>
                                                     <td style='display:none'>$military[plateNo]</td>
@@ -252,14 +253,15 @@ DATA;
         var m_dateRegistered = row.find('td:nth-child(16)').text();
         var m_placeRegistered = row.find('td:nth-child(17)').text();
 
-        var wheels = row.find('td:nth-child(18)').text();
-        var vehicleMake = row.find('td:nth-child(19)').text();
-        var plateNo = row.find('td:nth-child(20)').text();
-        var yearModel = row.find('td:nth-child(21)').text();
-        var color = row.find('td:nth-child(22)').text();
-        var motorNo = row.find('td:nth-child(23)').text();
-        var chassisNo = row.find('td:nth-child(24)').text();
-        var stickerNo = row.find('td:nth-child(25)').text();
+        var vehicleId = row.find('td:nth-child(18)').text();
+        var wheels = row.find('td:nth-child(19)').text();
+        var vehicleMake = row.find('td:nth-child(20)').text();
+        var plateNo = row.find('td:nth-child(21)').text();
+        var yearModel = row.find('td:nth-child(22)').text();
+        var color = row.find('td:nth-child(23)').text();
+        var motorNo = row.find('td:nth-child(24)').text();
+        var chassisNo = row.find('td:nth-child(25)').text();
+        var stickerNo = row.find('td:nth-child(26)').text();
         
         var modal = $('#edit_modal_form2');
         modal.find('input[name=m_militaryId]').val(m_id);
@@ -280,6 +282,7 @@ DATA;
         modal.find('input[name=m_dateRegistered]').val(m_dateRegistered);
         modal.find('input[name=m_placeRegistered]').val(m_placeRegistered);
 
+        modal.find('input[name=vehicleId]').val(vehicleId);
         modal.find('input[name=wheels]').val(wheels);
         modal.find('input[name=vehicleMake]').val(vehicleMake);
         modal.find('input[name=plateNo]').val(plateNo);
@@ -312,14 +315,15 @@ DATA;
         var m_dateRegistered = row.find('td:nth-child(16)').text();
         var m_placeRegistered = row.find('td:nth-child(17)').text();
 
-        var wheels = row.find('td:nth-child(18)').text();
-        var vehicleMake = row.find('td:nth-child(19)').text();
-        var plateNo = row.find('td:nth-child(20)').text();
-        var yearModel = row.find('td:nth-child(21)').text();
-        var color = row.find('td:nth-child(22)').text();
-        var motorNo = row.find('td:nth-child(23)').text();
-        var chassisNo = row.find('td:nth-child(24)').text();
-        var stickerNo = row.find('td:nth-child(25)').text();
+        var vehicleId = row.find('td:nth-child(18)').text();
+        var wheels = row.find('td:nth-child(19)').text();
+        var vehicleMake = row.find('td:nth-child(20)').text();
+        var plateNo = row.find('td:nth-child(21)').text();
+        var yearModel = row.find('td:nth-child(22)').text();
+        var color = row.find('td:nth-child(23)').text();
+        var motorNo = row.find('td:nth-child(24)').text();
+        var chassisNo = row.find('td:nth-child(25)').text();
+        var stickerNo = row.find('td:nth-child(26)').text();
         
         var modal = $('#delete_modal_form2');
         modal.find('input[name=m_militaryId]').val(m_id);
@@ -340,6 +344,7 @@ DATA;
         modal.find('input[name=m_dateRegistered]').val(m_dateRegistered);
         modal.find('input[name=m_placeRegistered]').val(m_placeRegistered);
 
+        modal.find('input[name=vehicleId]').val(vehicleId);
         modal.find('input[name=wheels]').val(wheels);
         modal.find('input[name=vehicleMake]').val(vehicleMake);
         modal.find('input[name=plateNo]').val(plateNo);
@@ -371,14 +376,15 @@ DATA;
         var m_dateRegistered = row.find('td:nth-child(16)').text();
         var m_placeRegistered = row.find('td:nth-child(17)').text();
 
-        var wheels = row.find('td:nth-child(18)').text();
-        var vehicleMake = row.find('td:nth-child(19)').text();
-        var plateNo = row.find('td:nth-child(20)').text();
-        var yearModel = row.find('td:nth-child(21)').text();
-        var color = row.find('td:nth-child(22)').text();
-        var motorNo = row.find('td:nth-child(23)').text();
-        var chassisNo = row.find('td:nth-child(24)').text();
-        var stickerNo = row.find('td:nth-child(25)').text();
+        var vehicleId = row.find('td:nth-child(18)').text();
+        var wheels = row.find('td:nth-child(19)').text();
+        var vehicleMake = row.find('td:nth-child(20)').text();
+        var plateNo = row.find('td:nth-child(21)').text();
+        var yearModel = row.find('td:nth-child(22)').text();
+        var color = row.find('td:nth-child(23)').text();
+        var motorNo = row.find('td:nth-child(24)').text();
+        var chassisNo = row.find('td:nth-child(25)').text();
+        var stickerNo = row.find('td:nth-child(26)').text();
         
         var modal = $('#view_modal_form2');
         modal.find('input[name=m_militaryId]').val(m_id);
@@ -399,6 +405,7 @@ DATA;
         modal.find('input[name=m_dateRegistered]').val(m_dateRegistered);
         modal.find('input[name=m_placeRegistered]').val(m_placeRegistered);
 
+        modal.find('input[name=vehicleId]').val(vehicleId);
         modal.find('input[name=wheels]').val(wheels);
         modal.find('input[name=vehicleMake]').val(vehicleMake);
         modal.find('input[name=plateNo]').val(plateNo);

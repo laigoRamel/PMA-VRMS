@@ -159,23 +159,27 @@ CREATE TABLE IF NOT EXISTS `client_report` (
   `rid` int(11) NOT NULL AUTO_INCREMENT,
   `plateNum` varchar(7) NOT NULL,
   `owner` varchar(50) NOT NULL,
+  `lic` varchar(15) NOT NULL,
   `datein` date NOT NULL,
   `timein` time NOT NULL,
   `violation` text NOT NULL,
   `type` varchar(15) NOT NULL,
   `flag` int(11) NOT NULL,
   PRIMARY KEY (`rid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `client_report`
 --
 
-INSERT INTO `client_report` (`rid`, `plateNum`, `owner`, `datein`, `timein`, `violation`, `type`, `flag`) VALUES
-(1, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '15:06:11', 'overspeeding', 'Visitor', 0),
-(2, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '15:16:58', 'overspeeding', 'Visitor', 0),
-(3, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '15:17:11', 'no parking', 'Visitor', 0),
-(4, 'QWE321', 'alvy', '2016-04-18', '11:12:24', 'overspeeding', 'Visitor', 0);
+INSERT INTO `client_report` (`rid`, `plateNum`, `owner`, `lic`, `datein`, `timein`, `violation`, `type`, `flag`) VALUES
+(1, 'AEV850', 'Gene Raphael Zafra', 'A0111111111', '2016-03-13', '15:06:11', 'overspeeding', 'Visitor', 0),
+(2, 'AEV850', 'Gene Raphael Zafra', 'A0111111111', '2016-03-13', '15:16:58', 'overspeeding', 'Visitor', 0),
+(3, 'AEV850', 'Gene Raphael Zafra', 'A0111111111', '2016-03-13', '15:17:11', 'no parking', 'Visitor', 0),
+(4, 'QWE321', 'alvy', '', '2016-04-18', '11:12:24', 'overspeeding', 'Visitor', 0),
+(5, 'AAA111', 'Gene Zafra', '', '2016-04-21', '22:42:58', 'no parking', 'Visitor', 0),
+(6, 'AAA111', 'Gene Zafra', '', '2016-04-21', '22:44:34', 'overspeeding', 'Visitor', 0),
+(8, 'CRN701', 'Gene Zafra', '', '2016-04-21', '23:04:42', 'no parking', 'Registered', 1);
 
 -- --------------------------------------------------------
 

@@ -25,6 +25,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['user']; ?><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="client_logout.php">Logout</a></li>
+            <li><a href="client_changepass.php">Change Password</a></li>
           </ul>
         </li>
       </ul>

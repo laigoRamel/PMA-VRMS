@@ -64,17 +64,7 @@ $t = date("H:i:s");
 		<div class='container'>
 			<div class='row'>
 				<div class='col-md-12' align="center">
-					<br>
-					<form method="POST" action="" id="checkvehicle">
-						<table>
-							<tr><td>Plate Number: </td><td><input type="text" name="plate" placeholder="AAA####" pattern="[A-Za-z]{3}\d{3}|[A-Za-z]{3}\d{4}|[A-Za-z]{2}\d{4}" title="Plate Number format: AAA### or AAA#### or Conduction Sticker: AA####" required /></td><td></td>
-							<td colspan="2"><button type="submit" form="checkvehicle">
-								<span class="glyphicon glyphicon-ok"> Check Plate Number</span>
-								</button></td></tr>
-						</table>
-					</form>
-					
-					<br/>					
+					<br>			
 					
 					<div align="center">
 					<?php
@@ -83,9 +73,9 @@ $t = date("H:i:s");
 									require_once('connect.php');
 									
 									$plate=strtoupper($_POST['plate']);
+									$tid = $_POST['tid'];
 									
-									
-									$query="SELECT * FROM client_log WHERE plateNum = '" . $plate  . "' and flag=1";
+									$query="SELECT * FROM client_log WHERE tid=$tid";
 									$results = mysqli_query($conn, $query);
 									
 									if(mysqli_num_rows($results) >= 1){
@@ -113,7 +103,7 @@ $t = date("H:i:s");
 											if($e=="Visitor"){
 											echo "<table align='center' id='vLog'><tr><th class='head'>Visitor ID</th><th class='head'>Plate No. </th><th class='head'>Registered Under</th><th class='head'>Last Login</th><th class='head'>Details</th><th class='head'>Violation</th></tr><tr><td class='col'> " . $f ."<td class='col'> " . $a . "</td><td class='col'>" . $b . "</td><td class='col'>" . $c . " " . $d .	"</td><td class='col'>" . $g ."</td><td class='col'>" . $vio . "</td></tr><table><br>";
 																						
-											echo "<form method='POST' action='timeout.php'>
+											echo "<form method='POST' action='timeoutinfo.php'>
 													<input type='hidden' name='type' value='" . $e . "'>
 													<input type='hidden' name='vid' value='" . $f . "'>
 													<input type='hidden' name='plate' value='" . $a . "'>
@@ -121,11 +111,11 @@ $t = date("H:i:s");
 													<input type='hidden' name='d' value='" . $c . "'>
 													<input type='hidden' name='t' value='" . $t . "'>
 													<button formaction='timeout.php'>Time Out</button>
-													</form><form method='GET'><button formaction='client_vehicleout.php'>Cancel</button></form>";
+													</form><form method='GET'><button formaction='client_viewlog.php'>Cancel</button></form>";
 											}else{
 												echo "<table align='center' id='vLog'><tr><th class='head'>Plate No. </th><th class='head'>Registered Under</th><th class='head'>Last Login</th><th class='head'>Violation</th></tr><tr><td class='col'> " . $a . "</td><td class='col'>" . $b . "</td><td class='col'>" . $c . " " . $d .	"</td><td class='col'>" . $vio . "</td></tr><table><br>";
 																						
-												echo "<form method='POST' action='timeout.php'>
+												echo "<form method='POST' action='timeoutinfo.php'>
 													<input type='hidden' name='type' value='" . $e . "'>
 													<input type='hidden' name='vid' value='" . $f . "'>
 													<input type='hidden' name='plate' value='" . $a . "'>
@@ -133,7 +123,7 @@ $t = date("H:i:s");
 													<input type='hidden' name='d' value='" . $c . "'>
 													<input type='hidden' name='t' value='" . $t . "'>
 													<button formaction='timeout.php'>Time Out</button>
-													</form><form method='GET'><button formaction='client_vehicleout.php'>Cancel</button></form>";
+													</form><form method='GET'><button formaction='client_viewlog.php'>Cancel</button></form>";
 											}
 										
 									}else{

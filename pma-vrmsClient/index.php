@@ -19,6 +19,7 @@ $t = date("H:i:s");
 	</head>
 	
 	<body>
+	<div id="back">
 		<?php include('client_indexhead.php'); ?>
 	
 		<div class="panel panel-default panel-border">
@@ -60,10 +61,6 @@ $t = date("H:i:s");
 									$query="SELECT * FROM client_users WHERE username = '" . $u . "' AND password = '" . $p . "'";
 									$results = mysqli_query($conn, $query);
 									
-									echo $u;
-									echo $d;
-									echo $t;
-									
 									if(mysqli_num_rows($results) >= 1){
 										$_SESSION['user'] = $u;
 										$query="INSERT INTO client_userlog (username, datein, timein, flag) VALUES ('$u', '$d', '$t', 1)";
@@ -89,7 +86,7 @@ $t = date("H:i:s");
 	</div>
 	
 	
-	
+	</div>
 	</body>
 </html>
 

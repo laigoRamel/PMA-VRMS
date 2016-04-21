@@ -4,7 +4,11 @@ table {
   border-collapse : collapse;
   background      : #fff;
   box-shadow      : 0 2px 6px rgba(0,0,0,0.1);
-  table-layout: fixed;
+  table-layout	  : fixed;
+}
+
+td{
+	word-wrap: break-word;
 }
 
 th {
@@ -21,18 +25,11 @@ th {
   transition         : all 0.3s;
 }
 
-p{
-	white-space: keep-all;
-	width: 140px;
-}
-
 td,th {
   padding     : 0 10px;
   font-size   : 13px;
   line-height : 32px;
-  word-wrap: break-word;
-  white-space: normal;
-  text-overflow: ellipsis;
+  white-space: normal;	
 }
 
 tbody tr:nth-child(even) {
@@ -146,5 +143,5 @@ th{
   background-image : -moz-linear-gradient(bottom,rgb(94,108,117), rgb(145,162,177) );
   background-image : -ms-linear-gradient(bottom,rgb(94,108,117), rgb(145,162,177) );
   background-image : linear-gradient(bottom,rgb(94,108,117), rgb(145,162,177) );
-  word-wrap: break-all;
+  word-wrap        : break-all;
 }

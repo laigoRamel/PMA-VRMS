@@ -6,7 +6,9 @@
 	if(isset($_POST)){
 		DeleteApplicantData($_POST['a_applicantId'], $_POST['vehicleId']);
 		header('Location: ../registeredApplicant.php');
-
+//echo $_POST['a_applicantId'];
+//echo $_POST['vehicleId'];
+//exit();
 	}
 	
 	function DeleteApplicantData($a_id, $id){

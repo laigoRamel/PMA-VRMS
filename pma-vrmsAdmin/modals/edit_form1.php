@@ -27,7 +27,7 @@
                           <div>
                                <span class="fileinput-filename"></span>
                             <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>
-                            <input type="file" name="a_profile" required></span>
+                            <input type="file" name="a_profile"></span>
                               
                             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                           </div>

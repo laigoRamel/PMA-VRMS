@@ -44,6 +44,7 @@ $t = date("H:i:s");
 			</nav></div>-->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		  <ul class="nav navbar-nav">
+            <li><a href="home.php">Home</a></li>
 			<li><a href="client_vehiclelog.php">Vehicle Time In</a></li>
 			<li><a href="client_vehicleout.php">Vehicle Time Out</a></li>
 			<li><a href="client_viewlog.php">View Vehicle Log</a></li>
@@ -54,11 +55,12 @@ $t = date("H:i:s");
 						<li><a href="client_viewreport.php">View Violation Report</a></li>
 					  </ul>
 					</li>
-			<?php
+					<?php
 						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
 							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
 						}else{
-							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+						//	echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+							echo "";
 						}
 					?>
 		  </ul>
@@ -82,7 +84,7 @@ $t = date("H:i:s");
 					<br>
 					<form method="POST" action="client_report.php" id="createreport">
 						<table>
-							<tr><td>Plate Number: </td><td><input type="text" name="plate" placeholder="AAA####" required/></td></tr>
+							<tr><td>Plate Number: </td><td><input type="text" name="plate" placeholder="AAA####" pattern="[A-Za-z]{3}\d{3}|[A-Za-z]{3}\d{4}|[A-Za-z]{2}\d{4}" title="Plate Number format: AAA### or AAA#### or Conduction Sticker: AA####" required/></td></tr>
 							<tr><td>Violation: </td><td><input type="text" name="vio" required /></td></tr>
 							<tr><td colspan="2"><button type="submit" form="createreport">
 								<span class="glyphicon glyphicon-ok"> Record Report</span>
@@ -109,10 +111,13 @@ $t = date("H:i:s");
 										while($row = mysqli_fetch_assoc($results)){
 											$owner = $row['owner'];
 											$type = $row['type'];
+											$lic = $row['licenseNo'];
 										}			
 										
-										$query="INSERT INTO client_report (plateNum, owner, datein, timein, violation, type, flag) VALUES ('$plate', '$owner', '$d' , '$t', '$vio', '$type', 1)";
-										$results = mysqli_query($conn, $query);
+										$query="INSERT INTO client_report (plateNum, owner, lic, datein, timein, violation, type, flag) VALUES ('$plate', '$owner','$lic', '$d' , '$t', '$vio', '$type', 1)";
+										$results = mysqli_query($conn, $query);?>
+										<script type="text/javascript">location.href = 'client_viewreport.php';</script>
+										//header("location:client_viewreport.php");<?php
 									}else{
 										echo "Vehicle is not logged in.";
 									}		

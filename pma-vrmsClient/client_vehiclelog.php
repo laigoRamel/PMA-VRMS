@@ -32,6 +32,7 @@ $t = date("H:i:s");
 		<div class="panel-heading" align="center">
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav">
+                    <li><a href="home.php">Home</a></li>
 					<li><a href="client_vehiclelog.php">Vehicle Time In</a></li>
 					<li><a href="client_vehicleout.php">Vehicle Time Out</a></li>
 					<li><a href="client_viewlog.php">View Vehicle Log</a></li>
@@ -46,7 +47,8 @@ $t = date("H:i:s");
 						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
 							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
 						}else{
-							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+						//	echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+							echo "";
 						}
 					?>
 				  </ul>
@@ -93,7 +95,8 @@ $t = date("H:i:s");
 											$a = $row['plateNo'];
 											$b = $row['owner'];
 											$c = $row['remarks'];
-					
+											
+												
 											echo "<table align='center' id='vLog'><tr><th class='head'>Plate No. </th><th class='head'>Registered Under</th><th class='head'>Remarks</th></tr><tr><td class='col'> " . $a . "</td><td class='col'>" . $b . "</td><td class='col'>" . $c .	"</td></tr><table><br>";
 																						
 											echo "<form method='POST' action='timein.php'>
@@ -116,28 +119,42 @@ $t = date("H:i:s");
 										
 										$query="SELECT * FROM client_report WHERE plateNum = '" . $plate ."' and type='visitor'";
 										$results = mysqli_query($conn, $query);
+										$violations ="";
 										
-										if(mysqli_num_rows($results) >=3){
-											echo "Visitor incurred maximum number of violations.";
+										
+										if(mysqli_num_rows($results) >=3){					
+											while($row = mysqli_fetch_assoc($results)){
+												$violations = $violations . $row['violation'] . " on " . $row['datein'] . "<br>";
+											}
+											echo "Vehicle with plate number: ". $plate . " incurred maximum number of violations. <br>" . $violations;
 											echo "<form method='GET'><button formaction='client_vehiclelog.php'>Back</button></form>";
-										}else{
-										echo "Vehicle Not Registered <br><br><br>";
-										echo "<form method='POST' action='timein.php'><table>
-												<tr><td colspan='2'><b>Log as Visitor:</td></tr>
-												<tr><td>Visitor Pass ID: </td><td><b>" . $vp . "</td></tr>
-												<tr><td>Plate Number: </td><td><b>" . $plate . "</td></tr>
-											    <tr><td>Owner / Driver: </td><td> <input type='text' name='owner'></td></tr>
-											    <tr><td>License Number: </td><td> <input type='text' name='lic' pattern='[A-Za-z]{1}\d{10}' title='Driver's License No. format: Single Letter followed by 10 numbers'></td></tr>
-											    <tr><td>Details: </td><td> <textarea name='detail' rows='6' cols='21'></textarea></td></tr>
-												<input type='hidden' name='vp' value='" . $vp . "'>
-												<input type='hidden' name='plate' value='" . $plate . "'>
-												<input type='hidden' name='d' value='" . $d . "'>
-												<input type='hidden' name='t' value='" . $t . "'>
-												<input type='hidden' name='type' value='Visitor'>
-												<tr><td align='right'><input type='submit' value='Time In'></td>
-												</form><form method='GET'>
-												<td><button formaction='client_vehiclelog.php'>Cancel</button></form></td></tr></table>";
-										}
+										}else{		
+
+											if(mysqli_num_rows($results) >=1){
+												while($row = mysqli_fetch_assoc($results)){
+													$violations = $violations . $row['violation'] . " on " . $row['datein'] . "<br>";
+												}
+											}
+											echo "Vehicle Not Registered <br><br><br>";
+											echo "<form method='POST' action='timein.php'><table>
+													<tr><td colspan='2'><b>Log as Visitor:</td></tr>
+													<tr><td>Visitor Pass ID: </td><td><b>" . $vp . "</td></tr>
+													<tr><td>Plate Number: </td><td><b>" . $plate . "</td></tr>";
+													if($violations!=""){
+														echo "<tr><td>Violations: </td><td>" . $violations .  "</td></tr>";
+													}
+											echo	"<tr><td>Owner / Driver: </td><td> <input type='text' name='owner' required></td></tr>
+													<tr><td>License Number: </td><td> <input type='text' name='lic' pattern='[A-Za-z]{1}\d{10}' title='Drivers License No. format: Single Letter followed by 10 numbers' required></td></tr>
+													<tr><td>Details: </td><td> <textarea name='detail' rows='6' cols='21'></textarea></td></tr>
+													<input type='hidden' name='vp' value='" . $vp . "'>
+													<input type='hidden' name='plate' value='" . $plate . "'>
+													<input type='hidden' name='d' value='" . $d . "'>
+													<input type='hidden' name='t' value='" . $t . "'>
+													<input type='hidden' name='type' value='Visitor'>
+													<tr><td align='right'><input type='submit' value='Time In'></td>
+													</form><form method='GET'>
+													<td><button formaction='client_vehiclelog.php'>Cancel</button></form></td></tr></table>";
+											}
 									}
 									
 									

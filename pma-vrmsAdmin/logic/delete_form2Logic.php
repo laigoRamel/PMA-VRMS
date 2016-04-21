@@ -6,6 +6,10 @@
 	if(isset($_POST)){
 		DeleteMilitaryData($_POST['m_militaryId'], $_POST['vehicleId']);
 		header('Location: ../registeredAFP.php');
+
+//		echo $_POST['m_militaryId'];
+//echo $_POST['vehicleId'];
+//exit();
 	}
 	
 	function DeleteMilitaryData($m_id, $id){

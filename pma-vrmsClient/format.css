@@ -6,11 +6,13 @@
 
 td{
 	text-align: center;
-	word-wrap: normal;
+/*	border: 1px solid #c2c2d6; */
+	padding: 5px;
+	word-wrap: break-word;
 }
 
-#login{
-
+.trial{
+	border: 1px solid #c2c2d6;
 }
 
 #invalid{
@@ -48,7 +50,6 @@ td.col{
 	border: 1px solid #c2c2d6;
 	padding: 5px;
 	word-wrap: break-word;
-	text-overflow: ellipsis;
 }
 
 td.after{
@@ -57,7 +58,6 @@ td.after{
 	padding: 5px;
 	word-wrap: break-word;
 	color: red;
-	text-overflow: ellipsis;
 }
 
 
@@ -65,15 +65,13 @@ td.after{
 #viewtable{
 	border-radius: 30px;
 	border: 1px solid #c2c2d6;
-	width: 80%;
+	width: 100%;
 	border-collapse: collapse;
 	text-align: center;
-
 }
 
 table{
 	table-layout: fixed;
-	padding: 5px;
 }
 
 #view{
@@ -81,9 +79,7 @@ table{
 	height: 800px;
 }
 
-td{
-	word-wrap:break-word;
-}
+
 
 
 /*	tr:hover {background-color: #e6e6ff} */

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2016 at 05:47 PM
+-- Generation Time: Apr 13, 2016 at 05:20 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -38,35 +38,30 @@ CREATE TABLE IF NOT EXISTS `log` (
   `licenseNo` varchar(11) NOT NULL,
   `details` varchar(300) NOT NULL,
   `flag` int(11) NOT NULL,
+  `vid` varchar(10) NOT NULL,
   `pIN` varchar(50) NOT NULL,
   `pOUT` varchar(50) NOT NULL,
   PRIMARY KEY (`tid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `log`
 --
 
-INSERT INTO `log` (`tid`, `plateNum`, `owner`, `dateIn`, `timein`, `dateOut`, `timeout`, `type`, `licenseNo`, `details`, `flag`, `pIN`, `pOUT`) VALUES
-(3, 'crn701', 'Gene Zafra', '2016-03-12', '14:25:33', '0000-00-00', '14:53:41', 'Registered', '', '', 0, '', ''),
-(4, 'aev850', 'Gene', '2016-03-12', '14:25:57', '0000-00-00', '14:56:07', 'Visitor', '', '', 0, '', ''),
-(5, 'crn701', 'Gene Zafra', '2016-03-12', '15:11:39', '0000-00-00', '15:15:13', 'Registered', '', '', 0, '', ''),
-(6, 'crn701', 'Gene Zafra', '2016-03-12', '21:41:35', '0000-00-00', '00:11:41', 'Registered', '', '', 0, '', ''),
-(8, 'AEV850', 'Gene', '2016-03-12', '23:43:20', '0000-00-00', '00:09:19', 'Visitor', '', '', 0, '', ''),
-(9, 'CRN701', 'Gene Zafra', '2016-03-13', '00:29:31', '2016-03-13', '01:21:23', 'Registered', '', '', 0, '', ''),
-(10, 'AEV850', 'Raphael', '2016-03-13', '00:31:42', '0000-00-00', '00:34:21', 'Visitor', '', '', 0, '', ''),
-(11, 'AEV850', 'Raphael', '2016-03-13', '00:50:53', '0000-00-00', '00:00:00', 'Visitor', '', '', 0, '', ''),
-(12, 'AEV850', '', '2016-03-13', '01:24:06', '2016-03-13', '01:27:33', 'Visitor', '', '', 0, '', ''),
-(13, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '13:08:05', '2016-03-13', '15:41:16', 'Visitor', '', '', 0, '', ''),
-(14, 'CRN701', 'Gene Zafra', '2016-03-13', '17:39:33', '2016-03-13', '19:19:57', 'Registered', '', '', 0, '', ''),
-(15, 'ACS511', 'pendong', '2016-03-13', '17:42:23', '2016-03-13', '20:38:00', 'Visitor', '', '', 0, '', ''),
-(16, 'AAA0000', 'gene', '2016-03-13', '19:05:04', '0000-00-00', '00:00:00', 'Visitor', '', '', 1, '', ''),
-(17, 'CRN701', 'Gene Zafra', '2016-03-13', '19:20:20', '2016-04-10', '21:00:02', 'Registered', '', '', 0, '', 'admin'),
-(18, 'CT1890', 'Raphael Zafra', '2016-04-10', '17:54:23', '2016-04-10', '17:57:10', 'Registered', '', '', 0, '', ''),
-(19, 'CT1890', 'R', '2016-04-10', '17:58:20', '2016-04-10', '18:13:19', 'Registered', '', '', 0, '', ''),
-(20, 'ABC121', 'R', '2016-04-10', '18:09:38', '0000-00-00', '00:00:00', 'Registered', '', '', 1, '', ''),
-(21, 'ABC1234', 'C', '2016-04-10', '18:17:02', '2016-04-10', '19:41:28', 'Visitor', 'a1111111111', 'official business', 0, '', 'admin'),
-(22, 'ABC1234', 'gene', '2016-04-10', '19:56:21', '0000-00-00', '00:00:00', 'Visitor', 'a2345678901', 'black, lancer, 4 people, mitsubishi', 1, 'admin', '');
+INSERT INTO `log` (`tid`, `plateNum`, `owner`, `dateIn`, `timein`, `dateOut`, `timeout`, `type`, `licenseNo`, `details`, `flag`, `vid`, `pIN`, `pOUT`) VALUES
+(9, 'CRN701', 'Gene Zafra', '2016-03-13', '00:29:31', '2016-03-13', '01:21:23', 'Registered', '', '', 0, '', '', ''),
+(12, 'AEV850', '', '2016-03-13', '01:24:06', '2016-03-13', '01:27:33', 'Visitor', '', '', 0, '', '', ''),
+(13, 'AEV850', 'Gene Raphael Zafra', '2016-03-13', '13:08:05', '2016-03-13', '15:41:16', 'Visitor', '', '', 0, '', '', ''),
+(14, 'CRN701', 'Gene Zafra', '2016-03-13', '17:39:33', '2016-03-13', '19:19:57', 'Registered', '', '', 0, '', '', ''),
+(15, 'ACS511', 'pendong', '2016-03-13', '17:42:23', '2016-03-13', '20:38:00', 'Visitor', '', '', 0, '', '', ''),
+(16, 'AAA0000', 'gene', '2016-03-13', '19:05:04', '0000-00-00', '00:00:00', 'Visitor', '', '', 1, '', '', ''),
+(17, 'CRN701', 'Gene Zafra', '2016-03-13', '19:20:20', '2016-04-10', '21:00:02', 'Registered', '', '', 0, '', '', 'admin'),
+(18, 'CT1890', 'Raphael Zafra', '2016-04-10', '17:54:23', '2016-04-10', '17:57:10', 'Registered', '', '', 0, '', '', ''),
+(19, 'CT1890', 'R', '2016-04-10', '17:58:20', '2016-04-10', '18:13:19', 'Registered', '', '', 0, '', '', ''),
+(20, 'ABC121', 'R', '2016-04-10', '18:09:38', '0000-00-00', '00:00:00', 'Registered', '', '', 1, '', '', ''),
+(22, 'ABC1234', 'gene', '2016-04-10', '19:56:21', '0000-00-00', '00:00:00', 'Visitor', 'a2345678901', 'black, lancer, 4 people, mitsubishi', 1, '', 'admin', ''),
+(23, 'AAA1111', 'gene', '2016-04-13', '09:28:06', '2016-04-13', '09:35:26', 'Visitor', 'a1111111111', 'black lancer', 0, 'V001', 'admin', 'admin'),
+(24, 'CRN701', 'Gene Zafra', '2016-04-13', '11:19:20', '0000-00-00', '00:00:00', 'Registered', '', '', 1, '', 'admin', '');
 
 -- --------------------------------------------------------
 
@@ -130,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `userlog` (
   `timeout` time NOT NULL,
   `flag` int(1) NOT NULL,
   PRIMARY KEY (`logid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `userlog`
@@ -150,7 +145,12 @@ INSERT INTO `userlog` (`logid`, `username`, `datein`, `timein`, `dateout`, `time
 (11, 'admin', '2016-04-11', '11:26:01', '0000-00-00', '00:00:00', 1),
 (12, 'admin', '2016-04-11', '11:29:44', '0000-00-00', '00:00:00', 1),
 (13, 'admin', '2016-04-11', '12:31:18', '0000-00-00', '00:00:00', 1),
-(14, 'admin', '2016-04-11', '23:35:17', '0000-00-00', '00:00:00', 1);
+(14, 'admin', '2016-04-11', '23:35:17', '0000-00-00', '00:00:00', 1),
+(15, 'admin', '2016-04-12', '20:28:44', '0000-00-00', '00:00:00', 1),
+(16, 'admin', '2016-04-12', '20:29:06', '0000-00-00', '00:00:00', 1),
+(17, 'admin', '2016-04-12', '22:44:14', '0000-00-00', '00:00:00', 1),
+(18, 'admin', '2016-04-13', '08:44:20', '0000-00-00', '00:00:00', 1),
+(19, 'admin', '2016-04-13', '10:37:34', '0000-00-00', '00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -172,6 +172,39 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`userNo`, `username`, `password`, `flag`) VALUES
 (1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visitorpass`
+--
+
+CREATE TABLE IF NOT EXISTS `visitorpass` (
+  `vid` varchar(10) NOT NULL,
+  `flag` int(11) NOT NULL,
+  PRIMARY KEY (`vid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `visitorpass`
+--
+
+INSERT INTO `visitorpass` (`vid`, `flag`) VALUES
+('V001', 0),
+('V002', 0),
+('V003', 0),
+('V004', 0),
+('V005', 0),
+('V006', 0),
+('V007', 0),
+('V008', 0),
+('V009', 0),
+('V010', 0),
+('V011', 0),
+('V012', 0),
+('V013', 0),
+('V014', 0),
+('V015', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

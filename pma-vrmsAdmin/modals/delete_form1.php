@@ -122,7 +122,9 @@
                             <h3 class="panel-title">Vehicle Information</h3> </div>
                         <div class="panel-body">
                             <div class="form-horizontal dynamic_field">
-                            
+
+                        <input style="display: none;" type="txt" class="form-control" name="vehicleId" readonly>
+
                             <table class="table table-bordered" id="dynamic_field">
                             <thead>
                               <th>Wheels</th>
