@@ -31,6 +31,7 @@
                               
                             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                           </div>
+                          </div>
 
                         <br>
                         <div class="form-horizontal">                  
