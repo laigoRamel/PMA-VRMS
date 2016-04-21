@@ -5,16 +5,23 @@
 	$database = new Database();
 	
 	if(isset($_POST)){
-		EditApplicantData($_POST['a_profile'], $_POST['name'], $_POST['a_address'], $_POST['a_occupation'], $_POST['a_officeAddress'], $_POST['a_driversLicense'], $_POST['a_expirationDate'], $_POST['a_class'], $_POST['a_dateRegistered'], $_POST['a_placeRegistered'], $_POST['wheels'], $_POST['vehicleMake'], $_POST['plateNo'], $_POST['yearModel'], $_POST['color'], $_POST['motorNo'], $_POST['chassisNo'], $_POST['stickerNo']);
+		EditApplicantData($_POST['a_profile'], $_POST['lastname'], $_POST['firstname'], $_POST['middlename'], $_POST['a_address'], $_POST['a_occupation'], $_POST['a_officeAddress'], $_POST['a_driversLicense'], $_POST['a_expirationDate'], $_POST['a_class'], $_POST['a_dateRegistered'], $_POST['a_placeRegistered'], $_POST['wheels'], $_POST['vehicleMake'], $_POST['plateNo'], $_POST['yearModel'], $_POST['color'], $_POST['motorNo'], $_POST['chassisNo'], $_POST['stickerNo']);
 		header('Location: ../registeredApplicant.php');
+//echo $_POST['a_applicantId'];
+//echo $_POST['vehicleId'];
+//exit();
 	}
 	
 	function EditApplicantData($a_profile, $name, $a_address, $a_occupation, $a_officeAddress, $a_driversLicense, $a_expirationDate, $a_class, $a_dateRegistered, $a_placeRegistered, $wheels, $vehicleMake, $plateNo, $yearModel, $color, $motorNo, $chassisNo, $stickerNo){
 		global $database;
-		$id = $_POST['a_applicantId'];
-
-		$query = "UPDATE form1_applicantpd, vehicle_information FROM form1_applicantpd JOIN vehicle_information ON form1_applicantpd.a_vehicle_id=vehicle_information.vehicleId SET a_profile='$a_profile', name='$name', a_address='$a_address', a_occupation='$a_occupation', a_officeAddress='$a_officeAddress', a_driversLicense='$a_driversLicense', a_expirationDate='$a_expirationDate', a_class='$a_class', a_dateRegistered='$a_dateRegistered', a_placeRegistered='$a_placeRegistered', wheels='$wheels', vehicleMake='$vehicleMake', plateNo='$plateNo', yearModel='$yearModel', color='$color', motorNo='$motorNo', chassisNo='$chassisNo', stickerNo='$stickerNo' WHERE form1_applicantpd.a_applicantId='$id' AND form1_applicantpd.a_vehicle_id='$id'";
+		$a_id = $_POST['a_applicantId'];
+		$id = $_POST['vehicleId'];
+//update applicant
+		$query = "UPDATE form1_applicantpd SET a_profile='$a_profile', name='$name', a_address='$a_address', a_occupation='$a_occupation', a_officeAddress='$a_officeAddress', a_driversLicense='$a_driversLicense', a_expirationDate='$a_expirationDate', a_class='$a_class', a_dateRegistered='$a_dateRegistered', a_placeRegistered='$a_placeRegistered' WHERE a_applicantId='$a_id'";
 		$database->execute($query);
+//update vehicle
+		$query1 = "UPDATE vehicle_information SET wheels='$wheels', vehicleMake='$vehicleMake', plateNo='$plateNo', yearModel='$yearModel', color='$color', motorNo='$motorNo', chassisNo='$chassisNo', stickerNo='$stickerNo' WHERE vehicleId='$id'";
+		$database->execute($query1);
 
 		date_default_timezone_set("Asia/Hong_Kong");
 
