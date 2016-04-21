@@ -26,6 +26,20 @@ require_once('connect.php');
 			$result = mysqli_query($conn, $query);
 			
 			$message = "Password Successfully Changed.";
+			
+			$query="SELECT * FROM client_userlog WHERE username = '" . $u . "' AND flag=1";
+			$results = mysqli_query($conn, $query);
+	
+			if(mysqli_num_rows($results) >= 1){
+			$query="UPDATE client_userlog SET dateout='$d', timeout='$t', flag=0 WHERE username='$u' AND flag=1"; 
+			$results = mysqli_query($conn, $query);
+			}
+	
+			session_destroy();
+			
+			$message = "Password Successfully Changed. You will be logged out, login Again with your new password";
+			header('Refresh: 3; index.php');
+	
 		}else{
 			$message = "Incorrect password.";
 		}
@@ -95,7 +109,7 @@ require_once('connect.php');
 		</div>
 	
 		
-		<div class="panel panel-default panel-border">
+		<div class="panel panel-default panel-border" id="">
 			<div class="panel-heading">
 					<h5>Change Password</h5>
 			</div>
@@ -115,7 +129,7 @@ require_once('connect.php');
 						<br />
 						<br />
 						
-						<?php echo "<h5>" . $message . "</h5>"; ?>
+						<?php echo "<h5>" . $message . "</h5>" ?>
 					</div>
 				</div>
 			</div>
