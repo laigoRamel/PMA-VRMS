@@ -21,12 +21,13 @@
                         <!-- image upload -->
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                           <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                            <img id="img_edit">
                           </div>
                           <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                           <div>
                                <span class="fileinput-filename"></span>
                             <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>
-                            <input type="file" id="img_edit" name="a_profile" required></span>
+                            <input type="file" name="a_profile" required></span>
                               
                             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                           </div>
