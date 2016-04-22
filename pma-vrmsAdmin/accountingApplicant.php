@@ -141,7 +141,7 @@ include('login/session.php');
 
         <!-- Main content -->
         <section class="content">
-	       <?php include('logic/accounting_logic.php'); ?>
+         <?php include('logic/registered_logic.php'); ?>
 
 		<div class="'container">
 			<div class="row">
@@ -150,25 +150,33 @@ include('login/session.php');
                         <div class="box-body">
                             <table class="table table-bordered table-hover" id="bootstrap-table">
 						<thead>
-							<th>Name</th>
-                            <th>Amount</th>
-                            <th>Date</th>
-						</thead>
-						<tbody>
-							<?php 
-                                        foreach ($applicant as $key => $applicant) {
-                                            echo <<<DATA
-                                                <tr id='applicant_$key'>
-                                                    <td style='display:none'>$applicant[a_militaryId]</td>
-                                                    <td>$applicant[a_lastname], $applicant[a_firstname] $applicant[a_middlename]</td>
-                                                    <td>$applicant[amount]</td>
-                                                    <td>$applicant[a_dateRegistered]</td>
-                                                </tr>
+              <th>Last Name</th>
+              <th>First Name</th>
+              <th>Middle Name</th>
+              <th>Class</th>
+              <th>Date</th>
+              <th>Amount</th>
+            </thead>
+            <tbody>
+              <?php 
+                foreach ($applicants as $key => $applicant) {
+                  echo <<<DATA
+                    <tr id='applicant_$key'>
+                      <td style='display:none'>$applicant[a_applicantId]</td>
+                      <td>$applicant[a_lastname]</td>
+                      <td>$applicant[a_firstname]</td>
+                      <td>$applicant[a_middlename]</td>
+                      <td>$applicant[a_class]</td>
+                      <td>$applicant[a_dateRegistered]</td>
+                      <td>250</td>
+                    </tr>
 DATA;
-                                        }
-                                    ?>
-						</tbody>
+                }
+              ?>
+            </tbody>
 					</table>
+<label>Total</label>
+  <input type="text"></input>
 
 				</div>
 			</div>

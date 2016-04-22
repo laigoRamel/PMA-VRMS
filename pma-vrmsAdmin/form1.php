@@ -140,7 +140,7 @@ include('login/session.php');
 
         <!-- Main content -->
         <section class="content">
-	<form action="logic/add_form1Logic.php" enctype='multipart/form-data' method="POST" onSubmit="alert('Sucessfully Registered.');">
+	<form action="logic/add_form1Logic.php" enctype='multipart/form-data' method="POST" onSubmit="alert('Not Complete requirements. moved to pending table.');">
 		<!-- personal information -->
 		<div class="row">
             <div class="col-md-7">

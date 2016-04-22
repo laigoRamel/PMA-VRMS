@@ -139,7 +139,7 @@ include('login/session.php');
 
         <!-- Main content -->
         <section class="content">
-	       <?php include('logic/accounting_logic.php'); ?>
+         <?php include('logic/registered_logic.php'); ?>
 
 		<div class="'container">
 			<div class="row">
@@ -148,25 +148,33 @@ include('login/session.php');
                         <div class="box-body">
                             <table class="table table-bordered table-hover" id="bootstrap-table">
                                 <thead>
-                                    <th>Name</th>
-                                    <th>Amount</th>
-                                    <th>Date</th>
-                                </thead>
-                                <tbody>
-                                    <?php 
-                                        foreach ($militarys as $key => $military) {
-                                            echo <<<DATA
-                                                <tr id='military_$key'>
-                                                    <td style='display:none'>$military[m_militaryId]</td>
-                                                    <td>$military[m_lastname], $military[m_firstname] $military[m_middlename]</td>
-                                                    <td>$military[amount]</td>
-                                                    <td>$military[m_dateRegistered]</td>
-                                                </tr>
+              <th>Last Name</th>
+              <th>First Name</th>
+              <th>Middle Name</th>
+              <th>Class</th>
+              <th>Date</th>
+              <th>Amount</th>
+            </thead>
+            <tbody>
+              <?php 
+                foreach ($militarys as $key => $military) {
+                  echo <<<DATA
+                    <tr id='military_$key'>
+                      <td style='display:none'>$military[m_militaryId]</td>
+                      <td>$military[m_lastname]</td>
+                      <td>$military[m_firstname]</td>
+                      <td>$military[m_middlename]</td>
+                      <td>$military[m_class]</td>
+                      <td>$military[m_dateRegistered]</td>
+                      <td>300</td>
+                    </tr>
 DATA;
-                                        }
-                                    ?>
-                                </tbody>
-                            </table>
+                }
+              ?>
+            </tbody>
+          </table>
+<label>Total</label>
+  <input type="text"></input>
                         </div>
                     </div>
                 </div>
