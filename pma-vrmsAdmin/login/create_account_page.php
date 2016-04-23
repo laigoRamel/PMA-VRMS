@@ -5,7 +5,7 @@ include('session.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Employee log</title>
+	<title>Create Account</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -133,7 +133,7 @@ include('session.php');
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Employee Log
+            Create User Account
           </h1>
           
         </section>
