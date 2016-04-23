@@ -5,7 +5,7 @@ if ($conn->connect_error) {
 }
 $result = $conn->query("SELECT tid, type, dateIn FROM client_log WHERE type = 'visitor' and dateIn = curdate()");
 $num_rows = mysqli_num_rows($result);
-echo " There are $num_rows \n recorded visitors today";
+echo "  $num_rows \n ";
 ?>
 
 						

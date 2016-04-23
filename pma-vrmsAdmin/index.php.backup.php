@@ -14,19 +14,10 @@ include('login/session.php');
     <link rel="stylesheet" href="css/style-main.min.css">
     <link rel="stylesheet" href="css/skin.min.css">
     <link rel="icon" href="img/seal.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link href="css2/bootstrap.min.css" rel="stylesheet">
-    <link href="css2/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
-            rel="stylesheet">
-    <link href="css2/font-awesome.css" rel="stylesheet">
-    <link href="css2/style.css" rel="stylesheet">
-    <link href="css2/pages/dashboard.css" rel="stylesheet">
     
-  	<script src="bootstrap/jquery.min.js"></script>
-  	<script src="bootstrap/js/bootstrap.min.js"></script>
-      <script src="js/app.min.js"></script>
+	<script src="bootstrap/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/app.min.js"></script>
 </head>
     
 <body class="hold-transition skin-black sidebar-mini">
@@ -136,58 +127,48 @@ include('login/session.php');
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-      
+          <h1>
+            DASHBOARD
+          </h1>
+          
         </section>
-        
-        <div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span6">
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Quick's Stats</h3>   
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div class="widget big-stats-container">
-                <div class="widget-content">
-                  <h6 class="bigstats">Philippine Military Academy Daily Statistics.</h6>
-                  <div id="big_stats" class="cf"> 
 
-                    <div class="stat">Today's Visitors<i class="fa fa-users"></i>
-                     <span class="value" id="showVisitor">
-                      <script type="text/javascript"></script>
-                        <script type="text/javascript">
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="row">
+                <div class=""><!--col-md-3 col-sm-6 col-xs-12-->
+                  <div class="info-box">
+                    <a href ="#">
+                        <span class="info-box-icon bg-aqua"><i class="fa fa-car"></i></span>
+                    </a>
+                    <div class="info-box-content">
+                      <span class="info-box-text">LATEST ACTIVITY</span>
+                      <span class="info-box-number" id="showActivity">
+                          <script type="text/javascript"></script>
+                          <script type="text/javascript">
                           $(document).ready(function() {
                             setInterval(function () {
-                              $('#showVisitor').load('dashboard/dashboardtodaysVisitor.php')
+                              $('#showActivity').load('dashboard/dashboardActivity.php')
                             }, 3000);
                           }
                           );
                         </script>
-                    </span> </div>
-                    <!-- .stat -->
-                    
-                    <div class="stat">Today's Violation<i class="icon-minus-sign"></i>
-                     <span class="value" id="showViolations">
-                       <script type="text/javascript"></script>
-                        <script type="text/javascript">
-                          $(document).ready(function() {
-                            setInterval(function () {
-                              $('#showViolations').load('dashboard/dashboardtodaysViolation.php')
-                            }, 3000);
-                          }
-                          );
-                        </script>
-                     </span> 
-
-                     </div>
-                    <!-- .stat -->
-                    
-                    <div class="stat">Pending Forms<i class="icon-file-text"></i>
-                     <span class="value" id="showPending">
-                      <script type="text/javascript"></script>
+                        
+                      </span>
+                    </div><!-- /.info-box-content -->
+                  </div><!-- /.info-box -->
+                </div><!-- /.col -->
+                
+                <div class=""><!--col-md-3 col-sm-6 col-xs-12-->
+                  <div class="info-box">
+                    <a href ="pending.php">
+                        <span class="info-box-icon bg-red"><i class="fa fa-exclamation"></i></span>
+                    </a>
+                    <div class="info-box-content">
+                      <span class="info-box-text">Pending Forms</span>
+                      <span class="info-box-number" id="showPending">
+                        <script type="text/javascript"></script>
                         <script type="text/javascript">
                           $(document).ready(function() {
                             setInterval(function () {
@@ -196,28 +177,73 @@ include('login/session.php');
                           }
                           );
                         </script>
+                      </span>
 
-                       
-                     </span> </div>
-                    <!-- .stat -->
-                    
-                   
-                    <!-- .stat --> 
-                  </div>
-                </div>
-                <!-- /widget-content --> 
+                    </div><!-- /.info-box-content -->
+                  </div><!-- /.info-box -->
+                </div><!-- /.col -->
                 
-              </div>
+                 <div class=""><!--col-md-3 col-sm-6 col-xs-12-->
+                  <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-user-plus"></i></span>
+                    <div class="info-box-content">
+                      <span class="info-box-text">Today's visitors</span>
+                      <span class="info-box-number" id="showVisitor">
+                        <script type="text/javascript"></script>
+                        <script type="text/javascript">
+                          $(document).ready(function() {
+                            setInterval(function () {
+                              $('#showVisitor').load('dashboard/dashboardtodaysVisitor.php')
+                            }, 3000);
+                          }
+                          );
+                        </script>
+                       
+                      </span>
+                    </div><!-- /.info-box-content -->
+                  </div><!-- /.info-box -->
+                </div><!-- /.col -->
+                
+               <div class=""><!--col-md-3 col-sm-6 col-xs-12-->
+                  <div class="info-box">
+                    <a href ="reports.php">
+                        <span class="info-box-icon bg-purple"><i class="fa fa-ban"></i></span>
+                    </a>
+                    <div class="info-box-content">
+                      <span class="info-box-text">Today's Violations</span>
+                      <span class="info-box-number" id="showViolations">
+                      <script type="text/javascript"></script>
+                        <script type="text/javascript">
+                          $(document).ready(function() {
+                            setInterval(function () {
+                              $('#showViolations').load('dashboard/dashboardtodaysViolation.php')
+                            }, 3000);
+                          }
+                          );
+                        </script>
+                        
+                      </span>
+                    </div><!-- /.info-box-content -->
+                  </div><!-- /.info-box -->
+                </div><!-- /.col -->
+               
+               
+                
             </div>
-          </div>
+        </section>
+<!-- Main content -->
+<body>
 
-          <!-- /widget -->
-        
-        </div>
-        <!-- /span6 -->
-       
-         
-</div>
+
+      
+        </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        TISIS
+      </footer>
+
+    </div><!-- ./wrapper -->
 
 
 

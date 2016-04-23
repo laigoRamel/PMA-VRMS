@@ -8,7 +8,7 @@ $resultForm2 = $conn->query("SELECT m_militaryId FROM form2_militarypd");
 $numRowsForm1 = mysqli_num_rows($resultForm1);
 $numRowsForm2 = mysqli_num_rows($resultForm2);
 $resultPendingForms = mysqli_num_rows($resultForm1) + mysqli_num_rows($resultForm2);
-echo "$resultPendingForms \n pending form in progress";
+echo "$resultPendingForms \n";
 ?>
 
 
