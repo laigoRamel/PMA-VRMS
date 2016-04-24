@@ -248,7 +248,7 @@
                     
                     <!-- submit button -->
                     <div class="panel-body">
-                        <button type="button" class="btn btn-primary btn-lg pull-right" value="Ok" data-target="registeredApplicant" onclick="return confirm('Edited and Updated?')"> 
+                        <button type="button submit" class="btn btn-primary btn-lg pull-right" value="Ok" data-target="registeredApplicant"> 
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Submit Form
                         </button> 
                     </div>
