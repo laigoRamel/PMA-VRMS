@@ -74,25 +74,23 @@
             <!-- Dashboard -->
             <li class=""><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
               
-            
-            
             <!-- Vehicle Log -->
             <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
               
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
-            
-             <!-- Create Account -->
-            <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li>
               
             <!-- Employee Log -->
             <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+              
+             <!-- Create Account -->
+            <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li>
             
             <!-- Accounting --> 
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="accountingApplicant.php">Civilians</a></li>
+                <li><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
@@ -111,7 +109,7 @@
             <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="active"><a href="registeredApplicant.php">Applicants</a></li>
+                <li class="active"><a href="registeredApplicant.php">Civilian</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
               </ul>
             </li>

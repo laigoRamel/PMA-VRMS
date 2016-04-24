@@ -117,11 +117,6 @@
                         </div>
                     </div>
                 
-                <button id="printReports" class="btn btn-primary btn-lg pull-right" onclick="printReports()">
-                                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print
-                            </button>
-            
-                
             </div>
             
                 <div class="col-md-12">

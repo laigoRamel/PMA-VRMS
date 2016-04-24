@@ -90,7 +90,7 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="accountingApplicant.php">Civilians</a></li>
+                <li><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
@@ -109,7 +109,7 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="registeredApplicant.php">Applicants</a></li>
+                <li><a href="registeredApplicant.php">Civilian</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
               </ul>
             </li>

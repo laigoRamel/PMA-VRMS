@@ -14,6 +14,7 @@ include('login/session.php');
     <link rel="stylesheet" href="css/style-main.min.css">
     <link rel="stylesheet" href="bootstrap/css/jquery.bdt.css">
     <link rel="stylesheet" href="css/skin.min.css">
+    <link rel="stylesheet" type="text/css" href="css/print.css">
     <link rel="icon" href="img/seal.png">
     
 	<script src="bootstrap/jquery.min.js"></script>
@@ -89,7 +90,7 @@ include('login/session.php');
             <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="active"><a href="accountingApplicant.php">Civilians</a></li>
+                <li class="active"><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
@@ -97,7 +98,7 @@ include('login/session.php');
             <li class="header">FORMS</li>
             <!-- Forms -->
             <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>New Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="form1.php">Camp Allen/Navybase</a></li>
                 <li><a href="form2.php">AFP</a></li>
@@ -108,7 +109,7 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="registeredApplicant.php">Applicants</a></li>
+                <li><a href="registeredApplicant.php">Civilian</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
                 <li><a href="registeredApplicantVehicle.php">Applicant Vehicles</a></li>
                 <li><a href="registeredAFPVehicle.php">Military Vehicles</a></li>
@@ -146,8 +147,15 @@ include('login/session.php');
 		<div class="'container">
 			<div class="row">
 				<div class="col-md-12">
+                    <h3>    
+                        <span id="printHeader" class="logo-lg"><b>PMA</b>VRMS: ACCOUNTING</span>
+                    </h3>
                     <div class="box">
                         <div class="box-body">
+                        <!-- Print -->
+                            <button id="printReports" class="btn btn-primary btn-lg pull-right" onclick="printReports()">
+                                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print
+                            </button>
                             <table class="table table-bordered table-hover" id="bootstrap-table">
 						<thead>
               <th>Last Name</th>
@@ -181,7 +189,8 @@ DATA;
 				</div>
 			</div>
 		</div>
-
+            
+    <script src="js/print.js" type="text/javascript"></script>
 	<script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
 	<script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
 	<script>
