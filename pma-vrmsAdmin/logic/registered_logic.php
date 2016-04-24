@@ -151,7 +151,7 @@
 
 
 //client_report
-	$query = 'SELECT * FROM client_report';
+	$query = 'SELECT * FROM client_report ORDER BY datein DESC';
 	$database->execute($query);
 	
 	$rows = $database->getResult();
