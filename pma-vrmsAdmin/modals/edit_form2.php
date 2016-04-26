@@ -8,7 +8,7 @@
 			<div class='modal-body'>
 				<div class='row'>
 					<div class='col-lg-12'>
-	<form action="logic/edit_form2Logic.php" enctype='multipart/form-data' method="POST">
+	<form action="logic/edit_form2Logic.php" enctype='multipart/form-data' method="POST" onsubmit="return alert('Edited and updated');">
 		<!-- personal information -->
 		<div class="row" id="edit_modal_form2">
             <div class="col-md-7">

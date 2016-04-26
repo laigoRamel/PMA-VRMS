@@ -14,6 +14,9 @@
 		$a_id 				= $applicant['a_applicantId'];
 		$a_profile 			= $applicant['a_profile'];
 		$name 				= $applicant['a_lastname'].', '.$applicant['a_firstname'].' '.$applicant['a_middlename'];
+//		$a_lastname 		= $applicant['a_lastname'];
+//		$a_firstname 		= $applicant['a_firstname'];
+//		$a_middlename 		= $applicant['a_middlename'];
 		$a_address 			= $applicant['a_address'];
 		$a_occupation 		= $applicant['a_occupation'];
 		$a_officeAddress 	= $applicant['a_officeAddress'];
@@ -33,7 +36,7 @@
 		$chassisNo 			= $applicant['chassisNo'];
 		$stickerNo 			= $applicant['stickerNo'];
 		
-		array_push($applicants, array('a_applicantId' => $a_id, 'a_profile' => $a_profile, 'name' => $name,  'a_address' => $a_address, 'a_occupation' => $a_occupation, 'a_officeAddress' => $a_officeAddress, 'a_driversLicense' => $a_driversLicense, 'a_expirationDate' => $a_expirationDate, 'a_class' => $a_class, 'a_placeRegistered' => $a_placeRegistered, 'a_dateRegistered' => $a_dateRegistered,
+		array_push($applicants, array('a_applicantId' => $a_id, 'a_profile' => $a_profile, 'name' => $name, 'a_address' => $a_address, 'a_occupation' => $a_occupation, 'a_officeAddress' => $a_officeAddress, 'a_driversLicense' => $a_driversLicense, 'a_expirationDate' => $a_expirationDate, 'a_class' => $a_class, 'a_placeRegistered' => $a_placeRegistered, 'a_dateRegistered' => $a_dateRegistered,
 			'vehicleId' => $vehicleId, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 
 			'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 
 			'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));

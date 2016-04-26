@@ -1,5 +1,14 @@
-<?php 
+<?php
 	require_once('../db/database.php');
+	session_start();
+	
+	$database = new Database();
+	
+	if(isset($_POST)){
+		//EditMilitaryData($_POST['m_profile'], $_POST['name'], $_POST['m_rank'], $_POST['m_brSvc'], $_POST['m_afpsn'], $_POST['m_residenceAddress'], $_POST['m_residenceTelNo'], $_POST['m_emailAddress'], $_POST['m_mobileNo'], $_POST['m_designatedOffice'], $_POST['m_officeTelNo'], $_POST['m_officeAddress'], $_POST['m_retirementDate'], $_POST['m_class'], $_POST['m_dateRegistered'], $_POST['m_placeRegistered'], $_POST['wheels'], $_POST['vehicleMake'], $_POST['plateNo'], $_POST['yearModel'], $_POST['color'], $_POST['motorNo'], $_POST['chassisNo'], $_POST['stickerNo']);
+		header('Location: ../registeredAFP.php');
+	}
+/*	require_once('../db/database.php');
 	session_start();
 	
 	$database = new Database();
@@ -36,6 +45,6 @@
 		$database->execute($query2);
 
 		$database->disconnect();
-	}
+	}*/
 
 ?>

@@ -8,7 +8,7 @@
 			<div class='modal-body'>
 				<div class='row'>
 					<div class='col-lg-12'>
-	<form action="logic/edit_form1Logic.php" enctype='multipart/form-data' method="POST">
+	<form action="logic/edit_form1Logic.php" enctype='multipart/form-data' method="POST" onsubmit="return alert('Edited and updated');">
 		<!-- personal information -->
 		<div class="row" id="edit_modal_form1">
             <div class="col-md-7">
@@ -38,10 +38,10 @@
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Last Name" name='name' required>
+                                <input type="text" class="form-control" placeholder="Name" name='name' required>
                               </div>
-                            </div>
-                            
+                            </div>                  
+                                                        
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Address</label>
                               <div class="col-sm-9">
