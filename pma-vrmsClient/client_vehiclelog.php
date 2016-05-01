@@ -87,28 +87,111 @@ $t = date("H:i:s");
 									
 									$plate=strtoupper($_POST['plate']);
 									
-									$query="SELECT * FROM client_records WHERE plateNo = '" . $plate  . "'";
+									$query="SELECT * FROM vehicle_information WHERE plateNo = '" . $plate  . "'";
 									$results = mysqli_query($conn, $query);
 									
 									if(mysqli_num_rows($results) >= 1){
 										while($row = mysqli_fetch_assoc($results)){
 											$a = $row['plateNo'];
-											$b = $row['owner'];
-											$c = $row['remarks'];
+											$b = $row['vehicleId'];
 											
+											$qinfo = "SELECT * FROM form1_applicantpd WHERE a_vehicle_id = $b AND a_status = 'registered'";
+											$qinfoR = mysqli_query($conn, $qinfo);
+											if(mysqli_num_rows($qinfoR) >= 1){
+												while($r = mysqli_fetch_assoc($qinfoR)){
+													$last = $r['a_lastname'];
+													$first = $r['a_firstname'];
+													$mid = $r['a_middlename'];
+													$dL = $r['a_driversLicense'];
+												}
 												
-											echo "<table align='center' id='vLog'><tr><th class='head'>Plate No. </th><th class='head'>Registered Under</th><th class='head'>Remarks</th></tr><tr><td class='col'> " . $a . "</td><td class='col'>" . $b . "</td><td class='col'>" . $c .	"</td></tr><table><br>";
-																						
-											echo "<form method='POST' action='timein.php'>
-													<input type='hidden' name='plate' value='" . $a . "'>
-													<input type='hidden' name='owner' value='" . $b . "'>
-													<input type='hidden' name='d' value='" . $d . "'>
-													<input type='hidden' name='t' value='" . $t . "'>
-													<input type='hidden' name='type' value='Registered'>
-													<button formaction='timein.php'>Time In</button>
-													</form><form method='GET'><button formaction='client_vehiclelog.php'>Cancel</button></form>";
-											
-									}
+												echo "<table align='center' id='vLog'><tr><th class='head'>Plate No. </th><th class='head'>Registered Under</th></tr><tr><td class='col'> " . $a . "</td><td class='col'>" . $last . ", ". $first . " " . $mid . "<br>" . $dL ."</td></tr><table><br>";
+																									
+												echo "<form method='POST' action='timein.php'>
+														<input type='hidden' name='plate' value='" . $a . "'>
+														<input type='hidden' name='owner' value='" . $last . ", " . $first . " " . $mid . "'>
+														<input type='hidden' name='lic' value='" . $dL . "'>
+														<input type='hidden' name='d' value='" . $d . "'>
+														<input type='hidden' name='t' value='" . $t . "'>
+														<input type='hidden' name='type' value='Registered'>
+														<button formaction='timein.php'>Time In</button>
+														</form><form method='GET'><button formaction='client_vehiclelog.php'>Cancel</button></form>";
+											}else{
+												$qinfo = "SELECT * FROM form2_militarypd WHERE m_vehicle_id = $b AND m_status = 'registered'";
+												$qinfoR = mysqli_query($conn, $qinfo);
+												if(mysqli_num_rows($qinfoR) >= 1){
+													while($r = mysqli_fetch_assoc($qinfoR)){
+														$last = $r['m_lastname'];
+														$first = $r['m_firstname'];
+														$mid = $r['m_middlename'];
+														$dL = "";
+													}
+													
+													echo "<table align='center' id='vLog'><tr><th class='head'>Plate No. </th><th class='head'>Registered Under</th></tr><tr><td class='col'> " . $a . "</td><td class='col'>" . $last . ", ". $first . " " . $mid . "<br>" . $dL ."</td></tr><table><br>";
+																									
+													echo "<form method='POST' action='timein.php'>
+														<input type='hidden' name='plate' value='" . $a . "'>
+														<input type='hidden' name='owner' value='" . $last . ", " . $first . " " . $mid . "'>
+														<input type='hidden' name='lic' value='" . $dL . "'>
+														<input type='hidden' name='d' value='" . $d . "'>
+														<input type='hidden' name='t' value='" . $t . "'>
+														<input type='hidden' name='type' value='Registered'>
+														<button formaction='timein.php'>Time In</button>
+														</form><form method='GET'><button formaction='client_vehiclelog.php'>Cancel</button></form>";
+												}else{
+													$qvisitor = "SELECT * FROM client_visitorpass WHERE flag=0 ORDER BY vid asc";
+													$rvisitor = mysqli_query($conn, $qvisitor);
+													$r = mysqli_fetch_array($rvisitor);
+													
+													$vp = $r[0];
+													
+													
+													$query="SELECT * FROM client_report WHERE plateNum = '" . $plate ."' and type='visitor'";
+													$results = mysqli_query($conn, $query);
+													$violations ="";
+													
+													
+													if(mysqli_num_rows($results) >=3){					
+														while($row = mysqli_fetch_assoc($results)){
+															$violations = $violations . $row['violation'] . " on " . $row['datein'] . "<br>";
+														}
+														echo "Vehicle with plate number: ". $plate . " incurred maximum number of violations. <br>" . $violations;
+														echo "<form method='GET'><button formaction='client_vehiclelog.php'>Back</button></form>";
+													}else{		
+
+														if(mysqli_num_rows($results) >=1){
+															while($row = mysqli_fetch_assoc($results)){
+																$violations = $violations . $row['violation'] . " on " . $row['datein'] . "<br>";
+															}
+														}
+														echo "Vehicle's Registration is still pending. Log In as Visitor. <br><br><br>";
+														echo "<form method='POST' action='timein.php'><table>
+																<tr><td colspan='2'><b>Log as Visitor:</td></tr>
+																<tr><td>Visitor Pass ID: </td><td><b>" . $vp . "</td></tr>
+																<tr><td>Plate Number: </td><td><b>" . $plate . "</td></tr>";
+																if($violations!=""){
+																	echo "<tr><td>Violations: </td><td>" . $violations .  "</td></tr>";
+																}
+														echo	"<tr><td>Owner / Driver: </td><td> <input type='text' name='owner' required></td></tr>
+																<tr><td>License Number: </td><td> <input type='text' name='lic' pattern='[A-Za-z]{1}\d{10}' title='Drivers License No. format: Single Letter followed by 10 numbers' required></td></tr>
+																<tr><td>Details: </td><td> <textarea name='detail' rows='6' cols='21'></textarea></td></tr>
+																<input type='hidden' name='vp' value='" . $vp . "'>
+																<input type='hidden' name='plate' value='" . $plate . "'>
+																<input type='hidden' name='d' value='" . $d . "'>
+																<input type='hidden' name='t' value='" . $t . "'>
+																<input type='hidden' name='type' value='Visitor'>
+																<tr><td align='right'><input type='submit' value='Time In'></td>
+																</form><form method='GET'>
+																<td><button formaction='client_vehiclelog.php'>Cancel</button></form></td></tr></table>";
+														}
+															}
+														}
+														
+																
+														
+														
+														
+												}
 									}else{
 										$qvisitor = "SELECT * FROM client_visitorpass WHERE flag=0 ORDER BY vid asc";
 										$rvisitor = mysqli_query($conn, $qvisitor);

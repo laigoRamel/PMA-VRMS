@@ -33,6 +33,7 @@ $t = date("H:i:s");
 		<div class="panel-heading" align="center">
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav">
+					 <li><a href="home.php">Home</a></li>
 					<li><a href="client_vehiclelog.php">Vehicle Time In</a></li>
 					<li><a href="client_vehicleout.php">Vehicle Time Out</a></li>
 					<li><a href="client_viewlog.php">View Vehicle Log</a></li>
@@ -47,7 +48,7 @@ $t = date("H:i:s");
 						if(strtotime(date("H:i:s"))>strtotime('16:59:59')){
 							echo "<li><a href='client_afterfive.php'><font color='red' size='6'>17:00</font></a></li>";
 						}else{
-							echo "<li><a href='client_afterfive.php'>17:00</a></li>";
+							echo "";
 						}
 					?>
 				  </ul>
@@ -74,6 +75,7 @@ $t = date("H:i:s");
 							$d = $_POST['d'];
 							$t = $_POST['t'];
 							$type = $_POST['type'];
+							$l = $_POST['lic'];
 							if($type=="Visitor"){
 								$l = $_POST['lic'];
 								$detail = $_POST['detail'];
@@ -92,6 +94,7 @@ $t = date("H:i:s");
 								$numO = mysqli_num_rows($oCheckRes);
 								
 								$check = $numlic - $numO;
+								
 							}
 							
 							$flag = 1;
@@ -104,7 +107,7 @@ $t = date("H:i:s");
 							$num = mysqli_num_rows($results);
 								
 							if($num==0 and $type=="Registered"){
-								$query = "INSERT INTO client_log (plateNum, owner, dateIn, timein, type, flag, pIN) VALUES ('$plate', '$owner', '$d', '$t', '$type', $flag, '$u')";
+								$query = "INSERT INTO client_log (plateNum, owner, dateIn, timein, type, licenseNo, flag, pIN) VALUES ('$plate', '$owner', '$d', '$t', '$type', $l, $flag, '$u')";
 								$results = mysqli_query($conn, $query);
 								echo "<br>Plate Number: <b>" .$plate. "</b> <br>Time in: " . $d . " " . $t;
 								echo "<br><form> <button formaction='client_vehiclelog.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";
@@ -118,14 +121,15 @@ $t = date("H:i:s");
 									echo "<h5><b>LOG IN NOT ALLOWED</b></h5>";
 									echo "The Driver's Licence Number " .$l. " is registered under a different driver";
 									echo "<br><form> <button formaction='client_vehiclelog.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";
-								}else{$query = "INSERT INTO client_log (plateNum, owner, dateIn, timein, type, licenseNo, details, flag, vid, pIN) VALUES ('$plate', '$owner', '$d', '$t', '$type', '$l', '$detail', $flag, '$vp', '$u')";
-								$results = mysqli_query($conn, $query);
+								}else{
+									$query = "INSERT INTO client_log (plateNum, owner, dateIn, timein, type, licenseNo, details, flag, vid, pIN) VALUES ('$plate', '$owner', '$d', '$t', '$type', '$l', '$detail', $flag, '$vp', '$u')";
+									$results = mysqli_query($conn, $query);
 								
-								$update = "UPDATE client_visitorpass SET flag=1 WHERE vid='$vp'";
-								$uresult = mysqli_query($conn, $update);
-								
-								echo "<br>Plate Number: <b>" .$plate. "</b> <br>Time in: " . $d . " " . $t;
-								echo "<br><form> <button formaction='home.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";
+									$update = "UPDATE client_visitorpass SET flag=1 WHERE vid='$vp'";
+									$uresult = mysqli_query($conn, $update);
+									
+									echo "<br>Plate Number: <b>" .$plate. "</b> <br>Time in: " . $d . " " . $t;
+									echo "<br><form> <button formaction='home.php'><span class='glyphicon glyphicon-arrow-left'> Back </span></button></form>";
 								}
 							}else{
 								echo "<br>Vehicle with plate number <b>" . $plate . "</b> was logged earlier and has not yet logged out";
