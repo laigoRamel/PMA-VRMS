@@ -22,12 +22,12 @@
     <script src="js/app.min.js"></script>
 
 </head>
-	
+
     <?php include('logic/registered_applicant_logic.php'); ?>
     <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
-        
-        
+
+
         <!-- Main Header -->
       <header class="main-header">
 
@@ -46,7 +46,7 @@
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
           </a>
-            
+
             <!-- logout button -->
             <ul class="nav navbar-nav pull-right">
 			<li class="drop-down">
@@ -59,8 +59,8 @@
 			</li>
 		</ul>
         </nav>
-        
-        
+
+
       </header>
       <!-- Left side column -->
       <aside class="main-sidebar">
@@ -70,23 +70,37 @@
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
             <li class="header">NAVIGATION</li>
-              
+
             <!-- Dashboard -->
             <li class=""><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
-              
+
             <!-- Vehicle Log -->
             <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
-              
+
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
-              
+
             <!-- Employee Log -->
             <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
-              
+
              <!-- Create Account -->
-            <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li>
-            
-            <!-- Accounting --> 
+            <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
+
+						<!-- Accounts -->
+						<li class="treeview">
+							<a href="#"><i class="glyphicon glyphicon-plus"></i>
+								<span>Accounts</span>
+								<i class="glyphicon glyphicon-chevron-down pull-right"></i>
+							</a>
+
+							<ul class="treeview-menu">
+								<li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
+								<li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+								<li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
+							</ul>
+						</li>
+
+            <!-- Accounting -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
@@ -94,7 +108,7 @@
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
-              
+
             <li class="header">FORMS</li>
             <!-- Forms -->
             <li class="treeview">
@@ -104,7 +118,7 @@
                 <li><a href="form2.php">AFP/Military</a></li>
               </ul>
             </li>
-              
+
             <!-- Registered -->
             <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
@@ -113,7 +127,7 @@
                 <li><a href="registeredAFP.php">Military</a></li>
               </ul>
             </li>
-              
+
             <!-- Pending -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-option-horizontal"></i> <span>Pending</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
@@ -122,7 +136,7 @@
                 <li><a href="pendingMilitary.php">Military</a></li>
               </ul>
             </li>
-            
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -135,16 +149,16 @@
           <h1>
             Registered Applicants
           </h1>
-          
+
         </section>
 
         <!-- Main content -->
         <section class="content">
-	
+
         <div class="'container">
 			<div class="row">
 				<div class="col-md-12">
-                    <h3>    
+                    <h3>
                         <span id="printHeader" class="logo-lg"><b>PMA</b>VRMS: Registered Civilians</span>
                     </h3>
                     <div class="box">
@@ -165,7 +179,7 @@
                                     <th  class="column-options" colspan=4 style="text-align:center">Options</th>
                                 </thead>
                                 <tbody>
-                                    <?php 
+                                    <?php
                                     foreach ($applicants as $key => $applicant) {
                                         echo <<<DATA
                                         <tr id='applicant_$key'>
@@ -204,7 +218,7 @@ DATA;
                 </div>
 			</div>
 		</div>
-            
+
     <script src="js/print.js" type="text/javascript"></script>
 	<script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
 	<script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
@@ -214,7 +228,7 @@ DATA;
 		});
 	</script>
 
-		<?php  
+		<?php
             require_once('modals/view_form1.php');
             require_once('modals/renew_applicant.php');
             require_once('modals/edit_form1.php');
@@ -249,7 +263,7 @@ DATA;
       var motorNo = row.find('td:nth-child(20)').text();
       var chassisNo = row.find('td:nth-child(21)').text();
       var stickerNo = row.find('td:nth-child(22)').text();
-      
+
       var modal = $('#edit_modal_form1');
       modal.find('input[name=a_applicantId]').val(a_id);
       modal.find('input[name=a_profile]').val(a_profile);
@@ -301,7 +315,7 @@ DATA;
       var motorNo = row.find('td:nth-child(18)').text();
       var chassisNo = row.find('td:nth-child(19)').text();
       var stickerNo = row.find('td:nth-child(20)').text();
-      
+
       var modal = $('#delete_modal_form1');
       modal.find('input[name=a_applicantId]').val(a_id);
       modal.find('input[name=a_profile]').val(a_profile);
@@ -350,7 +364,7 @@ DATA;
       var motorNo = row.find('td:nth-child(18)').text();
       var chassisNo = row.find('td:nth-child(19)').text();
       var stickerNo = row.find('td:nth-child(20)').text();
-      
+
       var modal = $('#view_modal_form1');
       modal.find('input[name=a_applicantId]').val(a_id);
       modal.find('input[name=a_profile]').val(a_profile);
@@ -377,16 +391,16 @@ DATA;
 		}
 
     var renew_applicant = function(key){
-      
+
       $('#renew_applicant_id').val(key);
 
     }
         </script>
-      
+
         </section>  <!-- /Main content -->
 
         <br/><br/>
-      
+
         </div><!-- /.content-wrapper -->
 
       <!-- Main Footer -->
@@ -399,8 +413,8 @@ DATA;
 
 
 </body>
-    
-    
-    
- 
+
+
+
+
 </html>

@@ -15,17 +15,17 @@ include('login/session.php');
     <link rel="stylesheet" href="css/skin.min.css">
     <link rel="stylesheet" href="jasny-bootstrap/css/jasny-bootstrap.min.css">
     <link rel="icon" href="img/seal.png">
-    
+
 	<script src="bootstrap/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/app.min.js"></script>
     <script src="jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
 </head>
-    
+
 <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
-        
-        
+
+
         <!-- Main Header -->
       <header class="main-header">
 
@@ -44,7 +44,7 @@ include('login/session.php');
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
           </a>
-            
+
             <!-- logout button -->
             <ul class="nav navbar-nav pull-right">
 			<li class="drop-down">
@@ -57,8 +57,8 @@ include('login/session.php');
 			</li>
 		</ul>
         </nav>
-        
-        
+
+
       </header>
       <!-- Left side column -->
       <aside class="main-sidebar">
@@ -68,25 +68,39 @@ include('login/session.php');
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
             <li class="header">NAVIGATION</li>
-              
+
             <!-- Dashboard -->
             <li class=""><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
-              
-            
-            
+
+
+
             <!-- Vehicle Log -->
             <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
-              
+
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
-              
+
             <!-- Employee Log -->
             <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
-            
+
              <!-- Create Account -->
-            <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li>
-            
-            <!-- Accounting --> 
+            <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
+
+						<!-- Accounts -->
+						<li class="treeview">
+							<a href="#"><i class="glyphicon glyphicon-plus"></i>
+								<span>Accounts</span>
+								<i class="glyphicon glyphicon-chevron-down pull-right"></i>
+							</a>
+
+							<ul class="treeview-menu">
+								<li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
+								<li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+								<li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
+							</ul>
+						</li>
+
+            <!-- Accounting -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
@@ -104,7 +118,7 @@ include('login/session.php');
                 <li class="active"><a href="form2.php">AFP/Military</a></li>
               </ul>
             </li>
-              
+
             <!-- Registered -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
@@ -113,7 +127,7 @@ include('login/session.php');
                 <li><a href="registeredAFP.php">Military</a></li>
               </ul>
             </li>
-              
+
             <!-- Pending -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-option-horizontal"></i> <span>Pending</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
@@ -122,7 +136,7 @@ include('login/session.php');
                 <li><a href="pendingMilitary.php">Military</a></li>
               </ul>
             </li>
-            
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -135,7 +149,7 @@ include('login/session.php');
           <h1>
             Camp Allen / Navy Base
           </h1>
-          
+
         </section>
 
         <!-- Main content -->
@@ -149,7 +163,7 @@ include('login/session.php');
                         <h3 class="panel-title">Personal Information</h3> </div>
                     <div class="panel-body">
                         <input style="display:none;" type="text" name="a_applicantId" readonly>
-                        
+
                         <!-- image upload -->
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                           <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
@@ -158,122 +172,122 @@ include('login/session.php');
                           <div>
                                <span class="fileinput-filename"></span>
                             <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="m_profile" required></span>
-                              
+
                             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                           </div>
                         </div>
 
                         <br>
-                        <div class="form-horizontal">                  
+                        <div class="form-horizontal">
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Last Name</label>
                               <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Last Name" name='m_lastname' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">First Name</label>
                               <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="First Name" name='m_firstname' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Middle Name</label>
                               <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Middle Name" name='m_middlename' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Rank</label>
                               <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Rank" name='m_rank' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">BR / SVC</label>
                               <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="BR / SVC" name='m_brSvc' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">AFPSN</label>
                               <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="AFPSN" name='m_afpsn' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Residence Address</label>
                               <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Residence Address" name='m_residenceAddress' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Residence Tel. No.</label>
                               <div class="col-sm-9">
                                 <input type="number" class="form-control" placeholder="Residence Tel. No." name='m_residenceTelNo' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Email Address</label>
                               <div class="col-sm-9">
                                 <input type="email" class="form-control" placeholder="Email Address" name='m_emailAddress' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Mobile No.</label>
                               <div class="col-sm-9">
                                 <input type="number" class="form-control" placeholder="Mobile No." name='m_mobileNo' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Designated Office</label>
                               <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Designated Office" name='m_designatedOffice' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Office Tel. No.</label>
                               <div class="col-sm-9">
                                 <input type="number" class="form-control" placeholder="Office Tel. No." name='m_officeTelNo' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Office Address</label>
                               <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Office Address" name='m_officeAddress' required>
                               </div>
                             </div>
-                            
+
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Date of Retirement</label>
                               <div class="col-sm-9">
                                 <input type="date" class="form-control" placeholder="YYYY-MM-DD @MarcLim gawin mong datepicker" name='m_retirementDate' data-mask="9999-99-99" required>
                               </div>
                             </div>
-                            
-                        
-                            
-                           
-                            
+
+
+
+
+
                         </div>
                     </div>
                 </div>
 
-                    
+
                 </div>
-        
+
         <div class="col-md-5">
                     <!-- vehicle type -->
                     <div class="panel panel-default">
@@ -285,14 +299,14 @@ include('login/session.php');
                             <p>&emsp; a. Registered to active Military Personnel</p>
                             <p>&emsp; b. Staff vehicles registered to the AFP</p>
                         </div>
-        
+
                         <div class="radio">
                             <label><input type="radio" name="m_class" value="Class B" required>Class B (RED Sticker)</label>
                             <p>&emsp; a. Former military personnel or AFP Reservists</p>
                             <p>&emsp; b. Unremarried widow/widower of Military Personnel</p>
                             <p>&emsp; c. AFP & DND Civillian employees</p>
                         </div>
-        
+
                         <div class="radio">
                             <label><input type="radio" name="m_class" value="Class C" required>Class C (YELLOW Sticker)</label>
                             <p>&emsp; a. Concessionaires/Traders with AFP Contract</p>
@@ -300,7 +314,7 @@ include('login/session.php');
                             <p>&emsp; c. Diplomats and expatriates</p>
                             <p>&emsp; d. Selected Sponsored Civilians</p>
                         </div>
-        
+
                         </div>
                     </div>
 
@@ -320,16 +334,16 @@ include('login/session.php');
                         <div class="radio">
                             <label><input type="radio" name="m_placeRegistered" value="Navy Base" required>Navy Base</label>
                         </div>
-        
+
                         </div>
                     </div>
-                
+
                 <!-- Requirements -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Requirements</h3>
                     </div>
-                    
+
                     <div class="panel-body">
                         <div class="checkbox">
                             <label><input name='requirements[]' value='1' type="checkbox">Photocopy of current military ID, Office ID, or driver's license</label>
@@ -348,10 +362,10 @@ include('login/session.php');
                             </div>
                     </div>
                 </div>
-            
-                
+
+
             </div>
-            
+
                 <div class="col-md-12">
                 <!-- Vehicle Information -->
                     <div class="panel panel-default">
@@ -372,7 +386,7 @@ include('login/session.php');
                               <th>Sticker No</th>
                               <th></th>
                             </thead>
-                                
+
 					<tr>
             <td>
               <select name="wheels[]" class="form-control name_list" required>
@@ -380,9 +394,9 @@ include('login/session.php');
                 <option value="2-wheeled">2-wheeled</option>
                 <option value="4-wheeled">4-wheeled</option>
               </select>
-            </td>  
-						<td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" required/></td>  
-						<td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" required/></td>  
+            </td>
+						<td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" required/></td>
+						<td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" required/></td>
 						<td>
               <select name="yearModel[]" class="form-control name_list" required>
                 <option value="">Year Model...</option>
@@ -418,30 +432,30 @@ include('login/session.php');
                 <option value="2019">2019</option>
                 <option value="2020">2020</option>
               </select>
-            </td>  
-						<td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" required/></td>  
-						<td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" required/></td>  
-						<td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" required/></td>  
-						<td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" required/></td>  
-						<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
-					</tr>  
-                            
+            </td>
+						<td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" required/></td>
+						<td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" required/></td>
+						<td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" required/></td>
+						<td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" required/></td>
+						<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
+					</tr>
+
                             </table>
-                                
-                            
+
+
                         </div>
                         </div>
                     </div>
-                    
+
                     <!-- submit button -->
                     <div class="panel-body">
-                        <button type="button submit" class="btn btn-primary btn-lg pull-right" value="Ok"> 
+                        <button type="button submit" class="btn btn-primary btn-lg pull-right" value="Ok">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Submit Form
-                        </button> 
+                        </button>
                     </div>
-                    
+
                 </div>
-        
+
 		</div>
 		<!--end of div class row-->
 	</form>
@@ -449,7 +463,7 @@ include('login/session.php');
 <!-- Main content -->
 
         <br/><br/>
-      
+
         </div><!-- /.content-wrapper -->
 
       <!-- Main Footer -->
@@ -460,24 +474,24 @@ include('login/session.php');
     </div><!-- ./wrapper -->
 
 
-        
+
 
 </body>
-    
+
 
     <script type="text/javascript">
-		$(document).ready(function(){  
-			var i=1;  
-			$('#add').click(function(){  
-				i++;  
-				$('#dynamic_field').append('<tr id="row'+i+'"><td><select name="wheels[]" class="form-control name_list" required><option value="">No. of Wheels...</option><option value="2-wheeled">2-wheeled</option><option value="4-wheeled">4-wheeled</option></select></td><td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td><td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td><td><select name="yearModel[]" class="form-control name_list" required><option value="">Year Model...</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select></td><td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td><td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td><td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td><td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
-			});  
-			$(document).on('click', '.btn_remove', function(){  
-				var button_id = $(this).attr("id");   
-				$('#row'+button_id+'').remove();  
-			});  
-		});  
+		$(document).ready(function(){
+			var i=1;
+			$('#add').click(function(){
+				i++;
+				$('#dynamic_field').append('<tr id="row'+i+'"><td><select name="wheels[]" class="form-control name_list" required><option value="">No. of Wheels...</option><option value="2-wheeled">2-wheeled</option><option value="4-wheeled">4-wheeled</option></select></td><td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td><td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td><td><select name="yearModel[]" class="form-control name_list" required><option value="">Year Model...</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select></td><td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td><td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td><td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td><td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+			});
+			$(document).on('click', '.btn_remove', function(){
+				var button_id = $(this).attr("id");
+				$('#row'+button_id+'').remove();
+			});
+		});
 	</script>
-    
-    
+
+
 </html>

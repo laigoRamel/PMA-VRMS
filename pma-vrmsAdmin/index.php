@@ -23,16 +23,16 @@ include('login/session.php');
     <link href="css2/font-awesome.css" rel="stylesheet">
     <link href="css2/style.css" rel="stylesheet">
     <link href="css2/pages/dashboard.css" rel="stylesheet">
-    
+
   	<script src="bootstrap/jquery.min.js"></script>
   	<script src="bootstrap/js/bootstrap.min.js"></script>
       <script src="js/app.min.js"></script>
 </head>
-    
+
 <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
-        
-        
+
+
         <!-- Main Header -->
       <header class="main-header">
 
@@ -51,7 +51,7 @@ include('login/session.php');
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
           </a>
-            
+
             <!-- logout button -->
             <ul class="nav navbar-nav pull-right">
 			<li class="drop-down">
@@ -64,8 +64,8 @@ include('login/session.php');
 			</li>
 		</ul>
         </nav>
-        
-        
+
+
       </header>
       <!-- Left side column -->
       <aside class="main-sidebar">
@@ -75,25 +75,39 @@ include('login/session.php');
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
             <li class="header">NAVIGATION</li>
-              
+
             <!-- DASHBOARD   -->
             <li class="active"><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
-              
-            
-            
+
+
+
             <!-- Vehicle Log -->
             <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
-              
+
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
-              
+
             <!-- Employee Log -->
             <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
-              
+
               <!-- Create Account -->
-            <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li>
-            
-            <!-- Accounting --> 
+            <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
+
+						<!-- Accounts -->
+						<li class="treeview">
+							<a href="#"><i class="glyphicon glyphicon-plus"></i>
+								<span>Accounts</span>
+								<i class="glyphicon glyphicon-chevron-down pull-right"></i>
+							</a>
+
+							<ul class="treeview-menu">
+								<li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
+								<li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+								<li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
+							</ul>
+						</li>
+
+            <!-- Accounting -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
@@ -101,7 +115,7 @@ include('login/session.php');
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
-              
+
             <li class="header">Dashboard</li>
             <!-- Forms -->
             <li class="treeview">
@@ -111,7 +125,7 @@ include('login/session.php');
                 <li><a href="form2.php">AFP/Military</a></li>
               </ul>
             </li>
-              
+
             <!-- Registered -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
@@ -120,7 +134,7 @@ include('login/session.php');
                 <li><a href="registeredAFP.php">Military</a></li>
               </ul>
             </li>
-              
+
             <!-- Pending -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-option-horizontal"></i> <span>Pending</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
@@ -129,7 +143,7 @@ include('login/session.php');
                 <li><a href="pendingMilitary.php">Military</a></li>
               </ul>
             </li>
-            
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -139,9 +153,9 @@ include('login/session.php');
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-      
+
         </section>
-        
+
         <div class="main">
   <div class="main-inner">
     <div class="container">
@@ -149,14 +163,14 @@ include('login/session.php');
         <div class="span6">
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Quick Stats</h3>   
+              <h3> Quick Stats</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
                 <div class="widget-content">
                   <h6 class="bigstats">Philippine Military Academy Daily Statistics.</h6>
-                  <div id="big_stats" class="cf"> 
+                  <div id="big_stats" class="cf">
 
                     <div class="stat">Today's Visitors<i class="fa fa-users"></i>
                      <span class="value" id="showVisitor">
@@ -171,7 +185,7 @@ include('login/session.php');
                         </script>
                     </span> </div>
                     <!-- .stat -->
-                    
+
                     <div class="stat">Today's Violations<i class="icon-minus-sign"></i>
                      <span class="value" id="showViolations">
                        <script type="text/javascript"></script>
@@ -183,11 +197,11 @@ include('login/session.php');
                           }
                           );
                         </script>
-                     </span> 
+                     </span>
 
                      </div>
                     <!-- .stat -->
-                    
+
                     <div class="stat">Pending Forms<i class="icon-file-text"></i>
                      <span class="value" id="showPending">
                       <script type="text/javascript"></script>
@@ -200,26 +214,26 @@ include('login/session.php');
                           );
                         </script>
 
-                       
+
                      </span> </div>
                     <!-- .stat -->
-                    
-                   
-                    <!-- .stat --> 
+
+
+                    <!-- .stat -->
                   </div>
                 </div>
-                <!-- /widget-content --> 
-                
+                <!-- /widget-content -->
+
               </div>
             </div>
           </div>
 
           <!-- /widget -->
-        
+
         </div>
         <!-- /span6 -->
-       
-         
+
+
 </div>
 
 

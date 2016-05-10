@@ -5,7 +5,7 @@ include('session.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Employee log</title>
+	<title>Client Accounts</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,13 +81,13 @@ include('session.php');
             <li><a href="../reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
             <!-- Employee Log -->
-            <li class="active"><a href="../login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+            <li class=""><a href="../login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+
+            <!-- Create Account -->
+            <!-- <li class="active"><a href="../login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
             <!-- Accounts -->
-            <!-- <li class=""><a href="../login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
-
-						<!-- Accounts -->
-						<li class="treeview">
+						<li class="treeview active">
 							<a href="#"><i class="glyphicon glyphicon-plus"></i>
 								<span>Accounts</span>
 								<i class="glyphicon glyphicon-chevron-down pull-right"></i>
@@ -104,7 +104,7 @@ include('session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="../accountingApplicant.php">Civilians</a></li>
+                <li><a href="../accountingApplicant.php">Civilian</a></li>
                 <li><a href="../AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
@@ -123,7 +123,7 @@ include('session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="../registeredApplicant.php">Applicants</a></li>
+                <li><a href="../registeredApplicant.php">Civilian</a></li>
                 <li><a href="../registeredAFP.php">Military</a></li>
               </ul>
             </li>
@@ -147,7 +147,7 @@ include('session.php');
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Employee Log
+            Create User Account
           </h1>
 
         </section>
@@ -163,109 +163,42 @@ include('session.php');
                     </h3>
                     <div class="box">
                         <div class="box-body">
-                            <!-- Print -->
-                            <button id="printReports" class="btn btn-primary btn-lg pull-right" onclick="printReports()">
-                                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print
-                            </button>
-                            <table class="table table-bordered table-hover" id="bootstrap-table">
-				<thead>
-					<th>User</th>
-					<th>Activity</th>
-                    <th>Date</th>
-					<th>Time</th>
-				</thead>
-				<tbody>
+                            <br/><br/><br/><br/><br/><br/><br/>
+                            <form class="form-horizontal" method="post" action="create_account_logic.php">
 
-					<?php
-            $handler = mysqli_connect('localhost', 'root', '', 'pma-vrms')
-              or die ('Error connecting to MySQL server.');
 
-            $query = "SELECT * FROM admin_logs
-                        ORDER BY curr_date, curr_time DESC";
+                              <div class="form-group">
+                                <label for="email" class="col-sm-4 control-label">
+                                  Username
+                                </label>
 
-            $result = mysqli_query($handler, $query)
-              or die ('Error querying database.');
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" id="email" name="email">
+                                </div>
+                              </div>
 
-            while ($row = mysqli_fetch_array($result)) {
-              $user = $row['username'];
-              $activity = $row['activity'];
-              $date = $row['curr_date'];
-              $time = $row['curr_time'];
-          ?>
-              <tr>
-                <td><?php echo $user; ?></td>
-                <td><?php echo $activity; ?></td>
-                <td><?php echo $date; ?></td>
-                <td><?php echo $time; ?></td>
-              </tr>
+                              <div class="form-group">
+                                <label for="password" class="col-sm-4 control-label">
+                                  Password
+                                </label>
 
-          <?php
-            }
-          ?>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" id="password" name="password">
+                                </div>
+                              </div>
 
-          <?php
-
-					/*require_once('logbook_logic.php');
-
-					$date = 'date';
-					foreach($record as $rec){
-						$date_time_in = date_format(date_create($rec['time_in']), 'M d, Y | h:i:s A');
-						$date_time_out = $rec['time_out'] === '0000-00-00 00:00:00' ? 'Online' : date_format(date_create($rec['time_out']), 'M d, Y | h:i:s A');
-						echo <<<REC
-						<tr>
-							<td>$rec[username]</td>
-							<td>$date_time_in</td>
-							<td>$date_time_out</td>
-						</tr>
-REC;
-
-					}*/
+                              <div class="span7 text-center">
+                                <input type="submit" value="Register" name="submit2" />
+                              </div>
 
 
 
-					/**echo "<table class=\"table\">";
-					echo "<thead>";
-					echo "<tr>";
-					echo "<th>Name</th>";
-					echo "<th>Date</th>";
-					echo "<th>Time-in</th>";
-					echo "<th>Time-out</th>";
-					echo "</tr>";
-					echo "</thead>";
-
-					echo "<tbody>";
-					for ($counter = 1; $counter <= 5; $counter++) {
-						echo "<tr><td>";
-						echo $login_session;
-						echo "</td><td>";
-	    					//echo $
-					}
-					echo "</tbody>";**/
-				?>
-
-				</tbody>
-			</table>
-			<!--<table class="table">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Date</th>
-					<th>Time-in</th>
-					<th>Time-out</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<tr>
-					<td><?php echo $login_session; ?></td>
-					<td><?php echo date('month'); ?></td>
-					<td><?php echo time(); ?>8:00</td>
-					<td>12:00</td>
-				</tr>
-			</tbody>
-		</table>-->
+                    </form>
+                            <br/><br/><br/><br/><br/><br/><br/>
                         </div>
                     </div>
+
+
                 </div>
     <script src="../js/print.js" type="text/javascript"></script>
 	<script src="../bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
