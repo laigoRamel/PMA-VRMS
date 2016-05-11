@@ -147,7 +147,7 @@ include('session.php');
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Create User Account
+            Client Accounts
           </h1>
 
         </section>
@@ -158,43 +158,138 @@ include('session.php');
 		<div class="'container">
 			<div class="row">
 				<div class="col-md-12">
-                    <h3>
-                        <span id="printHeader" class="logo-lg"><b>PMA</b>VRMS: Employee Log</span>
-                    </h3>
+                    <!-- <h3>
+                        <span id="printHeader" class="logo-lg"><b>PMA</b>VRMS: Client Accounts</span>
+                    </h3> -->
                     <div class="box">
                         <div class="box-body">
-                            <br/><br/><br/><br/><br/><br/><br/>
-                            <form class="form-horizontal" method="post" action="create_account_logic.php">
+													<button class="btn btn-primary btn-lg pull-right" data-toggle="modal"
+														data-target="#adminAccount">
+														<!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->
+														Add Client User
+													</button>
+														<!-- <br/><br/><br/><br/><br/><br/><br/> -->
+
+													<!-- Modal -->
+													<div class="modal fade" id="adminAccount" tabindex="-1" role="dialog"
+														aria-labelledby="adminAccountLabel">
+
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+
+																	<h4 class="modal-title" id="adminAccountLabel">Create Client Account</h4>
+																</div>
+
+																<div class="modal-body">
+																	<form class="form-horizontal" method="post" action="#">
+
+																		<div class="form-group">
+																			<label for="lastname" class="col-sm-4 control-label">
+																				Last Name
+																			</label>
+
+																			<div class="col-sm-6">
+																				<input type="text" class="form-control" id="lastname" name="lastname">
+																			</div>
+																		</div>
+
+																		<div class="form-group">
+																			<label for="firstname" class="col-sm-4 control-label">
+																				First Name
+																			</label>
+
+																			<div class="col-sm-6">
+																				<input type="text" class="form-control" id="firstname" name="firstname">
+																			</div>
+																		</div>
+
+																		<div class="form-group">
+																			<label for="middlename" class="col-sm-4 control-label">
+																				Middle Name
+																			</label>
+
+																			<div class="col-sm-6">
+																				<input type="text" class="form-control" id="middlename" name="middlename">
+																			</div>
+																		</div>
 
 
-                              <div class="form-group">
-                                <label for="email" class="col-sm-4 control-label">
-                                  Username
-                                </label>
+																		<div class="form-group">
+																			<label for="office" class="col-sm-4 control-label">
+																				Office
+																			</label>
 
-                                <div class="col-sm-6">
-                                  <input type="text" class="form-control" id="email" name="email">
-                                </div>
-                              </div>
+																			<div class="col-sm-6">
+																				<input type="text" class="form-control" id="office" name="office">
+																			</div>
+																		</div>
 
-                              <div class="form-group">
-                                <label for="password" class="col-sm-4 control-label">
-                                  Password
-                                </label>
+																		<div class="form-group">
+																			<label for="rank" class="col-sm-4 control-label">
+																				Rank
+																			</label>
 
-                                <div class="col-sm-6">
-                                  <input type="text" class="form-control" id="password" name="password">
-                                </div>
-                              </div>
+																			<div class="col-sm-6">
+																				<input type="text" class="form-control" id="rank" name="rank">
+																			</div>
+																		</div>
 
-                              <div class="span7 text-center">
-                                <input type="submit" value="Register" name="submit2" />
-                              </div>
+																		<div class="form-group">
+																			<label for="email" class="col-sm-4 control-label">
+																				Username
+																			</label>
+
+																			<div class="col-sm-6">
+																				<input type="text" class="form-control" id="email" name="email">
+																			</div>
+																		</div>
+
+																		<div class="form-group">
+																			<label for="password" class="col-sm-4 control-label">
+																				Password
+																			</label>
+
+																			<div class="col-sm-6">
+																				<input type="text" class="form-control" id="password" name="password">
+																			</div>
+																		</div>
+
+																		<div class="span7 text-center">
+																			<input type="submit" value="Register" name="submit2" />
+																		</div>
 
 
 
-                    </form>
-                            <br/><br/><br/><br/><br/><br/><br/>
+
+
+													</form>
+																</div>
+
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																	<button type="button" class="btn btn-primary">Save Changes</button>
+																</div>
+
+															</div>
+														</div>
+
+													</div>
+														<table class="table table-bordered table-hover" id="bootstrap-table">
+															<thead>
+																<th>Username</th>
+																<th>Name</th>
+																<th>Office</th>
+																<th>Rank</th>
+															</thead>
+
+															<tbody>
+
+															</tbody>
+														</table>
                         </div>
                     </div>
 
