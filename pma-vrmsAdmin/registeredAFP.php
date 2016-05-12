@@ -162,9 +162,15 @@
         <div class="'container">
 			<div class="row">
 				<div class="col-md-12">
-                    <h3>
-                        <span id="printHeader" class="logo-lg"><b>PMA</b>VRMS: Registered Military</span>
-                    </h3>
+                    <div id="printHeader">
+                        <center>
+                        <p>H E A D Q U A R T E R S</p>
+                        <p>PHILIPPINE MILITARY ACADEMY</p>
+                        <p><b>OFFICE OF THE ASSISTANT CHIEF OF STAFF FOR INTELLIGENCE, MA2</p></b>
+                        <p>Fort General Gregorio H del Pilar, Baguio City</p>
+                        </center>
+                        <h3>Registered Military</h3>
+                    </div>
                     <div class="box">
                         <div class="box-body">
                             <!-- Print -->
