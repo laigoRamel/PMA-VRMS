@@ -203,14 +203,35 @@ include('login/session.php');
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Rank</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Rank" name='m_rank' required>
+                                <!-- <input type="text" class="form-control" placeholder="Rank" name='m_rank' required> -->
+                                <select class="form-control" placeholder="Rank" name='m_rank' required>
+                                  <option value="Himagat">Himagat</option>
+                                  <option value="Pulimagat">Pulimagat</option>
+                                  <option value="Kamagat">Kamagat</option>
+                                  <option value="Magat">Magat</option>
+                                  <option value="Kalakan">Kalakan</option>
+                                  <option value="Lakan">Lakan</option>
+                                  <option value="Brigadyer Heneral">Brigadyer Heneral</option>
+                                  <option value="Magat Heneral">Magat Heneral</option>
+                                  <option value="Tenyente Heneral">Tenyente Heneral</option>
+                                  <option value="Heneral">Heneral</option>
+                                </select>
+                                <!--
+                                Ranks Source: https://en.wikipedia.org/wiki/Armed_Forces_of_the_Philippines
+                                -->
                               </div>
                             </div>
 
                             <div class="form-group">
                               <label class="col-sm-2 control-label">BR / SVC</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="BR / SVC" name='m_brSvc' required>
+                                <!-- <input type="text" class="form-control" placeholder="BR / SVC" name='m_brSvc' required> -->
+                                  <select class="form-control" placeholder="BR / SVC" name='m_brSvc' required>
+                                  <option value="choice 1">choice 1</option>
+                                  <option value="choice 2">choice 2</option>
+                                  <option value="choice 3">choice 3</option>
+                         
+                                </select>
                               </div>
                             </div>
 
