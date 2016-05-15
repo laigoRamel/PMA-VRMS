@@ -23,7 +23,7 @@
 
 </head>
 
-    <?php include('logic/registered_military_logic.php'); ?>
+    <?php include('logic/registered_militaryVehicle_logic.php'); ?>
     <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
 
@@ -186,51 +186,33 @@
                             </button>
                             <table class="table table-bordered table-hover" id="bootstrap-table">
                                 <thead>
-                                    <th>Profile</th>
                                     <th>Name</th>
-                                    <th>Rank</th>
-                                    <th>Email Address</th>
-                                    <th>Designated Office</th>
-                                    <th>Class</th>
-                                    <th>Place Registered</th>
-                                    <th colspan=4 style="text-align:center" class="column-options">Options</th>
+                                    <th>Wheels</th>
+                                    <th>Vehicle Make</th>
+                                    <th>Plate No.</th>
+                                    <th>Year Model</th>
+                                    <th>Color</th>
+                                    <th>Motor No.</th>
+                                    <th>Chassis No.</th>
+                                    <th>Sticker No.</th>
+                                    <th  class="column-options" colspan=4 style="text-align:center">Status (registered, transferred)</th>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        foreach ($militarys as $key => $military) {
+                                        foreach ($vehicles as $key => $vehicle) {
                                             echo <<<DATA
-                                                <tr id='military_$key'>
-                                                    <td style='display:none'>$military[m_militaryId]</td>
-                                                    <td><img style="width="40" height="40"" src='img/profile/military/$military[m_profile]' height='100px;'></td>
-                                                    <td>$military[name]</td>
-                                                    <td>$military[m_rank]</td>
-                                                    <td style='display:none'>$military[m_brSvc]</td>
-                                                    <td style='display:none'>$military[m_afpsn]</td>
-                                                    <td style='display:none'>$military[m_residenceAddress]</td>
-                                                    <td style='display:none'>$military[m_residenceTelNo]</td>
-                                                    <td>$military[m_emailAddress]</td>
-                                                    <td style='display:none'>$military[m_mobileNo]</td>
-                                                    <td>$military[m_designatedOffice]</td>
-                                                    <td style='display:none'>$military[m_officeTelNo]</td>
-                                                    <td style='display:none'>$military[m_officeAddress]</td>
-                                                    <td style='display:none'>$military[m_retirementDate]</td>
-                                                    <td>$military[m_class]</td>
-                                                    <td style='display:none'>$military[m_dateRegistered]</td>
-                                                    <td>$military[m_placeRegistered]</td>
-                                                    <td style='display:none'>$military[vehicleId]</td>
-                                                    <td style='display:none'>$military[wheels]</td>
-                                                    <td style='display:none'>$military[vehicleMake]</td>
-                                                    <td style='display:none'>$military[plateNo]</td>
-                                                    <td style='display:none'>$military[yearModel]</td>
-                                                    <td style='display:none'>$military[color]</td>
-                                                    <td style='display:none'>$military[motorNo]</td>
-                                                    <td style='display:none'>$military[chassisNo]</td>
-                                                    <td style='display:none'>$military[stickerNo]</td>
-                                                    <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick="view_form2($key, 'img/profile/military/$military[m_profile]')">View</button></td>
-                                                    <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick='renew_military($military[m_militaryId])'>Renew</button></td>
-                                                    <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick="edit_form2($key, 'img/profile/military/$military[m_profile]')">Edit</button></td>
-                                                    <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form2' onclick="delete_form2($key, 'img/profile/military/$military[m_profile]')">Delete</button></td>
-                                                </tr>
+                                        <tr id='applicant_$key'>
+                                            <td style='display:none'>$vehicle[vehicleId]</td>
+                                            <td>$vehicle[name]</td>
+                                            <td>$vehicle[wheels]</td>
+                                            <td>$vehicle[vehicleMake]</td>
+                                            <td>$vehicle[plateNo]</td>
+                                            <td>$vehicle[yearModel]</td>
+                                            <td>$vehicle[color]</td>
+                                            <td>$vehicle[motorNo]</td>
+                                            <td>$vehicle[chassisNo]</td>
+                                            <td>$vehicle[stickerNo]</td>
+                                        </tr>
 DATA;
                                         }
                                     ?>

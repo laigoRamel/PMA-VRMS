@@ -23,7 +23,7 @@
 
 </head>
 
-    <?php include('logic/registered_applicant_logic.php'); ?>
+    <?php include('logic/registered_applicantVehicle_logic.php'); ?>
     <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
 
@@ -184,44 +184,32 @@
                             </button>
                             <table class="table table-bordered table-hover" id="bootstrap-table">
                                 <thead>
-                                    <th>Profile</th>
                                     <th>Name</th>
-                                    <th>Address</th>
-                                    <th>Occupation</th>
-                                    <th>Office Address</th>
-                                    <th>Class</th>
-                                    <th>Place Registered</th>
-                                    <th  class="column-options" colspan=4 style="text-align:center">Options</th>
+                                    <th>Wheels</th>
+                                    <th>Vehicle Make</th>
+                                    <th>Plate No.</th>
+                                    <th>Year Model</th>
+                                    <th>Color</th>
+                                    <th>Motor No.</th>
+                                    <th>Chassis No.</th>
+                                    <th>Sticker No.</th>
+                                    <th  class="column-options" colspan=4 style="text-align:center">Status (registered, transferred)</th>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($applicants as $key => $applicant) {
+                                    foreach ($vehicles as $key => $vehicle) {
                                         echo <<<DATA
                                         <tr id='applicant_$key'>
-                                            <td style='display:none'>$applicant[a_applicantId]</td>
-                                            <td><img style="width="40" height="40"" src='img/profile/applicant/$applicant[a_profile]' height='100px;'></td>
-                                            <td>$applicant[name]</td>
-                                            <td>$applicant[a_address]</td>
-                                            <td>$applicant[a_occupation]</td>
-                                            <td>$applicant[a_officeAddress]</td>
-                                            <td style='display:none'>$applicant[a_driversLicense]</td>
-                                            <td style='display:none'>$applicant[a_expirationDate]</td>
-                                            <td>$applicant[a_class]</td>
-                                            <td style='display:none'>$applicant[a_dateRegistered]</td>
-                                            <td>$applicant[a_placeRegistered]</td>
-                                            <td style='display:none'>$applicant[vehicleId]</td>
-                                            <td style='display:none'>$applicant[wheels]</td>
-                                            <td style='display:none'>$applicant[vehicleMake]</td>
-                                            <td style='display:none'>$applicant[plateNo]</td>
-                                            <td style='display:none'>$applicant[yearModel]</td>
-                                            <td style='display:none'>$applicant[color]</td>
-                                            <td style='display:none'>$applicant[motorNo]</td>
-                                            <td style='display:none'>$applicant[chassisNo]</td>
-                                            <td style='display:none'>$applicant[stickerNo]</td>
-                                            <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form1' onclick="view_form1($key, 'img/profile/applicant/$applicant[a_profile]')">View</button></td>
-                                            <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_applicant' onclick='renew_applicant($applicant[a_applicantId])'>Renew</button></td>
-                                            <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form1' onclick="edit_form1($key, 'img/profile/applicant/$applicant[a_profile]')">Edit</button></td>
-                                            <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form1' onclick="delete_form1($key, 'img/profile/applicant/$applicant[a_profile]')">Delete</button></td>
+                                            <td style='display:none'>$vehicle[vehicleId]</td>
+                                            <td>$vehicle[name]</td>
+                                            <td>$vehicle[wheels]</td>
+                                            <td>$vehicle[vehicleMake]</td>
+                                            <td>$vehicle[plateNo]</td>
+                                            <td>$vehicle[yearModel]</td>
+                                            <td>$vehicle[color]</td>
+                                            <td>$vehicle[motorNo]</td>
+                                            <td>$vehicle[chassisNo]</td>
+                                            <td>$vehicle[stickerNo]</td>
                                         </tr>
 DATA;
                                     }
