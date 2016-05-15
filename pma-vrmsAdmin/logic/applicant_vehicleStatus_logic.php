@@ -3,7 +3,7 @@
 
 	$database = new Database();
 
-		$query = "SELECT * FROM vehicle_information JOIN form2_militarypd ON form2_militarypd.m_vehicle_id = vehicle_information.vehicleId  WHERE form2_militarypd.m_status='registered'  AND form2_militarypd.m_renew_status = '1'";
+		$query = "SELECT * FROM vehicle_information JOIN form1_applicantpd ON form1_applicantpd.a_vehicle_id = vehicle_information.vehicleId";
 	$database->execute($query);
 	
 	$rows = $database->getResult();
@@ -11,7 +11,7 @@
 	$vehicles = array();
 	
 	while($vehicle = mysqli_fetch_array($rows)){
-		$name 				= $vehicle['m_lastname'].', '.$vehicle['m_firstname'].' '.$vehicle['m_middlename'];
+		$name 				= $vehicle['a_lastname'].', '.$vehicle['a_firstname'].' '.$vehicle['a_middlename'];
 		$id 		= $vehicle['vehicleId'];
 		$wheels 	= $vehicle['wheels'];
 		$vehicleMake 	= $vehicle['vehicleMake'];

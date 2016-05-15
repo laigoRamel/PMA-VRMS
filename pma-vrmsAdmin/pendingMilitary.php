@@ -126,21 +126,21 @@ include('login/session.php');
               </ul>
             </li>
 
-            <!-- Registered Vehicle-->
-            <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered Vehicle</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="registeredApplicantVehicle.php">For Civilian</a></li>
-                <li><a href="registeredAFPVehicle.php">For Military</a></li>
-              </ul>
-            </li>
-
             <!-- Pending -->
-            <li class="treeview active">
+            <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-option-horizontal"></i> <span>Pending</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="pendingApplicant.php">Civilian</a></li>
-                <li class="active"><a href="pendingMilitary.php">Military</a></li>
+                <li><a href="pendingMilitary.php">Military</a></li>
+              </ul>
+            </li>
+
+            <!-- Vehicle Status -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
+                <li><a href="AFPVehicleStatus.php">For Military</a></li>
               </ul>
             </li>
 
