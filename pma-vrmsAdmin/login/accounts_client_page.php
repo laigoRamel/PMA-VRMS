@@ -194,7 +194,7 @@ include('session.php');
 																</div>
 
 																<div class="modal-body">
-																	<form class="form-horizontal" method="post" action="#">
+																	<form class="form-horizontal" method="post" action="accounts_client_page.php">
 
 																		<div class="form-group">
 																			<label for="lastname" class="col-sm-4 control-label">
@@ -253,7 +253,7 @@ include('session.php');
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="email" name="email">
+																				<input type="text" class="form-control" id="email" name="username">
 																			</div>
 																		</div>
 

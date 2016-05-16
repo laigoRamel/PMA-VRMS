@@ -195,7 +195,7 @@ include('session.php');
 																</div>
 
 																<div class="modal-body">
-																	<form class="form-horizontal" method="post" action="#">
+																	<form class="form-horizontal" method="post" action="accounts_admin_logic.php">
 
 																		<div class="form-group">
 																			<label for="lastname" class="col-sm-4 control-label">
@@ -254,7 +254,7 @@ include('session.php');
 			                                </label>
 
 			                                <div class="col-sm-6">
-			                                  <input type="text" class="form-control" id="email" name="email">
+			                                  <input type="text" class="form-control" id="email" name="username">
 			                                </div>
 			                              </div>
 
@@ -281,7 +281,7 @@ include('session.php');
 
 																<div class="modal-footer">
 																	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-																	<button type="button" class="btn btn-primary">Save Changes</button>
+																	<button type="button" class="btn btn-primary" name="submit2">Save Changes</button>
 																</div>
 
 															</div>
@@ -348,6 +348,8 @@ include('session.php');
 			$('#bootstrap-table').bdt();
 		});
 	</script>
+
+
 
 </section>  <!-- /Main content -->
 
