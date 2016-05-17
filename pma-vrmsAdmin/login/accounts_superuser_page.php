@@ -173,15 +173,15 @@ include('session.php');
                     <div class="box">
                         <div class="box-body">
 													<button class="btn btn-primary btn-lg pull-right" data-toggle="modal"
-														data-target="#adminAccount">
+														data-target="#superuserAccount">
 														<!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->
 														Add Superuser
 													</button>
                             <!-- <br/><br/><br/><br/><br/><br/><br/> -->
 
 													<!-- Modal -->
-													<div class="modal fade" id="adminAccount" tabindex="-1" role="dialog"
-														aria-labelledby="adminAccountLabel">
+													<div class="modal fade" id="superuserAccount" tabindex="-1" role="dialog"
+														aria-labelledby="superuserAccountLabel">
 
 														<div class="modal-dialog" role="document">
 															<div class="modal-content">
@@ -190,85 +190,85 @@ include('session.php');
 																		<span aria-hidden="true">&times;</span>
 																	</button>
 
-																	<h4 class="modal-title" id="adminAccountLabel">Create Superuser Account</h4>
+																	<h4 class="modal-title" id="superuserAccountLabel">Create Superuser Account</h4>
 																</div>
 
 																<div class="modal-body">
-																	<form class="form-horizontal" method="post" action="#">
+																	<form class="form-horizontal" method="post" action="accounts_superuser_logic.php">
 
 																		<div class="form-group">
-																			<label for="lastname" class="col-sm-4 control-label">
+																			<label for="superuserLastname" class="col-sm-4 control-label">
 																				Last Name
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="lastname" name="lastname">
+																				<input type="text" class="form-control" id="superuserLastname" name="superuserLastname">
 																			</div>
 																		</div>
 
 																		<div class="form-group">
-																			<label for="firstname" class="col-sm-4 control-label">
+																			<label for="superuserFirstname" class="col-sm-4 control-label">
 																				First Name
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="firstname" name="firstname">
+																				<input type="text" class="form-control" id="superuserFirstname" name="superuserFirstname">
 																			</div>
 																		</div>
 
 																		<div class="form-group">
-																			<label for="middlename" class="col-sm-4 control-label">
+																			<label for="superuserMiddlename" class="col-sm-4 control-label">
 																				Middle Name
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="middlename" name="middlename">
+																				<input type="text" class="form-control" id="superuserMiddlename" name="superuserMiddlename">
 																			</div>
 																		</div>
 
 
 																		<div class="form-group">
-																			<label for="office" class="col-sm-4 control-label">
+																			<label for="superuserOffice" class="col-sm-4 control-label">
 																				Office
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="office" name="office">
+																				<input type="text" class="form-control" id="superuserOffice" name="superuserOffice">
 																			</div>
 																		</div>
 
 																		<div class="form-group">
-																			<label for="rank" class="col-sm-4 control-label">
+																			<label for="superuserRank" class="col-sm-4 control-label">
 																				Rank
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="rank" name="rank">
+																				<input type="text" class="form-control" id="superuserRank" name="superuserRank">
 																			</div>
 																		</div>
 
 			                              <div class="form-group">
-			                                <label for="email" class="col-sm-4 control-label">
+			                                <label for="superuserUsername" class="col-sm-4 control-label">
 			                                  Username
 			                                </label>
 
 			                                <div class="col-sm-6">
-			                                  <input type="text" class="form-control" id="email" name="email">
+			                                  <input type="text" class="form-control" id="superuserUsername" name="superuserUsername">
 			                                </div>
 			                              </div>
 
 			                              <div class="form-group">
-			                                <label for="password" class="col-sm-4 control-label">
+			                                <label for="superuserPassword" class="col-sm-4 control-label">
 			                                  Password
 			                                </label>
 
 			                                <div class="col-sm-6">
-			                                  <input type="text" class="form-control" id="password" name="password">
+			                                  <input type="text" class="form-control" id="superuserPassword" name="superuserPassword">
 			                                </div>
 			                              </div>
 
 			                              <div class="span7 text-center">
-			                                <input type="submit" value="Register" name="submit2" />
+			                                <input type="submit" value="Register" name="submit4" />
 			                              </div>
 
 

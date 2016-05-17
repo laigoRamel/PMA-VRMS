@@ -1,13 +1,13 @@
 
 <?php
-  if (isset($_POST['submit2'])) {
-    $lastname = $_POST['lastname'];
-    $firstname = $_POST['username'];
-    $middlename = $_POST['middlename'];
-    $office = $_POST['office'];
-    $rank = $_POST['rank'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+  if (isset($_POST['submit3'])) {
+    $lastname = $_POST['clientLastname'];
+    $firstname = $_POST['clientFirstname'];
+    $middlename = $_POST['clientMiddlename'];
+    $office = $_POST['clientOffice'];
+    $rank = $_POST['clientRank'];
+    $username = $_POST['clientUsername'];
+    $password = $_POST['clientPassword'];
 
     $fullname = ($lastname . ", " . $firstname . " " . $middlename);
 
@@ -24,4 +24,6 @@
 
     mysqli_close($dbc);
   }
+
+  header('Location: accounts_client_page.php');
 ?>

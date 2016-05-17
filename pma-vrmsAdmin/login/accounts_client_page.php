@@ -173,15 +173,15 @@ include('session.php');
                     <div class="box">
                         <div class="box-body">
 													<button class="btn btn-primary btn-lg pull-right" data-toggle="modal"
-														data-target="#adminAccount">
+														data-target="#clientAccount">
 														<!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->
 														Add Client User
 													</button>
 														<!-- <br/><br/><br/><br/><br/><br/><br/> -->
 
 													<!-- Modal -->
-													<div class="modal fade" id="adminAccount" tabindex="-1" role="dialog"
-														aria-labelledby="adminAccountLabel">
+													<div class="modal fade" id="clientAccount" tabindex="-1" role="dialog"
+														aria-labelledby="clientAccountLabel">
 
 														<div class="modal-dialog" role="document">
 															<div class="modal-content">
@@ -190,92 +190,87 @@ include('session.php');
 																		<span aria-hidden="true">&times;</span>
 																	</button>
 
-																	<h4 class="modal-title" id="adminAccountLabel">Create Client Account</h4>
+																	<h4 class="modal-title" id="clientAccountLabel">Create Client Account</h4>
 																</div>
 
 																<div class="modal-body">
-																	<form class="form-horizontal" method="post" action="accounts_client_page.php">
+																	<form class="form-horizontal" method="post" action="accounts_client_logic.php">
 
-																		<div class="form-group">
-																			<label for="lastname" class="col-sm-4 control-label">
+																		<div  class="form-group">
+																			<label for="clientLastname" class="col-sm-4 control-label">
 																				Last Name
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="lastname" name="lastname">
+																				<input type="text" class="form-control" id="clientLastname" name="clientLastname">
 																			</div>
 																		</div>
 
 																		<div class="form-group">
-																			<label for="firstname" class="col-sm-4 control-label">
+																			<label for="clientFirstname" class="col-sm-4 control-label">
 																				First Name
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="firstname" name="firstname">
+																				<input type="text" class="form-control" id="clientFirstname" name="clientFirstname">
 																			</div>
 																		</div>
 
 																		<div class="form-group">
-																			<label for="middlename" class="col-sm-4 control-label">
+																			<label for="clientMiddlename" class="col-sm-4 control-label">
 																				Middle Name
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="middlename" name="middlename">
+																				<input type="text" class="form-control" id="clientMiddlename" name="clientMiddlename">
 																			</div>
 																		</div>
 
-
 																		<div class="form-group">
-																			<label for="office" class="col-sm-4 control-label">
+																			<label for="clientOffice" class="col-sm-4 control-label">
 																				Office
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="office" name="office">
+																				<input type="text" class="form-control" id="clientOffice" name="clientOffice">
 																			</div>
 																		</div>
 
 																		<div class="form-group">
-																			<label for="rank" class="col-sm-4 control-label">
+																			<label for="clientRank" class="col-sm-4 control-label">
 																				Rank
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="rank" name="rank">
+																				<input type="text" class="form-control" id="clientRank" name="clientRank">
 																			</div>
 																		</div>
 
 																		<div class="form-group">
-																			<label for="email" class="col-sm-4 control-label">
+																			<label for="clientUsername" class="col-sm-4 control-label">
 																				Username
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="email" name="username">
+																				<input type="text" class="form-control" id="clientUsername" name="clientUsername">
 																			</div>
 																		</div>
 
 																		<div class="form-group">
-																			<label for="password" class="col-sm-4 control-label">
+																			<label for="clientPassword" class="col-sm-4 control-label">
 																				Password
 																			</label>
 
 																			<div class="col-sm-6">
-																				<input type="text" class="form-control" id="password" name="password">
+																				<input type="text" class="form-control" id="clientPassword" name="clientPassword">
 																			</div>
 																		</div>
 
 																		<div class="span7 text-center">
-																			<input type="submit" value="Register" name="submit2" />
+																			<input type="submit" value="Register" name="submit3" />
 																		</div>
 
-
-
-
-
-													</form>
+																	</form>
 																</div>
 
 																<div class="modal-footer">
