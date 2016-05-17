@@ -12,7 +12,7 @@
     $password = $_POST['password'];
     $level = 1;
 
-    $fullname = ($lastname . $firstname . $middlename);
+    $fullname = ($lastname . ', ' . $firstname . ' ' . $middlename);
 
     $dbc = mysqli_connect('localhost', 'root', '', 'pma-vrms')
       or die ('Error connecting to MySQL server.');

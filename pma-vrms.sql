@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2016 at 09:17 AM
+-- Generation Time: May 17, 2016 at 05:37 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -35,15 +35,21 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `password` varchar(100) NOT NULL,
   `level` int(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`id`, `name`, `office`, `rank`, `username`, `password`, `level`) VALUES
-(1, 'GoDaryllChan', 'Marching Band Company', 'SSG', 'daryllgo', 'secret', 1),
-(2, 'LaigoRamelLabino', 'Marching Band Company', 'LT', 'ramellaigo', 'secret2', 1);
+(7, 'Zafra, Gene Raphael D', 'MP', 'SFC', 'genezafra', 'password1', 2),
+(8, 'Catalan, Marko C', 'MP', 'SSG', 'markocatalan', 'password2', 2),
+(9, 'Go, Darryl M', 'MP', 'SGT', 'darrylgo', 'password3', 2),
+(12, 'Laigo, Ramel L', 'MA2', 'CPT', 'ramellaigo', 'password4', 1),
+(13, 'Lim, Marc Jaztinn G', 'MA2', '1LT', 'marcjaztinn', 'password5', 1),
+(14, 'Mang-osan, Alvy Blaine K', 'MA2', '2LT', 'alvymangosan', 'password6', 1),
+(15, 'Odcheo, Joris Karl B', 'MA2', 'MAJ', 'jorisodcheo', 'password7', 3),
+(16, 'Ulat, Kriss Ford J', 'MA2', 'MAJ', 'krissulat', 'password8', 3);
 
 -- --------------------------------------------------------
 
@@ -58,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `admin_logs` (
   `curr_date` date NOT NULL,
   `curr_time` time NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=377 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=485 ;
 
 --
 -- Dumping data for table `admin_logs`
@@ -439,7 +445,115 @@ INSERT INTO `admin_logs` (`id`, `username`, `activity`, `curr_date`, `curr_time`
 (373, 'user1', 'Registered: Bautista, Zabat Rayzon (from pending)', '2016-05-14', '09:31:48'),
 (374, 'user1', 'Registered: Saclolo, Balatibat Emil (from pending)', '2016-05-14', '09:31:48'),
 (375, 'user1', 'Registered: Santos, Ducutanan Roy (from pending)', '2016-05-14', '09:31:48'),
-(376, 'user1', 'Registered: Mendoza, Castillo John (from pending)', '2016-05-14', '09:31:48');
+(376, 'user1', 'Registered: Mendoza, Castillo John (from pending)', '2016-05-14', '09:31:48'),
+(377, 'ramellaigo', 'Registered: Fernando, Aparil Cesar (from pending)', '2016-05-17', '11:34:09'),
+(378, 'ramellaigo', 'Registered: Travina, Perez Adriano (from pending)', '2016-05-17', '11:34:09'),
+(379, 'ramellaigo', 'Registered: Manahan, De Leon Cecile (from pending)', '2016-05-17', '11:34:09'),
+(380, 'ramellaigo', 'Registered: Felizardo, Nirza Basele (from pending)', '2016-05-17', '11:34:09'),
+(381, 'ramellaigo', 'Registered: Esteban, Ricana Ace (from pending)', '2016-05-17', '11:34:09'),
+(382, 'ramellaigo', 'Registered: Carpio, Carlito Catapang (from pending)', '2016-05-17', '11:34:09'),
+(383, 'ramellaigo', 'Registered: Hipolito, Oscan Robin (from pending)', '2016-05-17', '11:34:09'),
+(384, 'ramellaigo', 'Registered: Tabaranza, Legazpi Wilmor (from pending)', '2016-05-17', '11:34:09'),
+(385, 'ramellaigo', 'Registered: Espera, Atienza Kim (from pending)', '2016-05-17', '11:34:09'),
+(386, 'ramellaigo', 'Registered: Puzon, Bacus Anthony (from pending)', '2016-05-17', '11:34:09'),
+(387, 'ramellaigo', 'Registered: Magbanua, Masalunga Mark (from pending)', '2016-05-17', '11:34:09'),
+(388, 'ramellaigo', 'Registered: Garcia, Paguiligan Julian (from pending)', '2016-05-17', '11:34:09'),
+(389, 'ramellaigo', 'Registered: Dianzon, Pagarigan Adriel (from pending)', '2016-05-17', '11:34:09'),
+(390, 'ramellaigo', 'Registered: Lat, Angeles Noriel (from pending)', '2016-05-17', '11:34:09'),
+(391, 'ramellaigo', 'Registered: Santia, Bayani Marvin (from pending)', '2016-05-17', '11:34:09'),
+(392, 'ramellaigo', 'Registered: Lopez, Fuellas Lemuel (from pending)', '2016-05-17', '11:34:09'),
+(393, 'ramellaigo', 'Registered: Galacia, Inosanto Kurt (from pending)', '2016-05-17', '11:34:09'),
+(394, 'ramellaigo', 'Registered: Guzman, Embuscado Emmanuel (from pending)', '2016-05-17', '11:34:09'),
+(395, 'ramellaigo', 'Registered: Ambrocio, Panoy Raphy (from pending)', '2016-05-17', '11:34:09'),
+(396, 'ramellaigo', 'Registered: Ramon, Ronoh Philip (from pending)', '2016-05-17', '11:34:09'),
+(397, 'ramellaigo', 'Registered: Hererra, Talam Marcelino (from pending)', '2016-05-17', '11:34:09'),
+(398, 'ramellaigo', 'Registered: Ali, Angulo Jeff (from pending)', '2016-05-17', '11:34:09'),
+(399, 'ramellaigo', 'Registered: Cook, Bay-ocot Nelson (from pending)', '2016-05-17', '11:34:09'),
+(400, 'ramellaigo', 'Registered: Bauna, Resurreccion Jericho (from pending)', '2016-05-17', '11:34:09'),
+(401, 'ramellaigo', 'Registered: Doctolero, Cerbito John (from pending)', '2016-05-17', '11:34:09'),
+(402, 'ramellaigo', 'Registered: Stevens, Cook Samuel (from pending)', '2016-05-17', '11:34:09'),
+(403, 'ramellaigo', 'Registered: Lizan, Angeles Robin (from pending)', '2016-05-17', '11:34:09'),
+(404, 'ramellaigo', 'Registered: Alamo, Chirchir Jackson (from pending)', '2016-05-17', '11:34:09'),
+(405, 'ramellaigo', 'Registered: Romblon, Placer John (from pending)', '2016-05-17', '11:34:09'),
+(406, 'ramellaigo', 'Registered: Escalante, Cantor Jay (from pending)', '2016-05-17', '11:34:10'),
+(407, 'ramellaigo', 'Registered: Villalobos, Centino Juanito (from pending)', '2016-05-17', '11:34:10'),
+(408, 'ramellaigo', 'Registered: Albert, Bayos Gelbert (from pending)', '2016-05-17', '11:34:10'),
+(409, 'ramellaigo', 'Registered: Starkweather, Jonas Cole (from pending)', '2016-05-17', '11:34:10'),
+(410, 'ramellaigo', 'Registered: Aguas, Quisay Alley (from pending)', '2016-05-17', '11:34:10'),
+(411, 'ramellaigo', 'Registered: Garcia, Felix Gabriel (from pending)', '2016-05-17', '11:34:10'),
+(412, 'ramellaigo', 'Registered: Larzano, Esporma Welfred (from pending)', '2016-05-17', '11:34:10'),
+(413, 'ramellaigo', 'Registered: Jacob, Cuevas Reylito (from pending)', '2016-05-17', '11:34:10'),
+(414, 'ramellaigo', 'Registered: Cruz, Gonzales Joric (from pending)', '2016-05-17', '11:34:10'),
+(415, 'ramellaigo', 'Registered: Hugo, Advincula John (from pending)', '2016-05-17', '11:34:10'),
+(416, 'ramellaigo', 'Registered: Laganzo, Felipe Juan (from pending)', '2016-05-17', '11:34:10'),
+(417, 'ramellaigo', 'Registered: Furiscal, Deslate Marc (from pending)', '2016-05-17', '11:34:10'),
+(418, 'ramellaigo', 'Registered: Lorena, Yulip Henry (from pending)', '2016-05-17', '11:34:10'),
+(419, 'ramellaigo', 'Registered: Amoguis, Cotinez Raymund (from pending)', '2016-05-17', '11:34:10'),
+(420, 'ramellaigo', 'Registered: Maming, Racela Heathcliff (from pending)', '2016-05-17', '11:34:10'),
+(421, 'ramellaigo', 'Registered: Castro, Jayma Gil (from pending)', '2016-05-17', '11:34:10'),
+(422, 'ramellaigo', 'Registered: Sison, Abello Kristy (from pending)', '2016-05-17', '11:34:10'),
+(423, 'ramellaigo', 'Registered: Bautista, Zabat Rayzon (from pending)', '2016-05-17', '11:34:10'),
+(424, 'ramellaigo', 'Registered: Saclolo, Balatibat Emil (from pending)', '2016-05-17', '11:34:10'),
+(425, 'ramellaigo', 'Registered: Santos, Ducutanan Roy (from pending)', '2016-05-17', '11:34:10'),
+(426, 'ramellaigo', 'Registered: Mendoza, Castillo John (from pending)', '2016-05-17', '11:34:10'),
+(427, 'ramellaigo', 'Registered: Delgado, Abaygar Dennis (from pending AFP)', '2016-05-17', '11:34:14'),
+(428, 'ramellaigo', 'Registered: Salazar, Paltiguera Nick (from pending AFP)', '2016-05-17', '11:34:14'),
+(429, 'ramellaigo', 'Registered: Era, Lozada Maria (from pending AFP)', '2016-05-17', '11:34:14'),
+(430, 'ramellaigo', 'Registered: Sacdalan, Cruz Alvin (from pending AFP)', '2016-05-17', '11:34:14'),
+(431, 'ramellaigo', 'Registered: Pena, Afranca Diego (from pending AFP)', '2016-05-17', '11:34:14'),
+(432, 'ramellaigo', 'Registered: Escio, Castro Julius (from pending AFP)', '2016-05-17', '11:34:14'),
+(433, 'ramellaigo', 'Registered: Alforte, Dexter Mangabang (from pending AFP)', '2016-05-17', '11:34:14'),
+(434, 'ramellaigo', 'Registered: Yutuc, Moreno Raymond (from pending AFP)', '2016-05-17', '11:34:14'),
+(435, 'ramellaigo', 'Registered: Constantino, Chua Sonny (from pending AFP)', '2016-05-17', '11:34:14'),
+(436, 'ramellaigo', 'Registered: Martirez, Lomag Lily (from pending AFP)', '2016-05-17', '11:34:14'),
+(437, 'ramellaigo', 'Registered: De Jesus, Baetiong Adrian (from pending AFP)', '2016-05-17', '11:34:14'),
+(438, 'ramellaigo', 'Registered: Rosario, Navarette Joseph (from pending AFP)', '2016-05-17', '11:34:14'),
+(439, 'ramellaigo', 'Registered: Bulda, Dacoco John (from pending AFP)', '2016-05-17', '11:34:14'),
+(440, 'ramellaigo', 'Registered: Flores, Jimenez Jason (from pending AFP)', '2016-05-17', '11:34:14'),
+(441, 'ramellaigo', 'Registered: Gan, Cuerdo Christopher (from pending AFP)', '2016-05-17', '11:34:14'),
+(442, 'ramellaigo', 'Registered: Laguit, Juan Jett (from pending AFP)', '2016-05-17', '11:34:14'),
+(443, 'ramellaigo', 'Registered: Bonifacio, Bautista Maria (from pending AFP)', '2016-05-17', '11:34:14'),
+(444, 'ramellaigo', 'Registered: Calaycay, Robles Patrick (from pending AFP)', '2016-05-17', '11:34:14'),
+(445, 'ramellaigo', 'Registered: Olimpo, Uy Yoshi (from pending AFP)', '2016-05-17', '11:34:14'),
+(446, 'ramellaigo', 'Registered: Ortega, Tafalla Kris (from pending AFP)', '2016-05-17', '11:34:14'),
+(447, 'ramellaigo', 'Registered: Paloma, Santos Carl (from pending AFP)', '2016-05-17', '11:34:14'),
+(448, 'ramellaigo', 'Registered: Rafanan, Valdez Ricky (from pending AFP)', '2016-05-17', '11:34:14'),
+(449, 'ramellaigo', 'Registered: Calma, Villa Franca Owen (from pending AFP)', '2016-05-17', '11:34:14'),
+(450, 'ramellaigo', 'Registered: Santos, Nabua Charleston (from pending AFP)', '2016-05-17', '11:34:14'),
+(451, 'ramellaigo', 'Registered: Lufuente, Santos Pocholo (from pending AFP)', '2016-05-17', '11:34:14'),
+(452, 'ramellaigo', 'Registered: Manuel, Corsiga Marvin (from pending AFP)', '2016-05-17', '11:34:14'),
+(453, 'ramellaigo', 'Registered: Silo, Cocjin Francis (from pending AFP)', '2016-05-17', '11:34:14'),
+(454, 'ramellaigo', 'Registered: Tero, Tiu Dennis (from pending AFP)', '2016-05-17', '11:34:15'),
+(455, 'ramellaigo', 'Registered: Marasigan, Angeles George (from pending AFP)', '2016-05-17', '11:34:15'),
+(456, 'ramellaigo', 'Registered: Salcedo, Pambid Ariel (from pending AFP)', '2016-05-17', '11:34:15'),
+(457, 'ramellaigo', 'Registered: Domingo, Velarde Eduardo (from pending AFP)', '2016-05-17', '11:34:15'),
+(458, 'ramellaigo', 'Registered: Alejo, Maceda Roy (from pending AFP)', '2016-05-17', '11:34:15'),
+(459, 'ramellaigo', 'Registered: Raval, Fontillas John (from pending AFP)', '2016-05-17', '11:34:15'),
+(460, 'ramellaigo', 'Registered: Siccion, Ronald Virgino (from pending AFP)', '2016-05-17', '11:34:15'),
+(461, 'ramellaigo', 'Registered: Antonio, Safia Acmad (from pending AFP)', '2016-05-17', '11:34:15'),
+(462, 'ramellaigo', 'Registered: Pannga, Bautista Bonofacio (from pending AFP)', '2016-05-17', '11:34:15'),
+(463, 'ramellaigo', 'Registered: Paragas, Tengco John (from pending AFP)', '2016-05-17', '11:34:15'),
+(464, 'ramellaigo', 'Registered: Tagaro, Revibes Sheriff (from pending AFP)', '2016-05-17', '11:34:15'),
+(465, 'ramellaigo', 'Registered: Jucutan, Aguinaldo Joepert (from pending AFP)', '2016-05-17', '11:34:15'),
+(466, 'ramellaigo', 'Registered: Ong, Amoranto Gerald (from pending AFP)', '2016-05-17', '11:34:15'),
+(467, 'ramellaigo', 'Registered: Abad, Salarzon Bernard (from pending AFP)', '2016-05-17', '11:34:15'),
+(468, 'ramellaigo', 'Registered: Domingo, Zara Christian (from pending AFP)', '2016-05-17', '11:34:15'),
+(469, 'ramellaigo', 'Registered: Lusterio, Samson Martin (from pending AFP)', '2016-05-17', '11:34:15'),
+(470, 'ramellaigo', 'Registered: Ellema, Ang Ann (from pending AFP)', '2016-05-17', '11:34:15'),
+(471, 'ramellaigo', 'Registered: Dorado, Dugue Jonathan (from pending AFP)', '2016-05-17', '11:34:15'),
+(472, 'ramellaigo', 'Registered: Laigo, De Veas Joseph (from pending AFP)', '2016-05-17', '11:34:15'),
+(473, 'ramellaigo', 'Registered: Baes, Solis Emmanuel (from pending AFP)', '2016-05-17', '11:34:15'),
+(474, 'ramellaigo', 'Registered: Paigna, Federe Pep (from pending AFP)', '2016-05-17', '11:34:15'),
+(475, 'ramellaigo', 'Registered: Alto, Valdez Les (from pending AFP)', '2016-05-17', '11:34:15'),
+(476, 'ramellaigo', 'Registered: Catalan, Yao Ronald (from pending AFP)', '2016-05-17', '11:34:15'),
+(477, 'ramellaigo', 'Registered: Odcheo, Melanio Rolan (from pending AFP)', '2016-05-17', '11:34:15'),
+(478, 'ramellaigo', 'Registered: Go, Mariano Felix (from pending AFP)', '2016-05-17', '11:34:15'),
+(479, 'ramellaigo', 'Registered: Lim, Diaz Noel (from pending AFP)', '2016-05-17', '11:34:15'),
+(480, 'ramellaigo', 'Registered: Puzon, Klindt Jesper (from pending AFP)', '2016-05-17', '11:34:15'),
+(481, 'ramellaigo', 'Registered: Caparros, Pe Marc (from pending AFP)', '2016-05-17', '11:34:15'),
+(482, 'ramellaigo', 'Registered: Desousa, Horacio Cannaday (from pending AFP)', '2016-05-17', '11:34:15'),
+(483, 'ramellaigo', 'Registered: Cabacang, Colao Paula (from pending AFP)', '2016-05-17', '11:34:15'),
+(484, 'ramellaigo', 'Registered: Rabino, Velncia Charles (from pending AFP)', '2016-05-17', '11:34:15');
 
 -- --------------------------------------------------------
 

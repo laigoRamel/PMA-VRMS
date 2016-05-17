@@ -5,7 +5,7 @@
 
 	$user_check = $_SESSION['login_user'];
 
-	$query = "SELECT username from admin_users
+	$query = "SELECT username from accounts
 				WHERE username='$user_check'";
 
 	$result = mysqli_query($dbc, $query)

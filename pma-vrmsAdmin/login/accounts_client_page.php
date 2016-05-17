@@ -94,8 +94,9 @@ include('session.php');
 							</a>
 
 							<ul class="treeview-menu">
-								<li><a href="accounts_admin_page.php">Admin Accounts</a></li>
+
 								<li><a href="accounts_client_page.php">Client Accounts</a></li>
+								<li><a href="accounts_admin_page.php">Admin Accounts</a></li>
 								<li><a href="accounts_superuser_page.php">Superuser Accounts</a></li>
 							</ul>
 						</li>
@@ -123,8 +124,8 @@ include('session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered Applicant</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="registeredApplicant.php">Civilian</a></li>
-                <li><a href="registeredAFP.php">Military</a></li>
+                <li><a href="../registeredApplicant.php">Civilian</a></li>
+                <li><a href="../registeredAFP.php">Military</a></li>
               </ul>
             </li>
 
@@ -132,8 +133,8 @@ include('session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-option-horizontal"></i> <span>Pending</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="pendingApplicant.php">Civilian</a></li>
-                <li><a href="pendingMilitary.php">Military</a></li>
+                <li><a href="../pendingApplicant.php">Civilian</a></li>
+                <li><a href="../pendingMilitary.php">Military</a></li>
               </ul>
             </li>
 
@@ -141,8 +142,8 @@ include('session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
-                <li><a href="AFPVehicleStatus.php">For Military</a></li>
+                <li><a href="../ApplicantVehicleStatus.php">For Civilian</a></li>
+                <li><a href="../AFPVehicleStatus.php">For Military</a></li>
               </ul>
             </li>
 
@@ -282,7 +283,7 @@ include('session.php');
 														</div>
 
 													</div>
-														<table class="table table-bordered table-hover" id="bootstrap-table">
+														<table class="table table-bordered table-hover" id="clientAccounts-table">
 															<thead>
 																<th>Username</th>
 																<th>Name</th>
@@ -291,7 +292,34 @@ include('session.php');
 															</thead>
 
 															<tbody>
+																<?php
+																	$dbc = mysqli_connect('localhost', 'root', '', 'pma-vrms')
+																		or die ('Error connecting to MySQL server.');
 
+																	$query = "SELECT username, name, office, rank
+																						FROM accounts
+																						WHERE level = 2";
+
+																	$result = mysqli_query($dbc, $query)
+																		or die ('Error querying database.');
+
+																	while ($row = mysqli_fetch_array($result)) {
+																		$username = $row['username'];
+																		$name = $row['name'];
+																		$office = $row['office'];
+																		$rank = $row['rank'];
+
+																?>
+																	<tr>
+																		<td><?php echo $username; ?></td>
+																		<td><?php echo $name; ?></td>
+																		<td><?php echo $office; ?></td>
+																		<td><?php echo $rank; ?></td>
+																	</tr>
+
+																<?php
+																	}
+																?>
 															</tbody>
 														</table>
                         </div>

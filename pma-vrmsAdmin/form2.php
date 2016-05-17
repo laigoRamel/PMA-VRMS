@@ -94,8 +94,9 @@ include('login/session.php');
 							</a>
 
 							<ul class="treeview-menu">
-								<li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
+
 								<li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+								<li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
 								<li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
 							</ul>
 						</li>
@@ -239,7 +240,7 @@ include('login/session.php');
                                   <option value="choice 1">choice 1</option>
                                   <option value="choice 2">choice 2</option>
                                   <option value="choice 3">choice 3</option>
-                         
+
                                 </select>
                               </div>
                             </div>
