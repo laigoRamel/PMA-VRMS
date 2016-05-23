@@ -3,7 +3,7 @@
 
 	$database = new Database();
 
-	$query = "SELECT form1_applicantpd.*, vehicle_information.* FROM form1_applicantpd JOIN vehicle_information ON form1_applicantpd.a_vehicle_id=vehicle_information.vehicleId WHERE form1_applicantpd.a_status='pending'  AND form1_applicantpd.a_renew_status = '1' ORDER BY a_dateRegistered DESC";
+	$query = "SELECT * FROM form1_applicantpd WHERE form1_applicantpd.a_status='pending' AND form1_applicantpd.a_renew_status = '0' ORDER BY a_dateRegistered DESC";
 	$database->execute($query);
 	
 	$rows = $database->getResult();
@@ -22,22 +22,8 @@
 		$a_driversLicense 	= $applicant['a_driversLicense'];
 		$a_expirationDate 	= $applicant['a_expirationDate'];
 		$a_class 			= $applicant['a_class'];
+		$a_requirements		= $applicant['a_submitted_requirements'];
 		
-		$id 				= $applicant['vehicleId'];
-		$vehicleMake 		= $applicant['vehicleMake'];
-		$plateNo 			= $applicant['plateNo'];
-		$yearModel 			= $applicant['yearModel'];
-		$color 				= $applicant['color'];
-		$motorNo 			= $applicant['motorNo'];
-		$chassisNo 			= $applicant['chassisNo'];
-		$stickerNo 			= $applicant['stickerNo'];
-		
-		array_push($applicants, array('a_applicantId' => $a_id, 'a_profile' => $a_profile, 'a_lastname' => $a_lastname, 'a_firstname' => $a_firstname, 'a_middlename' => $a_middlename,
-			'a_address' => $a_address, 'a_occupation' => $a_occupation, 'a_officeAddress' => $a_officeAddress, 'a_driversLicense' => $a_driversLicense,
-			'a_expirationDate' => $a_expirationDate, 'a_class' => $a_class,
-			'vehicleId' => $id, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 
-			'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 
-			'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
 
 		date_default_timezone_set("Asia/Hong_Kong");
 
@@ -50,6 +36,28 @@
 					VALUES ('', '$login_session', 'Registered: $full_name (from pending)', '$current_date', '$current_time')";
 
 		$database->execute($query2);
+
+		$vehicles = map_vehicles($a_id);
+
+		array_push($applicants, array('a_applicantId' => $a_id, 'a_profile' => $a_profile, 'a_lastname' => $a_lastname, 'a_firstname' => $a_firstname, 'a_middlename' => $a_middlename,
+			'a_address' => $a_address, 'a_occupation' => $a_occupation, 'a_officeAddress' => $a_officeAddress, 'a_driversLicense' => $a_driversLicense,
+			'a_expirationDate' => $a_expirationDate, 'a_class' => $a_class,
+			'a_requirements' => $a_requirements, 'vehicles' => $vehicles));
+	}
+
+	function map_vehicles($id){
+		$database = new Database();
+		$query = sprintf("SELECT * FROM vehicle_information WHERE driver_id='%s' AND driver_type = 'applicant'", $id);
+		$database->execute($query);
+		$rows = $database->getResult();
+
+		$vehicles = array();
+
+		while($vehicle = mysqli_fetch_array($rows)){
+			array_push($vehicles, $vehicle);
+		}
+
+		return $vehicles;
 	}
 
 ?>

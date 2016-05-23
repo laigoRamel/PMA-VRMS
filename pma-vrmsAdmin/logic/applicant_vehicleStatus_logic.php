@@ -3,7 +3,7 @@
 
 	$database = new Database();
 
-		$query = "SELECT * FROM vehicle_information JOIN form1_applicantpd ON form1_applicantpd.a_vehicle_id = vehicle_information.vehicleId";
+		$query = "SELECT * FROM vehicle_information JOIN form1_applicantpd ON form1_applicantpd.a_applicantId = vehicle_information.driver_id";
 	$database->execute($query);
 	
 	$rows = $database->getResult();
@@ -21,8 +21,8 @@
 		$motorNo 	= $vehicle['motorNo'];
 		$chassisNo 	= $vehicle['chassisNo'];
 		$stickerNo 	= $vehicle['stickerNo'];
-		
-		array_push($vehicles, array('vehicleId' => $id, 'name' => $name, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
+		$status		= $vehicle['status'];
+		array_push($vehicles, array('vehicleId' => $id, 'name' => $name, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo, 'status' => $status));
 	}
 
 ?>

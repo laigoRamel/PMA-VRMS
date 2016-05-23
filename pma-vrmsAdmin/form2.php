@@ -80,32 +80,27 @@ include('login/session.php');
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
-            <!-- Employee Log -->
-            <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
-
              <!-- Create Account -->
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
-						<!-- Accounts -->
-						<li class="treeview">
-							<a href="#"><i class="glyphicon glyphicon-plus"></i>
-								<span>Accounts</span>
-								<i class="glyphicon glyphicon-chevron-down pull-right"></i>
-							</a>
+            <!-- Accounts -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-plus"></i>
+                <span>Accounts</span>
+                <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+              </a>
 
-							<ul class="treeview-menu">
+              <ul class="treeview-menu">
 
-								<li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-								<li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
-								<li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
-							</ul>
-						</li>
+                <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+              </ul>
+            </li>
 
             <!-- Accounting -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="accountingApplicant.php">Civilians</a></li>
+                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
@@ -115,8 +110,8 @@ include('login/session.php');
             <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="form1.php">Fort del Pilar/Camp Allen/<br>Navybase</a></li>
-                <li class="active"><a href="form2.php">AFP/Military</a></li>
+                <li><a href="form1.php">Camp Allen/Navybase</a></li>
+                <li class="active"><a href="form2.php">AFP</a></li>
               </ul>
             </li>
 
@@ -480,7 +475,8 @@ include('login/session.php');
 
                     <!-- submit button -->
                     <div class="panel-body">
-                        <button type="button submit" class="btn btn-primary btn-lg pull-right" value="Ok">
+                        <span id='validate-plateNo' style='color: red; display: none;'><i class='fa fa-warning'></i> &nbsp;Plate number must be unique</span>
+                        <button id='submit-add' type="button submit" class="btn btn-primary btn-lg pull-right" value="Ok">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Submit Form
                         </button>
                     </div>
@@ -521,6 +517,42 @@ include('login/session.php');
 				var button_id = $(this).attr("id");
 				$('#row'+button_id+'').remove();
 			});
+
+      $('.panel-body').on('change', 'input[name="plateNo[]"]', function(){
+        var this_input = $(this);
+        var plate_numbers = [];
+
+        $('input[name="plateNo[]"]').each(function(index, value){
+          plate_numbers.push($('input[name="plateNo[]"]:eq('+index+')').val());
+        });
+
+        var counter = 0;
+        plate_numbers.some(function(value_1, index_1){
+          counter = 0;
+          plate_numbers.some(function(value_2, index_2){
+            if(value_1.length !== 0 && value_2.length !== 0){
+              if(value_1 === value_2){
+                counter++;
+                if(counter >= 2){
+                  return true;
+                }
+              }
+            }
+          });
+          if(counter >= 2){
+            return true;
+          }
+        })
+  
+        console.log(counter);
+        if(counter >= 2){
+           $('#validate-plateNo').css('display', 'block');
+           $('#submit-add').attr('disabled', true);
+        }else{
+          $('#validate-plateNo').css('display', 'none');
+           $('#submit-add').removeAttr('disabled');
+        }
+      });
 		});
 	</script>
 

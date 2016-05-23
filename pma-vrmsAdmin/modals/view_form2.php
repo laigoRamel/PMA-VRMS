@@ -182,8 +182,10 @@
                               <th>Chassis No</th>
                               <th>Sticker No</th>
                             </thead>
+                            <tbody id='view-vehicles'>
+                            </tbody>
                                 
-					<tr>  
+					<!--<tr>  
 						<td><input type="text" name="wheels" class="form-control name_list" readonly></input></td>  
 						<td><input type="text" name="vehicleMake" class="form-control name_list" readonly/></td>  
 						<td><input type="text" name="plateNo" class="form-control name_list" readonly/></td>  
@@ -192,7 +194,7 @@
 						<td><input type="text" name="motorNo" class="form-control name_list" readonly/></td>  
 						<td><input type="text" name="chassisNo" class="form-control name_list" readonly/></td>  
 						<td><input type="text" name="stickerNo" class="form-control name_list" readonly/></td>
-					</tr>
+					</tr>-->
                             
                             </table>
                                 

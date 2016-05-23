@@ -61,7 +61,7 @@ include('login/session.php');
       <!-- Left side column -->
       <aside class="main-sidebar">
 
-        <!-- sidebar -->
+         <!-- sidebar -->
         <section class="sidebar">
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
@@ -78,32 +78,27 @@ include('login/session.php');
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
-            <!-- Employee Log -->
-            <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
-
              <!-- Create Account -->
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
-						<!-- Accounts -->
-						<li class="treeview">
-							<a href="#"><i class="glyphicon glyphicon-plus"></i>
-								<span>Accounts</span>
-								<i class="glyphicon glyphicon-chevron-down pull-right"></i>
-							</a>
+            <!-- Accounts -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-plus"></i>
+                <span>Accounts</span>
+                <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+              </a>
 
-							<ul class="treeview-menu">
+              <ul class="treeview-menu">
 
-								<li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-								<li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
-								<li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
-							</ul>
-						</li>
+                <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+              </ul>
+            </li>
 
             <!-- Accounting -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="accountingApplicant.php">Civilian</a></li>
+                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
@@ -113,8 +108,8 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="form1.php">Fort del Pilar/Camp Allen/<br>Navybase</a></li>
-                <li><a href="form2.php">AFP/Military</a></li>
+                <li><a href="form1.php">Camp Allen/Navybase</a></li>
+                <li><a href="form2.php">AFP</a></li>
               </ul>
             </li>
 
@@ -128,11 +123,11 @@ include('login/session.php');
             </li>
 
             <!-- Pending -->
-            <li class="treeview">
+            <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-option-horizontal"></i> <span>Pending</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="pendingApplicant.php">Civilian</a></li>
-                <li><a href="pendingMilitary.php">Military</a></li>
+                <li class="active"><a href="pendingMilitary.php">Military</a></li>
               </ul>
             </li>
 
@@ -185,7 +180,7 @@ include('login/session.php');
 							<?php
 								foreach ($militarys as $key => $military) {
 									echo <<<DATA
-										<tr id='military_$key'>
+										<tr id='military_$key' requirements='$military[m_submitted_requirements]' m_militaryId='$military[m_militaryId]'>
 											<td><img src='img/profile/military/$military[m_profile]' height='100px;'></td>
                         <td>$military[m_lastname]</td>
                         <td>$military[m_firstname]</td>
@@ -202,15 +197,7 @@ include('login/session.php');
                         <td style='display:none'>$military[m_officeAddress]</td>
                         <td style='display:none'>$military[m_retirementDate]</td>
                         <td>$military[m_class]</td>
-                        <td style='display:none'>$military[wheels]</td>
-                        <td style='display:none'>$military[vehicleMake]</td>
-                        <td style='display:none'>$military[plateNo]</td>
-                        <td style='display:none'>$military[yearModel]</td>
-                        <td style='display:none'>$military[color]</td>
-                        <td style='display:none'>$military[motorNo]</td>
-                        <td style='display:none'>$military[chassisNo]</td>
-                        <td style='display:none'>$military[stickerNo]</td>
-											<td><button class="btn btn-success" data-toggle='modal' data-target='#update_military' onclick='update_military($key)'>Update</button></td>
+											<td><button class="btn btn-success update-btn">Update</button></td>
 										</tr>
 DATA;
 								}
@@ -244,6 +231,24 @@ DATA;
 
     </div><!-- ./wrapper -->
 
+    <script>
+      $('table').on('click', '.update-btn', function(){
+        var requirements_1 = $(this).closest('tr').attr('requirements');
+        var requirements_2 = requirements_1.split(',');
+
+         for(var i=1; i<7; i++){
+            $('#requirement-'+i).prop('checked', false);
+          }
+
+        requirements_2.forEach(function(value, index){
+          $('#requirement-'+value).prop('checked', true);
+        });
+
+        $('#m_militaryId').val($(this).closest('tr').attr('m_militaryId'));
+
+        $('#update_military').modal('show');
+      });
+    </script>
 
 
 </body>

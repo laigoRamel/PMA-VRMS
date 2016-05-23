@@ -64,7 +64,7 @@ include('login/session.php');
       <!-- Left side column -->
       <aside class="main-sidebar">
 
-        <!-- sidebar -->
+         <!-- sidebar -->
         <section class="sidebar">
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
@@ -81,32 +81,27 @@ include('login/session.php');
             <!-- Reports -->
             <li class="active"><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
-            <!-- Employee Log -->
-            <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
-
              <!-- Create Account -->
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
-						<!-- Accounts -->
-						<li class="treeview">
-							<a href="#"><i class="glyphicon glyphicon-plus"></i>
-								<span>Accounts</span>
-								<i class="glyphicon glyphicon-chevron-down pull-right"></i>
-							</a>
+            <!-- Accounts -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-plus"></i>
+                <span>Accounts</span>
+                <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+              </a>
 
-							<ul class="treeview-menu">
+              <ul class="treeview-menu">
 
-								<li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-								<li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
-								<li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
-							</ul>
-						</li>
+                <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+              </ul>
+            </li>
 
             <!-- Accounting -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="accountingApplicant.php">Civilian</a></li>
+                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
@@ -116,8 +111,8 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="form1.php">Fort del Pillar/Camp Allen/<br>Navybase</a></li>
-                <li><a href="form2.php">AFP/Military</a></li>
+                <li><a href="form1.php">Camp Allen/Navybase</a></li>
+                <li><a href="form2.php">AFP</a></li>
               </ul>
             </li>
 
