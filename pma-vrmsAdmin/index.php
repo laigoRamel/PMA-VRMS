@@ -1,5 +1,6 @@
 <?php
 include('login/session.php');
+//header('Location: login_page.php');
 
 ?>
 <!DOCTYPE html>

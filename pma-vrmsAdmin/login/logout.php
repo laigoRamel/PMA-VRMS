@@ -7,6 +7,6 @@
 		$dbc = mysqli_connect('localhost', 'root', '', 'pma-vrms');
 		$query = sprintf("UPDATE admin_logs SET time_out='%s' WHERE id='%s'", date('Y-m-d H:i:s'), $log_id);
 		mysqli_query($dbc, $query);*/
-		header("Location: ../../pma-vrmsSuperAdmin/login_page.php");
+		header("Location: ../login_page.php");
 	}
 ?>

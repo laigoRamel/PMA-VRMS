@@ -46,8 +46,8 @@
 
 				//var_dump($_SESSION['name']);
 				//exit();
-				if($_SESSION['level'] === '1'){
-					header("location: ../../pma-vrmsAdmin/index.php");
+				if($_SESSION['level'] === '3'){
+					header("location: ../pma-vrmsSuperAdmin/index.php");
 					exit();
 				}
 				/*date_default_timezone_set('Asia/Hong_Kong');
@@ -58,8 +58,8 @@
 				$query = sprintf("SELECT id FROM admin_logs WHERE user_id='%s' AND time_in='%s'", $user_id, $time_in);
 				$result = mysqli_query($dbc, $query);
 				$_SESSION['log_id'] = mysqli_fetch_array($result)['id'];*/
-				header("location: index.php");
-				exit();
+				//header("location: index.php");
+				//exit();
 			} else {
 				$error = "Username or Password is invalid";
 			}
