@@ -3,7 +3,7 @@
 
 	$database = new Database();
 
-	$query = "SELECT form2_militarypd.*, vehicle_information.* FROM form2_militarypd JOIN vehicle_information ON form2_militarypd.m_vehicle_id=vehicle_information.vehicleId WHERE form2_militarypd.m_status='registered' AND form2_militarypd.m_renew_status = '1' ORDER BY m_dateRegistered DESC";
+	$query = "SELECT * FROM form2_militarypd WHERE form2_militarypd.m_status='registered' AND form2_militarypd.m_renew_status = '1' ORDER BY m_dateRegistered DESC";
 	$database->execute($query);
 	
 	$rows = $database->getResult();
@@ -28,21 +28,25 @@
 		$m_class 				= $military['m_class'];
 		$m_dateRegistered 		= $military['m_dateRegistered'];
 		$m_placeRegistered 		= $military['m_placeRegistered'];
+
+		$vehicles = map_vehicles($m_id);
 		
-		$vehicleId 				= $military['vehicleId'];
-		$wheels 				= $military['wheels'];
-		$vehicleMake 			= $military['vehicleMake'];
-		$plateNo 				= $military['plateNo'];
-		$yearModel 				= $military['yearModel'];
-		$color 					= $military['color'];
-		$motorNo 				= $military['motorNo'];
-		$chassisNo 				= $military['chassisNo'];
-		$stickerNo 				= $military['stickerNo'];
-		
-		array_push($militarys, array('m_militaryId' => $m_id, 'm_profile' => $m_profile,  'name' => $name, 'm_rank' => $m_rank, 'm_brSvc' => $m_brSvc, 'm_afpsn' => $m_afpsn, 'm_residenceAddress' => $m_residenceAddress, 'm_residenceTelNo' => $m_residenceTelNo, 'm_emailAddress' => $m_emailAddress, 'm_mobileNo' => $m_mobileNo, 'm_designatedOffice' => $m_designatedOffice, 'm_officeTelNo' => $m_officeTelNo, 'm_officeAddress' => $m_officeAddress, 'm_retirementDate' => $m_retirementDate, 'm_class' => $m_class, 'm_dateRegistered' => $m_dateRegistered, 'm_placeRegistered' => $m_placeRegistered,
-			'vehicleId' => $vehicleId, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 
-			'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 
-			'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
+		array_push($militarys, array('m_militaryId' => $m_id, 'm_profile' => $m_profile,  'name' => $name, 'm_rank' => $m_rank, 'm_brSvc' => $m_brSvc, 'm_afpsn' => $m_afpsn, 'm_residenceAddress' => $m_residenceAddress, 'm_residenceTelNo' => $m_residenceTelNo, 'm_emailAddress' => $m_emailAddress, 'm_mobileNo' => $m_mobileNo, 'm_designatedOffice' => $m_designatedOffice, 'm_officeTelNo' => $m_officeTelNo, 'm_officeAddress' => $m_officeAddress, 'm_retirementDate' => $m_retirementDate, 'm_class' => $m_class, 'm_dateRegistered' => $m_dateRegistered, 'm_placeRegistered' => $m_placeRegistered, 'vehicles' => $vehicles));
+	}
+
+	function map_vehicles($id){
+		$database = new Database();
+		$query = sprintf("SELECT * FROM vehicle_information WHERE driver_id='%s' AND driver_type = 'military'", $id);
+		$database->execute($query);
+		$rows = $database->getResult();
+
+		$vehicles = array();
+
+		while($vehicle = mysqli_fetch_array($rows)){
+			array_push($vehicles, $vehicle);
+		}
+
+		return $vehicles;
 	}
 
 ?>

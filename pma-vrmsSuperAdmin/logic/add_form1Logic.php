@@ -17,22 +17,12 @@
 		
 		move_uploaded_file($a_profile['tmp_name'], "../img/profile/applicant/".$a_firstname.'-'.$a_lastname.'.png');
 		$img_name = $a_firstname.'-'.$a_lastname.'.png';
-//Add vehicle		
-		for($i=0; $i<count($vehicleMake); $i++){
-			$query1 = "INSERT INTO vehicle_information (wheels, vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, stickerNo) 
-				VALUES ('$wheels[$i]', '$vehicleMake[$i]', '$plateNo[$i]', '$yearModel[$i]', '$color[$i]', '$motorNo[$i]', '$chassisNo[$i]', '$stickerNo[$i]')";
-			$database->execute($query1);
-		}
-		
+
 //Add applicant	
-		$query_vehicle = "SELECT vehicleId FROM vehicle_information ORDER BY vehicleId DESC LIMIT 1"; 
-		$database->execute($query_vehicle);
-		$rows = $database->getResult();
-		$result = mysqli_fetch_array($rows);
-		$vehicle_id = $result['vehicleId']; // vehicle id
-		
 		$requirements = $_POST['requirements'];
 		$status = (count($requirements) === 5) ? 'registered' : 'pending'; //status
+		$a_renew_status = (count($requirements) === 5) ? 1 : 0; //status
+		$amount = (count($requirements) === 5) ? 250 : 0; //status
 		
 		$all_requirements = ''; //all submitted requirements
 		foreach($requirements as $requirement){
@@ -48,8 +38,8 @@
 		$username = $_SESSION['getUser'];
 		
 	
-		$query = "INSERT INTO form1_applicantpd (a_profile, a_lastname, a_firstname, a_middlename, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_placeRegistered, a_submitted_requirements, a_status, a_dateRegistered, a_vehicle_id, a_renew_status) 
-				VALUES ('$img_name', '$a_lastname', '$a_firstname', '$a_middlename', '$a_address', '$a_occupation', '$a_officeAddress', '$a_driversLicense', '$a_expirationDate', '$a_class', '$a_placeRegistered', '$all_requirements', '$status', '$a_dateRegistered', '$vehicle_id', '1')";
+		$query = "INSERT INTO form1_applicantpd (a_profile, a_lastname, a_firstname, a_middlename, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_placeRegistered, a_submitted_requirements, a_status, a_dateRegistered, a_renew_status, amount) 
+				VALUES ('$img_name', '$a_lastname', '$a_firstname', '$a_middlename', '$a_address', '$a_occupation', '$a_officeAddress', '$a_driversLicense', '$a_expirationDate', '$a_class', '$a_placeRegistered', '$all_requirements', '$status', '$a_dateRegistered', '$a_renew_status', '$amount')";
 
 		$database->execute($query);
 
@@ -59,6 +49,24 @@
 					VALUES ('', '$username', 'Registered: $full_name', '$current_date', '$current_time')";
 
 		$database->execute($query2);
+
+
+//Add vehicle		
+		$query_applicant = "SELECT a_applicantId FROM form1_applicantpd ORDER BY a_applicantId DESC LIMIT 1"; 
+		$database->execute($query_applicant);
+		$rows = $database->getResult();
+		$result = mysqli_fetch_array($rows);
+		$applicant_id = $result['a_applicantId']; // vehicle id
+
+		for($i=0; $i<count($vehicleMake); $i++){
+			$query1 = "INSERT INTO vehicle_information (wheels, vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, stickerNo, driver_id, driver_type) 
+				VALUES ('$wheels[$i]', '$vehicleMake[$i]', '$plateNo[$i]', '$yearModel[$i]', '$color[$i]', '$motorNo[$i]', '$chassisNo[$i]', '$stickerNo[$i]', '$applicant_id', 'applicant')";
+			
+			//var_dump($query1);
+
+			$database->execute($query1);
+		}
+		//exit();
 
 		$database->disconnect();
 	}

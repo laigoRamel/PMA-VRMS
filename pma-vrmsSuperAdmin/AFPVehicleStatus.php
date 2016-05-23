@@ -65,7 +65,7 @@
       <!-- Left side column -->
       <aside class="main-sidebar">
 
-        <!-- sidebar -->
+         <!-- sidebar -->
         <section class="sidebar">
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
@@ -77,38 +77,38 @@
 
 
             <!-- Vehicle Log -->
-            <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
+            <li class=""><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
 
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
             <!-- Employee Log -->
-            <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+            <li class=""><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
 
-             <!-- Create Account -->
-            <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
+            <!-- Create Account -->
+            <!-- <li class="active"><a href="../login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
-						<!-- Accounts -->
-						<li class="treeview">
-							<a href="#"><i class="glyphicon glyphicon-plus"></i>
-								<span>Accounts</span>
-								<i class="glyphicon glyphicon-chevron-down pull-right"></i>
-							</a>
+            <!-- Accounts -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-plus"></i>
+                <span>Accounts</span>
+                <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+              </a>
 
-							<ul class="treeview-menu">
+              <ul class="treeview-menu">
 
-								<li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-								<li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
-								<li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
-							</ul>
-						</li>
+                <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+                <li><a href="loginaccounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
+              </ul>
+            </li>
 
             <!-- Accounting -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="accountingApplicant.php">Civilian</a></li>
-                <li><a href="AccountingMilitary.php">Military</a></li>
+                <li><a href="accountingMilitary.php">Military</a></li>
               </ul>
             </li>
 
@@ -117,7 +117,7 @@
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="form1.php">Fort del Pillar/Camp Allen/<br>Navybase</a></li>
+                <li><a href="form1.php">Camp Allen/Navybase/<br>Fort del Pilar</a></li>
                 <li><a href="form2.php">AFP/Military</a></li>
               </ul>
             </li>
@@ -141,11 +141,11 @@
             </li>
 
             <!-- Vehicle Status -->
-            <li class="treeview">
+            <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
-                <li><a href="AFPVehicleStatus.php">For Military</a></li>
+                <li class="active"><a href="AFPVehicleStatus.php">For Military</a></li>
               </ul>
             </li>
 
@@ -200,8 +200,8 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                        foreach ($vehicles as $key => $vehicle) {
-                                            echo <<<DATA
+                                    foreach ($vehicles as $key => $vehicle) {
+                                        echo <<<DATA
                                         <tr id='applicant_$key'>
                                             <td style='display:none'>$vehicle[vehicleId]</td>
                                             <td>$vehicle[name]</td>
@@ -213,9 +213,21 @@
                                             <td>$vehicle[motorNo]</td>
                                             <td>$vehicle[chassisNo]</td>
                                             <td>$vehicle[stickerNo]</td>
-                                        </tr>
 DATA;
-                                        }
+                                      echo "<td>".
+                                              "<select class='form-control change-status' name='status'>".
+                                                "<option value='active'";  
+                                                      echo ($vehicle['status']==='active') ? 'selected' : ''; echo ">Active</option>
+                                                <option value='inactive'";
+                                                      echo ($vehicle['status']==='inactive') ? 'selected' : ''; echo ">Inactive</option>
+                                                <option value='transferred'";
+                                                      echo ($vehicle['status']==='transferred') ? 'selected' : ''; echo ">Transferred</option>
+                                                <option value='destroyed' ";
+                                                      echo ($vehicle['status']==='destroyed') ? 'selected' : ''; echo ">Destroyed</option>
+                                              </select>
+                                            </td>
+                                        </tr>";
+                                    }
                                     ?>
                                 </tbody>
                             </table>
@@ -242,195 +254,14 @@ DATA;
 		?>
 
 		<script type="text/javascript">
-			var edit_form2 = function(key, img){
-        $('#img_edit').attr('src', img);
-        var row = $('#military_'+key);
-        var m_id = row.find('td:first-child').text();
-        var m_profile = row.find('td:nth-child(2)').text();
-        var name = row.find('td:nth-child(3)').text();
-        var m_rank = row.find('td:nth-child(4)').text();
-        var m_brSvc = row.find('td:nth-child(5)').text();
-        var m_afpsn = row.find('td:nth-child(6)').text();
-        var m_residenceAddress = row.find('td:nth-child(7)').text();
-        var m_residenceTelNo = row.find('td:nth-child(8)').text();
-        var m_emailAddress = row.find('td:nth-child(9)').text();
-        var m_mobileNo = row.find('td:nth-child(10)').text();
-        var m_designatedOffice = row.find('td:nth-child(11)').text();
-        var m_officeTelNo = row.find('td:nth-child(12)').text();
-        var m_officeAddress = row.find('td:nth-child(13)').text();
-        var m_retirementDate = row.find('td:nth-child(14)').text();
-        var m_class = row.find('td:nth-child(15)').text();
-        var m_dateRegistered = row.find('td:nth-child(16)').text();
-        var m_placeRegistered = row.find('td:nth-child(17)').text();
+			$('.change-status').change(function(){
+          var id = $(this).closest('tr').find('td:eq(0)').text();
+          var status = $(this).val();
 
-        var vehicleId = row.find('td:nth-child(18)').text();
-        var wheels = row.find('td:nth-child(19)').text();
-        var vehicleMake = row.find('td:nth-child(20)').text();
-        var plateNo = row.find('td:nth-child(21)').text();
-        var yearModel = row.find('td:nth-child(22)').text();
-        var color = row.find('td:nth-child(23)').text();
-        var motorNo = row.find('td:nth-child(24)').text();
-        var chassisNo = row.find('td:nth-child(25)').text();
-        var stickerNo = row.find('td:nth-child(26)').text();
-
-        var modal = $('#edit_modal_form2');
-        modal.find('input[name=m_militaryId]').val(m_id);
-        modal.find('input[name=m_profile]').val(m_profile);
-        modal.find('input[name=name]').val(name);
-        modal.find('input[name=m_rank]').val(m_rank);
-        modal.find('input[name=m_brSvc]').val(m_brSvc);
-        modal.find('input[name=m_afpsn]').val(m_afpsn);
-        modal.find('input[name=m_residenceAddress]').val(m_residenceAddress);
-        modal.find('input[name=m_residenceTelNo]').val(m_residenceTelNo);
-        modal.find('input[name=m_emailAddress]').val(m_emailAddress);
-        modal.find('input[name=m_mobileNo]').val(m_mobileNo);
-        modal.find('input[name=m_designatedOffice]').val(m_designatedOffice);
-        modal.find('input[name=m_officeTelNo]').val(m_officeTelNo);
-        modal.find('input[name=m_officeAddress]').val(m_officeAddress);
-        modal.find('input[name=m_retirementDate]').val(m_retirementDate);
-        modal.find('input[name=m_class]').val(m_class);
-        modal.find('input[name=m_dateRegistered]').val(m_dateRegistered);
-        modal.find('input[name=m_placeRegistered]').val(m_placeRegistered);
-
-        modal.find('input[name=vehicleId]').val(vehicleId);
-        modal.find('input[name=wheels]').val(wheels);
-        modal.find('input[name=vehicleMake]').val(vehicleMake);
-        modal.find('input[name=plateNo]').val(plateNo);
-        modal.find('input[name=yearModel]').val(yearModel);
-        modal.find('input[name=color]').val(color);
-        modal.find('input[name=motorNo]').val(motorNo);
-        modal.find('input[name=chassisNo]').val(chassisNo);
-        modal.find('input[name=stickerNo]').val(stickerNo);
-
-			}
-
-			var delete_form2 = function(key, img){
-        $('#img_delete').attr('src', img);
-        var row = $('#military_'+key);
-        var m_id = row.find('td:first-child').text();
-        var m_profile = row.find('td:nth-child(2)').text();
-        var name = row.find('td:nth-child(3)').text();
-        var m_rank = row.find('td:nth-child(4)').text();
-        var m_brSvc = row.find('td:nth-child(5)').text();
-        var m_afpsn = row.find('td:nth-child(6)').text();
-        var m_residenceAddress = row.find('td:nth-child(7)').text();
-        var m_residenceTelNo = row.find('td:nth-child(8)').text();
-        var m_emailAddress = row.find('td:nth-child(9)').text();
-        var m_mobileNo = row.find('td:nth-child(10)').text();
-        var m_designatedOffice = row.find('td:nth-child(11)').text();
-        var m_officeTelNo = row.find('td:nth-child(12)').text();
-        var m_officeAddress = row.find('td:nth-child(13)').text();
-        var m_retirementDate = row.find('td:nth-child(14)').text();
-        var m_class = row.find('td:nth-child(15)').text();
-        var m_dateRegistered = row.find('td:nth-child(16)').text();
-        var m_placeRegistered = row.find('td:nth-child(17)').text();
-
-        var vehicleId = row.find('td:nth-child(18)').text();
-        var wheels = row.find('td:nth-child(19)').text();
-        var vehicleMake = row.find('td:nth-child(20)').text();
-        var plateNo = row.find('td:nth-child(21)').text();
-        var yearModel = row.find('td:nth-child(22)').text();
-        var color = row.find('td:nth-child(23)').text();
-        var motorNo = row.find('td:nth-child(24)').text();
-        var chassisNo = row.find('td:nth-child(25)').text();
-        var stickerNo = row.find('td:nth-child(26)').text();
-
-        var modal = $('#delete_modal_form2');
-        modal.find('input[name=m_militaryId]').val(m_id);
-        modal.find('input[name=m_profile]').val(m_profile);
-        modal.find('input[name=name]').val(name);
-        modal.find('input[name=m_rank]').val(m_rank);
-        modal.find('input[name=m_brSvc]').val(m_brSvc);
-        modal.find('input[name=m_afpsn]').val(m_afpsn);
-        modal.find('input[name=m_residenceAddress]').val(m_residenceAddress);
-        modal.find('input[name=m_residenceTelNo]').val(m_residenceTelNo);
-        modal.find('input[name=m_emailAddress]').val(m_emailAddress);
-        modal.find('input[name=m_mobileNo]').val(m_mobileNo);
-        modal.find('input[name=m_designatedOffice]').val(m_designatedOffice);
-        modal.find('input[name=m_officeTelNo]').val(m_officeTelNo);
-        modal.find('input[name=m_officeAddress]').val(m_officeAddress);
-        modal.find('input[name=m_retirementDate]').val(m_retirementDate);
-        modal.find('input[name=m_class]').val(m_class);
-        modal.find('input[name=m_dateRegistered]').val(m_dateRegistered);
-        modal.find('input[name=m_placeRegistered]').val(m_placeRegistered);
-
-        modal.find('input[name=vehicleId]').val(vehicleId);
-        modal.find('input[name=wheels]').val(wheels);
-        modal.find('input[name=vehicleMake]').val(vehicleMake);
-        modal.find('input[name=plateNo]').val(plateNo);
-        modal.find('input[name=yearModel]').val(yearModel);
-        modal.find('input[name=color]').val(color);
-        modal.find('input[name=motorNo]').val(motorNo);
-        modal.find('input[name=chassisNo]').val(chassisNo);
-        modal.find('input[name=stickerNo]').val(stickerNo);
-			}
-
-			var view_form2 = function(key, img){
-        $('#img_view').attr('src', img);
-				var row = $('#military_'+key);
-        var m_id = row.find('td:first-child').text();
-        var m_profile = row.find('td:nth-child(2)').text();
-        var name = row.find('td:nth-child(3)').text();
-        var m_rank = row.find('td:nth-child(4)').text();
-        var m_brSvc = row.find('td:nth-child(5)').text();
-        var m_afpsn = row.find('td:nth-child(6)').text();
-        var m_residenceAddress = row.find('td:nth-child(7)').text();
-        var m_residenceTelNo = row.find('td:nth-child(8)').text();
-        var m_emailAddress = row.find('td:nth-child(9)').text();
-        var m_mobileNo = row.find('td:nth-child(10)').text();
-        var m_designatedOffice = row.find('td:nth-child(11)').text();
-        var m_officeTelNo = row.find('td:nth-child(12)').text();
-        var m_officeAddress = row.find('td:nth-child(13)').text();
-        var m_retirementDate = row.find('td:nth-child(14)').text();
-        var m_class = row.find('td:nth-child(15)').text();
-        var m_dateRegistered = row.find('td:nth-child(16)').text();
-        var m_placeRegistered = row.find('td:nth-child(17)').text();
-
-        var vehicleId = row.find('td:nth-child(18)').text();
-        var wheels = row.find('td:nth-child(19)').text();
-        var vehicleMake = row.find('td:nth-child(20)').text();
-        var plateNo = row.find('td:nth-child(21)').text();
-        var yearModel = row.find('td:nth-child(22)').text();
-        var color = row.find('td:nth-child(23)').text();
-        var motorNo = row.find('td:nth-child(24)').text();
-        var chassisNo = row.find('td:nth-child(25)').text();
-        var stickerNo = row.find('td:nth-child(26)').text();
-
-        var modal = $('#view_modal_form2');
-        modal.find('input[name=m_militaryId]').val(m_id);
-        modal.find('input[name=m_profile]').val(m_profile);
-        modal.find('input[name=name]').val(name);
-        modal.find('input[name=m_rank]').val(m_rank);
-        modal.find('input[name=m_brSvc]').val(m_brSvc);
-        modal.find('input[name=m_afpsn]').val(m_afpsn);
-        modal.find('input[name=m_residenceAddress]').val(m_residenceAddress);
-        modal.find('input[name=m_residenceTelNo]').val(m_residenceTelNo);
-        modal.find('input[name=m_emailAddress]').val(m_emailAddress);
-        modal.find('input[name=m_mobileNo]').val(m_mobileNo);
-        modal.find('input[name=m_designatedOffice]').val(m_designatedOffice);
-        modal.find('input[name=m_officeTelNo]').val(m_officeTelNo);
-        modal.find('input[name=m_officeAddress]').val(m_officeAddress);
-        modal.find('input[name=m_retirementDate]').val(m_retirementDate);
-        modal.find('input[name=m_class]').val(m_class);
-        modal.find('input[name=m_dateRegistered]').val(m_dateRegistered);
-        modal.find('input[name=m_placeRegistered]').val(m_placeRegistered);
-
-        modal.find('input[name=vehicleId]').val(vehicleId);
-        modal.find('input[name=wheels]').val(wheels);
-        modal.find('input[name=vehicleMake]').val(vehicleMake);
-        modal.find('input[name=plateNo]').val(plateNo);
-        modal.find('input[name=yearModel]').val(yearModel);
-        modal.find('input[name=color]').val(color);
-        modal.find('input[name=motorNo]').val(motorNo);
-        modal.find('input[name=chassisNo]').val(chassisNo);
-        modal.find('input[name=stickerNo]').val(stickerNo);
-			}
-
-       var renew_military = function(key){
-
-      $('#renew_military_id').val(key);
-
-    }
+          $.post('logic/vehicle_status_update_logic.php', {id: id, status: status}, function(response){
+            location.reload();
+          });
+       });
 		</script>
 
         </section>  <!-- /Main content -->

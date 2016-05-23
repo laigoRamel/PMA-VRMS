@@ -256,7 +256,7 @@ include('login/session.php');
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
                         <div class="panel-body">
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class A" required>Class A (PASSCARD)</label>
+                            <label><input type="radio" name="a_class" value="Class A" disabled>Class A (PASSCARD)</label>
                             <p>&emsp; a. Registered to active Military Personnel</p>
                             <p>&emsp; b. Staff vehicles registered to the AFP</p>
                         </div>

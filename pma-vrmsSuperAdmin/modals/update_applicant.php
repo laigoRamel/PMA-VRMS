@@ -8,16 +8,17 @@
 			<div class='modal-body'>
 				<div class='row'>
 					<div class='col-lg-12'>
-						<form action='' method='post'>
-							<input type="checkbox" checked="checked">Photocopy of current year OR, and CR</input><br>
-			                <input type="checkbox" checked="checked">Photocopy of current military ID, Office ID, or driver's license</input><br>
-			                <input type="checkbox">Photocopy of retirement/separation/discharged order for former military personnel</input><br>
-			                <input type="checkbox">Photocopy of order for Commissionship/Enlistment for AFP Reservists</input><br>
-			                <input type="checkbox">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</input><br>
-			                <input type="checkbox" checked="checked">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</input><br>
+						<form action='logic/update_pending_applicant_logic.php' method='post'>
+							<input id='applicantId' type='hidden' name='applicantId'>
+							<!--<input id='requirement-1' type="checkbox">Photocopy of current year OR, and CR</input><br>-->
+			                <input id='requirement-1' name='requirements[]' value='1' type="checkbox">Photocopy of current military ID, Office ID, or driver's license</input><br>
+			                <input id='requirement-2' name='requirements[]' value='2' type="checkbox">Photocopy of retirement/separation/discharged order for former military personnel</input><br>
+			                <input id='requirement-3' name='requirements[]' value='3' type="checkbox">Photocopy of order for Commissionship/Enlistment for AFP Reservists</input><br>
+			                <input id='requirement-4' name='requirements[]' value='4' type="checkbox">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</input><br>
+			                <input id='requirement-5' name='requirements[]' value='5' type="checkbox">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</input><br>
 											
 								<br/>
-								<button type='submit' value='Ok' class="btn btn-default pull-right" onclick="return confirm('Applicant details updated.')">
+								<button type='submit' value='Ok' class="btn btn-default pull-right">
 										<span class="glyphicon glyphicon-ok" ></span> Ok
 									</button>
 								

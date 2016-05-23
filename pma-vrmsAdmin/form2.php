@@ -321,20 +321,20 @@ include('login/session.php');
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
                         <div class="panel-body">
                         <div class="radio">
-                            <label><input type="radio" name="m_class" value="Class A" required>Class A (PASSCARD)</label>
+                            <label><input type="radio" name="m_class" value="Class A" checked>Class A (PASSCARD)</label>
                             <p>&emsp; a. Registered to active Military Personnel</p>
                             <p>&emsp; b. Staff vehicles registered to the AFP</p>
                         </div>
 
                         <div class="radio">
-                            <label><input type="radio" name="m_class" value="Class B" required>Class B (RED Sticker)</label>
+                            <label><input type="radio" name="m_class" value="Class B" disabled="">Class B (RED Sticker)</label>
                             <p>&emsp; a. Former military personnel or AFP Reservists</p>
                             <p>&emsp; b. Unremarried widow/widower of Military Personnel</p>
                             <p>&emsp; c. AFP & DND Civillian employees</p>
                         </div>
 
                         <div class="radio">
-                            <label><input type="radio" name="m_class" value="Class C" required>Class C (YELLOW Sticker)</label>
+                            <label><input type="radio" name="m_class" value="Class C" disabled="">Class C (YELLOW Sticker)</label>
                             <p>&emsp; a. Concessionaires/Traders with AFP Contract</p>
                             <p>&emsp; b. Official/Employee/Member of tenant entity/club facility on post</p>
                             <p>&emsp; c. Diplomats and expatriates</p>

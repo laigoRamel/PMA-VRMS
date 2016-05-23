@@ -17,22 +17,11 @@
 		move_uploaded_file($m_profile['tmp_name'], "../img/profile/military/".$m_firstname.'-'.$m_lastname.'.png');
 		$img_name = $m_firstname.'-'.$m_lastname.'.png';
 		
-//Add vehicle		
-		for($i=0; $i<count($vehicleMake); $i++){		
-			$query1 = "INSERT INTO vehicle_information (wheels, vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, stickerNo) 
-					VALUES ('$wheels[$i]','$vehicleMake[$i]', '$plateNo[$i]', '$yearModel[$i]', '$color[$i]', '$motorNo[$i]', '$chassisNo[$i]', '$stickerNo[$i]')";
-			$database->execute($query1);
-		}
-		
 //Add militar
-		$query_vehicle = "SELECT vehicleId FROM vehicle_information ORDER BY vehicleId DESC LIMIT 1"; 
-		$database->execute($query_vehicle);
-		$rows = $database->getResult();
-		$result = mysqli_fetch_array($rows);
-		$vehicle_id = $result['vehicleId']; // vehicle id
-		
 		$requirements = $_POST['requirements'];
 		$status = (count($requirements) === 5) ? 'registered' : 'pending'; //status
+		$m_renew_status = (count($requirements) === 5) ? '1' : '0'; //status
+		$amount = (count($requirements) === 5) ? 350 : 0; //status
 		
 		$all_requirements = ''; //all submitted requirements
 		foreach($requirements as $requirement){
@@ -48,9 +37,9 @@
 		$username = $_SESSION['getUser'];
 
 		$query = "INSERT INTO form2_militarypd (m_profile, m_lastname, m_firstname, m_middlename, m_rank, m_brSvc, m_afpsn, m_residenceAddress, m_residenceTelNo, 
-					m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_placeRegistered, m_submitted_requirements, m_status, m_dateRegistered, m_vehicle_id, m_renew_status) 
+					m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_placeRegistered, m_submitted_requirements, m_status, m_dateRegistered, m_renew_status, amount) 
 				VALUES ('$img_name', '$m_lastname', '$m_firstname', '$m_middlename', '$m_rank', '$m_brSvc', '$m_afpsn', '$m_residenceAddress', '$m_residenceTelNo', 
-					'$m_emailAddress', '$m_mobileNo', '$m_designatedOffice', '$m_officeTelNo', '$m_officeAddress', '$m_retirementDate', '$m_class', '$m_placeRegistered', '$all_requirements', '$status', '$m_dateRegistered', '$vehicle_id', '1')";
+					'$m_emailAddress', '$m_mobileNo', '$m_designatedOffice', '$m_officeTelNo', '$m_officeAddress', '$m_retirementDate', '$m_class', '$m_placeRegistered', '$all_requirements', '$status', '$m_dateRegistered', '$m_renew_status', '$amount')";
 		
 		$database->execute($query);
 
@@ -60,6 +49,25 @@
 					VALUES ('', '$username', 'Registered: $full_name (AFP)', '$current_date', '$current_time')";
 
 		$database->execute($query2);
+
+
+
+//Add vehicle		
+		$query_military = "SELECT m_militaryId FROM form2_militarypd ORDER BY m_militaryId DESC LIMIT 1"; 
+		$database->execute($query_military);
+		$rows = $database->getResult();
+		$result = mysqli_fetch_array($rows);
+		$military_id = $result['m_militaryId']; // vehicle id
+
+		for($i=0; $i<count($vehicleMake); $i++){
+			$query1 = "INSERT INTO vehicle_information (wheels, vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, stickerNo, driver_id, driver_type) 
+				VALUES ('$wheels[$i]', '$vehicleMake[$i]', '$plateNo[$i]', '$yearModel[$i]', '$color[$i]', '$motorNo[$i]', '$chassisNo[$i]', '$stickerNo[$i]', '$military_id', 'military')";
+			
+			//var_dump($query1);
+
+			$database->execute($query1);
+		}
+		//exit();
 
 		$database->disconnect();
 	}

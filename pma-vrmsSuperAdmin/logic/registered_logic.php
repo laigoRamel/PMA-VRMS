@@ -11,7 +11,8 @@
 	$rows = $database->getResult();
 	
 	$applicants = array();
-	
+	$total_amount_applicant = 0;
+
 	while($applicant = mysqli_fetch_array($rows)){
 		$a_id 		= $applicant['a_applicantId'];
 		$a_lastname 	= $applicant['a_lastname'];
@@ -23,10 +24,13 @@
 		$a_driversLicense 	= $applicant['a_driversLicense'];
 		$a_dateRegistered 	= $applicant['a_dateRegistered'];
 		$a_class 	= $applicant['a_class'];
+		$amount = $applicant['amount'];
+
+		$total_amount_applicant += floatval($amount);
 		
 		array_push($applicants, array('a_applicantId' => $a_id, 'a_lastname' => $a_lastname, 'a_firstname' => $a_firstname, 'a_middlename' => $a_middlename,
 			'a_address' => $a_address, 'a_occupation' => $a_occupation, 'a_officeAddress' => $a_officeAddress, 'a_driversLicense' => $a_driversLicense,
-			'a_dateRegistered' => $a_dateRegistered, 'a_class' => $a_class));
+			'a_dateRegistered' => $a_dateRegistered, 'a_class' => $a_class, 'amount' => $amount));
 	}
 
 
@@ -37,6 +41,7 @@
 	$rows = $database->getResult();
 	
 	$militarys = array();
+	$total_amount_military = 0;
 	
 	while($military = mysqli_fetch_array($rows)){
 		$m_id 		= $military['m_militaryId'];
@@ -55,14 +60,17 @@
 		$m_officeAddress 	= $military['m_officeAddress'];
 		$m_dateRegistered 	= $military['m_dateRegistered'];
 		$m_class 	= $military['m_class'];
+		$amount = $military['amount'];
+
+		$total_amount_military += floatval($amount);
 		
 		array_push($militarys, array('m_militaryId' => $m_id, 'm_lastname' => $m_lastname, 'm_firstname' => $m_firstname, 'm_middlename' => $m_middlename,
 			'm_rank' => $m_rank, 'm_brSvc' => $m_brSvc, 'm_afpsn' => $m_afpsn, 'm_residenceAddress' => $m_residenceAddress,
-			'm_residenceTelNo' => $m_residenceTelNo, 'm_emailAddress' => $m_emailAddress, 'm_mobileNo' => $m_mobileNo, 'm_designatedOffice' => $m_designatedOffice, 'm_officeTelNo' => $m_officeTelNo, 'm_officeAddress' => $m_officeAddress, 'm_dateRegistered' => $m_dateRegistered, 'm_class' => $m_class));
+			'm_residenceTelNo' => $m_residenceTelNo, 'm_emailAddress' => $m_emailAddress, 'm_mobileNo' => $m_mobileNo, 'm_designatedOffice' => $m_designatedOffice, 'm_officeTelNo' => $m_officeTelNo, 'm_officeAddress' => $m_officeAddress, 'm_dateRegistered' => $m_dateRegistered, 'm_class' => $m_class, 'amount' => $amount));
 	}
 
 //applicant vehicle
-	$query = "SELECT * FROM vehicle_information JOIN form1_applicantpd ON form1_applicantpd.a_vehicle_id = vehicle_information.vehicleId  WHERE form1_applicantpd.a_status='registered'  AND form1_applicantpd.a_renew_status = '1'";
+	$query = "SELECT * FROM vehicle_information JOIN form1_applicantpd ON form1_applicantpd.a_applicantId = vehicle_information.driver_id  WHERE form1_applicantpd.a_status='registered'  AND form1_applicantpd.a_renew_status = '1' AND vehicle_information.driver_type = 'applicant'";
 	$database->execute($query);
 	
 	$rows = $database->getResult();
@@ -84,7 +92,7 @@
 	}
 
 //military vehicle
-	$query1 = "SELECT form2_militarypd.*, vehicle_information.* FROM form2_militarypd JOIN vehicle_information ON form2_militarypd.m_vehicle_id=vehicle_information.vehicleId WHERE form2_militarypd.m_status='registered' AND form2_militarypd.m_renew_status = '1'";
+	$query1 = "SELECT form2_militarypd.*, vehicle_information.* FROM form2_militarypd JOIN vehicle_information ON form2_militarypd.m_militaryId=vehicle_information.driver_id WHERE form2_militarypd.m_status='registered' AND form2_militarypd.m_renew_status = '1' AND vehicle_information.driver_type = 'military'";
 	$database->execute($query1);
 
 	$rows = $database->getResult();

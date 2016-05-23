@@ -75,38 +75,38 @@ include('login/session.php');
 
 
             <!-- Vehicle Log -->
-            <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
+            <li class=""><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
 
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
             <!-- Employee Log -->
-            <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+            <li class=""><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
 
-             <!-- Create Account -->
-            <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
+            <!-- Create Account -->
+            <!-- <li class="active"><a href="../login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
-						<!-- Accounts -->
-						<li class="treeview">
-							<a href="#"><i class="glyphicon glyphicon-plus"></i>
-								<span>Accounts</span>
-								<i class="glyphicon glyphicon-chevron-down pull-right"></i>
-							</a>
+            <!-- Accounts -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-plus"></i>
+                <span>Accounts</span>
+                <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+              </a>
 
-							<ul class="treeview-menu">
+              <ul class="treeview-menu">
 
-								<li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-								<li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
-								<li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
-							</ul>
-						</li>
+                <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+                <li><a href="loginaccounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
+              </ul>
+            </li>
 
             <!-- Accounting -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="accountingApplicant.php">Civilians</a></li>
-                <li><a href="AccountingMilitary.php">Military</a></li>
+                <li><a href="accountingApplicant.php">Civilian</a></li>
+                <li><a href="accountingMilitary.php">Military</a></li>
               </ul>
             </li>
 
@@ -115,7 +115,7 @@ include('login/session.php');
             <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="active"><a href="form1.php">Fort del Pilar/Camp Allen/<br>Navybase</a></li>
+                <li class="active"><a href="form1.php">Camp Allen/Navybase/<br>Fort del Pilar</a></li>
                 <li><a href="form2.php">AFP/Military</a></li>
               </ul>
             </li>
@@ -164,7 +164,7 @@ include('login/session.php');
 
         <!-- Main content -->
         <section class="content">
-	<form action="logic/add_form1Logic.php" enctype='multipart/form-data' method="POST" onSubmit="alert('Not Complete requirements. moved to pending table.');">
+	<form action="logic/add_form1Logic.php" enctype='multipart/form-data' method="POST" onSubmit="alert('Successfully Regisstered');">
 		<!-- personal information -->
 		<div class="row">
             <div class="col-md-7">
@@ -261,7 +261,7 @@ include('login/session.php');
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
                         <div class="panel-body">
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class A" required>Class A (PASSCARD)</label>
+                            <label><input type="radio" name="a_class" value="Class A" disabled>Class A (PASSCARD)</label>
                             <p>&emsp; a. Registered to active Military Personnel</p>
                             <p>&emsp; b. Staff vehicles registered to the AFP</p>
                         </div>
@@ -417,7 +417,8 @@ include('login/session.php');
 
                     <!-- submit button -->
                     <div class="panel-body">
-                        <button type="button submit" class="btn btn-primary btn-lg pull-right" value="Ok">
+                        <span id='validate-plateNo' style='color: red; display: none;'><i class='fa fa-warning'></i> &nbsp;Plate number must be unique</span>
+                        <button id='submit-add' type="button submit" class="btn btn-primary btn-lg pull-right" value="Ok">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Submit Form
                         </button>
                     </div>
@@ -449,13 +450,53 @@ include('login/session.php');
 		$(document).ready(function(){
 			var i=1;
 			$('#add').click(function(){
-				i++;
-				$('#dynamic_field').append('<tr id="row'+i+'"><td><select name="wheels[]" class="form-control name_list" required><option value="">No. of Wheels...</option><option value="2-wheeled">2-wheeled</option><option value="4-wheeled">4-wheeled</option></select></td><td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td><td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td><td><select name="yearModel[]" class="form-control name_list" required><option value="">Year Model...</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select></td><td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td><td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td><td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td><td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+        if(i < 3){
+          i++;
+          $('#dynamic_field').append('<tr id="row'+i+'"><td><select name="wheels[]" class="form-control name_list" required><option value="">No. of Wheels...</option><option value="2-wheeled">2-wheeled</option><option value="4-wheeled">4-wheeled</option></select></td><td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td><td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td><td><select name="yearModel[]" class="form-control name_list" required><option value="">Year Model...</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select></td><td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td><td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td><td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td><td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+        }else{
+          alert('Limit Reach');
+        }
 			});
 			$(document).on('click', '.btn_remove', function(){
 				var button_id = $(this).attr("id");
 				$('#row'+button_id+'').remove();
 			});
+
+      $('.panel-body').on('change', 'input[name="plateNo[]"]', function(){
+        var this_input = $(this);
+        var plate_numbers = [];
+
+        $('input[name="plateNo[]"]').each(function(index, value){
+          plate_numbers.push($('input[name="plateNo[]"]:eq('+index+')').val());
+        });
+
+        var counter = 0;
+        plate_numbers.some(function(value_1, index_1){
+          counter = 0;
+          plate_numbers.some(function(value_2, index_2){
+            if(value_1.length !== 0 && value_2.length !== 0){
+              if(value_1 === value_2){
+                counter++;
+                if(counter >= 2){
+                  return true;
+                }
+              }
+            }
+          });
+          if(counter >= 2){
+            return true;
+          }
+        })
+  
+        console.log(counter);
+        if(counter >= 2){
+           $('#validate-plateNo').css('display', 'block');
+           $('#submit-add').attr('disabled', true);
+        }else{
+          $('#validate-plateNo').css('display', 'none');
+           $('#submit-add').removeAttr('disabled');
+        }
+      });
 		});
 	</script>
 
