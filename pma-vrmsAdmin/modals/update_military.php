@@ -8,11 +8,7 @@
 			<div class='modal-body'>
 				<div class='row'>
 					<div class='col-lg-12'>
-
 						<form action='logic/update_pending_military_logic.php' method='post'>
-
-
-
 							<input id='m_militaryId' type='hidden' name='m_militaryId'>
 							<input id='requirement-1' name='requirements[]' value='1' type="checkbox">Photocopy of current year OR, and CR</input><br>
 			                <input id='requirement-2' name='requirements[]' value='2' type="checkbox">Photocopy of current military ID, Office ID, or driver's license</input><br>

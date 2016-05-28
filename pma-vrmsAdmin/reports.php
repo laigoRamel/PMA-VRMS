@@ -79,7 +79,7 @@ include('login/session.php');
             <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
 
             <!-- Reports -->
-            <li class="active"><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
+            <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
              <!-- Create Account -->
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
@@ -98,10 +98,10 @@ include('login/session.php');
             </li>
 
             <!-- Accounting -->
-            <li class="treeview">
+            <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
+                <li class="active"><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>

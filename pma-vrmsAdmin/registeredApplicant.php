@@ -113,10 +113,10 @@
             </li>
 
             <!-- Accounting -->
-            <li class="treeview">
+            <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
+                <li class="active"><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
@@ -132,10 +132,10 @@
             </li>
 
             <!-- Registered Applicant-->
-            <li class="treeview active">
+            <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered Applicant</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="active"><a href="registeredApplicant.php">Civilian</a></li>
+                <li><a href="registeredApplicant.php">Civilian</a></li>
                 <li><a href="registeredAFP.php">Military</a></li>
               </ul>
             </li>

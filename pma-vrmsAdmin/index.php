@@ -1,6 +1,5 @@
 <?php
 include('login/session.php');
-//header('Location: login_page.php');
 
 ?>
 <!DOCTYPE html>
@@ -78,7 +77,7 @@ include('login/session.php');
             <li class="header">NAVIGATION</li>
 
             <!-- Dashboard -->
-            <li class="active"><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
+            <li class=""><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
 
 
 
@@ -105,10 +104,10 @@ include('login/session.php');
             </li>
 
             <!-- Accounting -->
-            <li class="treeview">
+            <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
+                <li class="active"><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>

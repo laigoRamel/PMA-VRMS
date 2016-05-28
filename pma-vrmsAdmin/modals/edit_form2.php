@@ -219,7 +219,7 @@
                               <th>Color</th>
                               <th>Motor No</th>
                               <th>Chassis No</th>
-                              <th>deCal No</th>
+                              <th>Sticker No</th>
                             </thead>
                              <tbody id='edit-vehicles'>
                               </tbody>

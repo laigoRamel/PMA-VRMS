@@ -24,84 +24,84 @@
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Last Name" name='name' readonly>
+                                <input type="text" class="form-control" placeholder="Last Name" name='name' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Rank</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Rank" name='m_rank' readonly>
+                                <input type="text" class="form-control" placeholder="Rank" name='m_rank' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">BR / SVC</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="BR / SVC" name='m_brSvc' readonly>
+                                <input type="text" class="form-control" placeholder="BR / SVC" name='m_brSvc' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">AFPSN</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="AFPSN" name='m_afpsn' readonly>
+                                <input type="text" class="form-control" placeholder="AFPSN" name='m_afpsn' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Residence Address</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Residence Address" name='m_residenceAddress' readonly>
+                                <input type="text" class="form-control" placeholder="Residence Address" name='m_residenceAddress' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Residence Tel. No.</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Residence Tel. No." name='m_residenceTelNo' readonly>
+                                <input type="text" class="form-control" placeholder="Residence Tel. No." name='m_residenceTelNo' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Email Address</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Email Address" name='m_emailAddress' readonly>
+                                <input type="text" class="form-control" placeholder="Email Address" name='m_emailAddress' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Mobile No.</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Mobile No." name='m_mobileNo' readonly>
+                                <input type="text" class="form-control" placeholder="Mobile No." name='m_mobileNo' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Designated Office</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Designated Office" name='m_designatedOffice' readonly>
+                                <input type="text" class="form-control" placeholder="Designated Office" name='m_designatedOffice' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Office Tel. No.</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Office Tel. No." name='m_officeTelNo' readonly>
+                                <input type="text" class="form-control" placeholder="Office Tel. No." name='m_officeTelNo' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Office Address</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Office Address" name='m_officeAddress' readonly>
+                                <input type="text" class="form-control" placeholder="Office Address" name='m_officeAddress' required>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Date of Retirement</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="YYYY-MM-DD" name='m_retirementDate' data-mask="9999-99-99" readonly>
+                                <input type="text" class="form-control" placeholder="YYYY-MM-DD" name='m_retirementDate' data-mask="9999-99-99" required>
                               </div>
                             </div>
                             
@@ -180,7 +180,7 @@
                               <th>Color</th>
                               <th>Motor No</th>
                               <th>Chassis No</th>
-                              <th>deCal No</th>
+                              <th>Sticker No</th>
                             </thead>
                             <tbody id='view-vehicles'>
                             </tbody>

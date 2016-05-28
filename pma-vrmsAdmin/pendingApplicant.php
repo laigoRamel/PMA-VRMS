@@ -95,10 +95,10 @@ include('login/session.php');
             </li>
 
             <!-- Accounting -->
-            <li class="treeview">
+            <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
+                <li class="active"><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
@@ -123,10 +123,10 @@ include('login/session.php');
             </li>
 
             <!-- Pending -->
-            <li class="treeview active">
+            <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-option-horizontal"></i> <span>Pending</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="active"><a href="pendingApplicant.php">Civilian</a></li>
+                <li><a href="pendingApplicant.php">Civilian</a></li>
                 <li><a href="pendingMilitary.php">Military</a></li>
               </ul>
             </li>

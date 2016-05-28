@@ -97,20 +97,20 @@ include('login/session.php');
             </li>
 
             <!-- Accounting -->
-            <li class="treeview">
+            <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
+                <li class="active"><a href="accountingApplicant.php">Civilian</a></li>
                 <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
 
             <li class="header">FORMS</li>
             <!-- Forms -->
-            <li class="treeview active">
+            <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="active"><a href="form1.php">Camp Allen/Navybase</a></li>
+                <li><a href="form1.php">Camp Allen/Navybase</a></li>
                 <li><a href="form2.php">AFP</a></li>
               </ul>
             </li>
@@ -159,7 +159,7 @@ include('login/session.php');
 
         <!-- Main content -->
         <section class="content">
-	<form action="logic/add_form1Logic.php" enctype='multipart/form-data' method="POST" onSubmit="alert('Successfully Regisstered');">
+	<form action="logic/add_form1Logic.php" enctype='multipart/form-data' method="POST" onSubmit="alert('Not Complete requirements. moved to pending table.');">
 		<!-- personal information -->
 		<div class="row">
             <div class="col-md-7">
@@ -256,7 +256,7 @@ include('login/session.php');
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
                         <div class="panel-body">
                         <div class="radio">
-                            <label><input type="radio" name="a_class" value="Class A" disabled>Class A (PASSCARD)</label>
+                            <label><input type="radio" name="a_class" value="Class A" required>Class A (PASSCARD)</label>
                             <p>&emsp; a. Registered to active Military Personnel</p>
                             <p>&emsp; b. Staff vehicles registered to the AFP</p>
                         </div>
