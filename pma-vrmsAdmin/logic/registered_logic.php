@@ -86,9 +86,9 @@
 		$color 	= $vehicle['color'];
 		$motorNo 	= $vehicle['motorNo'];
 		$chassisNo 	= $vehicle['chassisNo'];
-		$stickerNo 	= $vehicle['stickerNo'];
+		$decalNo 	= $vehicle['decalNo'];
 		
-		array_push($vehicles, array('vehicleId' => $id, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
+		array_push($vehicles, array('vehicleId' => $id, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'decalNo' => $decalNo));
 	}
 
 //military vehicle
@@ -108,9 +108,9 @@
 		$color 	= $vehicle['color'];
 		$motorNo 	= $vehicle['motorNo'];
 		$chassisNo 	= $vehicle['chassisNo'];
-		$stickerNo 	= $vehicle['stickerNo'];
+		$decalNo 	= $vehicle['decalNo'];
 		
-		array_push($vehicles, array('vehicleId' => $id, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo));
+		array_push($vehicles, array('vehicleId' => $id, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'decalNo' => $decalNo));
 	}
 
 
