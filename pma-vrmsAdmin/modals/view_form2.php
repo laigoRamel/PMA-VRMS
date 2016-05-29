@@ -14,6 +14,7 @@
             <div class="col-md-7">
                 <div class="panel panel-default ">
                     <div class="panel-heading">
+                        <a href="printMilitary.php" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
                         <h3 class="panel-title">Personal Information</h3> </div>
                     <div class="panel-body">
                         <input style="display:none;" type="text" name="m_militaryId" readonly>
