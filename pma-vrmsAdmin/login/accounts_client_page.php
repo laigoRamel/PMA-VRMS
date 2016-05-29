@@ -53,6 +53,8 @@ include('session.php');
 					<li>
 						<a href='logout.php'>Log out</a>
 					</li>
+          <li>
+            <a href='change_password.php'>Change Password</a>
 				</ul>
 			</li>
 		</ul>
