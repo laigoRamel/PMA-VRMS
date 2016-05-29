@@ -63,7 +63,7 @@
 			$query1 = "INSERT INTO vehicle_information (wheels, vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, decalNo, driver_id, driver_type, flag) 
 				VALUES ('$wheels[$i]', '$vehicleMake[$i]', '$plateNo[$i]', '$yearModel[$i]', '$color[$i]', '$motorNo[$i]', '$chassisNo[$i]', '$decalNo[$i]', '$military_id', 'military', '1')";
 			
-			//var_dump($query1);
+			var_dump($query1);
 
 			$database->execute($query1);
 		}
