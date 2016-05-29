@@ -46,7 +46,7 @@
 
 				//var_dump($_SESSION['name']);
 				//exit();
-				if($_SESSION['level'] === '1'){
+				if($_SESSION['level'] === '3'){
 					header("location: ../pma-vrmsAdmin/index.php");
 					exit();
 				}
