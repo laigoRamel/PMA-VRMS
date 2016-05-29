@@ -8,10 +8,13 @@ if(isset($_POST)){
 	$rank_type = $_POST['rank_type'];
 	$rank = $_POST['rank'];
 	$dbc = mysqli_connect('localhost', 'root', '', 'pma-vrms') or die ('Error connecting to MySQL server.');
-	$query = "UPDATE accounts SET name='$name', username='$username', office='$office', type='$rank_type', 'rank'='$rank' WHERE id='$id'";
+	$query = "UPDATE accounts SET name='$name', username='$username', office='$office', type='$rank_type', rank='$rank' WHERE id='$id'";
 
-	mysqli_query($dbc, $query);
-	mysqli_close($dbc);
+	mysqli_query($dbc, $query)
+      or die ($dbc->error);
+
+    mysqli_close($dbc);
+
 	header('Location: accounts_client_page.php');
 	exit();
 

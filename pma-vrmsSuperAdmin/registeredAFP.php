@@ -69,6 +69,8 @@
 					<li>
 						<a href='login/logout.php'>Log out</a>
 					</li>
+          <li>
+            <a href='login/change_password.php'>Change Password</a>
 				</ul>
 			</li>
 		</ul>
@@ -91,7 +93,7 @@
 
 
             <!-- Vehicle Log -->
-            <li class=""><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
+            <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
 
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
@@ -112,7 +114,7 @@
               <ul class="treeview-menu">
 
                 <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-                <li><a href="loginaccounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
                 <li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
               </ul>
             </li>
@@ -121,8 +123,8 @@
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="accountingApplicant.php">Civilian</a></li>
-                <li><a href="accountingMilitary.php">Military</a></li>
+                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
+                <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
 
@@ -131,8 +133,8 @@
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="form1.php">Camp Allen/Navybase/<br>Fort del Pilar</a></li>
-                <li><a href="form2.php">AFP/Military</a></li>
+                <li><a href="form1.php">Camp Allen/Navybase</a></li>
+                <li><a href="form2.php">AFP</a></li>
               </ul>
             </li>
 
@@ -163,6 +165,15 @@
               </ul>
             </li>
 
+           <!-- Vehicle -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li class=""><a href="applicant_vehicles.php">For Civilian</a></li>
+                <li><a href="military_vehicles.php">For Military</a></li>
+              </ul>
+            </li>
+           
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -250,7 +261,7 @@ DATA;
                                                 <td style='display:none'>$vehicle[color]</td>
                                                 <td style='display:none'>$vehicle[motorNo]</td>
                                                 <td style='display:none'>$vehicle[chassisNo]</td>
-                                                <td style='display:none'>$vehicle[stickerNo]</td>
+                                                <td style='display:none'>$vehicle[decalNo]</td>
                                               </tr>
 VEHICLE;
                                     }
@@ -339,7 +350,7 @@ VEHICLE;
                                 '<td><input type="text" name="color[]" class="form-control name_list"  value="'+$(this).children('td:eq(5)').text()+'" /></td>'+  
                                 '<td><input type="text" name="motorNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(6)').text()+'" /></td>'+  
                                 '<td><input type="text" name="chassisNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(7)').text()+'" /></td>'+  
-                                '<td><input type="text" name="stickerNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(8)').text()+'" /></td>'+
+                                '<td><input type="text" name="decalNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(8)').text()+'" /></td>'+
                                 '<td><button type="button" class="btn btn-danger editModal-btn-remove"><i class="fa fa-times"></i></button></td></tr>';
        $('#edit-vehicles').append(content);
 
@@ -373,10 +384,24 @@ VEHICLE;
 
         }
     $(document).ready(function(){
+      var global_decal_number = [];
+      var global_plate_number = [];
+      $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_decal_number.php', function(response){
+        $.each(JSON.parse(response), function(index, data){
+          global_decal_number.push(data.decalNo);
+        });
+      });
+      $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_plate_number.php', function(response){
+        $.each(JSON.parse(response), function(index, data){
+          global_plate_number.push(data.plateNo);
+        });
+      });
+
+
       var i=1;
       $('#edit-vehicles').on('click','#editModal-add', function(){
         i++;
-        $('#add-new-vehicle').append('<tr id="row'+i+'"><td><select name="wheels[]" class="form-control name_list" required><option value="">No. of Wheels...</option><option value="2-wheeled">2-wheeled</option><option value="4-wheeled">4-wheeled</option></select></td><td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td><td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td><td><select name="yearModel[]" class="form-control name_list" required><option value="">Year Model...</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select></td><td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td><td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td><td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td><td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" /></td><td><button type="button" class="btn btn-danger  editModal-btn-remove">X</button></td></tr>');
+        $('#add-new-vehicle').append('<tr id="row'+i+'"><td><select name="wheels[]" class="form-control name_list" required><option value="">No. of Wheels...</option><option value="2-wheeled">2-wheeled</option><option value="4-wheeled">4-wheeled</option></select></td><td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td><td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td><td><select name="yearModel[]" class="form-control name_list" required><option value="">Year Model...</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select></td><td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td><td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td><td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td><td><input type="text" name="decalNo[]" placeholder="Decal No" class="form-control name_list" /></td><td><button type="button" class="btn btn-danger  editModal-btn-remove">X</button></td></tr>');
       }); 
 
       $('#editModal-vehicles').on('click', '.editModal-btn-remove', function(){
@@ -408,6 +433,12 @@ VEHICLE;
             return true;
           }
         })
+
+        $.each(global_plate_number, function(index, value){
+          if(this_input.val() === value){
+            counter++;
+          }
+        });
   
         console.log(counter);
         if(counter >= 2){
@@ -418,67 +449,41 @@ VEHICLE;
            $('#submit-edit').removeAttr('disabled');
         }
       });
+
+
+      $('.panel-body').on('change', 'input[name="decalNo[]"]', function(){
+        var current_input = $(this);
+        var counter = 0;
+        $('input[name="decalNo[]"]').each(function(index, value){
+            if(current_input.val() === $(this).val()){
+              counter++;
+            }
+        });
+        $.each(global_decal_number, function(index, value){
+           if(current_input.val() === value){
+              counter++;
+            }
+        });
+        if(counter >= 2){
+          $('#validate-decalNo').css('display', 'block');
+          $('#submit-add').attr('disabled', true);
+        }else{
+          $('#validate-decalNo').css('display', 'none');
+          $('#submit-add').removeAttr('disabled');
+        }
+      });
+
     });
 
 			var delete_form2 = function(key, img){
-        $('#img_delete').attr('src', img);
-        var row = $('#military_'+key);
-        var m_id = row.find('td:first-child').text();
-        var m_profile = row.find('td:nth-child(2)').text();
-        var name = row.find('td:nth-child(3)').text();
-        var m_rank = row.find('td:nth-child(4)').text();
-        var m_brSvc = row.find('td:nth-child(5)').text();
-        var m_afpsn = row.find('td:nth-child(6)').text();
-        var m_residenceAddress = row.find('td:nth-child(7)').text();
-        var m_residenceTelNo = row.find('td:nth-child(8)').text();
-        var m_emailAddress = row.find('td:nth-child(9)').text();
-        var m_mobileNo = row.find('td:nth-child(10)').text();
-        var m_designatedOffice = row.find('td:nth-child(11)').text();
-        var m_officeTelNo = row.find('td:nth-child(12)').text();
-        var m_officeAddress = row.find('td:nth-child(13)').text();
-        var m_retirementDate = row.find('td:nth-child(14)').text();
-        var m_class = row.find('td:nth-child(15)').text();
-        var m_dateRegistered = row.find('td:nth-child(16)').text();
-        var m_placeRegistered = row.find('td:nth-child(17)').text();
+        $('#delete-modal-inputs').html('');
 
-        var vehicleId = row.find('td:nth-child(18)').text();
-        var wheels = row.find('td:nth-child(19)').text();
-        var vehicleMake = row.find('td:nth-child(20)').text();
-        var plateNo = row.find('td:nth-child(21)').text();
-        var yearModel = row.find('td:nth-child(22)').text();
-        var color = row.find('td:nth-child(23)').text();
-        var motorNo = row.find('td:nth-child(24)').text();
-        var chassisNo = row.find('td:nth-child(25)').text();
-        var stickerNo = row.find('td:nth-child(26)').text();
-
-        var modal = $('#delete_modal_form2');
-        modal.find('input[name=m_militaryId]').val(m_id);
-        modal.find('input[name=m_profile]').val(m_profile);
-        modal.find('input[name=name]').val(name);
-        modal.find('input[name=m_rank]').val(m_rank);
-        modal.find('input[name=m_brSvc]').val(m_brSvc);
-        modal.find('input[name=m_afpsn]').val(m_afpsn);
-        modal.find('input[name=m_residenceAddress]').val(m_residenceAddress);
-        modal.find('input[name=m_residenceTelNo]').val(m_residenceTelNo);
-        modal.find('input[name=m_emailAddress]').val(m_emailAddress);
-        modal.find('input[name=m_mobileNo]').val(m_mobileNo);
-        modal.find('input[name=m_designatedOffice]').val(m_designatedOffice);
-        modal.find('input[name=m_officeTelNo]').val(m_officeTelNo);
-        modal.find('input[name=m_officeAddress]').val(m_officeAddress);
-        modal.find('input[name=m_retirementDate]').val(m_retirementDate);
-        modal.find('input[name=m_class]').val(m_class);
-        modal.find('input[name=m_dateRegistered]').val(m_dateRegistered);
-        modal.find('input[name=m_placeRegistered]').val(m_placeRegistered);
-
-        modal.find('input[name=vehicleId]').val(vehicleId);
-        modal.find('input[name=wheels]').val(wheels);
-        modal.find('input[name=vehicleMake]').val(vehicleMake);
-        modal.find('input[name=plateNo]').val(plateNo);
-        modal.find('input[name=yearModel]').val(yearModel);
-        modal.find('input[name=color]').val(color);
-        modal.find('input[name=motorNo]').val(motorNo);
-        modal.find('input[name=chassisNo]').val(chassisNo);
-        modal.find('input[name=stickerNo]').val(stickerNo);
+        var m_id = $('#military_'+key+' > td:first-child').text();
+        $('#delete-modal-inputs').append("<input name='m_militaryId' value='"+m_id+"' type='hidden'>");
+        $('#vehicle_table_'+key+' tr').each(function(){
+          var vehicle_id = $(this).children('td:eq(0)').text();
+          $('#delete-modal-inputs').append("<input name='vehicleId[]' value='"+vehicle_id+"' type='hidden'>");
+        });
 			}
 
 			var view_form2 = function(key, img){

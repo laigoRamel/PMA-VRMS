@@ -30,13 +30,13 @@
 		$database->execute($old_record);
 		$result = $database->getResult();
 
-		$row = mysqli_fetch_array($result);
+		$row = mysqli_fetch_array($result);	
 
-
-		
+		$query_update = "UPDATE form1_applicantpd SET flag=0 WHERE a_applicantId='".$_POST['a_applicantId']."'";
+		$database->execute($query_update);
 	
-		$query = "INSERT INTO form1_applicantpd (a_profile, a_lastname, a_firstname, a_middlename, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_submitted_requirements, a_status, a_dateRegistered, a_placeRegistered, a_vehicle_id, a_renew_status) 
-				VALUES ('$row[a_profile]', '$row[a_lastname]', '$row[a_firstname]', '$row[a_middlename]', '$row[a_address]', '$row[a_occupation]', '$row[a_officeAddress]', '$row[a_driversLicense]', '$row[a_expirationDate]', '$row[a_class]', '$all_requirements', '$a_status', '$a_dateRegistered', '$row[a_placeRegistered]', '$row[a_vehicle_id]', '1')";
+		$query = "INSERT INTO form1_applicantpd (a_profile, a_lastname, a_firstname, a_middlename, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_submitted_requirements, a_status, a_dateRegistered, a_placeRegistered, a_renew_status, flag) 
+				VALUES ('$row[a_profile]', '$row[a_lastname]', '$row[a_firstname]', '$row[a_middlename]', '$row[a_address]', '$row[a_occupation]', '$row[a_officeAddress]', '$row[a_driversLicense]', '$row[a_expirationDate]', '$row[a_class]', '$all_requirements', '$a_status', '$a_dateRegistered', '$row[a_placeRegistered]', '1', '1')";
 
 		$database->execute($query);
 

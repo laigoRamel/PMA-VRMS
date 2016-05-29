@@ -198,6 +198,7 @@
 				</div>
 			</div>
 			<div class='modal-footer'>
+         <span id='validate-stickerNo' style='color: red; display: none;'><i class='fa fa-warning'></i> &nbsp;Sticker number must be unique</span>
          <span id='validate-plateNo' style='color: red; display: none;'><i class='fa fa-warning'></i> &nbsp;Plate number must be unique</span>
 				  <button id='submit-edit' class='btn btn-primary' type='submit'>Ok</button>
 			</div>

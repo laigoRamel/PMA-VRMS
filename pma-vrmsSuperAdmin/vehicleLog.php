@@ -99,7 +99,7 @@ include('login/session.php');
               <ul class="treeview-menu">
 
                 <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-                <li><a href="loginaccounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
                 <li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
               </ul>
             </li>
@@ -108,8 +108,8 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="accountingApplicant.php">Civilian</a></li>
-                <li><a href="accountingMilitary.php">Military</a></li>
+                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
+                <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
 
@@ -118,8 +118,8 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="form1.php">Camp Allen/Navybase/<br>Fort del Pilar</a></li>
-                <li><a href="form2.php">AFP/Military</a></li>
+                <li><a href="form1.php">Camp Allen/Navybase</a></li>
+                <li><a href="form2.php">AFP</a></li>
               </ul>
             </li>
 
@@ -150,6 +150,15 @@ include('login/session.php');
               </ul>
             </li>
 
+            <!-- Vehicle -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li class=""><a href="applicant_vehicles.php">For Civilian</a></li>
+                <li><a href="military_vehicles.php">For Military</a></li>
+              </ul>
+            </li>
+            
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

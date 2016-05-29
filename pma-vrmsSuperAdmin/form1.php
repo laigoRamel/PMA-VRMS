@@ -53,6 +53,8 @@ include('login/session.php');
 					<li>
 						<a href='login/logout.php'>Log out</a>
 					</li>
+          <li>
+            <a href='login/change_password.php'>Change Password</a>
 				</ul>
 			</li>
 		</ul>
@@ -75,7 +77,7 @@ include('login/session.php');
 
 
             <!-- Vehicle Log -->
-            <li class=""><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
+            <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
 
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
@@ -96,7 +98,7 @@ include('login/session.php');
               <ul class="treeview-menu">
 
                 <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-                <li><a href="loginaccounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
                 <li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
               </ul>
             </li>
@@ -105,8 +107,8 @@ include('login/session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="accountingApplicant.php">Civilian</a></li>
-                <li><a href="accountingMilitary.php">Military</a></li>
+                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
+                <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
 
@@ -115,8 +117,8 @@ include('login/session.php');
             <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="active"><a href="form1.php">Camp Allen/Navybase/<br>Fort del Pilar</a></li>
-                <li><a href="form2.php">AFP/Military</a></li>
+                <li class="active"><a href="form1.php">Camp Allen/Navybase</a></li>
+                <li><a href="form2.php">AFP</a></li>
               </ul>
             </li>
 
@@ -147,6 +149,15 @@ include('login/session.php');
               </ul>
             </li>
 
+           <!-- Vehicle -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li class=""><a href="applicant_vehicles.php">For Civilian</a></li>
+                <li><a href="military_vehicles.php">For Military</a></li>
+              </ul>
+            </li>
+           
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -314,19 +325,19 @@ include('login/session.php');
 
                     <div class="panel-body">
                         <div class="checkbox">
-                            <label><input name='requirements[]' value='1' type="checkbox">Photocopy of current military ID, Office ID, or driver's license</label>
+                            <label><input class='requirements_checkbox' name='requirements[]' value='1' type="checkbox">Photocopy of current military ID, Office ID, or driver's license</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='2' type="checkbox">Photocopy of retirement/separation/discharged order for former military personnel</label>
+                            <label><input class='requirements_checkbox' name='requirements[]' value='2' type="checkbox">Photocopy of retirement/separation/discharged order for former military personnel</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='3' type="checkbox">Photocopy of order for Commissionship/Enlistment for AFP Reservists</label>
+                            <label><input class='requirements_checkbox' name='requirements[]' value='3' type="checkbox">Photocopy of order for Commissionship/Enlistment for AFP Reservists</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='4' type="checkbox">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</label>
+                            <label><input class='requirements_checkbox' name='requirements[]' value='4' type="checkbox">Photocopy of latest appointment order for AFP civilian employees and DND organic personnel</label>
                             </div>
                             <div class="checkbox">
-                            <label><input name='requirements[]' value='5' type="checkbox">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</label>
+                            <label><input class='requirements_checkbox' name='requirements[]' value='5' type="checkbox">Photocopy of marriage contract, in case the vehicle is registered in the name of the non-military spouse</label>
                             </div>
                     </div>
                 </div>
@@ -404,7 +415,7 @@ include('login/session.php');
 						<td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" required/></td>
 						<td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" required/></td>
 						<td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" required/></td>
-						<td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" required/></td>
+						<td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list sticker_number" disabled/></td>
 						<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
 					</tr>
 
@@ -418,6 +429,7 @@ include('login/session.php');
                     <!-- submit button -->
                     <div class="panel-body">
                         <span id='validate-plateNo' style='color: red; display: none;'><i class='fa fa-warning'></i> &nbsp;Plate number must be unique</span>
+                        <span id='validate-stickerNo' style='color: red; display: none;'><i class='fa fa-warning'></i> &nbsp;Sticker number must be unique</span>
                         <button id='submit-add' type="button submit" class="btn btn-primary btn-lg pull-right" value="Ok">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Submit Form
                         </button>
@@ -445,17 +457,50 @@ include('login/session.php');
 
 
 </body>
+  <script>
+    var check_requirements = function(){
+       var is_complete = true;
+       $('.requirements_checkbox').each(function(){
+            if(!($(this).is(':checked'))){
+              is_complete = false;
+            }else{
+              is_complete = true;
+            }
+        });
+
+       if(!is_complete){
+         $('.sticker_number').attr('disabled', true);
+          $('.sticker_number').removeAttr('required');
+       }else{
+         $('.sticker_number').removeAttr('disabled');
+         $('.sticker_number').attr('required', true);
+       }
+       
+    }
+  </script>
 
   <script type="text/javascript">
 		$(document).ready(function(){
+      var global_sticker_number = [];
+      var global_plate_number = [];
+      $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_sticker_number.php', function(response){
+        $.each(JSON.parse(response), function(index, data){
+          global_sticker_number.push(data.stickerNo);
+        });
+      });
+      $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_plate_number.php', function(response){
+        $.each(JSON.parse(response), function(index, data){
+          global_plate_number.push(data.plateNo);
+        });
+      });
+
+
+
 			var i=1;
 			$('#add').click(function(){
-        if(i < 3){
-          i++;
-          $('#dynamic_field').append('<tr id="row'+i+'"><td><select name="wheels[]" class="form-control name_list" required><option value="">No. of Wheels...</option><option value="2-wheeled">2-wheeled</option><option value="4-wheeled">4-wheeled</option></select></td><td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td><td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td><td><select name="yearModel[]" class="form-control name_list" required><option value="">Year Model...</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select></td><td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td><td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td><td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td><td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-        }else{
-          alert('Limit Reach');
-        }
+         i++;
+         $('#dynamic_field').append('<tr id="row'+i+'"><td><select name="wheels[]" class="form-control name_list" required><option value="">No. of Wheels...</option><option value="2-wheeled">2-wheeled</option><option value="4-wheeled">4-wheeled</option></select></td><td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td><td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td><td><select name="yearModel[]" class="form-control name_list" required><option value="">Year Model...</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select></td><td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td><td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td><td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td><td><input type="text" name="stickerNo[]" placeholder="Sticker No" class="form-control name_list sticker_number" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+        check_requirements();
 			});
 			$(document).on('click', '.btn_remove', function(){
 				var button_id = $(this).attr("id");
@@ -486,7 +531,13 @@ include('login/session.php');
           if(counter >= 2){
             return true;
           }
-        })
+        });
+
+        $.each(global_plate_number, function(index, value){
+          if(this_input.val() === value){
+            counter++;
+          }
+        });
   
         console.log(counter);
         if(counter >= 2){
@@ -497,8 +548,36 @@ include('login/session.php');
            $('#submit-add').removeAttr('disabled');
         }
       });
-		});
+
+      $('.panel-body').on('change', 'input[name="stickerNo[]"]', function(){
+        var current_input = $(this);
+        var counter = 0;
+        $('input[name="stickerNo[]"]').each(function(index, value){
+            if(current_input.val() === $(this).val()){
+              counter++;
+            }
+        });
+        $.each(global_sticker_number, function(index, value){
+           if(current_input.val() === value){
+              counter++;
+            }
+        });
+        if(counter >= 2){
+          $('#validate-stickerNo').css('display', 'block');
+          $('#submit-add').attr('disabled', true);
+        }else{
+          $('#validate-stickerNo').css('display', 'none');
+          $('#submit-add').removeAttr('disabled');
+        }
+		  });
+    });
 	</script>
+
+  <script>
+    $('.requirements_checkbox').change(function(){
+       check_requirements();
+    });
+  </script>
 
 
 </html>

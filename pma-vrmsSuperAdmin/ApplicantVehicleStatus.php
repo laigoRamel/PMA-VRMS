@@ -55,6 +55,8 @@
 					<li>
 						<a href='login/logout.php'>Log out</a>
 					</li>
+          <li>
+            <a href='login/change_password.php'>Change Password</a>
 				</ul>
 			</li>
 		</ul>
@@ -77,7 +79,7 @@
 
 
             <!-- Vehicle Log -->
-            <li class=""><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
+            <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
 
             <!-- Reports -->
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
@@ -98,7 +100,7 @@
               <ul class="treeview-menu">
 
                 <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-                <li><a href="loginaccounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
                 <li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
               </ul>
             </li>
@@ -107,8 +109,8 @@
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="accountingApplicant.php">Civilian</a></li>
-                <li><a href="accountingMilitary.php">Military</a></li>
+                <li class=""><a href="accountingApplicant.php">Civilian</a></li>
+                <li><a href="AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
 
@@ -117,8 +119,8 @@
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="form1.php">Camp Allen/Navybase/<br>Fort del Pilar</a></li>
-                <li><a href="form2.php">AFP/Military</a></li>
+                <li><a href="form1.php">Camp Allen/Navybase</a></li>
+                <li><a href="form2.php">AFP</a></li>
               </ul>
             </li>
 
@@ -142,13 +144,22 @@
 
             <!-- Vehicle Status -->
             <li class="treeview active">
-              <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-question-sign"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
                 <li class="active"><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
                 <li><a href="AFPVehicleStatus.php">For Military</a></li>
               </ul>
             </li>
 
+            <!-- Vehicle -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li class=""><a href="applicant_vehicles.php">For Civilian</a></li>
+                <li><a href="military_vehicles.php">For Military</a></li>
+              </ul>
+            </li>
+            
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

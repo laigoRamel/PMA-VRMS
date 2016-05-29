@@ -233,6 +233,7 @@
                     
                     <!-- submit button -->
                     <div class="panel-body">
+                        <span id='validate-decalNo' style='color: red; display: none;'><i class='fa fa-warning'></i> &nbsp;Decal number must be unique</span>
                         <span id='validate-plateNo' style='color: red; display: none;'><i class='fa fa-warning'></i> &nbsp;Plate number must be unique</span>
                         <button id='submit-edit' type="button submit" class="btn btn-primary btn-lg pull-right" value="Ok"> 
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Submit Form

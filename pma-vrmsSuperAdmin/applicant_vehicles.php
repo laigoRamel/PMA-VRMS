@@ -1,29 +1,30 @@
 <?php
-include('login/session.php');
+  include('login/session.php');
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Reports</title>
+  <title>Registered Military</title>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="fonts/font-awesome.min.css">
     <link rel="stylesheet" href="css/style-main.min.css">
-    <link rel="stylesheet" href="bootstrap/css/jquery.bdt.css">
     <link rel="stylesheet" href="css/skin.min.css">
     <link rel="stylesheet" type="text/css" href="css/print.css">
     <link rel="icon" href="img/seal.png">
 
-	<script src="bootstrap/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="bootstrap/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/app.min.js"></script>
 
 </head>
 
-<body class="hold-transition skin-black sidebar-mini">
+    <?php include('logic/applicant_vehicleStatus_logic.php'); ?>
+    <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
 
 
@@ -48,17 +49,17 @@ include('login/session.php');
 
             <!-- logout button -->
             <ul class="nav navbar-nav pull-right">
-			<li class="drop-down">
-				<a class="drop-down toggle" data-toggle="dropdown" href=""><?php echo $login_session; ?><span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href='login/logout.php'>Log out</a>
-					</li>
+      <li class="drop-down">
+        <a class="drop-down toggle" data-toggle="dropdown" href=""><?php echo $login_session; ?><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href='login/logout.php'>Log out</a>
+          </li>
           <li>
             <a href='login/change_password.php'>Change Password</a>
-				</ul>
-			</li>
-		</ul>
+        </ul>
+      </li>
+    </ul>
         </nav>
 
 
@@ -81,7 +82,7 @@ include('login/session.php');
             <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
 
             <!-- Reports -->
-            <li class="active"><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
+            <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
             <!-- Employee Log -->
             <li class=""><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
@@ -143,14 +144,14 @@ include('login/session.php');
 
             <!-- Vehicle Status -->
             <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-question-sign"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
+                <li class=""><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
                 <li><a href="AFPVehicleStatus.php">For Military</a></li>
               </ul>
             </li>
 
-           <!-- Vehicle -->
+            <!-- Vehicle -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
@@ -158,7 +159,8 @@ include('login/session.php');
                 <li><a href="military_vehicles.php">For Military</a></li>
               </ul>
             </li>
-           
+
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -169,18 +171,17 @@ include('login/session.php');
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Reports
+            Registered Applicants
           </h1>
 
         </section>
 
         <!-- Main content -->
         <section class="content">
-	       <?php include('logic/registered_logic.php'); ?>
 
-		<div class="'container">
-			<div class="row">
-				<div class="col-md-12">
+        <div class="'container">
+      <div class="row">
+        <div class="col-md-12">
                     <div id="printHeader">
                         <center>
                         <p>H E A D Q U A R T E R S</p>
@@ -188,7 +189,7 @@ include('login/session.php');
                         <p><b>OFFICE OF THE ASSISTANT CHIEF OF STAFF FOR INTELLIGENCE, MA2</p></b>
                         <p>Fort General Gregorio H del Pilar, Baguio City</p>
                         </center>
-                        <h3>Vehicle Reports</h3>
+                        <h3>Registered Civilians</h3>
                     </div>
                     <div class="box">
                         <div class="box-body">
@@ -197,48 +198,119 @@ include('login/session.php');
                                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print
                             </button>
                             <table class="table table-bordered table-hover" id="bootstrap-table">
-
                                 <thead>
+                                    <th>Name</th>
+                                    <th>Wheels</th>
+                                    <th>Vehicle Make</th>
                                     <th>Plate No.</th>
-                                    <th>Owner</th>
-                                    <th>DateIn</th>
-                                    <th>Timein</th>
-                                    <th>Violation</th>
-                                    <th>Type</th>
+                                    <th>Year Model</th>
+                                    <th>Color</th>
+                                    <th>Motor No.</th>
+                                    <th>Chassis No.</th>
+                                    <th>Sticker No.</th>
+                                    <th  class="column-options" style="text-align:center">Status</th>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        foreach ($reports as $key => $report) {
-                                            echo <<<DATA
-                                                <tr id='report$key'>
-                                                    <td style='display:none'>$report[rid]</td>
-                                                    <td>$report[plateNum]</td>
-                                                    <td>$report[owner]</td>
-                                                    <td>$report[datein]</td>
-                                                    <td>$report[timein]</td>
-                                                    <td>$report[violation]</td>
-                                                    <td>$report[type]</td>
-                                                </tr>
+                                    foreach ($vehicles as $key => $vehicle) {
+                                        echo <<<DATA
+                                        <tr id='applicant_$key'>
+                                            <td style='display:none'>$vehicle[vehicleId]</td>
+                                            <td>$vehicle[name]</td>
+                                            <td>$vehicle[wheels]</td>
+                                            <td>$vehicle[vehicleMake]</td>
+                                            <td>$vehicle[plateNo]</td>
+                                            <td>$vehicle[yearModel]</td>
+                                            <td>$vehicle[color]</td>
+                                            <td>$vehicle[motorNo]</td>
+                                            <td>$vehicle[chassisNo]</td>
+                                            <td>$vehicle[stickerNo]</td>
 DATA;
-                                        }
+                                      echo "<td>
+                                              <button class='btn btn-primary transfer'>Transfer</button>
+                                            </td>
+                                        </tr>";
+                                    }
                                     ?>
+
+                                     
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+      </div>
+    </div>
 
-            <script src="js/print.js" type="text/javascript"></script>
-            <script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
-            <script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
+    
+    <!--<div id='transfer-modal' class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Transfer</h4>
+          </div>
+          <div class="modal-body">
+            <button id='transfer-modal-existing' class='btn btn-success'>Use Existing User</button>
+            <button id='transfer-modal-new-user' class='btn btn-warning'>New User</button>
+          </div>
+        </div>
+      </div>
+    </div>-->
 
-            <script>
-                $(document).ready( function () {
-                    $('#bootstrap-table').bdt();
-                });
-            </script>
+    <div id='existing-modal' class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Select User</h4>
+          </div>
+          <form action='logic/applicant_transfer_to_existing_logic.php' method='post'>
+            <div class="modal-body">
+                <input id='existing-vehicleId' type='hidden' name='vehicleId'>
+                <select id='existing-select' class='form-control' name='driver_id' required>
 
-</section>  <!-- /Main content -->
+                </select>
+            </div>
+            <div class='modal-footer'>
+              <button class='btn btn-primary' type='submit'>Ok</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--<div id='new-user-modal' class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">New User</h4>
+          </div>
+          <div class="modal-body">
+            <h4>New User</h4>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+    <script src="js/print.js" type="text/javascript"></script>
+  <script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
+  <script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
+  <script>
+    $(document).ready( function () {
+      $('#bootstrap-table').bdt();
+    });
+  </script>
+
+    <?php
+            require_once('modals/view_form1.php');
+            require_once('modals/renew_applicant.php');
+            require_once('modals/edit_form1.php');
+            require_once('modals/delete_form1.php');
+        ?>
+
+        </section>  <!-- /Main content -->
 
         <br/><br/>
 
@@ -252,7 +324,30 @@ DATA;
     </div><!-- ./wrapper -->
 
 
+    <script>
+      $('table').on('click', '.transfer', function(){
+        $('#existing-vehicleId').val($(this).closest('tr').find('td:eq(0)').text());
+        $('#existing-modal').modal('show');
+      });
+
+      /** $('#transfer-modal-existing').click(function(){
+        $('#existing-modal').modal('show');
+      });
+
+       $('#transfer-modal-new-user').click(function(){
+        $('#new-user-modal').modal('show');
+      }); **/
+
+       $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_applicant_list.php', function(response){
+          $.each(JSON.parse(response), function(index, value){
+              $('#existing-select').append("<option value='"+value.a_applicantId+"'>"+value.a_firstname+' '+value.a_middlename+' '+value.a_lastname+"</option>");
+          });
+       });
+    </script>
 
 </body>
+
+
+
 
 </html>

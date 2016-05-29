@@ -7,7 +7,35 @@
 			</div>
 			<div class='modal-body'>
 				<div class='row'>
-					<div class='col-lg-12'>
+					<div class='col-md-6'>
+						<table id='update-modal-info' class='table table-hover table-bordered table-striped'>
+							<tr>
+								<td><label>Name</label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Address</label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Occupation</label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Office Address</label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Class</label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Place Registered</label></td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+					<div class='col-md-6'>
 						<form action='logic/update_pending_applicant_logic.php' method='post'>
 							<input id='applicantId' type='hidden' name='applicantId'>
 							<!--<input id='requirement-1' type="checkbox">Photocopy of current year OR, and CR</input><br>-->

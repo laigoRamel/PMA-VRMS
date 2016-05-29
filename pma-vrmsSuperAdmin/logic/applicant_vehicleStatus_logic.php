@@ -2,8 +2,8 @@
 	require_once('db/database.php');
 
 	$database = new Database();
-
-		$query = "SELECT * FROM vehicle_information JOIN form1_applicantpd ON form1_applicantpd.a_applicantId = vehicle_information.driver_id WHERE driver_type='applicant'";
+ 
+		$query = "SELECT * FROM vehicle_information JOIN form1_applicantpd ON form1_applicantpd.a_applicantId = vehicle_information.driver_id WHERE driver_type='applicant' AND vehicle_information.flag='1'";
 	$database->execute($query);
 	
 	$rows = $database->getResult();

@@ -38,8 +38,8 @@
 		$username = $_SESSION['getUser'];
 		
 	
-		$query = "INSERT INTO form1_applicantpd (a_profile, a_lastname, a_firstname, a_middlename, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_placeRegistered, a_submitted_requirements, a_status, a_dateRegistered, a_renew_status, amount) 
-				VALUES ('$img_name', '$a_lastname', '$a_firstname', '$a_middlename', '$a_address', '$a_occupation', '$a_officeAddress', '$a_driversLicense', '$a_expirationDate', '$a_class', '$a_placeRegistered', '$all_requirements', '$status', '$a_dateRegistered', '$a_renew_status', '$amount')";
+		$query = "INSERT INTO form1_applicantpd (a_profile, a_lastname, a_firstname, a_middlename, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_placeRegistered, a_submitted_requirements, a_status, a_dateRegistered, a_renew_status, amount, flag) 
+				VALUES ('$img_name', '$a_lastname', '$a_firstname', '$a_middlename', '$a_address', '$a_occupation', '$a_officeAddress', '$a_driversLicense', '$a_expirationDate', '$a_class', '$a_placeRegistered', '$all_requirements', '$status', '$a_dateRegistered', '$a_renew_status', '$amount', '1')";
 
 		$database->execute($query);
 

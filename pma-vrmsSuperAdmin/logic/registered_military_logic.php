@@ -3,7 +3,7 @@
 
 	$database = new Database();
 
-	$query = "SELECT * FROM form2_militarypd WHERE form2_militarypd.m_status='registered' AND form2_militarypd.m_renew_status = '1' ORDER BY m_dateRegistered DESC";
+	$query = "SELECT * FROM form2_militarypd WHERE form2_militarypd.m_status='registered' AND form2_militarypd.m_renew_status = '1' AND flag='1' ORDER BY m_dateRegistered DESC";
 	$database->execute($query);
 	
 	$rows = $database->getResult();
