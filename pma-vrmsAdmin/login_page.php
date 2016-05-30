@@ -34,7 +34,7 @@
         <!-- Top content -->
         <div class="top-content">
         	
-            <div class="inner-bg">
+            <div style="margin-top:15px;">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
@@ -45,7 +45,7 @@
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	
-                            <div class="form-bottom">
+                            <div class="form-bottom" style="margin-top:130px;">
 			                    <form role="form" action="" method="post" class="login-form">
 			                    	<div class="form-group">
                                     <br/>
