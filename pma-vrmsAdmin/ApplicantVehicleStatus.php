@@ -1,5 +1,5 @@
 <?php
-	include('login/session.php');
+	include('../login/session.php');
 ?>
 
 <!DOCTYPE html>
@@ -53,10 +53,10 @@
 				<a class="drop-down toggle" data-toggle="dropdown" href=""><?php echo $login_session; ?><span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href='login/logout.php'>Log out</a>
+						<a href='../login/logout.php'>Log out</a>
 					</li>
           <li>
-            <a href='login/change_password.php'>Change Password</a>
+            <a href='../login/change_password.php'>Change Password</a>
 				</ul>
 			</li>
 		</ul>
@@ -96,7 +96,7 @@
 
               <ul class="treeview-menu">
 
-                <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+                <li><a href="../login/accounts_client_page.php">Client Accounts</a></li>
               </ul>
             </li>
 
@@ -154,7 +154,7 @@
                 <li><a href="military_vehicles.php">For Military</a></li>
               </ul>
             </li>
-            
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -222,7 +222,7 @@
 DATA;
                                       echo "<td>".
                                               "<select class='form-control change-status' name='status'>".
-                                                "<option value='active'";  
+                                                "<option value='active'";
                                                       echo ($vehicle['status']==='active') ? 'selected' : ''; echo ">Active</option>
                                                 <option value='inactive'";
                                                       echo ($vehicle['status']==='inactive') ? 'selected' : ''; echo ">Inactive</option>
@@ -236,7 +236,7 @@ DATA;
                                     }
                                     ?>
 
-                                     
+
                                 </tbody>
                             </table>
                         </div>

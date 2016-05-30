@@ -54,7 +54,7 @@ include('session.php');
             <a href='logout.php'>Log out</a>
           </li>
           <li>
-            <a href='login/change_password.php'>Change Password</a>
+            <a href='change_password.php'>Change Password</a>
         </ul>
       </li>
     </ul>
@@ -261,11 +261,11 @@ include('session.php');
           }
       });
 
-    
+
       $('#new_password').change(validate_new_password);
       $('#confirm_password').change(validate_new_password);
 
-      
+
     </script>
 </body>
 

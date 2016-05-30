@@ -1,5 +1,5 @@
 <?php
-include('login/session.php');
+include('../login/session.php');
 //header('Location: login_page.php');
 
 ?>
@@ -59,10 +59,10 @@ include('login/session.php');
 				<a class="drop-down toggle" data-toggle="dropdown" href=""><?php echo $login_session; ?><span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href='login/logout.php'>Log out</a>
+						<a href='../login/logout.php'>Log out</a>
 					</li>
           <li>
-            <a href='login/change_password.php'>Change Password</a>
+            <a href='../login/change_password.php'>Change Password</a>
 				</ul>
 			</li>
 		</ul>
@@ -102,7 +102,7 @@ include('login/session.php');
 
               <ul class="treeview-menu">
 
-                <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+                <li><a href="../login/accounts_client_page.php">Client Accounts</a></li>
               </ul>
             </li>
 
@@ -160,7 +160,7 @@ include('login/session.php');
                 <li><a href="military_vehicles.php">For Military</a></li>
               </ul>
             </li>
-            
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

@@ -1,5 +1,5 @@
 <?php
-	include('login/session.php');
+	include('../login/session.php');
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@
 							<th>Timeout</th>
 						</thead>
 						<tbody>
-							<?php 
+							<?php
 								foreach ($mplogs as $key => $mplog) {
 									echo <<<DATA
 										<tr id='report_$key'>
@@ -66,7 +66,7 @@ DATA;
 		$(document).ready( function () {
 			$('#bootstrap-table').bdt();
 		});
-	</script>				
+	</script>
 
 	</body>
 </html>
