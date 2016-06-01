@@ -84,17 +84,7 @@ include('session.php');
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
             <!-- Accounts -->
-            <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-plus"></i>
-                <span>Accounts</span>
-                <i class="glyphicon glyphicon-chevron-down pull-right"></i>
-              </a>
-
-              <ul class="treeview-menu">
-
-                <li class=""><a href="accounts_client_page.php">Client Accounts</a></li>
-              </ul>
-            </li>
+            <li><a href="accounts_client_page.php"><i class="glyphicon glyphicon-plus"></i><span>Client Accounts</span></a></li>
 
             <!-- Accounting -->
             <li class="treeview">
@@ -226,7 +216,7 @@ include('session.php');
 
       <!-- Main Footer -->
       <footer class="main-footer">
-        TISIS
+        ©2016 PMA-VRMS
       </footer>
 
     </div><!-- ./wrapper -->
