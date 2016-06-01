@@ -196,7 +196,7 @@ include('login/session.php');
 									echo <<<DATA
 										<tr id='applicant_$key' requirements='$applicant[a_requirements]' applicant_id='$applicant[a_applicantId]' >
 											<td style='display:none'>$applicant[a_applicantId]</td>
-                      <td><img src='img/profile/applicant/$applicant[a_profile]' height='100px;'></td>
+                      <td><img src='../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]' height='100px;'></td>
 											<td>$applicant[a_lastname]</td>
 											<td>$applicant[a_firstname]</td>
 											<td>$applicant[a_middlename]</td>

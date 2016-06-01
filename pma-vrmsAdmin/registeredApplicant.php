@@ -234,7 +234,7 @@
                                         echo <<<DATA
                                         <tr id='applicant_$key'>
                                             <td style='display:none'>$applicant[a_applicantId]</td>
-                                            <td><img style="width="40" height="40"" src='img/profile/applicant/$applicant[a_profile]' height='100px;'></td>
+                                            <td><img style="width="40" height="40"" src='../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]' height='100px;'></td>
                                             <td>$applicant[name]</td>
                                             <td>$applicant[a_address]</td>
                                             <td>$applicant[a_occupation]</td>
@@ -245,10 +245,10 @@
                                             <td style='display:none'>$applicant[a_dateRegistered]</td>
                                             <td>$applicant[a_placeRegistered]</td>
           
-                                            <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form1' onclick="view_form1($key, 'img/profile/applicant/$applicant[a_profile]')">View</button></td>
+                                            <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form1' onclick="view_form1($key, '../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]')">View</button></td>
                                             <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_applicant' onclick='renew_applicant($key, $applicant[a_applicantId])'>Renew</button></td>
-                                            <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form1' onclick="edit_form1($key, 'img/profile/applicant/$applicant[a_profile]', '$applicant[a_applicantId]', '$applicant[name]', '$applicant[a_address]', '$applicant[a_occupation]', '$applicant[a_officeAddress]', '$applicant[a_driversLicense]', '$applicant[a_expirationDate]', '$applicant[a_class]', '$applicant[a_dateRegistered]', '$applicant[a_placeRegistered]')">Edit</button></td>
-                                            <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form1' onclick="delete_form1($key, 'img/profile/applicant/$applicant[a_profile]')">Delete</button></td>
+                                            <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form1' onclick="edit_form1($key, '../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]', '$applicant[a_applicantId]', '$applicant[name]', '$applicant[a_address]', '$applicant[a_occupation]', '$applicant[a_officeAddress]', '$applicant[a_driversLicense]', '$applicant[a_expirationDate]', '$applicant[a_class]', '$applicant[a_dateRegistered]', '$applicant[a_placeRegistered]')">Edit</button></td>
+                                            <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form1' onclick="delete_form1($key, '../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]')">Delete</button></td>
                                             <td style='display:none'>
                                               <table id='vehicle_table_$key'>
 DATA;
@@ -415,12 +415,12 @@ VEHICLE;
     $(document).ready(function(){
       var global_sticker_number = [];
       var global_plate_number = [];
-      $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_sticker_number.php', function(response){
+      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_sticker_number.php', function(response){
         $.each(JSON.parse(response), function(index, data){
           global_sticker_number.push(data.stickerNo);
         });
       });
-      $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_plate_number.php', function(response){
+      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_plate_number.php', function(response){
         $.each(JSON.parse(response), function(index, data){
           global_plate_number.push(data.plateNo);
         });

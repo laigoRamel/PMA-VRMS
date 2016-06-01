@@ -203,7 +203,7 @@
                                     <th>Motor No.</th>
                                     <th>Chassis No.</th>
                                     <th>Sticker No.</th>
-                                    <th  class="column-options" colspan=4 style="text-align:center">Status (registered (not registered), transferred)</th>
+                                    <th  class="column-options" colspan=4 style="text-align:center">Status</th>
                                 </thead>
                                 <tbody>
                                     <?php
@@ -219,7 +219,7 @@
                                             <td>$vehicle[color]</td>
                                             <td>$vehicle[motorNo]</td>
                                             <td>$vehicle[chassisNo]</td>
-                                            <td>$vehicle[stickerNo]</td>
+                                            <td>$vehicle[decalNo]</td>
                                             <td>$vehicle[status]</td>
 DATA;
                                       // echo "<td>".

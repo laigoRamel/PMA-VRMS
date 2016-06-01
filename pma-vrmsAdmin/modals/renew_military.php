@@ -5,9 +5,42 @@
 				<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
 				<h4 class='modal-title'>Renew Military</h4>
 			</div>
+
+			
+
 			<div class='modal-body'>
 				<div class='row'>
-					<div class='col-lg-12'>
+
+					<div class='col-md-6'>
+						<table id='renew-modal-info' class='table table-hover table-bordered table-striped'>
+							<tr>
+								<td><label>Name</label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Rank</label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Email Address</label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Designated Office</label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Class</label></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><label>Place Registered</label></td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+
+					<div class='col-md-6'>
 						<form action='logic/renew_military_logic.php' method='post'>
 							<div class="panel-body">
                         <div class="checkbox">

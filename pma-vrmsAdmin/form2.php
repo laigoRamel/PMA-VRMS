@@ -544,12 +544,12 @@ include('login/session.php');
 		$(document).ready(function(){
       var global_decal_number = [];
       var global_plate_number = [];
-      $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_decal_number.php', function(response){
+      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_decal_number.php', function(response){
         $.each(JSON.parse(response), function(index, data){
           global_decal_number.push(data.decalNo);
         });
       });
-      $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_plate_number.php', function(response){
+      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_plate_number.php', function(response){
         $.each(JSON.parse(response), function(index, data){
           global_plate_number.push(data.plateNo);
         });

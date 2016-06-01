@@ -205,7 +205,7 @@
                                     <th>Color</th>
                                     <th>Motor No.</th>
                                     <th>Chassis No.</th>
-                                    <th>Sticker No.</th>
+                                    <th>deCal No.</th>
                                     <th  class="column-options" style="text-align:center">Status</th>
                                 </thead>
                                 <tbody>
@@ -222,7 +222,7 @@
                                             <td>$vehicle[color]</td>
                                             <td>$vehicle[motorNo]</td>
                                             <td>$vehicle[chassisNo]</td>
-                                            <td>$vehicle[stickerNo]</td>
+                                            <td>$vehicle[decalNo]</td>
 DATA;
                                       echo "<td>
                                               <button class='btn btn-primary transfer'>Transfer</button>
@@ -338,7 +338,7 @@ DATA;
         $('#new-user-modal').modal('show');
       }); **/
 
-       $.get(window.location.origin+'/pma-vrmsAdmin/logic/ajax_military_list.php', function(response){
+       $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_military_list.php', function(response){
           $.each(JSON.parse(response), function(index, value){
               $('#existing-select').append("<option value='"+value.m_militaryId+"'>"+value.m_firstname+' '+value.m_middlename+' '+value.m_lastname+"</option>");
           });

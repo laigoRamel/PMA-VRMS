@@ -223,7 +223,7 @@
                                             echo <<<DATA
                                                 <tr id='military_$key'>
                                                     <td style='display:none'>$military[m_militaryId]</td>
-                                                    <td><img style="width="40" height="40"" src='img/profile/military/$military[m_profile]' height='100px;'></td>
+                                                    <td><img style="width="40" height="40"" src='../pma-vrmsSuperAdmin/img/profile/military/$military[m_profile]' height='100px;'></td>
                                                     <td>$military[name]</td>
                                                     <td>$military[m_rank]</td>
                                                     <td style='display:none'>$military[m_brSvc]</td>
@@ -239,10 +239,10 @@
                                                     <td>$military[m_class]</td>
                                                     <td style='display:none'>$military[m_dateRegistered]</td>
                                                     <td>$military[m_placeRegistered]</td>
-                                                    <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick="view_form2($key, 'img/profile/military/$military[m_profile]')">View</button></td>
+                                                    <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick="view_form2($key, '../pma-vrmsSuperAdmin/img/profile/military/$military[m_profile]')">View</button></td>
                                                     <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick='renew_military($military[m_militaryId])'>Renew</button></td>
-                                                    <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick="edit_form2($key, 'img/profile/military/$military[m_profile]', '$military[m_militaryId]', '$military[name]', '$military[m_rank]', '$military[m_brSvc]', '$military[m_afpsn]', '$military[m_residenceAddress]', '$military[m_residenceTelNo]', '$military[m_emailAddress]', '$military[m_mobileNo]', '$military[m_designatedOffice]', '$military[m_officeTelNo]', '$military[m_officeAddress]', '$military[m_retirementDate]', '$military[m_class]', '$military[m_dateRegistered]', '$military[m_placeRegistered]')">Edit</button></td>
-                                                    <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form2' onclick="delete_form2($key, 'img/profile/military/$military[m_profile]')">Delete</button></td>
+                                                    <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick="edit_form2($key, '../pma-vrmsSuperAdmin/img/profile/military/$military[m_profile]', '$military[m_militaryId]', '$military[name]', '$military[m_rank]', '$military[m_brSvc]', '$military[m_afpsn]', '$military[m_residenceAddress]', '$military[m_residenceTelNo]', '$military[m_emailAddress]', '$military[m_mobileNo]', '$military[m_designatedOffice]', '$military[m_officeTelNo]', '$military[m_officeAddress]', '$military[m_retirementDate]', '$military[m_class]', '$military[m_dateRegistered]', '$military[m_placeRegistered]')">Edit</button></td>
+                                                    <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form2' onclick="delete_form2($key, '../pma-vrmsSuperAdmin/img/profile/military/$military[m_profile]')">Delete</button></td>
                                                 </tr>
                                                  <table id='vehicle_table_$key'>
 DATA;
@@ -382,12 +382,12 @@ VEHICLE;
     $(document).ready(function(){
       var global_decal_number = [];
       var global_plate_number = [];
-      $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_decal_number.php', function(response){
+      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_decal_number.php', function(response){
         $.each(JSON.parse(response), function(index, data){
           global_decal_number.push(data.decalNo);
         });
       });
-      $.get(window.location.origin+'/new/pma-vrmsAdmin/logic/ajax_plate_number.php', function(response){
+      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_plate_number.php', function(response){
         $.each(JSON.parse(response), function(index, data){
           global_plate_number.push(data.plateNo);
         });
@@ -548,7 +548,21 @@ VEHICLE;
 
         }
 
-       var renew_military = function(key){
+       var renew_military = function(key, id){
+          var row = $('#military_'+key);
+          var name = row.find('td:nth-child(3)').text();
+          var m_rank = row.find('td:nth-child(4)').text();
+          var m_emailAddress = row.find('td:nth-child(5)').text();
+          var m_designatedOffice = row.find('td:nth-child(6)').text();
+          var m_class = row.find('td:nth-child(9)').text();
+          var m_placeRegistered = row.find('td:nth-child(11)').text();
+
+          $('#renew-modal-info').find('tr:eq(0)').find('td:eq(1)').text(name);
+          $('#renew-modal-info').find('tr:eq(1)').find('td:eq(1)').text(m_rank);
+          $('#renew-modal-info').find('tr:eq(2)').find('td:eq(1)').text(m_emailAddress);
+          $('#renew-modal-info').find('tr:eq(3)').find('td:eq(1)').text(m_designatedOffice);
+          $('#renew-modal-info').find('tr:eq(4)').find('td:eq(1)').text(m_class);
+          $('#renew-modal-info').find('tr:eq(5)').find('td:eq(1)').text(m_placeRegistered);
 
       $('#renew_military_id').val(key);
 

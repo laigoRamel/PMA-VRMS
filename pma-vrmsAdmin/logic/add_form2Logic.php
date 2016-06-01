@@ -14,7 +14,7 @@
 	function AddForm2Data($m_profile, $m_lastname, $m_firstname, $m_middlename, $m_rank, $m_brSvc, $m_afpsn, $m_residenceAddress, $m_residenceTelNo, $m_emailAddress, $m_mobileNo, $m_designatedOffice, $m_officeTelNo, $m_officeAddress, $m_retirementDate, $m_class, $m_placeRegistered, $wheels, $vehicleMake, $plateNo, $yearModel, $color, $motorNo, $chassisNo, $decalNo){ 
 		global $database;
 
-		move_uploaded_file($m_profile['tmp_name'], "../img/profile/military/".$m_firstname.'-'.$m_lastname.'.png');
+		move_uploaded_file($m_profile['tmp_name'], "../../pma-vrmsSuperAdmin/img/profile/military/".$m_firstname.'-'.$m_lastname.'.png');
 		$img_name = $m_firstname.'-'.$m_lastname.'.png';
 		
 //Add militar

@@ -15,7 +15,7 @@
 	function AddForm1Data($a_profile, $a_lastname, $a_firstname, $a_middlename, $a_address, $a_occupation, $a_officeAddress, $a_driversLicense, $a_expirationDate, $a_class, $a_placeRegistered, $wheels, $vehicleMake, $plateNo, $yearModel, $color, $motorNo, $chassisNo, $stickerNo){
 		global $database;
 		
-		move_uploaded_file($a_profile['tmp_name'], "../img/profile/applicant/".$a_firstname.'-'.$a_lastname.'.png');
+		move_uploaded_file($a_profile['tmp_name'], "../../pma-vrmsSuperAdmin/img/profile/applicant/".$a_firstname.'-'.$a_lastname.'.png');
 		$img_name = $a_firstname.'-'.$a_lastname.'.png';
 
 //Add applicant	
