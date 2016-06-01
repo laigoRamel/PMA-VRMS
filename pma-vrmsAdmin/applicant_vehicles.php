@@ -57,6 +57,9 @@
           <li>
             <a href='login/logout.php'>Log out</a>
           </li>
+          <li>
+            <a href='login/change_password.php'>Change Password</a>
+          </li>
         </ul>
       </li>
     </ul>
@@ -147,10 +150,10 @@
             </li>
 
             <!-- Vehicle -->
-            <li class="treeview">
+            <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class=""><a href="applicant_vehicles.php">For Civilian</a></li>
+                <li class="active"><a href="applicant_vehicles.php">For Civilian</a></li>
                 <li><a href="military_vehicles.php">For Military</a></li>
               </ul>
             </li>

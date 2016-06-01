@@ -55,6 +55,9 @@
 					<li>
 						<a href='login/logout.php'>Log out</a>
 					</li>
+          <li>
+            <a href='login/change_password.php'>Change Password</a>
+          </li>
 				</ul>
 			</li>
 		</ul>
