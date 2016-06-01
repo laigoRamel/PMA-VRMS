@@ -208,6 +208,7 @@ DATA;
             </tbody>
           </table>
 <label>Total</label>
+                        <label id="printHeader">Total</label>
   <input type="text" value="<?php echo $total_amount_military; ?>" style='text-align: center; color: red;' disabled></input>
                         </div>
                     </div>
@@ -229,7 +230,7 @@ DATA;
 
       <!-- Main Footer -->
       <footer class="main-footer">
-        TISIS
+        ©2016 PMA-VRMS
       </footer>
 
     </div><!-- ./wrapper -->

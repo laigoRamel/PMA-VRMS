@@ -243,8 +243,15 @@ include('login/session.php');
         </div>
         <!-- /span6 -->
 
-
+        </div>
+      </div>
+            </div>
+          </div>
 </div>
+        <footer class="main-footer">
+        ©2016 PMA-VRMS
+      </footer>
+    </div>
 
 
 

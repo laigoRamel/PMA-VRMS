@@ -157,7 +157,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Registered AFP
+            AFP Vehicles
           </h1>
 
         </section>
@@ -271,7 +271,7 @@ DATA;
 
       <!-- Main Footer -->
       <footer class="main-footer">
-        TISIS
+        ©2016 PMA-VRMS
       </footer>
 
     </div><!-- ./wrapper -->

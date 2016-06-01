@@ -3,7 +3,7 @@
 ?>
 
 <div class="modal fade" id='delete_form1'>
-	<div class="modal-dialog modal-sm">
+	<div class="modal-dialog modal-sm responsive">
 		<div class="modal-content">
 			<div class='modal-header'>
 				<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>

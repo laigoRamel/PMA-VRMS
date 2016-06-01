@@ -86,17 +86,10 @@ include('session.php');
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
             <!-- Accounts -->
-            <li class="treeview active">
-              <a href="#"><i class="glyphicon glyphicon-plus"></i>
-                <span>Accounts</span>
-                <i class="glyphicon glyphicon-chevron-down pull-right"></i>
-              </a>
+            
 
-              <ul class="treeview-menu">
-
-                <li class="active"><a href="accounts_client_page.php">Client Accounts</a></li>
-              </ul>
-            </li>
+                <li class="active"><a href="accounts_client_page.php"><i class="glyphicon glyphicon-plus"></i>Client Accounts</a></li>
+            
 
             <!-- Accounting -->
             <li class="treeview">
@@ -135,18 +128,24 @@ include('session.php');
               </ul>
             </li>
 
+            <li class="header">VEHICLES</li>
             <!-- Vehicle Status -->
             <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-info-sign"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="../ApplicantVehicleStatus.php">For Civilian</a></li>
-                <li><a href="../AFPVehicleStatus.php">For Military</a></li>
+                <li><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
+                <li><a href="AFPVehicleStatus.php">For Military</a></li>
               </ul>
             </li>
 
-            <!-- Vehicle -->
-            <li class=""><a href="vehicles.php"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span></a></li>
-
+           <!-- Vehicle -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li class=""><a href="applicant_vehicles.php">For Civilian</a></li>
+                <li><a href="military_vehicles.php">For Military</a></li>
+              </ul>
+            </li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -616,7 +615,7 @@ include('session.php');
 
       <!-- Main Footer -->
       <footer class="main-footer">
-        TISIS
+        ©2016 PMA-VRMS
       </footer>
 
     </div><!-- ./wrapper -->

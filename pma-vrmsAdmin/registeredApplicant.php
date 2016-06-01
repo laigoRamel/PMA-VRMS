@@ -30,17 +30,6 @@
         <link rel="stylesheet" href="jasny-bootstrap/css/jasny-bootstrap.min.css">
     <link rel="icon" href="img/seal.png">
 
-
-    <style>
-      @media print{
-        #hide-wrapper{
-          display: none;
-        }
-
-
-      }
-    </style>
-
 	<script src="bootstrap/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/app.min.js"></script>
@@ -182,7 +171,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Registered Applicants
+            Registered Civilan Applicants
           </h1>
 
         </section>
@@ -281,7 +270,7 @@ VEHICLE;
 
       <!-- Main Footer -->
       <footer class="main-footer">
-        TISIS
+        ©2016 PMA-VRMS
       </footer>
 
     </div><!-- ./wrapper -->

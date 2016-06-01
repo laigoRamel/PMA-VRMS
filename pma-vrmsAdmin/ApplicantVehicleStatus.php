@@ -157,7 +157,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Registered Applicants
+            Civilian Vehicles
           </h1>
 
         </section>
@@ -194,7 +194,7 @@
                                     <th>Motor No.</th>
                                     <th>Chassis No.</th>
                                     <th>Sticker No.</th>
-                                    <th  class="column-options" style="text-align:center">Status</th>
+                                    <th>Status</th>
                                 </thead>
                                 <tbody>
                                     <?php
@@ -273,7 +273,7 @@ DATA;
 
       <!-- Main Footer -->
       <footer class="main-footer">
-        TISIS
+        ©2016 PMA-VRMS
       </footer>
 
     </div><!-- ./wrapper -->
