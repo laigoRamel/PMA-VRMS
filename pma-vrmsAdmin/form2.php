@@ -208,11 +208,11 @@ include('login/session.php');
                               </div>
                             </div>
 
-                            <div class="form-group">
+                            <!--<div class="form-group">
                               <label class="col-sm-2 control-label">Rank</label>
-                              <div class="col-sm-9">
+                              <div class="col-sm-9"> -->
                                 <!-- <input type="text" class="form-control" placeholder="Rank" name='m_rank' required> -->
-                                <select class="form-control" placeholder="Rank" name='m_rank' required>
+                                <!--<select class="form-control" placeholder="Rank" name='m_rank' required>
                                   <option value="Himagat">Himagat</option>
                                   <option value="Pulimagat">Pulimagat</option>
                                   <option value="Kamagat">Kamagat</option>
@@ -223,22 +223,56 @@ include('login/session.php');
                                   <option value="Magat Heneral">Magat Heneral</option>
                                   <option value="Tenyente Heneral">Tenyente Heneral</option>
                                   <option value="Heneral">Heneral</option>
-                                </select>
+                                </select>-->
                                 <!--
                                 Ranks Source: https://en.wikipedia.org/wiki/Armed_Forces_of_the_Philippines
                                 -->
-                              </div>
+                              <!--</div>
                             </div>
 
                             <div class="form-group">
                               <label class="col-sm-2 control-label">BR / SVC</label>
-                              <div class="col-sm-9">
+                              <div class="col-sm-9">-->
                                 <!-- <input type="text" class="form-control" placeholder="BR / SVC" name='m_brSvc' required> -->
-                                  <select class="form-control" placeholder="BR / SVC" name='m_brSvc' required>
+                                  <!--<select class="form-control" placeholder="BR / SVC" name='m_brSvc' required>
                                   <option value="choice 1">choice 1</option>
                                   <option value="choice 2">choice 2</option>
                                   <option value="choice 3">choice 3</option>
 
+                                </select>
+                              </div>
+                            </div>-->
+
+                            <div class="form-group">
+                              <label for="applicantRank" class="col-sm-2 control-label">BR / SVC</label>
+
+                              <div class="col-sm-9">
+                                <label><input type="radio" name='m_brSvc' value='PA' checked='checked'>PA</label>
+                                <label><input type="radio" name='m_brSvc' value='PN'>PN</label>
+                                <label><input type="radio" name='m_brSvc' value='PAF'>PAF</label>
+                                <label><input type="radio" name='m_brSvc' value='AFP'>AFP</label>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="applicantRank" class="col-sm-2 control-label">Rank</label>
+
+                              <div class="col-sm-9">
+                                <select id='select-rank' class='form-control' name='m_rank'>
+                                  <option value='PVT'>PVT</option>
+                                  <option value='PFC'>PFC</option>
+                                  <option value='CPL'>CPL</option>
+                                  <option value='SGT'>SGT</option>
+                                  <option value='SSG'>SSG</option>
+                                  <option value='TSG'>TSG</option>
+                                  <option value='MSG'>MSG</option>
+                                  <option value='SMSG'>SMSG</option>
+                                  <option value='CMSG'>CMSG</option>
+                                  <option value='FCMSG'>FCMSG</option>
+                                  <option value='2LT'>2LT</option>
+                                  <option value='1LT'>1LT</option>
+                                  <option value='MAJ'>MAJ</option>
+                                  <option value='LTCOL'>LTCOL</option>
                                 </select>
                               </div>
                             </div>
@@ -508,6 +542,80 @@ include('login/session.php');
 
 
 </body>
+
+  <script>
+var set_select_rank2 = function(value2){
+  if(value2 === 'PA'){
+    $('#select-rank').html(
+      "<option value='PVT'>PVT</option>"+
+      "<option value='PFC'>PFC</option>"+
+      "<option value='CPL'>CPL</option>"+
+      "<option value='SGT'>SGT</option>"+
+      "<option value='SSG'>SSG</option>"+
+      "<option value='TSG'>TSG</option>"+
+      "<option value='MSG'>MSG</option>"+
+      "<option value='SMSG'>SMSG</option>"+
+      "<option value='CMSG'>CMSG</option>"+
+      "<option value='FCMSG'>FCMSG</option>"+
+      "<option value='2LT'>2LT</option>"+
+      "<option value='1LT'>1LT</option>"+
+      "<option value='MAJ'>MAJ</option>"+
+      "<option value='LTCOL'>LTCOL</option>"
+    );
+  }
+  if(value2 === 'PN'){
+    $('#select-rank').html(
+      "<option value='SN'>SN</option>"+
+      "<option value='SN2'>SN2</option>"+
+      "<option value='SN1'>SN1</option>"+
+      "<option value='PO3'>PO3</option>"+
+      "<option value='PO2'>PO2</option>"+
+      "<option value='PO1'>PO1</option>"+
+      "<option value='CPO'>CPO</option>"+
+      "<option value='SCPO'>SCPO</option>"+
+      "<option value='MCPO'>MCPO</option>"+
+      "<option value='FCCPO'>FCCPO</option>"+
+      "<option value='ENS'>ENS</option>"+
+      "<option value='LTJG'>LTJG</option>"+
+      "<option value='LTCMDR'>LTCMDR</option>"+
+      "<option value='CMDR'>CMDR</option>"
+    );
+  }
+  if(value2 === 'PAF'){
+    $('#select-rank').html(
+      "<option value='AM'>AM</option>"+
+      "<option value='A2C'>A2C</option>"+
+      "<option value='A1C'>A1C</option>"+
+      "<option value='SGT'>SGT</option>"+
+      "<option value='SSG'>SSG</option>"+
+      "<option value='TSG'>TSG</option>"+
+      "<option value='MSG'>MSG</option>"+
+      "<option value='SMSG'>SMSG</option>"+
+      "<option value='CMSG'>CMSG</option>"+
+      "<option value='FCMSG'>FCMSG</option>"+
+      "<option value='2LT'>2LT</option>"+
+      "<option value='1LT'>1LT</option>"+
+      "<option value='MAJ'>MAJ</option>"+
+      "<option value='LTCOL'>LTCOL</option>"
+    );
+  }
+  if(value2 === 'AFP'){
+    $('#select-rank').html(
+      "<option value='COL/CAPT'>COL/CAPT</option>"+
+      "<option value='BGEN'>BGEN</option>"+
+      "<option value='MGEN/RADM'>MGEN/RADM</option>"+
+      "<option value='LTGEN/VADM'>LTGEN/VADM</option>"+
+      "<option value='GEN/ADM'>GEN/ADM</option>"
+    );
+  }
+
+
+}
+$('input[type=radio]').change(function(){
+  set_select_rank2($(this).val());
+});
+</script>
+
   <script>
     var check_requirements = function(){
        var is_complete = true;
