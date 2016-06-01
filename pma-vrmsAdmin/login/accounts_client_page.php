@@ -243,9 +243,9 @@ include('session.php');
 																			</label>
 
 																			<div class="col-sm-6">
-																				<label><input type="radio" name='type' value='army' checked='checked'>Army</label>
-																				<label><input type="radio" name='type' value='navy'>Navy</label>
-																				<label><input type="radio" name='type' value='air force'>Air Force</label>
+																				<label><input type="radio" name='type' value='army' checked='checked'>PA</label>
+																				<label><input type="radio" name='type' value='navy'>PN</label>
+																				<label><input type="radio" name='type' value='air force'>PAF</label>
 																			</div>
 																		</div>
 
@@ -256,10 +256,20 @@ include('session.php');
 
 																			<div class="col-sm-6">
 																				<select id='modal-add-select-rank' class='form-control' name='clientRank'>
-															        				<option value='rank1'>Army 1</option>
-															        				<option value='rank2'>Army 2</option>
-															        				<option value='rank3'>Army 3</option>
-															        				<option value='rank4'>Army 4</option>
+															        				<option value='PVT'>PVT</option>
+                                  <option value='PFC'>PFC</option>
+                                  <option value='CPL'>CPL</option>
+                                  <option value='SGT'>SGT</option>
+                                  <option value='SSG'>SSG</option>
+                                  <option value='TSG'>TSG</option>
+                                  <option value='MSG'>MSG</option>
+                                  <option value='SMSG'>SMSG</option>
+                                  <option value='CMSG'>CMSG</option>
+                                  <option value='FCMSG'>FCMSG</option>
+                                  <option value='2LT'>2LT</option>
+                                  <option value='1LT'>1LT</option>
+                                  <option value='MAJ'>MAJ</option>
+                                  <option value='LTCOL'>LTCOL</option>
 															        			</select>
 																			</div>
 																		</div>
