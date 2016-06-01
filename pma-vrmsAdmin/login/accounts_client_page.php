@@ -55,7 +55,6 @@ include('session.php');
 					</li>
           <li>
             <a href='change_password.php'>Change Password</a>
-          </li>
 				</ul>
 			</li>
 		</ul>
@@ -87,7 +86,17 @@ include('session.php');
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
             <!-- Accounts -->
-            <li><a href="login/accounts_client_page.php"><i class="glyphicon glyphicon-plus"></i><span>Client Accounts</span></a></li>
+            <li class="treeview active">
+              <a href="#"><i class="glyphicon glyphicon-plus"></i>
+                <span>Accounts</span>
+                <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+              </a>
+
+              <ul class="treeview-menu">
+
+                <li class="active"><a href="accounts_client_page.php">Client Accounts</a></li>
+              </ul>
+            </li>
 
             <!-- Accounting -->
             <li class="treeview">
@@ -126,24 +135,17 @@ include('session.php');
               </ul>
             </li>
 
-            <li class="header">VEHICLES</li>
             <!-- Vehicle Status -->
             <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-info-sign"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
-                <li><a href="AFPVehicleStatus.php">For Military</a></li>
+                <li><a href="../ApplicantVehicleStatus.php">For Civilian</a></li>
+                <li><a href="../AFPVehicleStatus.php">For Military</a></li>
               </ul>
             </li>
 
             <!-- Vehicle -->
-            <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li class=""><a href="applicant_vehicles.php">For Civilian</a></li>
-                <li><a href="military_vehicles.php">For Military</a></li>
-              </ul>
-            </li>
+            <li class=""><a href="vehicles.php"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span></a></li>
 
           </ul><!-- /.sidebar-menu -->
         </section>
@@ -241,9 +243,9 @@ include('session.php');
 																			</label>
 
 																			<div class="col-sm-6">
-																				<label><input type="radio" name='type' value='PA' checked='checked'>PA</label>
-																				<label><input type="radio" name='type' value='PN'>PN</label>
-																				<label><input type="radio" name='type' value='PAF'>PAF</label>
+																				<label><input type="radio" name='type' value='army' checked='checked'>Army</label>
+																				<label><input type="radio" name='type' value='navy'>Navy</label>
+																				<label><input type="radio" name='type' value='air force'>Air Force</label>
 																			</div>
 																		</div>
 
@@ -254,20 +256,10 @@ include('session.php');
 
 																			<div class="col-sm-6">
 																				<select id='modal-add-select-rank' class='form-control' name='clientRank'>
-															        				<option value='PVT'>PVT</option>
-                                  <option value='PFC'>PFC</option>
-                                  <option value='CPL'>CPL</option>
-                                  <option value='SGT'>SGT</option>
-                                  <option value='SSG'>SSG</option>
-                                  <option value='TSG'>TSG</option>
-                                  <option value='MSG'>MSG</option>
-                                  <option value='SMSG'>SMSG</option>
-                                  <option value='CMSG'>CMSG</option>
-                                  <option value='FCMSG'>FCMSG</option>
-                                  <option value='2LT'>2LT</option>
-                                  <option value='1LT'>1LT</option>
-                                  <option value='MAJ'>MAJ</option>
-                                  <option value='LTCOL'>LTCOL</option>
+															        				<option value='rank1'>Army 1</option>
+															        				<option value='rank2'>Army 2</option>
+															        				<option value='rank3'>Army 3</option>
+															        				<option value='rank4'>Army 4</option>
 															        			</select>
 																			</div>
 																		</div>
@@ -388,9 +380,9 @@ include('session.php');
 				        	<tr>
 				        		<td><label>Type</label></td>
 				        		<td>
-				        			<label><input id='modal-edit-type_army' type='radio' name='rank_type' value='PA' />PA</label>
-					        		<label><input id='modal-edit-type_navy' type='radio' name='rank_type' value='PN' />PN</label>
-					        		<label><input id='modal-edit-type_air_force' type='radio' name='rank_type' value='PAF' />PAF</label>
+				        			<label><input id='modal-edit-type_army' type='radio' name='rank_type' value='army' />PA</label>
+					        		<label><input id='modal-edit-type_navy' type='radio' name='rank_type' value='navy' />PN</label>
+					        		<label><input id='modal-edit-type_air_force' type='radio' name='rank_type' value='air force' />PAF</label>
 				        		</td>
 				        	</tr>
 				        	<tr>
@@ -451,8 +443,8 @@ include('session.php');
 			$('#bootstrap-table').bdt();
 		});
 
-		var set_select_rank3 = function(value){
-			if(value === 'PA'){
+		var set_select_rank = function(value){
+			if(value === 'army'){
 				$('#select-rank').html(
 								"<option value='PVT'>PVT</option>"+
       "<option value='PFC'>PFC</option>"+
@@ -470,7 +462,7 @@ include('session.php');
       "<option value='LTCOL'>LTCOL</option>"
 				);
 			}
-			if(value === 'PN'){
+			if(value === 'navy'){
 				$('#select-rank').html(
 								"<option value='SN'>SN</option>"+
       "<option value='SN2'>SN2</option>"+
@@ -488,7 +480,7 @@ include('session.php');
       "<option value='CMDR'>CMDR</option>"
 				);
 			}
-			if(value === 'PAF'){
+			if(value === 'air force'){
 				$('#select-rank').html(
 								"<option value='AM'>AM</option>"+
       "<option value='A2C'>A2C</option>"+
@@ -504,10 +496,11 @@ include('session.php');
       "<option value='1LT'>1LT</option>"+
       "<option value='MAJ'>MAJ</option>"+
       "<option value='LTCOL'>LTCOL</option>"
+				);
 			}
 
 
-			if(value === 'PA'){
+			if(value === 'army'){
 				$('#modal-add-select-rank').html(
 								"<option value='PVT'>PVT</option>"+
       "<option value='PFC'>PFC</option>"+
@@ -525,7 +518,7 @@ include('session.php');
       "<option value='LTCOL'>LTCOL</option>"
 				);
 			}
-			if(value === 'PN'){
+			if(value === 'navy'){
 				$('#modal-add-select-rank').html(
 								"<option value='SN'>SN</option>"+
       "<option value='SN2'>SN2</option>"+
@@ -541,10 +534,9 @@ include('session.php');
       "<option value='LTJG'>LTJG</option>"+
       "<option value='LTCMDR'>LTCMDR</option>"+
       "<option value='CMDR'>CMDR</option>"
-    );
 				);
 			}
-			if(value === 'PAF'){
+			if(value === 'air force'){
 				$('#modal-add-select-rank').html(
 								"<option value='AM'>AM</option>"+
       "<option value='A2C'>A2C</option>"+
@@ -579,24 +571,24 @@ include('session.php');
 			$('#modal-edit-office').val(office);
 			$('input[type=radio]').prop('checked', false);
 
-			if(type === 'PA'){
+			if(type === 'army'){
 				$('#modal-edit-type_army').prop('checked', true);
-				set_select_rank3('PA');
+				set_select_rank('army');
 			}
-			if(type === 'PN'){
+			if(type === 'navy'){
 				$('#modal-edit-type_navy').prop('checked', true);
-				set_select_rank3('PN');
+				set_select_rank('navy');
 			}
-			if(type === 'PAF'){
+			if(type === 'air force'){
 				$('#modal-edit-type_air_force').prop('checked', true);
-				set_select_rank3('PAF');
+				set_select_rank('air force');
 			}
 			$('#select-rank').val(rank);
 			$('#modal-edit').modal('show');	
 		});
 
 		$('input[type=radio]').change(function(){
-			set_select_rank3($(this).val());
+			set_select_rank($(this).val());
 
 		});
 
@@ -625,7 +617,7 @@ include('session.php');
     	$('table').on('click', '.reset', function(){
     		var id = $(this).closest('tr').find('td:eq(5)').text();
     		var element = $(this);
-    		$.post(window.location.origin+'/new/pma-vrmsAdmin/login/reset_account_logic.php', {id: id}, function(response){
+    		$.post(window.location.origin+'/pma21/trunk/pma-vrmsAdmin/login/reset_account_logic.php', {id: id}, function(response){
     			element.closest('tr').find('td:eq(6)').find('span').css('display', 'block');
     			setInterval(function(){
     				element.closest('tr').find('td:eq(6)').find('span').css('display', 'none');
