@@ -80,7 +80,10 @@ include('session.php');
             <!-- Reports -->
             <li><a href="../reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
-             <!-- Create Account -->
+            <!-- Employee Log -->
+            <li><a href="logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+
+              <!-- Create Account -->
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
             <!-- Accounts -->
@@ -92,7 +95,9 @@ include('session.php');
 
               <ul class="treeview-menu">
 
-                <li class=""><a href="accounts_client_page.php">Client Accounts</a></li>
+                <li><a href="accounts_client_page.php">Client Accounts</a></li>
+                <li><a href="accounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="accounts_superuser_page.php">Superuser Accounts</a></li>
               </ul>
             </li>
 

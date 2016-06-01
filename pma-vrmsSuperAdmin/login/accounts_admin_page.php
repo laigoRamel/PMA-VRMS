@@ -73,21 +73,24 @@ include('session.php');
             <li class="header">NAVIGATION</li>
 
             <!-- Dashboard -->
-            <li class=""><a href="index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
+            <li class=""><a href="../index.php"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
 
 
 
             <!-- Vehicle Log -->
-            <li><a href="vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
+            <li><a href="../vehicleLog.php"><i class="glyphicon glyphicon-road"></i> <span>Vehicle Log</span></a></li>
 
             <!-- Reports -->
-            <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
+            <li><a href="../reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
-             <!-- Create Account -->
+            <!-- Employee Log -->
+            <li><a href="logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+
+              <!-- Create Account -->
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
             <!-- Accounts -->
-            <li class="treeview">
+            <li class="treeview active">
               <a href="#"><i class="glyphicon glyphicon-plus"></i>
                 <span>Accounts</span>
                 <i class="glyphicon glyphicon-chevron-down pull-right"></i>
@@ -95,16 +98,18 @@ include('session.php');
 
               <ul class="treeview-menu">
 
-                <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
+                <li class=""><a href="accounts_client_page.php">Client Accounts</a></li>
+                <li class="active"><a href="accounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="accounts_superuser_page.php">Superuser Accounts</a></li>
               </ul>
             </li>
 
             <!-- Accounting -->
-            <li class="treeview active">
+            <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Accounting</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class="active"><a href="accountingApplicant.php">Civilian</a></li>
-                <li><a href="AccountingMilitary.php">Military</a></li>
+                <li><a href="../accountingApplicant.php">Civilian</a></li>
+                <li><a href="../AccountingMilitary.php">Military</a></li>
               </ul>
             </li>
 
@@ -113,8 +118,8 @@ include('session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Registration Form</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="form1.php">Camp Allen/Navybase</a></li>
-                <li><a href="form2.php">AFP</a></li>
+                <li><a href="../form1.php">Camp Allen/Navybase</a></li>
+                <li><a href="../form2.php">AFP</a></li>
               </ul>
             </li>
 
@@ -122,8 +127,8 @@ include('session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Registered Applicant</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="registeredApplicant.php">Civilian</a></li>
-                <li><a href="registeredAFP.php">Military</a></li>
+                <li><a href="../registeredApplicant.php">Civilian</a></li>
+                <li><a href="../registeredAFP.php">Military</a></li>
               </ul>
             </li>
 
@@ -131,8 +136,8 @@ include('session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-option-horizontal"></i> <span>Pending</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="pendingApplicant.php">Civilian</a></li>
-                <li><a href="pendingMilitary.php">Military</a></li>
+                <li><a href="../pendingApplicant.php">Civilian</a></li>
+                <li><a href="../pendingMilitary.php">Military</a></li>
               </ul>
             </li>
 
@@ -140,8 +145,17 @@ include('session.php');
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
-                <li><a href="AFPVehicleStatus.php">For Military</a></li>
+                <li><a href="../ApplicantVehicleStatus.php">For Civilian</a></li>
+                <li><a href="../AFPVehicleStatus.php">For Military</a></li>
+              </ul>
+            </li>
+
+           <!-- Vehicle -->
+            <li class="treeview">
+              <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li class=""><a href="../applicant_vehicles.php">For Civilian</a></li>
+                <li><a href="../military_vehicles.php">For Military</a></li>
               </ul>
             </li>
 
