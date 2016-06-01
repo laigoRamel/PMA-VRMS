@@ -1,0 +1,47 @@
+#printHeader {
+    display: none;
+}
+
+
+@media print {
+    
+    body {
+        left: 0;
+    }
+    
+    .main-footer {
+        display: none;
+    }
+    
+    #printReports {
+        display: none;
+    }
+    
+    .form-control {
+        display: none;
+    }
+    
+    label {
+        display: none;
+    }
+    
+    .pagination {
+        display: none;
+    }
+    
+    .column-options {
+        display: none;
+    }
+    
+    .modal {
+        display:block;
+    }
+    #view_form1 {
+        display:block;
+    }
+    #printHeader {
+    display: block;
+}
+}
+
+
