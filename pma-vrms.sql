@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2016 at 09:01 AM
+-- Generation Time: Jun 01, 2016 at 09:28 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -39,7 +39,16 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `level` int(100) NOT NULL,
   `flag` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`id`, `name`, `office`, `type`, `rank`, `username`, `password`, `level`, `flag`) VALUES
+(1, 'Laigo, Ramel L.', 'MA2', 'Army', 'CPT', 'ramellaigo', 'password1', 1, 1),
+(2, 'Mang-osan, Alvy Blaine K.', 'MA2', 'Navy', 'CPT', 'alvymangosan', 'password2', 2, 1),
+(3, 'Odcheo, Joris Karl B.', 'MA2', 'Air Force', 'General', 'jorisodcheo', 'password3', 3, 1);
 
 -- --------------------------------------------------------
 
