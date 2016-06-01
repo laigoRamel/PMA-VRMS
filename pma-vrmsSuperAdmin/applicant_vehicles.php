@@ -343,7 +343,7 @@ DATA;
         $('#new-user-modal').modal('show');
       }); **/
 
-       $.get(window.location.origin+'/pma-vrmsAdmin/logic/ajax_applicant_list.php', function(response){
+       $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsSuperAdmin/logic/ajax_applicant_list.php', function(response){
           $.each(JSON.parse(response), function(index, value){
               $('#existing-select').append("<option value='"+value.a_applicantId+"'>"+value.a_firstname+' '+value.a_middlename+' '+value.a_lastname+"</option>");
           });

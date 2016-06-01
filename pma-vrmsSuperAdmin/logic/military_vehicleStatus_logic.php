@@ -20,10 +20,10 @@
 		$color 	= $vehicle['color'];
 		$motorNo 	= $vehicle['motorNo'];
 		$chassisNo 	= $vehicle['chassisNo'];
-		$stickerNo 	= $vehicle['stickerNo'];
+		$decalNo 	= $vehicle['decalNo'];
 		$status		= $vehicle['status'];
 		
-		array_push($vehicles, array('vehicleId' => $id, 'name' => $name, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'stickerNo' => $stickerNo, 'status' => $status));
+		array_push($vehicles, array('vehicleId' => $id, 'name' => $name, 'wheels' => $wheels, 'vehicleMake' => $vehicleMake, 'plateNo' => $plateNo, 'yearModel' => $yearModel, 'color' => $color, 'motorNo' => $motorNo, 'chassisNo' => $chassisNo, 'decalNo' => $decalNo, 'status' => $status));
 	}
 
 ?>
