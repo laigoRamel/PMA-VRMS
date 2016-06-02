@@ -53,8 +53,8 @@
 
 				//var_dump($_SESSION['name']);
 				//exit();
-				if($_SESSION['level'] === '1'){
-					header("location: ../pma-vrmsAdmin/index.php");
+				if($_SESSION['level'] === '3'){
+					header("location: index.php");
 					exit();
 				}
 				/*date_default_timezone_set('Asia/Hong_Kong');
