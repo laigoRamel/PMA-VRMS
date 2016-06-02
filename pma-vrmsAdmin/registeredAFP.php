@@ -234,7 +234,8 @@
                                                     <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick='renew_military($military[m_militaryId])'>Renew</button></td>
                                                     <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick="edit_form2($key, '../pma-vrmsSuperAdmin/img/profile/military/$military[m_profile]', '$military[m_militaryId]', '$military[name]', '$military[m_rank]', '$military[m_brSvc]', '$military[m_afpsn]', '$military[m_residenceAddress]', '$military[m_residenceTelNo]', '$military[m_emailAddress]', '$military[m_mobileNo]', '$military[m_designatedOffice]', '$military[m_officeTelNo]', '$military[m_officeAddress]', '$military[m_retirementDate]', '$military[m_class]', '$military[m_dateRegistered]', '$military[m_placeRegistered]')">Edit</button></td>
                                                     <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form2' onclick="delete_form2($key, '../pma-vrmsSuperAdmin/img/profile/military/$military[m_profile]')">Delete</button></td>
-                                                </tr>
+                                                
+                                            <td style='display:none'>
                                                  <table id='vehicle_table_$key'>
 DATA;
                                         foreach ($military['vehicles'] as $key => $vehicle) {
