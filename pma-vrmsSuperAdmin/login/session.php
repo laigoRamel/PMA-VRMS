@@ -19,6 +19,6 @@
 
 	if(!isset($login_session)) {
 		mysqli_close($dbc);
-		header('Location: ../pma-vrmsSupreAdmin/login_page.php');
+		header('Location: ../pma-vrmsSuperAdmin/login_page.php');
 	}
 ?>
