@@ -5,7 +5,7 @@ include('session.php');
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Client Accounts</title>
+  <title>Superuser Accounts</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,11 +85,27 @@ include('session.php');
              <!-- Create Account -->
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
+            <!-- Employee Log -->
+            <li><a href="logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+
             <!-- Accounts -->
+            <li class="treeview active">
+              <a href="#"><i class="glyphicon glyphicon-plus"></i>
+                <span>Accounts</span>
+                <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+              </a>
+
+              <ul class="treeview-menu">
+
+                <li><a href="accounts_client_page.php">Client Accounts</a></li>
+                <li><a href="accounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="accounts_superuser_page.php">Superuser Accounts</a></li>
+              </ul>
+            </li>
             
 
-                <li class="active"><a href="accounts_client_page.php"><i class="glyphicon glyphicon-plus"></i>Client Accounts</a></li>
-            
+                <!--<li class="active"><a href="accounts_client_page.php"><i class="glyphicon glyphicon-plus"></i>Client Accounts</a></li>
+              -->
 
             <!-- Accounting -->
             <li class="treeview">
@@ -156,7 +172,7 @@ include('session.php');
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Client Accounts
+            Superuser Accounts
           </h1>
 
         </section>
@@ -173,15 +189,15 @@ include('session.php');
                     <div class="box">
                         <div class="box-body">
                           <button class="btn btn-primary btn-lg pull-right" data-toggle="modal"
-                            data-target="#clientAccount">
+                            data-target="#superuserAccount">
                             <!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->
-                            Add Superuser
+                            Add Superuser User
                           </button>
                             <!-- <br/><br/><br/><br/><br/><br/><br/> -->
 
                           <!-- Modal -->
-                          <div class="modal fade" id="clientAccount" tabindex="-1" role="dialog"
-                            aria-labelledby="clientAccountLabel">
+                          <div class="modal fade" id="superuserAccount" tabindex="-1" role="dialog"
+                            aria-labelledby="superuserAccountLabel">
 
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
@@ -190,54 +206,54 @@ include('session.php');
                                     <span aria-hidden="true">&times;</span>
                                   </button>
 
-                                  <h4 class="modal-title" id="clientAccountLabel">Create Client Account</h4>
+                                  <h4 class="modal-title" id="superuserAccountLabel">Create Superuser Account</h4>
                                 </div>
 
                                 <div class="modal-body">
-                                  <form class="form-horizontal" method="post" action="accounts_admin_logic.php">
+                                  <form class="form-horizontal" method="post" action="accounts_superuser_logic.php">
 
                                     <div  class="form-group">
-                                      <label for="clientLastname" class="col-sm-4 control-label">
+                                      <label for="superuserLastname" class="col-sm-4 control-label">
                                         Last Name
                                       </label>
 
                                       <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="clientLastname" name="clientLastname">
+                                        <input type="text" class="form-control" id="superuserLastname" name="superuserLastname">
                                       </div>
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="clientFirstname" class="col-sm-4 control-label">
+                                      <label for="superuserFirstname" class="col-sm-4 control-label">
                                         First Name
                                       </label>
 
                                       <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="clientFirstname" name="clientFirstname">
+                                        <input type="text" class="form-control" id="superuserFirstname" name="superuserFirstname">
                                       </div>
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="clientMiddlename" class="col-sm-4 control-label">
+                                      <label for="superuserMiddlename" class="col-sm-4 control-label">
                                         Middle Name
                                       </label>
 
                                       <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="clientMiddlename" name="clientMiddlename">
+                                        <input type="text" class="form-control" id="superuserMiddlename" name="superuserMiddlename">
                                       </div>
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="clientOffice" class="col-sm-4 control-label">
+                                      <label for="superuserOffice" class="col-sm-4 control-label">
                                         Office
                                       </label>
 
                                       <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="clientOffice" name="clientOffice">
+                                        <input type="text" class="form-control" id="superuserOffice" name="superuserOffice">
                                       </div>
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="clientRank" class="col-sm-4 control-label">
+                                      <label for="superuserRank" class="col-sm-4 control-label">
                                         Type
                                       </label>
 
@@ -249,12 +265,12 @@ include('session.php');
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="clientRank" class="col-sm-4 control-label">
+                                      <label for="superuserRank" class="col-sm-4 control-label">
                                         Rank
                                       </label>
 
                                       <div class="col-sm-6">
-                                        <select id='modal-add-select-rank' class='form-control' name='clientRank'>
+                                        <select id='modal-add-select-rank' class='form-control' name='superuserRank'>
                                               <option value='PVT'>PVT</option>
                                   <option value='PFC'>PFC</option>
                                   <option value='CPL'>CPL</option>
@@ -274,22 +290,22 @@ include('session.php');
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="clientUsername" class="col-sm-4 control-label">
+                                      <label for="superuserUsername" class="col-sm-4 control-label">
                                         Username
                                       </label>
 
                                       <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="clientUsername" name="clientUsername">
+                                        <input type="text" class="form-control" id="superuserUsername" name="superuserUsername">
                                       </div>
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="clientPassword" class="col-sm-4 control-label">
+                                      <label for="superuserPassword" class="col-sm-4 control-label">
                                         Password
                                       </label>
 
                                       <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="clientPassword" name="clientPassword">
+                                        <input type="text" class="form-control" id="superuserPassword" name="superuserPassword">
                                       </div>
                                     </div>
 
@@ -306,7 +322,7 @@ include('session.php');
                             </div>
 
                           </div>
-                            <table class="table table-bordered table-hover" id="clientAccounts-table">
+                            <table class="table table-bordered table-hover" id="superuserAccounts-table">
                               <thead>
                                 <th>Username</th>
                                 <th>Name</th>
@@ -370,7 +386,7 @@ include('session.php');
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title">Edit Account</h4>
             </div>
-            <form action='accounts_client_edit_logic.php' method='post'>
+            <form action='accounts_superuser_edit_logic.php' method='post'>
               <div class="modal-body">
                 <input id='modal-edit-id' type='hidden' name='id' />
                 <table class='table table-bordered table-hover table-striped'>
@@ -430,7 +446,7 @@ include('session.php');
      <div id='modal-delete' class='modal fade'>
       <div class='modal-dialog'>
         <div class='modal-content'>
-          <form action='accounts_client_delete_logic.php' method='post'>
+          <form action='accounts_superuser_delete_logic.php' method='post'>
             <input id='modal-delete-id' type='hidden' name='id'>
             <div class="modal-body">
               <h4><i class='fa fa-warning'></i>&nbsp; Are you sure you want to delete</h4>
@@ -565,7 +581,7 @@ include('session.php');
       }
     }
 
-    $('#clientAccounts-table').on('click', '.edit-modal', function(){
+    $('#superuserAccounts-table').on('click', '.edit-modal', function(){
       var tr = $(this).closest('tr');
       var username = tr.find('td:eq(0)').text();
       var name = tr.find('td:eq(1)').text();
@@ -601,7 +617,7 @@ include('session.php');
 
     });
 
-    $('#clientAccounts-table').on('click', '.delete-modal', function(){
+    $('#superuserAccounts-table').on('click', '.delete-modal', function(){
       $('#modal-delete-id').val($(this).closest('tr').find('td:eq(5)').text());
       $('#modal-delete').modal('show');
     });

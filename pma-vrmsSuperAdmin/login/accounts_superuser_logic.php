@@ -1,14 +1,14 @@
 
 <?php
   if (isset($_POST)) {
-    $lastname = $_POST['clientLastname'];
-    $firstname = $_POST['clientFirstname'];
-    $middlename = $_POST['clientMiddlename'];
-    $office = $_POST['clientOffice'];
+    $lastname = $_POST['superuserLastname'];
+    $firstname = $_POST['superuserFirstname'];
+    $middlename = $_POST['superuserMiddlename'];
+    $office = $_POST['superuserOffice'];
     $type = $_POST['type'];
-    $rank = $_POST['clientRank'];
-    $username = $_POST['clientUsername'];
-    $password = $_POST['clientPassword'];
+    $rank = $_POST['superuserRank'];
+    $username = $_POST['superuserUsername'];
+    $password = $_POST['superuserPassword'];
 
     $fullname = ($lastname . ", " . $firstname . " " . $middlename);
 

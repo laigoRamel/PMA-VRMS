@@ -55,7 +55,6 @@ include('session.php');
 					</li>
           <li>
             <a href='change_password.php'>Change Password</a>
-          </li>
 				</ul>
 			</li>
 		</ul>
@@ -83,11 +82,11 @@ include('session.php');
             <!-- Reports -->
             <li><a href="../reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
+             <!-- Create Account -->
+            <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
+
             <!-- Employee Log -->
             <li><a href="logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
-
-              <!-- Create Account -->
-            <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
 
             <!-- Accounts -->
             <li class="treeview active">
@@ -98,11 +97,15 @@ include('session.php');
 
               <ul class="treeview-menu">
 
-                <li class="active"><a href="accounts_client_page.php">Client Accounts</a></li>
+                <li><a href="accounts_client_page.php">Client Accounts</a></li>
                 <li><a href="accounts_admin_page.php">Admin Accounts</a></li>
                 <li><a href="accounts_superuser_page.php">Superuser Accounts</a></li>
               </ul>
             </li>
+            
+
+                <!--<li class="active"><a href="accounts_client_page.php"><i class="glyphicon glyphicon-plus"></i>Client Accounts</a></li>
+            	-->
 
             <!-- Accounting -->
             <li class="treeview">
@@ -141,9 +144,10 @@ include('session.php');
               </ul>
             </li>
 
+            <li class="header">VEHICLES</li>
             <!-- Vehicle Status -->
             <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-info-sign"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="../ApplicantVehicleStatus.php">For Civilian</a></li>
                 <li><a href="../AFPVehicleStatus.php">For Military</a></li>
@@ -158,7 +162,6 @@ include('session.php');
                 <li><a href="../military_vehicles.php">For Military</a></li>
               </ul>
             </li>
-
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -255,9 +258,9 @@ include('session.php');
 																			</label>
 
 																			<div class="col-sm-6">
-																				<label><input type="radio" name='type' value='army' checked='checked'>Army</label>
-																				<label><input type="radio" name='type' value='navy'>Navy</label>
-																				<label><input type="radio" name='type' value='air force'>Air Force</label>
+																				<label><input type="radio" name='type' value='army' checked='checked'>PA</label>
+																				<label><input type="radio" name='type' value='navy'>PN</label>
+																				<label><input type="radio" name='type' value='air force'>PAF</label>
 																			</div>
 																		</div>
 
@@ -268,10 +271,20 @@ include('session.php');
 
 																			<div class="col-sm-6">
 																				<select id='modal-add-select-rank' class='form-control' name='clientRank'>
-															        				<option value='rank1'>Army 1</option>
-															        				<option value='rank2'>Army 2</option>
-															        				<option value='rank3'>Army 3</option>
-															        				<option value='rank4'>Army 4</option>
+															        				<option value='PVT'>PVT</option>
+                                  <option value='PFC'>PFC</option>
+                                  <option value='CPL'>CPL</option>
+                                  <option value='SGT'>SGT</option>
+                                  <option value='SSG'>SSG</option>
+                                  <option value='TSG'>TSG</option>
+                                  <option value='MSG'>MSG</option>
+                                  <option value='SMSG'>SMSG</option>
+                                  <option value='CMSG'>CMSG</option>
+                                  <option value='FCMSG'>FCMSG</option>
+                                  <option value='2LT'>2LT</option>
+                                  <option value='1LT'>1LT</option>
+                                  <option value='MAJ'>MAJ</option>
+                                  <option value='LTCOL'>LTCOL</option>
 															        			</select>
 																			</div>
 																		</div>
@@ -392,19 +405,29 @@ include('session.php');
 				        	<tr>
 				        		<td><label>Type</label></td>
 				        		<td>
-				        			<label><input id='modal-edit-type_army' type='radio' name='rank_type' value='army' />Army</label>
-					        		<label><input id='modal-edit-type_navy' type='radio' name='rank_type' value='navy' />Navy</label>
-					        		<label><input id='modal-edit-type_air_force' type='radio' name='rank_type' value='air force' />Air Force</label>
+				        			<label><input id='modal-edit-type_army' type='radio' name='rank_type' value='army' />PA</label>
+					        		<label><input id='modal-edit-type_navy' type='radio' name='rank_type' value='navy' />PN</label>
+					        		<label><input id='modal-edit-type_air_force' type='radio' name='rank_type' value='air force' />PAF</label>
 				        		</td>
 				        	</tr>
 				        	<tr>
 				        		<td><label>Rank</label></td>
 				        		<td>
 				        			<select id='select-rank' class='form-control' name='rank'>
-				        				<option value='rank1'>Army 1</option>
-				        				<option value='rank2'>Army 2</option>
-				        				<option value='rank3'>Army 3</option>
-				        				<option value='rank4'>Army 4</option>
+				        				<option value='PVT'>PVT</option>
+                                  <option value='PFC'>PFC</option>
+                                  <option value='CPL'>CPL</option>
+                                  <option value='SGT'>SGT</option>
+                                  <option value='SSG'>SSG</option>
+                                  <option value='TSG'>TSG</option>
+                                  <option value='MSG'>MSG</option>
+                                  <option value='SMSG'>SMSG</option>
+                                  <option value='CMSG'>CMSG</option>
+                                  <option value='FCMSG'>FCMSG</option>
+                                  <option value='2LT'>2LT</option>
+                                  <option value='1LT'>1LT</option>
+                                  <option value='MAJ'>MAJ</option>
+                                  <option value='LTCOL'>LTCOL</option>
 				        			</select>
 				        		</td>
 				        	</tr>
@@ -448,52 +471,112 @@ include('session.php');
 		var set_select_rank = function(value){
 			if(value === 'army'){
 				$('#select-rank').html(
-								"<option value='army1'>Army 1</option>"+
-		        				"<option value='army2'>Army 2</option>"+
-		        				"<option value='army3'>Army 3</option>"+
-		        				"<option value='army4'>Army 4</option>"
+								"<option value='PVT'>PVT</option>"+
+      "<option value='PFC'>PFC</option>"+
+      "<option value='CPL'>CPL</option>"+
+      "<option value='SGT'>SGT</option>"+
+      "<option value='SSG'>SSG</option>"+
+      "<option value='TSG'>TSG</option>"+
+      "<option value='MSG'>MSG</option>"+
+      "<option value='SMSG'>SMSG</option>"+
+      "<option value='CMSG'>CMSG</option>"+
+      "<option value='FCMSG'>FCMSG</option>"+
+      "<option value='2LT'>2LT</option>"+
+      "<option value='1LT'>1LT</option>"+
+      "<option value='MAJ'>MAJ</option>"+
+      "<option value='LTCOL'>LTCOL</option>"
 				);
 			}
 			if(value === 'navy'){
 				$('#select-rank').html(
-								"<option value='navy1'>Navy 1</option>"+
-		        				"<option value='navy2'>Navy 2</option>"+
-		        				"<option value='navy3'>Navy 3</option>"+
-		        				"<option value='navy4'>Navy 4</option>"
+								"<option value='SN'>SN</option>"+
+      "<option value='SN2'>SN2</option>"+
+      "<option value='SN1'>SN1</option>"+
+      "<option value='PO3'>PO3</option>"+
+      "<option value='PO2'>PO2</option>"+
+      "<option value='PO1'>PO1</option>"+
+      "<option value='CPO'>CPO</option>"+
+      "<option value='SCPO'>SCPO</option>"+
+      "<option value='MCPO'>MCPO</option>"+
+      "<option value='FCCPO'>FCCPO</option>"+
+      "<option value='ENS'>ENS</option>"+
+      "<option value='LTJG'>LTJG</option>"+
+      "<option value='LTCMDR'>LTCMDR</option>"+
+      "<option value='CMDR'>CMDR</option>"
 				);
 			}
 			if(value === 'air force'){
 				$('#select-rank').html(
-								"<option value='air1'>Air Force 1</option>"+
-		        				"<option value='air2'>Air Force 2</option>"+
-		        				"<option value='air3'>Air Force 3</option>"+
-		        				"<option value='air4'>Air Force 4</option>"
+								"<option value='AM'>AM</option>"+
+      "<option value='A2C'>A2C</option>"+
+      "<option value='A1C'>A1C</option>"+
+      "<option value='SGT'>SGT</option>"+
+      "<option value='SSG'>SSG</option>"+
+      "<option value='TSG'>TSG</option>"+
+      "<option value='MSG'>MSG</option>"+
+      "<option value='SMSG'>SMSG</option>"+
+      "<option value='CMSG'>CMSG</option>"+
+      "<option value='FCMSG'>FCMSG</option>"+
+      "<option value='2LT'>2LT</option>"+
+      "<option value='1LT'>1LT</option>"+
+      "<option value='MAJ'>MAJ</option>"+
+      "<option value='LTCOL'>LTCOL</option>"
 				);
 			}
 
 
 			if(value === 'army'){
 				$('#modal-add-select-rank').html(
-								"<option value='army1'>Army 1</option>"+
-		        				"<option value='army2'>Army 2</option>"+
-		        				"<option value='army3'>Army 3</option>"+
-		        				"<option value='army4'>Army 4</option>"
+								"<option value='PVT'>PVT</option>"+
+      "<option value='PFC'>PFC</option>"+
+      "<option value='CPL'>CPL</option>"+
+      "<option value='SGT'>SGT</option>"+
+      "<option value='SSG'>SSG</option>"+
+      "<option value='TSG'>TSG</option>"+
+      "<option value='MSG'>MSG</option>"+
+      "<option value='SMSG'>SMSG</option>"+
+      "<option value='CMSG'>CMSG</option>"+
+      "<option value='FCMSG'>FCMSG</option>"+
+      "<option value='2LT'>2LT</option>"+
+      "<option value='1LT'>1LT</option>"+
+      "<option value='MAJ'>MAJ</option>"+
+      "<option value='LTCOL'>LTCOL</option>"
 				);
 			}
 			if(value === 'navy'){
 				$('#modal-add-select-rank').html(
-								"<option value='navy1'>Navy 1</option>"+
-		        				"<option value='navy2'>Navy 2</option>"+
-		        				"<option value='navy3'>Navy 3</option>"+
-		        				"<option value='navy4'>Navy 4</option>"
+								"<option value='SN'>SN</option>"+
+      "<option value='SN2'>SN2</option>"+
+      "<option value='SN1'>SN1</option>"+
+      "<option value='PO3'>PO3</option>"+
+      "<option value='PO2'>PO2</option>"+
+      "<option value='PO1'>PO1</option>"+
+      "<option value='CPO'>CPO</option>"+
+      "<option value='SCPO'>SCPO</option>"+
+      "<option value='MCPO'>MCPO</option>"+
+      "<option value='FCCPO'>FCCPO</option>"+
+      "<option value='ENS'>ENS</option>"+
+      "<option value='LTJG'>LTJG</option>"+
+      "<option value='LTCMDR'>LTCMDR</option>"+
+      "<option value='CMDR'>CMDR</option>"
 				);
 			}
 			if(value === 'air force'){
 				$('#modal-add-select-rank').html(
-								"<option value='air1'>Air Force 1</option>"+
-		        				"<option value='air2'>Air Force 2</option>"+
-		        				"<option value='air3'>Air Force 3</option>"+
-		        				"<option value='air4'>Air Force 4</option>"
+								"<option value='AM'>AM</option>"+
+      "<option value='A2C'>A2C</option>"+
+      "<option value='A1C'>A1C</option>"+
+      "<option value='SGT'>SGT</option>"+
+      "<option value='SSG'>SSG</option>"+
+      "<option value='TSG'>TSG</option>"+
+      "<option value='MSG'>MSG</option>"+
+      "<option value='SMSG'>SMSG</option>"+
+      "<option value='CMSG'>CMSG</option>"+
+      "<option value='FCMSG'>FCMSG</option>"+
+      "<option value='2LT'>2LT</option>"+
+      "<option value='1LT'>1LT</option>"+
+      "<option value='MAJ'>MAJ</option>"+
+      "<option value='LTCOL'>LTCOL</option>"
 				);
 			}
 		}
@@ -548,7 +631,7 @@ include('session.php');
 
       <!-- Main Footer -->
       <footer class="main-footer">
-        TISIS
+        ©2016 PMA-VRMS
       </footer>
 
     </div><!-- ./wrapper -->
@@ -559,7 +642,7 @@ include('session.php');
     	$('table').on('click', '.reset', function(){
     		var id = $(this).closest('tr').find('td:eq(5)').text();
     		var element = $(this);
-    		$.post(window.location.origin+'/new/pma-vrmsAdmin/login/reset_account_logic.php', {id: id}, function(response){
+    		$.post(window.location.origin+'/pma21/trunk/pma-vrmsAdmin/login/reset_account_logic.php', {id: id}, function(response){
     			element.closest('tr').find('td:eq(6)').find('span').css('display', 'block');
     			setInterval(function(){
     				element.closest('tr').find('td:eq(6)').find('span').css('display', 'none');
