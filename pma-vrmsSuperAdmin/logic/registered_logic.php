@@ -5,7 +5,7 @@
 	
 
 //form1
-	$query = 'SELECT * FROM form1_applicantpd ORDER BY a_dateRegistered DESC';
+	$query = 'SELECT * FROM form1_applicantpd WHERE a_status="registered" ORDER BY a_dateRegistered DESC';
 	$database->execute($query);
 	
 	$rows = $database->getResult();
@@ -35,7 +35,7 @@
 
 
 //form2
-	$query = 'SELECT * FROM form2_militarypd ORDER BY m_dateRegistered DESC';
+	$query = 'SELECT * FROM form2_militarypd WHERE m_status="registered" ORDER BY m_dateRegistered DESC';
 	$database->execute($query);
 	
 	$rows = $database->getResult();
