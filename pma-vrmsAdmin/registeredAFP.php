@@ -266,6 +266,29 @@ VEHICLE;
                 </div>
 			</div>
 		</div>
+
+        </section>  <!-- /Main content -->
+
+        <br/><br/>
+
+        </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        ©2016 PMA-VRMS
+      </footer>
+
+    </div><!-- ./wrapper -->
+
+
+
+    <div id='print_form' style='display: none;'>
+        <?php
+          include('printMilitary.php');
+        ?>
+    </div>
+
+
     <script src="js/print.js" type="text/javascript"></script>
 	<script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
 	<script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
@@ -475,6 +498,9 @@ VEHICLE;
 			}
 
 			var view_form2 = function(key, img){
+
+        $('#print-vehicles-tbody').html('');
+
         $('#img_view').attr('src', img);
 				var row = $('#military_'+key);
         var m_id = row.find('td:first-child').text();
@@ -536,6 +562,21 @@ VEHICLE;
                                       '<td><input type="text" name="chassisNo" class="form-control name_list"  value="'+$(this).children('td:eq(7)').text()+'" readonly/></td>'+  
                                       '<td><input type="text" name="stickerNo" class="form-control name_list"  value="'+$(this).children('td:eq(8)').text()+'" readonly/></td></tr>';
            $('#view-vehicles').append(content);
+
+       $('#print-vehicles-tbody').append('<tr>'+
+                                        '<td>'+ $(this).children('td:eq(1)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(2)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(3)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(4)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(5)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(6)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(7)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(8)').text() + '</td>'+
+                                        '</tr>'
+
+
+            );
+
           });
 
         }
@@ -561,18 +602,44 @@ VEHICLE;
     }
 		</script>
 
-        </section>  <!-- /Main content -->
+        
 
-        <br/><br/>
+    <script>
+      $('#print-btn').click(function(){
+          $('#print_form').css('display', 'block');
+          $('#view_form2').css('display', 'none');
 
-        </div><!-- /.content-wrapper -->
+          var lastname = $('#view-name').val().split(',')[0];
+          var firstname = ($('#view-name').val().split(',')[1]).trim().split(' ')[0];
+          var middlename = ($('#view-name').val().split(',')[1]).trim().split(' ')[1];
 
-      <!-- Main Footer -->
-      <footer class="main-footer">
-        ©2016 PMA-VRMS
-      </footer>
+          $('#print-lastname').html(lastname);
+          $('#print-firstname').html(firstname);
+          $('#print-middlename').html(middlename);
+          
+          $('#print-rank').html($('#view-rank').val());
+          $('#print-brSvc').html($('#view-brSvc').val());
+          $('#print-afpsn').html($('#view-afpsn').val());
+          $('#print-residenceAddress').html($('#view-residenceAddress').val());
+          $('#print-residenceTelNo').html($('#view-residenceTelNo').val());
+          $('#print-emailAddress').html($('#view-emailAddress').val());
+          $('#print-mobileNo').html($('#view-mobileNo').val());
+          $('#print-designatedOffice').html($('#view-designatedOffice').val());
+          $('#print-officeTelNo').html($('#view-officeTelNo').val());
+          $('#print-officeAddress').html($('#view-officeAddress').val());
+          $('#print-dateOfRetirement').html($('#view-dateOfRetirement').val());
 
-    </div><!-- ./wrapper -->
+          $('#print-type').html($('#view-type').val());
+          $('#print-dateRegistered').html($('#view-dateRegistered').val());
+          $('#print-placeRegistered').html($('#view-placeRegistered').val());
+
+          $('#print-img').attr('src', $('#img_view').attr('src'));
+
+          window.print();
+          $('#print_form').css('display', 'none');
+          $('#view_form2').css('display', 'block');
+      });
+    </script>
 
 
 

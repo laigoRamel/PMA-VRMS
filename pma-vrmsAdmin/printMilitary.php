@@ -58,20 +58,26 @@
           <div class="col-xs-8">
                 <strong>PERSONAL DATA:</strong><br><br>
 
-                Name: <span class="b" id='print-lastname'>Mang-Osan</span>, <span class="b" id='print-firstname'>Alvy Blaine</span> <span class="b" id='print-middlename'>Middle name</span>
-                <br>
-                Complete Address: <span class="b" id='print-address'>*address*</span><br>
-                Occupation: <span class="b" id='print-occupation'></span> <br>
-                Office Address: <span class="b" id='print-office'>*office address*</span><br>
-                Driver's License NR: <span class="b" id='print-license'>ABC123</span><br>
-                Expiration Date: <span class="b" id='print-expiration'>January 1, 1990</span><br>
-                Vehicle Type / Class: <span class="b" id='print-type'>Class C</span><br>
-                Date Registered: <span class="b" id='print-dateRegistered'>January 1, 1990</span><br>
-                Place Registered: <span class="b" id='print-placeRegistered'>Camp Allen</span>
+                Name: <span class="b" id='print-lastname'>Mang-Osan</span>, <span class="b" id='print-firstname'>Alvy Blaine</span> <span class="b" id='print-middlename'>Middle name</span><br>
+
+                Rank: <span class="b" id='print-rank'>*address*</span><br>
+                BR / SVC: <span class="b" id='print-brSvc'></span> <br>
+                AFPSN: <span class="b" id='print-afpsn'>*office address*</span><br>
+                Residence Address: <span class="b" id='print-residenceAddress'>ABC123</span><br>
+                Residence Tel. No.: <span class="b" id='print-residenceTelNo'>ABC123</span><br>
+                Email Address: <span class="b" id='print-emailAddress'>ABC123</span><br>
+                Mobile No.: <span class="b" id='print-mobileNo'>ABC123</span><br>
+                Designated Office: <span class="b" id='print-designatedOffice'>ABC123</span><br>
+                Office Tel. No.: <span class="b" id='print-officeTelNo'>ABC123</span><br>
+                Office Address: <span class="b" id='print-officeAddress'>ABC123</span><br>
+                Date of Retirement: <span class="b" id='print-dateOfRetirement'>ABC123</span><br>
+                Vehicle Type / Class: <span class="b" id='print-type'>ABC123</span><br>
+                Date and Time Registered: <span class="b" id='print-dateRegistered'>ABC123</span><br>
+                Place Registered: <span class="b" id='print-placeRegistered'>ABC123</span>
           </div><!-- /.col -->
             
           <div class="col-xs-4">
-                <img id='print-img' height="144" width="144" src="../pma-vrmsAdmin/img/profile/applicant/seal.png">
+                <img id='print-img' height="144" width="144" src="../pma-vrmsAdmin/img/profile/military/seal.png">
           </div><!-- /.col -->
           
         </div><!-- /.row --><br><br>

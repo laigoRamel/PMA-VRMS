@@ -619,6 +619,9 @@ VEHICLE;
           $('#print-license').html($('#view-license').val());
           $('#print-expiration').html($('#view-expiration').val());
           $('#print-occupation').html($('#view-occupation').val());
+          $('#print-type').html($('#view-type').val());
+          $('#print-dateRegistered').html($('#view-dateRegistered').val());
+          $('#print-placeRegistered').html($('#view-placeRegistered').val());
 
           $('#print-img').attr('src', $('#img_view').attr('src'));
 
