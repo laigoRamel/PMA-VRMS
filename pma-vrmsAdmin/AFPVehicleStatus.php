@@ -157,7 +157,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            AFP Vehicles
+            Vehicle Status: MIlitary
           </h1>
 
         </section>

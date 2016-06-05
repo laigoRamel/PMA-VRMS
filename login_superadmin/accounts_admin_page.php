@@ -98,7 +98,7 @@ include('session.php');
               <ul class="treeview-menu">
 
                 <li><a href="accounts_client_page.php">Client Accounts</a></li>
-                <li><a href="accounts_admin_page.php">Admin Accounts</a></li>
+                <li class="active"><a href="accounts_admin_page.php">Admin Accounts</a></li>
                 <li><a href="accounts_superuser_page.php">Superuser Accounts</a></li>
               </ul>
             </li>

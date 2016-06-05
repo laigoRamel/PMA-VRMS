@@ -145,11 +145,12 @@
               </ul>
             </li>
 
+            <li class="header">VEHICLES</li>
             <!-- Vehicle Status -->
             <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-question-sign"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-info-sign"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
-                <li class=""><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
+                <li><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
                 <li><a href="AFPVehicleStatus.php">For Military</a></li>
               </ul>
             </li>
@@ -174,7 +175,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Registered Applicants
+            Vehicles: Military
           </h1>
 
         </section>

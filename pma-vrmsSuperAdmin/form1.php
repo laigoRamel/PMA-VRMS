@@ -141,16 +141,17 @@ include('../login_superadmin/session.php');
               </ul>
             </li>
 
+            <li class="header">VEHICLES</li>
             <!-- Vehicle Status -->
             <li class="treeview">
-              <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <a href="#"><i class="glyphicon glyphicon-info-sign"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
                 <li><a href="AFPVehicleStatus.php">For Military</a></li>
               </ul>
             </li>
 
-           <!-- Vehicle -->
+            <!-- Vehicle -->
             <li class="treeview">
               <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">

@@ -157,7 +157,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Civilian Vehicles
+            Vehicle Status: Civilian
           </h1>
 
         </section>

@@ -143,17 +143,18 @@
               </ul>
             </li>
 
+            <li class="header">VEHICLES</li>
             <!-- Vehicle Status -->
             <li class="treeview active">
-              <a href="#"><i class="glyphicon glyphicon-question-sign"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
-              <ul class="treeview-menu">
+              <a href="#"><i class="glyphicon glyphicon-info-sign"></i> <span>Vehicle Status</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
+              <ul class="treeview-menu active">
                 <li><a href="ApplicantVehicleStatus.php">For Civilian</a></li>
                 <li class="active"><a href="AFPVehicleStatus.php">For Military</a></li>
               </ul>
             </li>
 
             <!-- Vehicle -->
-            <li class="treeview">
+            <li class="treeview ">
               <a href="#"><i class="glyphicon glyphicon-flag"></i> <span>Vehicles</span> <i class="glyphicon glyphicon-chevron-down pull-right"></i></a>
               <ul class="treeview-menu">
                 <li class=""><a href="applicant_vehicles.php">For Civilian</a></li>
@@ -171,7 +172,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Registered AFP
+            Vehicle Status: Military
           </h1>
 
         </section>
