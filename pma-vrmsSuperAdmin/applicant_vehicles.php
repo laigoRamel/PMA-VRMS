@@ -1,5 +1,5 @@
 <?php
-  include('login/session.php');
+  include('../login_superadmin/session.php');
 ?>
 
 <!DOCTYPE html>
@@ -55,10 +55,10 @@
         <a class="drop-down toggle" data-toggle="dropdown" href=""><?php echo $login_session; ?><span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li>
-            <a href='login/logout.php'>Log out</a>
+            <a href='../login_superadmin/logout.php'>Log out</a>
           </li>
           <li>
-            <a href='login/change_password.php'>Change Password</a>
+            <a href='../login_superadmin/change_password.php'>Change Password</a>
           </li>
         </ul>
       </li>
@@ -88,7 +88,7 @@
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
             <!-- Employee Log -->
-            <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+            <li><a href="../login_superadmin/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
 
               <!-- Create Account -->
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
@@ -102,9 +102,9 @@
 
               <ul class="treeview-menu">
 
-                <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-                <li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
-                <li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
+                <li><a href="../login_superadmin/accounts_client_page.php">Client Accounts</a></li>
+                <li><a href="../login_superadmin/accounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="../login_superadmin/accounts_superuser_page.php">Superuser Accounts</a></li>
               </ul>
             </li>
 
@@ -236,7 +236,7 @@ DATA;
                                     }
                                     ?>
 
-                                     
+
                                 </tbody>
                             </table>
                         </div>
@@ -245,7 +245,7 @@ DATA;
       </div>
     </div>
 
-    
+
     <!--<div id='transfer-modal' class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">

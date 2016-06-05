@@ -1,5 +1,5 @@
 <?php
-include('login/session.php');
+include('../login/session.php');
 ?>
 
 <!DOCTYPE html>
@@ -51,10 +51,10 @@ include('login/session.php');
 				<a class="drop-down toggle" data-toggle="dropdown" href=""><?php echo $login_session; ?><span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href='login/logout.php'>Log out</a>
+						<a href='../login/logout.php'>Log out</a>
 					</li>
           <li>
-            <a href='login/change_password.php'>Change Password</a>
+            <a href='../login/change_password.php'>Change Password</a>
           </li>
 				</ul>
 			</li>
@@ -84,7 +84,7 @@ include('login/session.php');
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
              <!-- Accounts -->
-            <li><a href="login/accounts_client_page.php"><i class="glyphicon glyphicon-plus"></i><span>Client Accounts</span></a></li>
+            <li><a href="../login/accounts_client_page.php"><i class="glyphicon glyphicon-plus"></i><span>Client Accounts</span></a></li>
 
             <!-- Accounting -->
             <li class="treeview">
@@ -141,7 +141,7 @@ include('login/session.php');
                 <li><a href="military_vehicles.php">For Military</a></li>
               </ul>
             </li>
-           
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -427,7 +427,7 @@ include('login/session.php');
          $('.sticker_number').removeAttr('disabled');
          $('.sticker_number').attr('required', true);
        }
-       
+
     }
   </script>
 
@@ -490,7 +490,7 @@ include('login/session.php');
             counter++;
           }
         });
-  
+
         console.log(counter);
         if(counter >= 2){
            $('#validate-plateNo').css('display', 'block');

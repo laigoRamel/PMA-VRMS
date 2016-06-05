@@ -1,5 +1,5 @@
 <?php
-	include('login/session.php');
+	include('../login_superadmin/session.php');
 
   header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
   header("Cache-Control: post-check=0, pre-check=0", false);
@@ -67,10 +67,10 @@
 				<a class="drop-down toggle" data-toggle="dropdown" href=""><?php echo $login_session; ?><span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href='login/logout.php'>Log out</a>
+						<a href='../login_superadmin/logout.php'>Log out</a>
 					</li>
           <li>
-            <a href='login/change_password.php'>Change Password</a>
+            <a href='../login_superadmin/change_password.php'>Change Password</a>
           </li>
 				</ul>
 			</li>
@@ -100,7 +100,7 @@
             <li><a href="reports.php"><i class="glyphicon glyphicon-flag"></i> <span>Reports</span></a></li>
 
             <!-- Employee Log -->
-            <li><a href="login/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
+            <li><a href="../login_superadmin/logbook_page.php"><i class="glyphicon glyphicon-user"></i> <span>Employee Log</span></a></li>
 
               <!-- Create Account -->
             <!-- <li class=""><a href="login/create_account_page.php"><i class="glyphicon glyphicon-plus"></i> <span>Create Account</span></a></li> -->
@@ -114,9 +114,9 @@
 
               <ul class="treeview-menu">
 
-                <li><a href="login/accounts_client_page.php">Client Accounts</a></li>
-                <li><a href="login/accounts_admin_page.php">Admin Accounts</a></li>
-                <li><a href="login/accounts_superuser_page.php">Superuser Accounts</a></li>
+                <li><a href="../login_superadmin/accounts_client_page.php">Client Accounts</a></li>
+                <li><a href="../login_superadmin/accounts_admin_page.php">Admin Accounts</a></li>
+                <li><a href="../login_superadmin/accounts_superuser_page.php">Superuser Accounts</a></li>
               </ul>
             </li>
 
@@ -174,7 +174,7 @@
                 <li><a href="military_vehicles.php">For Military</a></li>
               </ul>
             </li>
-           
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -249,7 +249,7 @@
                                                     <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick="edit_form2($key, 'img/profile/military/$military[m_profile]', '$military[m_militaryId]', '$military[name]', '$military[m_rank]', '$military[m_brSvc]', '$military[m_afpsn]', '$military[m_residenceAddress]', '$military[m_residenceTelNo]', '$military[m_emailAddress]', '$military[m_mobileNo]', '$military[m_designatedOffice]', '$military[m_officeTelNo]', '$military[m_officeAddress]', '$military[m_retirementDate]', '$military[m_class]', '$military[m_dateRegistered]', '$military[m_placeRegistered]')">Edit</button></td>
                                                     <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form2' onclick="delete_form2($key, 'img/profile/military/$military[m_profile]')">Delete</button></td>
                                             <td style='display:none'>
-                                                
+
                                                  <table id='vehicle_table_$key'>
 DATA;
                                         foreach ($military['vehicles'] as $key => $vehicle) {
@@ -310,9 +310,9 @@ VEHICLE;
                                       '<option value="2-wheeled">2-wheeled</option>'+
                                       '<option value="4-wheeled">4-wheeled</option>'+
                                     '</select>'+
-                                '</td>'+ 
-                                '<td><input type="text" name="vehicleMake[]" class="form-control name_list"  value="'+$(this).children('td:eq(2)').text()+'" /></td>'+ 
-                                '<td><input type="text" name="plateNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(3)').text()+'" /></td>'+  
+                                '</td>'+
+                                '<td><input type="text" name="vehicleMake[]" class="form-control name_list"  value="'+$(this).children('td:eq(2)').text()+'" /></td>'+
+                                '<td><input type="text" name="plateNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(3)').text()+'" /></td>'+
                                 '<td>'+
                                   '<select id="select-year-'+index+'" name="yearModel[]" class="form-control name_list" required>'+
                                     '<option value="">Year Model...</option>'+
@@ -349,9 +349,9 @@ VEHICLE;
                                     '<option value="2020">2020</option>'+
                                   '</select>'+
                                 '</td>'+
-                                '<td><input type="text" name="color[]" class="form-control name_list"  value="'+$(this).children('td:eq(5)').text()+'" /></td>'+  
-                                '<td><input type="text" name="motorNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(6)').text()+'" /></td>'+  
-                                '<td><input type="text" name="chassisNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(7)').text()+'" /></td>'+  
+                                '<td><input type="text" name="color[]" class="form-control name_list"  value="'+$(this).children('td:eq(5)').text()+'" /></td>'+
+                                '<td><input type="text" name="motorNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(6)').text()+'" /></td>'+
+                                '<td><input type="text" name="chassisNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(7)').text()+'" /></td>'+
                                 '<td><input type="text" name="decalNo[]" class="form-control name_list"  value="'+$(this).children('td:eq(8)').text()+'" /></td>'+
                                 '<td><button type="button" class="btn btn-danger editModal-btn-remove"><i class="fa fa-times"></i></button></td></tr>';
        $('#edit-vehicles').append(content);
@@ -404,7 +404,7 @@ VEHICLE;
       $('#edit-vehicles').on('click','#editModal-add', function(){
         i++;
         $('#add-new-vehicle').append('<tr id="row'+i+'"><td><select name="wheels[]" class="form-control name_list" required><option value="">No. of Wheels...</option><option value="2-wheeled">2-wheeled</option><option value="4-wheeled">4-wheeled</option></select></td><td><input type="text" name="vehicleMake[]" placeholder="Vehicle Make" class="form-control name_list" /></td><td><input type="text" name="plateNo[]" placeholder="Plate No." class="form-control name_list" /></td><td><select name="yearModel[]" class="form-control name_list" required><option value="">Year Model...</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select></td><td><input type="text" name="color[]" placeholder="Color" class="form-control name_list" /></td><td><input type="text" name="motorNo[]" placeholder="Motor No." class="form-control name_list" /></td><td><input type="text" name="chassisNo[]" placeholder="Chassis No." class="form-control name_list" /></td><td><input type="text" name="decalNo[]" placeholder="Decal No" class="form-control name_list" /></td><td><button type="button" class="btn btn-danger  editModal-btn-remove">X</button></td></tr>');
-      }); 
+      });
 
       $('#editModal-vehicles').on('click', '.editModal-btn-remove', function(){
         $(this).closest('tr').remove();
@@ -441,7 +441,7 @@ VEHICLE;
             counter++;
           }
         });
-  
+
         console.log(counter);
         if(counter >= 2){
            $('#validate-plateNo').css('display', 'block');
@@ -541,13 +541,13 @@ VEHICLE;
 		$('#view-vehicles').html('');
 
         $('#vehicle_table_'+key+' tr').each(function(){
-            var content = '<tr><td><input type="text" name="wheels" class="form-control name_list" value="'+$(this).children('td:eq(1)').text()+'" readonly></input></td>'+  
-                                      '<td><input type="text" name="vehicleMake" class="form-control name_list"  value="'+$(this).children('td:eq(2)').text()+'" readonly/></td>'+ 
-                                      '<td><input type="text" name="plateNo" class="form-control name_list"  value="'+$(this).children('td:eq(3)').text()+'" readonly/></td>'+  
-                                      '<td><input type="text" name="yearModel" class="form-control name_list"  value="'+$(this).children('td:eq(4)').text()+'" readonly></input></td>'+  
-                                      '<td><input type="text" name="color" class="form-control name_list"  value="'+$(this).children('td:eq(5)').text()+'" readonly/></td>'+  
-                                      '<td><input type="text" name="motorNo" class="form-control name_list"  value="'+$(this).children('td:eq(6)').text()+'" readonly/></td>'+  
-                                      '<td><input type="text" name="chassisNo" class="form-control name_list"  value="'+$(this).children('td:eq(7)').text()+'" readonly/></td>'+  
+            var content = '<tr><td><input type="text" name="wheels" class="form-control name_list" value="'+$(this).children('td:eq(1)').text()+'" readonly></input></td>'+
+                                      '<td><input type="text" name="vehicleMake" class="form-control name_list"  value="'+$(this).children('td:eq(2)').text()+'" readonly/></td>'+
+                                      '<td><input type="text" name="plateNo" class="form-control name_list"  value="'+$(this).children('td:eq(3)').text()+'" readonly/></td>'+
+                                      '<td><input type="text" name="yearModel" class="form-control name_list"  value="'+$(this).children('td:eq(4)').text()+'" readonly></input></td>'+
+                                      '<td><input type="text" name="color" class="form-control name_list"  value="'+$(this).children('td:eq(5)').text()+'" readonly/></td>'+
+                                      '<td><input type="text" name="motorNo" class="form-control name_list"  value="'+$(this).children('td:eq(6)').text()+'" readonly/></td>'+
+                                      '<td><input type="text" name="chassisNo" class="form-control name_list"  value="'+$(this).children('td:eq(7)').text()+'" readonly/></td>'+
                                       '<td><input type="text" name="stickerNo" class="form-control name_list"  value="'+$(this).children('td:eq(8)').text()+'" readonly/></td></tr>';
            $('#view-vehicles').append(content);
           });
@@ -562,7 +562,7 @@ VEHICLE;
            var m_designatedOffice = row.find('td:nth-child(6)').text();
            var m_class = row.find('td:nth-child(9)').text();
            var m_placeRegistered = row.find('td:nth-child(11)').text();
- 
+
           $('#renew-modal-info').find('tr:eq(0)').find('td:eq(1)').text(name);
            $('#renew-modal-info').find('tr:eq(1)').find('td:eq(1)').text(m_rank);
            $('#renew-modal-info').find('tr:eq(2)').find('td:eq(1)').text(m_emailAddress);
