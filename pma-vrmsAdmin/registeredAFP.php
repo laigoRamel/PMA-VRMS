@@ -585,10 +585,10 @@ VEHICLE;
           var row = $('#military_'+key);
           var name = row.find('td:nth-child(3)').text();
           var m_rank = row.find('td:nth-child(4)').text();
-          var m_emailAddress = row.find('td:nth-child(5)').text();
-          var m_designatedOffice = row.find('td:nth-child(6)').text();
-          var m_class = row.find('td:nth-child(9)').text();
-          var m_placeRegistered = row.find('td:nth-child(11)').text();
+          var m_emailAddress = row.find('td:nth-child(9)').text();
+          var m_designatedOffice = row.find('td:nth-child(11)').text();
+          var m_class = row.find('td:nth-child(15)').text();
+          var m_placeRegistered = row.find('td:nth-child(17)').text();
 
           $('#renew-modal-info').find('tr:eq(0)').find('td:eq(1)').text(name);
           $('#renew-modal-info').find('tr:eq(1)').find('td:eq(1)').text(m_rank);
@@ -616,7 +616,7 @@ VEHICLE;
           $('#print-lastname').html(lastname);
           $('#print-firstname').html(firstname);
           $('#print-middlename').html(middlename);
-          
+
           $('#print-rank').html($('#view-rank').val());
           $('#print-brSvc').html($('#view-brSvc').val());
           $('#print-afpsn').html($('#view-afpsn').val());

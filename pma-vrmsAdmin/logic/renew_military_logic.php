@@ -17,7 +17,7 @@
 		
 		$requirements = $_POST['requirements'];
 
-		$m_status = (count($requirements) === 5) ? 'registered' : 'pending'; //status
+		$m_status = (count($_POST['requirements']) === 5) ? 'registered' : 'pending'; //status
 		
 		$all_requirements = ''; //all submitted requirements
 		foreach($requirements as $requirement){
@@ -32,10 +32,13 @@
 
 		$row = mysqli_fetch_array($result);
 
+		$query_update = "UPDATE form2_militarypd SET flag=0 WHERE m_militaryId='".$_POST['m_militaryId']."'";
+		$database->execute($query_update);
+
 		$query = "INSERT INTO form2_militarypd (m_profile, m_lastname, m_firstname, m_middlename, m_rank, m_brSvc, m_afpsn, m_residenceAddress, m_residenceTelNo, 
-					m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_submitted_requirements, m_status, m_dateRegistered, m_placeRegistered, m_vehicle_id, m_renew_status) 
+					m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_submitted_requirements, m_status, m_dateRegistered, m_placeRegistered, m_renew_status, flag) 
 				VALUES ('$row[m_profile]', '$row[m_lastname]', '$row[m_firstname]', '$row[m_middlename]', '$row[m_rank]', '$row[m_brSvc]', '$row[m_afpsn]', '$row[m_residenceAddress]', '$row[m_residenceTelNo]', 
-					'$row[m_emailAddress]', '$row[m_mobileNo]', '$row[m_designatedOffice]', '$row[m_officeTelNo]', '$row[m_officeAddress]', '$row[m_retirementDate]', '$row[m_class]', '$all_requirements', '$m_status', '$m_dateRegistered', '$row[m_placeRegistered]', '$row[m_vehicle_id]', '1')";
+					'$row[m_emailAddress]', '$row[m_mobileNo]', '$row[m_designatedOffice]', '$row[m_officeTelNo]', '$row[m_officeAddress]', '$row[m_retirementDate]', '$row[m_class]', '$all_requirements', '$m_status', '$m_dateRegistered', '$row[m_placeRegistered]', '1', '1')";
 		
 		$database->execute($query);
 
@@ -61,6 +64,9 @@
 					VALUES ('', '$username', 'Renewed: $full_name (AFP)', '$current_date', '$current_time')";
 
 		$database->execute($query2);
+
+		echo '$login_session';
+		echo '123';
 
 		$database->disconnect();
 	}
