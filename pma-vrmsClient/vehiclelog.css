@@ -1,0 +1,146 @@
+.buttons{
+	border: 2px solid #c2c2d6;
+	border-radius: 4px;
+}
+
+td{
+	text-align: center;
+/*	border: 1px solid #c2c2d6; */
+	padding: 5px;
+	word-wrap: break-word;
+}
+
+.trial{
+	border: 1px solid #c2c2d6;
+}
+
+#invalid{
+	text-align: center;
+	color: red;
+}
+
+nav.menu{
+	color: blue;
+	font-size:18px;
+}
+
+#active{
+	font-weight: bold;
+}
+
+/* Result table - Vehicle Time In */
+#vLog{
+	border-radius: 30px;
+	border: 1px solid #c2c2d6;
+	width: 50%;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.head{
+	text-align:center;
+	background-color:  #efeff5;
+	border: 1px solid #c2c2d6;
+	padding: 5px;
+}
+
+td.col{
+	text-align: center;
+	border: 1px solid #c2c2d6;
+	padding: 5px;
+	word-wrap: break-word;
+}
+
+td.after{
+	text-align: center;
+	border: 1px solid #c2c2d6;
+	padding: 5px;
+	word-wrap: break-word;
+	color: red;
+}
+
+
+/* View Table */
+#viewtable{
+	border-radius: 30px;
+	border: 1px solid #c2c2d6;
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+table{
+	table-layout: fixed;
+}
+
+#view{
+	align: center;
+	height: 800px;
+}
+
+/*panel border*/
+.panel-border {
+	margin-left:5%;
+	margin-right:5%;
+    margin-top: 4%;
+    
+    
+   
+}
+
+.panel-space {
+	margin-bottom:5%;
+}
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+
+button[type=submit] {
+    width: 80%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+
+button[type=submit]:hover {
+    background-color: #45a049;
+}
+
+
+
+input[type=button] {
+    width: 80%;
+    background-color:darkcyan;
+    color: white;
+    padding: 5px 15px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
