@@ -93,7 +93,7 @@
                             <h3 class="panel-title">Vehicle Type/Class</h3> </div>
                         <div class="panel-body">
                         <div>
-                        	<input type="text" class="form-control" name="a_class" readonly>
+                        	<input id="view-type" type="text" class="form-control" name="a_class" readonly>
                         </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                             <h3 class="panel-title">Date and Time Registered</h3> </div>
                         <div class="panel-body">
                         <div>
-                          <input type="text" class="form-control" name="a_dateRegistered" readonly>
+                          <input id="view-dateRegistered" type="text" class="form-control" name="a_dateRegistered" readonly>
                         </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                             <h3 class="panel-title">Place Registered</h3> </div>
                         <div class="panel-body">
                         <div>
-                          <input type="text" class="form-control" name="a_placeRegistered" readonly>
+                          <input id="view-placeRegistered" type="text" class="form-control" name="a_placeRegistered" readonly>
                         </div>
                         </div>
                     </div>

@@ -281,25 +281,48 @@ VEHICLE;
                 </div>
 			</div>
 		</div>
+
+        </section>  <!-- /Main content -->
+
+        <br/><br/>
+
+        </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        ©2016 PMA-VRMS
+      </footer>
+
+    </div><!-- ./wrapper -->
+
+
+
+    <div id='print_form' style='display: none;'>
+        <?php
+          include('printMilitary.php');
+        ?>
+    </div>
+
+
     <script src="js/print.js" type="text/javascript"></script>
-	<script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
-	<script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
-	<script>
-		$(document).ready( function () {
-			$('#bootstrap-table').bdt();
-		});
-	</script>
+  <script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
+  <script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
+  <script>
+    $(document).ready( function () {
+      $('#bootstrap-table').bdt();
+    });
+  </script>
 
         <!-- causing footer problem ? ? ? -->
-		<?php
-			require_once('modals/view_form2.php');
-			require_once('modals/renew_military.php');
-			require_once('modals/edit_form2.php');
-			require_once('modals/delete_form2.php');
-		?>
+    <?php
+      require_once('modals/view_form2.php');
+      require_once('modals/renew_military.php');
+      require_once('modals/edit_form2.php');
+      require_once('modals/delete_form2.php');
+    ?>
 
-		<script type="text/javascript">
-			var edit_form2 = function(key, img, m_militaryId, name, m_rank, m_brSvc, m_afpsn, m_residenceAddress, m_residenceTelNo, m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_dateRegistered, m_placeRegistered){
+    <script type="text/javascript">
+      var edit_form2 = function(key, img, m_militaryId, name, m_rank, m_brSvc, m_afpsn, m_residenceAddress, m_residenceTelNo, m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_dateRegistered, m_placeRegistered){
                       $('#img_edit').attr('src', img);
       $('#edit-vehicles').html('');
 
@@ -389,12 +412,12 @@ VEHICLE;
     $(document).ready(function(){
       var global_decal_number = [];
       var global_plate_number = [];
-      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsSuperAdmin/logic/ajax_decal_number.php', function(response){
+      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_decal_number.php', function(response){
         $.each(JSON.parse(response), function(index, data){
           global_decal_number.push(data.decalNo);
         });
       });
-      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsSuperAdmin/logic/ajax_plate_number.php', function(response){
+      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_plate_number.php', function(response){
         $.each(JSON.parse(response), function(index, data){
           global_plate_number.push(data.plateNo);
         });
@@ -478,7 +501,7 @@ VEHICLE;
 
     });
 
-			var delete_form2 = function(key, img){
+      var delete_form2 = function(key, img){
         $('#delete-modal-inputs').html('');
 
         var m_id = $('#military_'+key+' > td:first-child').text();
@@ -487,11 +510,14 @@ VEHICLE;
           var vehicle_id = $(this).children('td:eq(0)').text();
           $('#delete-modal-inputs').append("<input name='vehicleId[]' value='"+vehicle_id+"' type='hidden'>");
         });
-			}
+      }
 
-			var view_form2 = function(key, img){
+      var view_form2 = function(key, img){
+
+        $('#print-vehicles-tbody').html('');
+
         $('#img_view').attr('src', img);
-				var row = $('#military_'+key);
+        var row = $('#military_'+key);
         var m_id = row.find('td:first-child').text();
         var m_profile = row.find('td:nth-child(2)').text();
         var name = row.find('td:nth-child(3)').text();
@@ -539,7 +565,7 @@ VEHICLE;
         modal.find('input[name=m_dateRegistered]').val(m_dateRegistered);
         modal.find('input[name=m_placeRegistered]').val(m_placeRegistered);
 
-		$('#view-vehicles').html('');
+    $('#view-vehicles').html('');
 
         $('#vehicle_table_'+key+' tr').each(function(){
             var content = '<tr><td><input type="text" name="wheels" class="form-control name_list" value="'+$(this).children('td:eq(1)').text()+'" readonly></input></td>'+
@@ -551,42 +577,84 @@ VEHICLE;
                                       '<td><input type="text" name="chassisNo" class="form-control name_list"  value="'+$(this).children('td:eq(7)').text()+'" readonly/></td>'+
                                       '<td><input type="text" name="stickerNo" class="form-control name_list"  value="'+$(this).children('td:eq(8)').text()+'" readonly/></td></tr>';
            $('#view-vehicles').append(content);
+
+       $('#print-vehicles-tbody').append('<tr>'+
+                                        '<td>'+ $(this).children('td:eq(1)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(2)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(3)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(4)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(5)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(6)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(7)').text() + '</td>'+
+                                        '<td>'+ $(this).children('td:eq(8)').text() + '</td>'+
+                                        '</tr>'
+
+
+            );
+
           });
 
         }
 
        var renew_military = function(key, id){
           var row = $('#military_'+key);
-           var name = row.find('td:nth-child(3)').text();
-           var m_rank = row.find('td:nth-child(4)').text();
-           var m_emailAddress = row.find('td:nth-child(5)').text();
-           var m_designatedOffice = row.find('td:nth-child(6)').text();
-           var m_class = row.find('td:nth-child(9)').text();
-           var m_placeRegistered = row.find('td:nth-child(11)').text();
+          var name = row.find('td:nth-child(3)').text();
+          var m_rank = row.find('td:nth-child(4)').text();
+          var m_emailAddress = row.find('td:nth-child(9)').text();
+          var m_designatedOffice = row.find('td:nth-child(11)').text();
+          var m_class = row.find('td:nth-child(15)').text();
+          var m_placeRegistered = row.find('td:nth-child(17)').text();
 
           $('#renew-modal-info').find('tr:eq(0)').find('td:eq(1)').text(name);
-           $('#renew-modal-info').find('tr:eq(1)').find('td:eq(1)').text(m_rank);
-           $('#renew-modal-info').find('tr:eq(2)').find('td:eq(1)').text(m_emailAddress);
-           $('#renew-modal-info').find('tr:eq(3)').find('td:eq(1)').text(m_designatedOffice);
-           $('#renew-modal-info').find('tr:eq(4)').find('td:eq(1)').text(m_class);
-           $('#renew-modal-info').find('tr:eq(5)').find('td:eq(1)').text(m_placeRegistered);
+          $('#renew-modal-info').find('tr:eq(1)').find('td:eq(1)').text(m_rank);
+          $('#renew-modal-info').find('tr:eq(2)').find('td:eq(1)').text(m_emailAddress);
+          $('#renew-modal-info').find('tr:eq(3)').find('td:eq(1)').text(m_designatedOffice);
+          $('#renew-modal-info').find('tr:eq(4)').find('td:eq(1)').text(m_class);
+          $('#renew-modal-info').find('tr:eq(5)').find('td:eq(1)').text(m_placeRegistered);
+
       $('#renew_military_id').val(key);
 
     }
-		</script>
+    </script>
 
-        </section>  <!-- /Main content -->
 
-        <br/><br/>
 
-        </div><!-- /.content-wrapper -->
+    <script>
+      $('#print-btn').click(function(){
+          $('#print_form').css('display', 'block');
+          $('#view_form2').css('display', 'none');
 
-      <!-- Main Footer -->
-      <footer class="main-footer">
-        TISIS
-      </footer>
+          var lastname = $('#view-name').val().split(',')[0];
+          var firstname = ($('#view-name').val().split(',')[1]).trim().split(' ')[0];
+          var middlename = ($('#view-name').val().split(',')[1]).trim().split(' ')[1];
 
-    </div><!-- ./wrapper -->
+          $('#print-lastname').html(lastname);
+          $('#print-firstname').html(firstname);
+          $('#print-middlename').html(middlename);
+
+          $('#print-rank').html($('#view-rank').val());
+          $('#print-brSvc').html($('#view-brSvc').val());
+          $('#print-afpsn').html($('#view-afpsn').val());
+          $('#print-residenceAddress').html($('#view-residenceAddress').val());
+          $('#print-residenceTelNo').html($('#view-residenceTelNo').val());
+          $('#print-emailAddress').html($('#view-emailAddress').val());
+          $('#print-mobileNo').html($('#view-mobileNo').val());
+          $('#print-designatedOffice').html($('#view-designatedOffice').val());
+          $('#print-officeTelNo').html($('#view-officeTelNo').val());
+          $('#print-officeAddress').html($('#view-officeAddress').val());
+          $('#print-dateOfRetirement').html($('#view-dateOfRetirement').val());
+
+          $('#print-type').html($('#view-type').val());
+          $('#print-dateRegistered').html($('#view-dateRegistered').val());
+          $('#print-placeRegistered').html($('#view-placeRegistered').val());
+
+          $('#print-img').attr('src', $('#img_view').attr('src'));
+
+          window.print();
+          $('#print_form').css('display', 'none');
+          $('#view_form2').css('display', 'block');
+      });
+    </script>
 
 
 
