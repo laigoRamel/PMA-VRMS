@@ -230,8 +230,8 @@
                                                     <td>$military[m_class]</td>
                                                     <td style='display:none'>$military[m_dateRegistered]</td>
                                                     <td>$military[m_placeRegistered]</td>
-                                                    <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick="view_form2($key, '../pma-vrmsSuperAdmin/img/profile/military/$military[m_profile]')">View</button></td>
-                                                    <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick='renew_military($military[m_militaryId])'>Renew</button></td>
+                                                    <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form2' onclick="view_form2($key, '../pma-vrmsSuperAdmin/img/profile/military/$military[m_profile]', '$military[name]', '$military[m_rank]', '$military[m_brSvc]', '$military[m_afpsn]', '$military[m_residenceAddress]', '$military[m_residenceTelNo]', '$military[m_emailAddress]', '$military[m_mobileNo]', '$military[m_designatedOffice]', '$military[m_officeTelNo]', '$military[m_officeAddress]', '$military[m_retirementDate]', '$military[m_class]', '$military[m_dateRegistered]', '$military[m_placeRegistered]')">View</button></td>
+                                                    <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_military' onclick="renew_military($key, '$military[m_militaryId]', '$military[name]', '$military[m_rank]', '$military[m_brSvc]', '$military[m_afpsn]', '$military[m_residenceAddress]', '$military[m_residenceTelNo]', '$military[m_emailAddress]', '$military[m_mobileNo]', '$military[m_designatedOffice]', '$military[m_officeTelNo]', '$military[m_officeAddress]', '$military[m_retirementDate]', '$military[m_class]', '$military[m_dateRegistered]', '$military[m_placeRegistered]')">Renew</button></td>
                                                     <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form2' onclick="edit_form2($key, '../pma-vrmsSuperAdmin/img/profile/military/$military[m_profile]', '$military[m_militaryId]', '$military[name]', '$military[m_rank]', '$military[m_brSvc]', '$military[m_afpsn]', '$military[m_residenceAddress]', '$military[m_residenceTelNo]', '$military[m_emailAddress]', '$military[m_mobileNo]', '$military[m_designatedOffice]', '$military[m_officeTelNo]', '$military[m_officeAddress]', '$military[m_retirementDate]', '$military[m_class]', '$military[m_dateRegistered]', '$military[m_placeRegistered]')">Edit</button></td>
                                                     <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form2' onclick="delete_form2($key, '../pma-vrmsSuperAdmin/img/profile/military/$military[m_profile]')">Delete</button></td>
 
@@ -497,7 +497,7 @@ VEHICLE;
         });
 			}
 
-			var view_form2 = function(key, img){
+			var view_form2 = function(key, img, name, m_rank, m_brSvc, m_afpsn, m_residenceAddress, m_residenceTelNo, m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_dateRegistered, m_placeRegistered){
 
         $('#print-vehicles-tbody').html('');
 
@@ -505,7 +505,7 @@ VEHICLE;
 				var row = $('#military_'+key);
         var m_id = row.find('td:first-child').text();
         var m_profile = row.find('td:nth-child(2)').text();
-        var name = row.find('td:nth-child(3)').text();
+        /**var name = row.find('td:nth-child(3)').text();
         var m_rank = row.find('td:nth-child(4)').text();
         var m_brSvc = row.find('td:nth-child(5)').text();
         var m_afpsn = row.find('td:nth-child(6)').text();
@@ -519,7 +519,7 @@ VEHICLE;
         var m_retirementDate = row.find('td:nth-child(14)').text();
         var m_class = row.find('td:nth-child(15)').text();
         var m_dateRegistered = row.find('td:nth-child(16)').text();
-        var m_placeRegistered = row.find('td:nth-child(17)').text();
+        var m_placeRegistered = row.find('td:nth-child(17)').text();**/
 
         var vehicleId = row.find('td:nth-child(18)').text();
         var wheels = row.find('td:nth-child(19)').text();
@@ -581,14 +581,14 @@ VEHICLE;
 
         }
 
-       var renew_military = function(key, id){
+       var renew_military = function(key, id, name, m_rank, m_brSvc, m_afpsn, m_residenceAddress, m_residenceTelNo, m_emailAddress, m_mobileNo, m_designatedOffice, m_officeTelNo, m_officeAddress, m_retirementDate, m_class, m_dateRegistered, m_placeRegistered){
           var row = $('#military_'+key);
-          var name = row.find('td:nth-child(3)').text();
+          /**var name = row.find('td:nth-child(3)').text();
           var m_rank = row.find('td:nth-child(4)').text();
           var m_emailAddress = row.find('td:nth-child(9)').text();
           var m_designatedOffice = row.find('td:nth-child(11)').text();
           var m_class = row.find('td:nth-child(15)').text();
-          var m_placeRegistered = row.find('td:nth-child(17)').text();
+          var m_placeRegistered = row.find('td:nth-child(17)').text();**/
 
           $('#renew-modal-info').find('tr:eq(0)').find('td:eq(1)').text(name);
           $('#renew-modal-info').find('tr:eq(1)').find('td:eq(1)').text(m_rank);

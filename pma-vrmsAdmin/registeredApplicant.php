@@ -225,8 +225,8 @@
                                             <td style='display:none'>$applicant[a_dateRegistered]</td>
                                             <td>$applicant[a_placeRegistered]</td>
 
-                                            <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form1' onclick="view_form1($key, '../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]')">View</button></td>
-                                            <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_applicant' onclick='renew_applicant($key, $applicant[a_applicantId])'>Renew</button></td>
+                                            <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form1' onclick="view_form1($key, '../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]', '$applicant[name]', '$applicant[a_address]', '$applicant[a_occupation]', '$applicant[a_officeAddress]', '$applicant[a_driversLicense]', '$applicant[a_expirationDate]', '$applicant[a_class]', '$applicant[a_dateRegistered]', '$applicant[a_placeRegistered]')">View</button></td>
+                                            <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_applicant' onclick="renew_applicant($key, '$applicant[a_applicantId]', '$applicant[name]', '$applicant[a_address]', '$applicant[a_occupation]', '$applicant[a_officeAddress]', '$applicant[a_driversLicense]', '$applicant[a_expirationDate]', '$applicant[a_class]', '$applicant[a_dateRegistered]', '$applicant[a_placeRegistered]')">Renew</button></td>
                                             <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form1' onclick="edit_form1($key, '../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]', '$applicant[a_applicantId]', '$applicant[name]', '$applicant[a_address]', '$applicant[a_occupation]', '$applicant[a_officeAddress]', '$applicant[a_driversLicense]', '$applicant[a_expirationDate]', '$applicant[a_class]', '$applicant[a_dateRegistered]', '$applicant[a_placeRegistered]')">Edit</button></td>
                                             <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form1' onclick="delete_form1($key, '../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]')">Delete</button></td>
                                             <td style='display:none'>
@@ -508,22 +508,14 @@ VEHICLE;
       });
 		}
 
-		var view_form1 = function(key, img){
+		var view_form1 = function(key, img, name, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_dateRegistered, a_placeRegistered){
+
       $('#print-vehicles-tbody').html('');
 
 			$('#img_view').attr('src', img);
   		var row = $('#applicant_'+key);
       var a_id = row.find('td:first-child').text();
       var a_profile = row.find('td:nth-child(2)').text();
-      var name = row.find('td:nth-child(3)').text();
-      var a_address = row.find('td:nth-child(4)').text();
-      var a_occupation = row.find('td:nth-child(5)').text();
-      var a_officeAddress = row.find('td:nth-child(6)').text();
-      var a_driversLicense = row.find('td:nth-child(7)').text();
-      var a_expirationDate = row.find('td:nth-child(8)').text();
-      var a_class = row.find('td:nth-child(9)').text();
-      var a_dateRegistered = row.find('td:nth-child(10)').text();
-      var a_placeRegistered = row.find('td:nth-child(11)').text();
 
       var vehicleId = row.find('td:nth-child(12)').text();
       var wheels = row.find('td:nth-child(13)').text();
@@ -578,14 +570,14 @@ VEHICLE;
       });
 		}
 
-    var renew_applicant = function(key, id){
+    var renew_applicant = function(key, id, name, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_dateRegistered, a_placeRegistered){
       var row = $('#applicant_'+key);
-      var name = row.find('td:nth-child(3)').text();
+      /**var name = row.find('td:nth-child(3)').text();
       var a_address = row.find('td:nth-child(4)').text();
       var a_occupation = row.find('td:nth-child(5)').text();
       var a_officeAddress = row.find('td:nth-child(6)').text();
       var a_class = row.find('td:nth-child(9)').text();
-      var a_placeRegistered = row.find('td:nth-child(11)').text();
+      var a_placeRegistered = row.find('td:nth-child(11)').text();**/
 
       $('#renew-modal-info').find('tr:eq(0)').find('td:eq(1)').text(name);
       $('#renew-modal-info').find('tr:eq(1)').find('td:eq(1)').text(a_address);
