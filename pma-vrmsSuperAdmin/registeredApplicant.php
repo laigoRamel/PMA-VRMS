@@ -240,7 +240,7 @@
                                         echo <<<DATA
                                         <tr id='applicant_$key'>
                                             <td style='display:none'>$applicant[a_applicantId]</td>
-                                            <td><img style="width="40" height="40"" src='img/profile/applicant/$applicant[a_profile]' height='100px;'></td>
+                                            <td><img style="width="40" height="40"" src='../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]' height='100px;'></td>
                                             <td>$applicant[name]</td>
                                             <td>$applicant[a_address]</td>
                                             <td>$applicant[a_occupation]</td>
@@ -251,10 +251,10 @@
                                             <td style='display:none'>$applicant[a_dateRegistered]</td>
                                             <td>$applicant[a_placeRegistered]</td>
 
-                                            <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form1' onclick="view_form1($key, 'img/profile/applicant/$applicant[a_profile]')">View</button></td>
-                                            <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_applicant' onclick='renew_applicant($key, $applicant[a_applicantId])'>Renew</button></td>
-                                            <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form1' onclick="edit_form1($key, 'img/profile/applicant/$applicant[a_profile]', '$applicant[a_applicantId]', '$applicant[name]', '$applicant[a_address]', '$applicant[a_occupation]', '$applicant[a_officeAddress]', '$applicant[a_driversLicense]', '$applicant[a_expirationDate]', '$applicant[a_class]', '$applicant[a_dateRegistered]', '$applicant[a_placeRegistered]')">Edit</button></td>
-                                            <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form1' onclick="delete_form1($key, 'img/profile/applicant/$applicant[a_profile]')">Delete</button></td>
+                                            <td class="column-options"><button class="btn btn-info" data-toggle='modal' data-target='#view_form1' onclick="view_form1($key, '../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]', '$applicant[name]', '$applicant[a_address]', '$applicant[a_occupation]', '$applicant[a_officeAddress]', '$applicant[a_driversLicense]', '$applicant[a_expirationDate]', '$applicant[a_class]', '$applicant[a_dateRegistered]', '$applicant[a_placeRegistered]')">View</button></td>
+                                            <td class="column-options"><button class="btn btn-success" data-toggle='modal' data-target='#renew_applicant' onclick="renew_applicant($key, '$applicant[a_applicantId]', '$applicant[name]', '$applicant[a_address]', '$applicant[a_occupation]', '$applicant[a_officeAddress]', '$applicant[a_driversLicense]', '$applicant[a_expirationDate]', '$applicant[a_class]', '$applicant[a_dateRegistered]', '$applicant[a_placeRegistered]')">Renew</button></td>
+                                            <td class="column-options"><button class="btn btn-warning" data-toggle='modal' data-target='#edit_form1' onclick="edit_form1($key, '../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]', '$applicant[a_applicantId]', '$applicant[name]', '$applicant[a_address]', '$applicant[a_occupation]', '$applicant[a_officeAddress]', '$applicant[a_driversLicense]', '$applicant[a_expirationDate]', '$applicant[a_class]', '$applicant[a_dateRegistered]', '$applicant[a_placeRegistered]')">Edit</button></td>
+                                            <td class="column-options"><button class="btn btn-danger" data-toggle='modal' data-target='#delete_form1' onclick="delete_form1($key, '../pma-vrmsSuperAdmin/img/profile/applicant/$applicant[a_profile]')">Delete</button></td>
                                             <td style='display:none'>
                                               <table id='vehicle_table_$key'>
 DATA;
@@ -284,8 +284,8 @@ VEHICLE;
                         </div>
                     </div>
                 </div>
-			</div>
-		</div>
+      </div>
+    </div>
 
 
     </section>  <!-- /Main content -->
@@ -296,7 +296,7 @@ VEHICLE;
 
       <!-- Main Footer -->
       <footer class="main-footer">
-        TISIS
+        ©2016 PMA-VRMS
       </footer>
 
     </div><!-- ./wrapper -->
@@ -311,26 +311,26 @@ VEHICLE;
 
 
     <script src="js/print.js" type="text/javascript"></script>
-	<script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
-	<script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
-	<script>
-		$(document).ready( function () {
-			$('#bootstrap-table').bdt();
-		});
-	</script>
+  <script src="bootstrap/js/jquery.sortelements.js" type="text/javascript"></script>
+  <script src="bootstrap/js/jquery.bdt.js" type="text/javascript"></script>
+  <script>
+    $(document).ready( function () {
+      $('#bootstrap-table').bdt();
+    });
+  </script>
 
-		<?php
+    <?php
             require_once('modals/view_form1.php');
             require_once('modals/renew_applicant.php');
             require_once('modals/edit_form1.php');
             require_once('modals/delete_form1.php');
         ?>
 
-	<script type="text/javascript">
+  <script type="text/javascript">
     var i = 0;
     var current_vehicle_num = 0;
 
-		var edit_form1 = function(key, img, applicant_id, name, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_dateRegistered, a_placeRegistered){
+    var edit_form1 = function(key, img, applicant_id, name, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_dateRegistered, a_placeRegistered){
       $('#img_edit').attr('src', img);
       $('#edit-vehicles').html('');
       $('#add-new-vehicle').html('');
@@ -416,17 +416,17 @@ VEHICLE;
       $('#edit-vehicles').append('<tr><td><button type="button" name="add" id="editModal-add" class="btn btn-success">Add More</button></td></tr>');
       $('#editModal-vehicles').append('<table id="add-new-vehicle" ></table>');
 
-		}
+    }
 
     $(document).ready(function(){
       var global_sticker_number = [];
       var global_plate_number = [];
-      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsSuperAdmin/logic/ajax_sticker_number.php', function(response){
+      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_sticker_number.php', function(response){
         $.each(JSON.parse(response), function(index, data){
           global_sticker_number.push(data.stickerNo);
         });
       });
-      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsSuperAdmin/logic/ajax_plate_number.php', function(response){
+      $.get(window.location.origin+'/PMA-VRMS/trunk/pma-vrmsAdmin/logic/ajax_plate_number.php', function(response){
         $.each(JSON.parse(response), function(index, data){
           global_plate_number.push(data.plateNo);
         });
@@ -523,7 +523,7 @@ VEHICLE;
     });
 
 
-		var delete_form1 = function(key, img){
+    var delete_form1 = function(key, img){
       $('#delete-modal-inputs').html('');
 
       var a_id = $('#applicant_'+key+' > td:first-child').text();
@@ -532,24 +532,16 @@ VEHICLE;
         var vehicle_id = $(this).children('td:eq(0)').text();
         $('#delete-modal-inputs').append("<input name='vehicleId[]' value='"+vehicle_id+"' type='hidden'>");
       });
-		}
+    }
 
-		var view_form1 = function(key, img){
+    var view_form1 = function(key, img, name, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_dateRegistered, a_placeRegistered){
+
       $('#print-vehicles-tbody').html('');
 
-			$('#img_view').attr('src', img);
-  		var row = $('#applicant_'+key);
+      $('#img_view').attr('src', img);
+      var row = $('#applicant_'+key);
       var a_id = row.find('td:first-child').text();
       var a_profile = row.find('td:nth-child(2)').text();
-      var name = row.find('td:nth-child(3)').text();
-      var a_address = row.find('td:nth-child(4)').text();
-      var a_occupation = row.find('td:nth-child(5)').text();
-      var a_officeAddress = row.find('td:nth-child(6)').text();
-      var a_driversLicense = row.find('td:nth-child(7)').text();
-      var a_expirationDate = row.find('td:nth-child(8)').text();
-      var a_class = row.find('td:nth-child(9)').text();
-      var a_dateRegistered = row.find('td:nth-child(10)').text();
-      var a_placeRegistered = row.find('td:nth-child(11)').text();
 
       var vehicleId = row.find('td:nth-child(12)').text();
       var wheels = row.find('td:nth-child(13)').text();
@@ -602,16 +594,16 @@ VEHICLE;
             );
 
       });
-		}
+    }
 
-    var renew_applicant = function(key, id){
+    var renew_applicant = function(key, id, name, a_address, a_occupation, a_officeAddress, a_driversLicense, a_expirationDate, a_class, a_dateRegistered, a_placeRegistered){
       var row = $('#applicant_'+key);
-      var name = row.find('td:nth-child(3)').text();
+      /**var name = row.find('td:nth-child(3)').text();
       var a_address = row.find('td:nth-child(4)').text();
       var a_occupation = row.find('td:nth-child(5)').text();
       var a_officeAddress = row.find('td:nth-child(6)').text();
       var a_class = row.find('td:nth-child(9)').text();
-      var a_placeRegistered = row.find('td:nth-child(11)').text();
+      var a_placeRegistered = row.find('td:nth-child(11)').text();**/
 
       $('#renew-modal-info').find('tr:eq(0)').find('td:eq(1)').text(name);
       $('#renew-modal-info').find('tr:eq(1)').find('td:eq(1)').text(a_address);

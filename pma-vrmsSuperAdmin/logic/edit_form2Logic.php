@@ -52,20 +52,23 @@
 		$query2 = "DELETE FROM vehicle_information WHERE driver_id='$id' AND driver_type='military'";
 		$database->execute($query2);
 
-		$wheels 		= $_POST['wheels'];
-		$vehicleMake 	= $_POST['vehicleMake'];
-		$plateNo 		= $_POST['plateNo'];
-		$yearModel		= $_POST['yearModel'];
-		$color 			= $_POST['color'];
-		$motorNo 		= $_POST['motorNo'];
-		$chassisNo 		= $_POST['chassisNo'];
-		$stickerNo 		= $_POST['stickerNo'];
+		
+		if (isset($_POST['wheels'])) {
+			$wheels 		= $_POST['wheels'];
+			$vehicleMake 	= $_POST['vehicleMake'];
+			$plateNo 		= $_POST['plateNo'];
+			$yearModel		= $_POST['yearModel'];
+			$color 			= $_POST['color'];
+			$motorNo 		= $_POST['motorNo'];
+			$chassisNo 		= $_POST['chassisNo'];
+			$decalNo 		= $_POST['decalNo'];
 
 
-		foreach ($wheels as $key => $wheel) {
-			$query3 = "INSERT INTO vehicle_information (wheels, vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, stickerNo, driver_id, driver_type)
-						VALUES('$wheel', '$vehicleMake[$key]', '$plateNo[$key]', '$yearModel[$key]', '$color[$key]', '$motorNo[$key]', '$chassisNo[$key]', '$stickerNo[$key]', '$id', 'military')";
-			$database->execute($query3);
+			foreach ($wheels as $key => $wheel) {
+				$query3 = "INSERT INTO vehicle_information (wheels, vehicleMake, plateNo, yearModel, color, motorNo, chassisNo, decalNo, driver_id, driver_type)
+							VALUES('$wheel', '$vehicleMake[$key]', '$plateNo[$key]', '$yearModel[$key]', '$color[$key]', '$motorNo[$key]', '$chassisNo[$key]', '$decalNo[$key]', '$id', 'military')";
+				$database->execute($query3);
+			}
 		}
 
 		header('Location: ../registeredAFP.php');
