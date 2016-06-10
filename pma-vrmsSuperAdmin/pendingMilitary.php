@@ -236,7 +236,7 @@ VEHICLE;
                   echo <<<DATA1
                     </table>
                   </td>
-                      <td><button onclick="show_update_modal($key)" class="btn btn-success update-btn">Update</button></td>
+                      <td><button onclick="show_update_modal(this)" class="btn btn-success update-btn">Update</button></td>
                     </tr>
 DATA1;
                 }
