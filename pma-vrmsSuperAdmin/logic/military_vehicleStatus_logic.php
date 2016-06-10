@@ -3,7 +3,7 @@
 
 	$database = new Database();
 
-		$query = "SELECT * FROM vehicle_information JOIN form2_militarypd ON form2_militarypd.m_militaryId = vehicle_information.driver_id  WHERE driver_type='military' AND vehicle_information.flag='1'";
+		$query = "SELECT * FROM vehicle_information JOIN form2_militarypd ON form2_militarypd.m_militaryId = vehicle_information.driver_id  WHERE driver_type='military' AND vehicle_information.flag='1' AND m_status='registered'";
 	$database->execute($query);
 	
 	$rows = $database->getResult();

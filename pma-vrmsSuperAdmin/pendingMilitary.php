@@ -229,7 +229,7 @@ DATA;
                                 <td style='display:none'>$vehicle[color]</td>
                                 <td style='display:none'>$vehicle[motorNo]</td>
                                 <td style='display:none'>$vehicle[chassisNo]</td>
-                                <td style='display:none'>$vehicle[stickerNo]</td>
+                                <td style='display:none'>$vehicle[decalNo]</td>
                               </tr>
 VEHICLE;
                     }
@@ -351,7 +351,7 @@ DATA1;
         });
         if(is_complete){
           $('#update-vehicles-stickerNo').css('display', 'block');
-          $('#update-vehicles-stickerNo input[name*=stickerNo]').attr('required', true);
+          $('#update-vehicles-stickerNo input[name*=decalNo]').attr('required', true);
         }else{
           $('#update-vehicles-stickerNo').css('display', 'none');
         }

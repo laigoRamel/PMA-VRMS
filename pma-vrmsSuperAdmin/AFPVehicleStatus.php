@@ -208,7 +208,7 @@
                                     <th>Color</th>
                                     <th>Motor No.</th>
                                     <th>Chassis No.</th>
-                                    <th>Sticker No.</th>
+                                    <th>deCal No.</th>
                                     <th  class="column-options" colspan=4 style="text-align:center">Status</th>
                                 </thead>
                                 <tbody>
