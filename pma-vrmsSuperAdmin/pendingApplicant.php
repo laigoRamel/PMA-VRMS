@@ -269,14 +269,14 @@ DATA1;
 
 
     <script>
-    var show_update_modal = function(key){
-      var row = $('#applicant_'+key).closest('tr');
-        var name = row.find('td:nth-child(3)').text();
-        var a_address = row.find('td:nth-child(4)').text();
-        var a_occupation = row.find('td:nth-child(5)').text();
-        var a_officeAddress = row.find('td:nth-child(6)').text();
-        var a_class = row.find('td:nth-child(9)').text();
-        var a_placeRegistered = row.find('td:nth-child(11)').text();
+    var show_update_modal = function(button){
+      var row = $(button).closest('tr');
+        var name = row.find('td:nth-child(3):eq(0)').text();
+        var a_address = row.find('td:nth-child(4):eq(0)').text();
+        var a_occupation = row.find('td:nth-child(5):eq(0)').text();
+        var a_officeAddress = row.find('td:nth-child(6):eq(0)').text();
+        var a_class = row.find('td:nth-child(9):eq(0)').text();
+        var a_placeRegistered = row.find('td:nth-child(11):eq(0)').text();
 
 
         $('#update-modal-info').find('tr:eq(0)').find('td:eq(1)').text(name);
@@ -287,32 +287,38 @@ DATA1;
         $('#update-modal-info').find('tr:eq(5)').find('td:eq(1)').text(a_placeRegistered);
 
 
-        var requirements_1 = $('#applicant_'+key).attr('requirements');
-        var requirements_2 = requirements_1.split(',');
+        var requirements_1 = row.attr('requirements');
+        if(requirements_1 != undefined){
+          var requirements_2 = requirements_1.split(',');
 
-        for(var i=1; i<6; i++){
-          $('#requirement-'+i).prop('checked', false);
+          for(var i=1; i<6; i++){
+            $('#requirement-'+i).prop('checked', false);
+          }
+
+          requirements_2.forEach(function(value, index){
+            $('#requirement-'+value).prop('checked', true);
+          });
+
+          $('#applicantId').val(row.attr('applicant_id'));
+
+
+          $('#update-vehicles-stickerNo').css('display', 'none');
+          $('#update-applicant-vehicles').html('');
+         row.find('td:nth-last-child(2)').find('table').find('tr').each(function(index, value){
+            $('#update-applicant-vehicles').append('<tr>'+
+            '<td style="display: none;"><input type="text" name="vehicleId[]" value="'+$(this).find('td:eq(0)').text()+'"></td>'+
+            '<td>'+$(this).find('td:eq(1)').text()+'</td>'+
+            '<td>'+$(this).find('td:eq(2)').text()+'</td>'+
+            '<td>'+$(this).find('td:eq(3)').text()+'</td>'+
+            '<td>'+$(this).find('td:eq(4)').text()+'</td>'+
+            '<td>'+$(this).find('td:eq(5)').text()+'</td>'+
+            '<td>'+$(this).find('td:eq(6)').text()+'</td>'+
+            '<td>'+$(this).find('td:eq(7)').text()+'</td>'+
+            '<td><input class="form-control" type="text" name="stickerNo[]"></td>'+
+            '</tr>');
+          });
         }
-
-        requirements_2.forEach(function(value, index){
-          $('#requirement-'+value).prop('checked', true);
-        });
-
-        $('#applicantId').val($('#applicant_'+key).attr('applicant_id'));
-
-        $('#vehicle_table_'+key+' tr').each(function(index, value){
-          $('#update-applicant-vehicles').append('<tr>'+
-          '<td style="display: none;"><input type="text" name="vehicleId[]" value="'+$(this).find('td:eq(0)').text()+'"></td>'+
-          '<td>'+$(this).find('td:eq(1)').text()+'</td>'+
-          '<td>'+$(this).find('td:eq(2)').text()+'</td>'+
-          '<td>'+$(this).find('td:eq(3)').text()+'</td>'+
-          '<td>'+$(this).find('td:eq(4)').text()+'</td>'+
-          '<td>'+$(this).find('td:eq(5)').text()+'</td>'+
-          '<td>'+$(this).find('td:eq(6)').text()+'</td>'+
-          '<td>'+$(this).find('td:eq(7)').text()+'</td>'+
-          '<td><input class="form-control" type="text" name="stickerNo[]"></td>'+
-          '</tr>');
-        });
+        
 
         $('#update_applicant').modal('show');
     }
