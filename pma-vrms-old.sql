@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2016 at 03:35 AM
+-- Generation Time: Jun 01, 2016 at 05:33 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `pma-vrms`
 --
-CREATE DATABASE IF NOT EXISTS `pma-vrms` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `pma-vrms`;
 
 -- --------------------------------------------------------
 
@@ -240,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `form1_applicantpd` (
   `a_dateRegistered` datetime NOT NULL,
   `a_placeRegistered` varchar(65) NOT NULL,
   `a_renew_status` int(11) NOT NULL,
-  `amount` int(11) NOT NULL DEFAULT '250',
+  `amount` int(11) NOT NULL,
   `flag` int(11) NOT NULL,
   PRIMARY KEY (`a_applicantId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
@@ -289,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `form2_militarypd` (
   `m_dateRegistered` datetime NOT NULL,
   `m_placeRegistered` varchar(65) NOT NULL,
   `m_renew_status` int(11) NOT NULL,
-  `amount` int(11) NOT NULL DEFAULT '350',
+  `amount` int(11) NOT NULL,
   `flag` int(11) NOT NULL,
   PRIMARY KEY (`m_militaryId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
