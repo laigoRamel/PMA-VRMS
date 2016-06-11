@@ -199,7 +199,7 @@ include('../login_superadmin/session.php');
 								foreach ($militarys as $key => $military) {
 									echo <<<DATA
 										<tr id='military_$key' requirements='$military[m_submitted_requirements]' m_militaryId='$military[m_militaryId]'>
-											<td><img src='img/profile/military/$military[m_profile]' height='100px;'></td>
+											<td><img style="width="40" height="40"" src='img/profile/military/$military[m_profile]' height='100px;'></td>
                         <td>$military[m_lastname]</td>
                         <td>$military[m_firstname]</td>
                         <td>$military[m_middlename]</td>
